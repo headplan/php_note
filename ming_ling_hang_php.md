@@ -21,9 +21,21 @@ if ('cli' == php_aspi_name()) {
 }
 ```
 ## 命令行选项
-* ```-d```参数:允许指定定制的INI记录,而不需要修改ini文件,例如打开输出缓冲:
+* ```-d```参数 - 允许指定定制的INI记录,而不需要修改ini文件,例如打开输出缓冲:
   - ```php -d output_buffering=1 scan-discussions.php```
-* ```-r```参数:直接运行PHP代码(不需要<?php和?>),例如直接输出当前时间:
+* ```-r```参数 - 直接运行PHP代码(不需要<?php和?>),例如直接输出当前时间:
   - ```php -r 'print strftime("%c");'```
+* ```-h```参数 - 查看帮助,得到完整的CLI二进制选项列表
+  - ```php -h```
+
+CLI二进制库将标准I/O流的句柄定义为常量STDIN,STDOUT,STDERR.可以直接使用这些常量,而无需使用fopen()自行创建文件句柄:
+```
+// 读标注输入
+$input = fgets(STDIN, 1024);
+// 写至标准输出
+fwrite(STDOUT, $jokebook);
+// 写至标准错误输出
+fwrite(STDERR, $error_code);
+```
 
 
