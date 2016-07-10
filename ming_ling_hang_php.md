@@ -17,6 +17,7 @@ if ('cli' == php_aspi_name()) {
     print "命令行直接输出来了";
 } else {
     print "不是命令行可以打进log里";
+    error_log(mysql_error());
 }
 ```
 
