@@ -11,4 +11,14 @@ php scan-discussions.php
 ```
 这样只需要在命令行上输入脚本名就可以运行脚本,当然文件还要有执行权限.
 
+有一些类和函数可能同时用于Web和命令行,这是可以使用php_sapi_name()判断是否返回cli,在脚本中建立不同的分支:
+```
+if ('cli' == php_aspi_name()) {
+    print "命令行直接输出来了";
+} else {
+    print "不是命令行可以打进log里";
+}
+```
+
+
 
