@@ -20,6 +20,9 @@ if ('cli' == php_aspi_name()) {
     error_log(mysql_error());
 }
 ```
-
+## 命令行选项
+* ```-d```参数:允许指定定制的INI记录,而不需要修改ini文件,例如打开输出缓冲:
+  * ```php -d output_buffering=1 scan-discussions.php```
+* ```-r```参数:
 
 
