@@ -22,7 +22,8 @@ if ('cli' == php_aspi_name()) {
 ```
 ## 命令行选项
 * ```-d```参数:允许指定定制的INI记录,而不需要修改ini文件,例如打开输出缓冲:
-  * ```php -d output_buffering=1 scan-discussions.php```
-* ```-r```参数:
+  - ```php -d output_buffering=1 scan-discussions.php```
+* ```-r```参数:直接运行PHP代码(不需要<?php和?>),例如直接输出当前时间:
+  - ```php -r 'print strftime("%c");'```
 
 
