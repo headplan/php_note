@@ -41,7 +41,7 @@ if (!function_exists("fastcgi_finish_request")) {
 }
 ```
 
-不会造成代码部署在非fpm环境下造成问题.下面是一个兼容的例子
+不会造成代码部署在非fpm环境下造成问题.下面是一个兼容的例子,在不是php-fpm环境的情况下使用js跳转:
 
 ```php
 <?php
@@ -68,4 +68,16 @@ if(function_exists('fastcgi_finish_request')){
 sleep(2); 
 file_put_contents('/tmp/test.log', 'ok');
 ```
+
+### fastcgi\_finish\_request函数的问题
+
+fastcgi\_finish\_request可以提前把结果返回给nginx,之后脚本还可以保留上下文执行一些任务,可以算是伪异步.但是最好还是使用MQ来异步处理任务.使用fastcgi\_finish\_request\(\)函数集成队列消息,可以把消息异步发送到队列.
+
+**问题:**
+
+1. PHP FastCGI进程数有限,正在处理异步操作的php-cgi进程,无法处理新请求;
+
+2. 如果并发访问量较大,php-cgi进程数用满,新访问请求,将没有php-cgi去处理.Nginx服务器会出现,502 Bad Gateway;
+
+3. 虽然fastcgi\_finish\_request\(\)结束客户端连接之后可以继续执行脚本,但是受到php.ini配置的max\_execution\_time\(默认30s\)控制,如果断开连接后继续执行很久,可以set\_time\_limit\(0\),让当前进程一直执行不会超时.
 
