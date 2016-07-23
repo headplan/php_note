@@ -10,7 +10,7 @@
     * [PECL](pecl.md)
 * [函数参考](函数参考.md)
     * [fastcgi\_finish\_request](fastcgifinishrequest.md)
-    * register\_shutdown\_function
+    * [register\_shutdown\_function](registershutdownfunction.md)
     * [ignore\_user\_abort](ignoreuserabort.md)
     * [输出控制](输出控制.md)
 
