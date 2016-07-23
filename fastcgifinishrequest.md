@@ -81,3 +81,9 @@ fastcgi\_finish\_request可以提前把结果返回给nginx,之后脚本还可�
 
 3. 虽然fastcgi\_finish\_request\(\)结束客户端连接之后可以继续执行脚本,但是受到php.ini配置的max\_execution\_time\(默认30s\)控制,如果断开连接后继续执行很久,可以set\_time\_limit\(0\),让当前进程一直执行不会超时.
 
+
+---
+
+内容参考:
+http:\/\/php.net\/manual\/zh\/book.fpm.php
+
