@@ -22,16 +22,26 @@ echo 'end';
 ```php
 <?php
 echo 'test';
-file_put_contents('LOG', date('Y-m-d ') . 'FUCK YOU', FILE_APPEND);
+file_put_contents('LOG', date('Y-m-d H:i:s') . "FUCK YOU\n", FILE_APPEND);
+fastcgi_finish_request();
+sleep(10);
+file_put_contents('LOG', date('Y-m-d H:i:s') . "FUCK YOU\n", FILE_APPEND);
+sleep(10);
+file_put_contents('LOG', date('Y-m-d H:i:s') . "FUCK YOU\n", FILE_APPEND);
 ```
 
+代码里用sleep模拟耗时的操作,浏览时没有被堵塞,程序却都执行了,具体看日志.
 
+从代码的可移植性讲的话,可以在代码中附上如下代码
 
+```php
+if (!function_exists("fastcgi_finish_request")) {
+    function fastcgi_finish_request() {
+    }
+}
+```
 
-
-
-
-
+不会造成代码部署在非fpm环境下造成问题.
 
 
 
