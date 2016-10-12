@@ -6,6 +6,10 @@
 * [命令行PHP](ming_ling_hang_php.md)
 * [包](bao.md)
     * [Composer](composer.md)
+        * 安装与应用
+        * 库与资源包
+        * 命令行
+        * 架构
     * [PEAR](pear.md)
     * [PECL](pecl.md)
 * [函数参考](函数参考.md)
