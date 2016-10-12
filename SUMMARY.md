@@ -6,7 +6,7 @@
 * [命令行PHP](ming_ling_hang_php.md)
 * [包](bao.md)
     * [Composer](composer.md)
-        * 安装与应用
+        * [安装与应用](安装与应用.md)
         * 库与资源包
         * 命令行
         * 架构
