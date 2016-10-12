@@ -7,7 +7,7 @@
 * [包](bao.md)
     * [Composer](composer.md)
         * [安装与应用](安装与应用.md)
-        * 库与资源包
+        * [库与资源包](库与资源包.md)
         * 命令行
         * 架构
     * [PEAR](pear.md)
