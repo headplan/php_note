@@ -12,7 +12,7 @@ Composer不是一个包管理器.虽然它涉及"packages"和"libraries",但它�
 
 所需要做的就是创建一个`composer.json`文件,在其中描述项目的依赖关系.
 
+**系统要求**
 
-
-
+运行Composer需要PHP 5.3.2+以上版本.一些敏感的PHP设置和编译标志也是必须的,但对于任何不兼容项安装程序都会抛出警告.从包的来源直接安装还需要git,svn或hg.Composer支持多平台.
 
