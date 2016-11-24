@@ -24,11 +24,11 @@ $db->insert_id : 从之前的insert查询中获取所生成的自增ID
 $db->rows_affected : 获取之前所生效的INSERT,UPDATE,以及DELETE所影响的行数
 $db->num_queries : 对当前代码所生效的查询进行追踪
 $db->debug_all : 如果将这个变量设置为true,它将输出代码中所有的查询和结果
-$db->cache_dir : 设置mysql结果的缓存路径
-$db->cache_queries : 缓存
-$db->cache_inserts : 缓存
-$db->use_disk_cache : 缓存
-$db->cache_timeout : 缓存
+$db->cache_dir : 设置mysql结果的缓存路径,文件夹需要设置755以上
+$db->cache_queries : 打开查询缓存
+$db->cache_inserts : 打开插入缓存
+$db->use_disk_cache : 打开全局磁盘缓存
+$db->cache_timeout : 缓存时间,int,小时
 
 ```
 
