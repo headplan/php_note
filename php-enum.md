@@ -44,7 +44,20 @@ function setAction(Action $action)
 }
 ```
 
-啊
+**文档**
 
+* `__construct()` 构造函数初始化检查值是否存在于枚举列表中
+* `__toString()` 可以直接输出枚举值字符串
+* `getValue()` 返回枚举当前值
+* `getKey()` 返回枚举值的键
+* `equals()` 测试枚举实例是否相等,返回布尔值
 
+静态方法:
+
+* `toArray()` 返回枚举关联数组
+* `keys()` 返回枚举类中所有常量的名称
+* `values()` 返回枚举类中所有常量的值
+* `isValid()` 检查值是否在枚举集中
+* `isValidKey()` 检查键是否在枚举集中
+* `search()` 返回搜索值的键
 
