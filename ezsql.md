@@ -1,5 +1,7 @@
 # ezSQL简单应用
 
+> https:\/\/github.com\/ezSQL\/ezSQL
+
 ```
 include_once "ez_sql_core.php"; # 引入核心文件
 include_once "ez_sql_mysql.php"; # 引入数据库文件
@@ -29,6 +31,5 @@ $db->cache_queries : 打开查询缓存
 $db->cache_inserts : 打开插入缓存
 $db->use_disk_cache : 打开全局磁盘缓存
 $db->cache_timeout : 缓存时间,int,小时
-
 ```
 
