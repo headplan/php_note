@@ -61,3 +61,47 @@ function setAction(Action $action)
 * `isValidKey()` 检查键是否在枚举集中
 * `search()` 返回搜索值的键
 
+**静态方法说明**
+
+```
+class Action extends Enum
+{
+    const VIEW = 'view';
+    const EDIT = 'edit';
+}
+
+// Static method:
+$action = Action::VIEW();
+$action = Action::EDIT();
+```
+
+静态方法是用`__callStatic()`和反射实现的.当然也可以在类中自定义
+
+```
+class Action extends Enum
+{
+    const VIEW = 'view';
+
+    /**
+     * @return Action
+     */
+    public static function VIEW() {
+        return new Action(self::VIEW);
+    }
+}
+```
+
+我想还是使用下面的格式比较方便
+
+```
+/**
+ * @method static Action VIEW()
+ * @method static Action EDIT()
+ */
+class Action extends Enum
+{
+    const VIEW = 'view';
+    const EDIT = 'edit';
+}
+```
+
