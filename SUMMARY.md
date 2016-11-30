@@ -21,4 +21,5 @@
 * [类库类包应用](类库类包应用.md)
     * [ezSQL](ezsql.md)
     * [php-enum](php-enum.md)
+    * [验证服务](验证服务.md)
 
