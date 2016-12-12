@@ -76,6 +76,44 @@ $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 # Keepmargins为true时,覆盖默认的PDF边幅
 $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
 
+# 设置单元格边距
+Left:左边距
+Top:顶部边距
+Right:右边距
+Bottom:底部边距
+$pdf->setCellPaddings(0, 0, 0, 0);
+
+# GetX获得当前的横坐标,GetY获得当前的纵坐标
+$pdf->GetX();
+$pdf->GetY();
+
+# 移动坐标
+# SetX移动横坐标
+# SetY横坐标自动移动到左边距的距离,然后移动纵坐标
+# SetXY移动横坐标跟纵坐标
+# X:横坐标,可设为$pdf->GetX()+数字
+# Y:纵坐标,可设为$pdf->GetY()+数字
+# Rtloff:true,左上角会一直作为坐标轴的原点
+# Resetx:true,重设横坐标
+$pdf->SetX($x, $rtloff=false);
+$pdf->SetY($y, $resetx=true, $rtloff=false);
+$pdf->SetXY($x, $y, $rtloff=false)
+
+# 设置线条风格
+# Width：设置线条粗细
+# Cap：设置线条的两端形状
+# Join：设置线条连接的形状
+# Dash：设置虚线模式
+# Color：设置线条颜色，一般设置为黑色，如：array(0, 0, 0)
+$pdf->SetLineStyle(array('width' => 0.2, 'cap' => 'butt', 'join' => 'miter', 'dash' => '0', 'color' => array(0, 0,0)));
+
+# 画一条线
+# x1:线条起点x坐标
+# y1:线条起点y坐标
+# x2:线条终点x坐标
+# y2:线条终点y坐标
+# style:SetLineStyle的效果一样
+$pdf->Line($x1, $y1, $x2, $y2, $style=array());
 ```
 
 
