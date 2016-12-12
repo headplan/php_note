@@ -175,7 +175,24 @@ $pdf->MultiCell($w, $h, $txt, $border=0, $align='J',$fill=false, $ln=1, $x='', $
 $pdf->setCellHeightRatio($height);
 $pdf->SetLineWidth($width);
 
-
+# 在PDF中插入图片
+# File:图片路径
+# X:左上角或右上角的横坐标
+# Y:左上角或右上角的纵坐标
+# W:设置图片的宽度,为空或为0,则自动计算
+# H:设置图片的高度,为空或为0,则自动计算
+# Type:图片的格式,支持JPGE,PNG,BMP,GIF等,如果没有值,则从文件的扩展名中自动找到文件的格式
+# Link:图片链接
+# Align:图片位置
+# Resize:true,调整图片的大小来适应宽跟高;false,不调整图片大小;2,强制调整
+# Dpi:以多少点每英寸来调整图片大小
+# Palign:图片位置,L,偏左,C,居中,R,偏右
+# Imgmask:true,返回图像对象
+# Border:边框
+# Fitbox:调整适合大小
+# Hidden:true,隐藏图片
+# Fitonpage:如果为true,图像调整为不超过页面尺寸
+$pdf->Image('../img/test.png');
 
 # 输入PDF文档
 # Name:PDF保存的名字
@@ -185,6 +202,7 @@ $pdf->SetLineWidth($width);
 # F,文件会被保存在服务器中
 # S,PDF会以字符串形式输出
 # E,PDF以邮件的附件输出
+return $pdf->Output("test001.pdf", "F");
 ```
 
 
