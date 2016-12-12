@@ -134,6 +134,13 @@ $pdf->setLanguageArray("xx");
 # 风格,B粗体,I斜体,underline下划线等
 # 字体大小
 $pdf->SetFont('times', 'I', 20);
+
+# 增加一个页面
+# Orientation:orientation属性用来设置文档打印格式.Landscape为横式打印,Portrait为纵向打印.
+# Format:设置此页面的打印格式
+# Keepmargins:true,以当前的边幅代替默认边幅来重写页面边幅
+# Tocpage:true,所添加的页面将被用来显示内容表
+$pdf->AddPage();
 ```
 
 
