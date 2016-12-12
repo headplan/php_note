@@ -57,8 +57,10 @@ $pdf->SetHeaderData('', 30, 'Medbanks.cn', 'Medbanks', array(0,64,255), array(0,
 $pdf->SetFooterData(array(0,64,0), array(0,64,128));
 # 设置页眉和页脚字体
 $pdf->SetHeaderFont(array('stsongstdlight', '', '10'));  
-$pdf->SetFooterFont(array('helvetica', '', '8'));  
-
+$pdf->SetFooterFont(array('helvetica', '', '8'));
+# 设置页眉和页脚间距
+$pdf->SetHeaderMargin(5);
+$pdf->SetFooterMargin(10);
 # 删除预定义的打印 页眉/页脚
 $pdf->SetPrintHeader(false);
 $pdf->SetPrintFooter(false);
@@ -66,6 +68,14 @@ $pdf->SetPrintFooter(false);
 # 设置默认等宽字体
 # PDF_FONT_MONOSPACED:courier
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+# 设置间距
+# PDF_MARGIN_LEFT:左
+# PDF_MARGIN_TOP:上
+# PDF_MARGIN_RIGHT:右
+# Keepmargins为true时,覆盖默认的PDF边幅
+$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+
 ```
 
 
