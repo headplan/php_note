@@ -16,7 +16,7 @@ TCPDF具有以下特性:
 
 官网:[http://www.tcpdf.org](http://www.tcpdf.org/index.php)
 
-Github:https://github.com/tecnickcom/TCPDF
+Github:[https://github.com/tecnickcom/TCPDF](https://github.com/tecnickcom/TCPDF)
 
 **使用**
 
@@ -31,6 +31,15 @@ Github:https://github.com/tecnickcom/TCPDF
 5、输出PDF文档.
 
 ```php
+require_once('tcpdf.php');
+# 初始化参数
+# PDF_PAGE_ORIENTATION:设置文档打印格式(Portrait纵向和Landscape横向)'P'和'L'
+# PDF_UNIT:设置页面单位.pt,点为单位.mm,毫米为单位.cm,厘米为单位.in,英尺为单位
+# PDF_PAGE_FORMAT:设置打印格式,一般设置为A4.
+# Unicode:为true,输入的文本为Unicode字符文本
+# Encoding:设置编码格式,默认为utf-8
+# Diskcache:为true,通过使用文件系统的临时缓存数据减少RAM的内存使用
+$pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
 
 ```
 
