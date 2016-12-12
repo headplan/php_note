@@ -53,15 +53,15 @@ $pdf->SetKeywords('关键字');
 # 第三个参数标题
 # 第四个参数副标题
 # 第五个和第六个参数是颜色
-$pdf->setHeaderData('', 30, 'Medbanks.cn', 'Medbanks', array(0,64,255), array(0,64,128));
-$pdf->setFooterData(array(0,64,0), array(0,64,128));
+$pdf->SetHeaderData('', 30, 'Medbanks.cn', 'Medbanks', array(0,64,255), array(0,64,128));
+$pdf->SetFooterData(array(0,64,0), array(0,64,128));
 # 设置页眉和页脚字体
-$pdf->setHeaderFont(array('stsongstdlight', '', '10'));  
-$pdf->setFooterFont(array('helvetica', '', '8'));  
+$pdf->SetHeaderFont(array('stsongstdlight', '', '10'));  
+$pdf->SetFooterFont(array('helvetica', '', '8'));  
 
 # 删除预定义的打印 页眉/页脚
-$pdf->setPrintHeader(false);
-$pdf->setPrintFooter(false);
+$pdf->SetPrintHeader(false);
+$pdf->SetPrintFooter(false);
 
 # 设置默认等宽字体
 # PDF_FONT_MONOSPACED:courier
