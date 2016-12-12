@@ -194,6 +194,8 @@ $pdf->SetLineWidth($width);
 # Fitonpage:如果为true,图像调整为不超过页面尺寸
 $pdf->Image('../img/test.png');
 
+
+
 # 输入PDF文档
 # Name:PDF保存的名字
 # Dest:PDF输出的方式
