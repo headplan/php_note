@@ -41,7 +41,27 @@ require_once('tcpdf.php');
 # Diskcache:为true,通过使用文件系统的临时缓存数据减少RAM的内存使用
 $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
 # 设置文档信息
+$pdf->SetCreator('创建者');
+$pdf->SetAuthor('作者');
+$pdf->SetTitle('标题');
+$pdf->SetSubject('副标题');
+$pdf->SetKeywords('关键字');
 
+# 设置页眉/页脚信息
+# 第一个参数图片
+# 第二个参数距离左侧距离
+# 第三个参数标题
+# 第四个参数副标题
+# 第五个和第六个参数是颜色
+$pdf->setHeaderData('', 30, 'Medbanks.cn', 'Medbanks', array(0,64,255), array(0,64,128));
+$pdf->setFooterData(array(0,64,0), array(0,64,128));
+# 设置页眉和页脚字体
+$pdf->setHeaderFont(array('stsongstdlight', '', '10'));  
+$pdf->setFooterFont(array('helvetica', '', '8'));  
+
+# 删除预定义的打印 页眉/页脚
+$pdf->setPrintHeader(false);
+$pdf->setPrintFooter(false);
 ```
 
 
