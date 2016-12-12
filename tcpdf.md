@@ -40,6 +40,7 @@ require_once('tcpdf.php');
 # Encoding:设置编码格式,默认为utf-8
 # Diskcache:为true,通过使用文件系统的临时缓存数据减少RAM的内存使用
 $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
+# 设置文档信息
 
 ```
 
