@@ -174,6 +174,17 @@ $pdf->MultiCell($w, $h, $txt, $border=0, $align='J',$fill=false, $ln=1, $x='', $
 # setCellHeightRatio设置单元格行高,可以引用此函数调整行与行的间距.SetLineWidth设置线条宽度.
 $pdf->setCellHeightRatio($height);
 $pdf->SetLineWidth($width);
+
+
+
+# 输入PDF文档
+# Name:PDF保存的名字
+# Dest:PDF输出的方式
+# I,默认值,在浏览器中打开
+# D,点击下载按钮,PDF文件会被下载下来
+# F,文件会被保存在服务器中
+# S,PDF会以字符串形式输出
+# E,PDF以邮件的附件输出
 ```
 
 
