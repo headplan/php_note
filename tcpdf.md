@@ -114,6 +114,26 @@ $pdf->SetLineStyle(array('width' => 0.2, 'cap' => 'butt', 'join' => 'miter', 'da
 # y2:线条终点y坐标
 # style:SetLineStyle的效果一样
 $pdf->Line($x1, $y1, $x2, $y2, $style=array());
+
+# 执行一个换行符,横坐标自动移动到左边距的距离,纵坐标换到下一行
+# H:设置下行跟上一行的距离,默认的话,高度为最后一个单元格的高度
+# Cell:true,添加左或右或上的间距到横坐标
+$pdf->Ln($h='', $cell=false);
+
+# 设置自动分页符
+$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+# 设置图像比例因子
+$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+
+# 设置一些语言相关的字符串
+$pdf->setLanguageArray("xx");
+
+# 设置字体
+# 字体类型,如helvetica(Helvetica)黑体,times(Times-Roman)罗马字体
+# 风格,B粗体,I斜体,underline下划线等
+# 字体大小
+$pdf->SetFont('times', 'I', 20);
 ```
 
 
