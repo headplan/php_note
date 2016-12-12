@@ -135,7 +135,7 @@ $pdf->setLanguageArray("xx");
 # 字体大小
 $pdf->SetFont('times', 'I', 20);
 
-# 增加一个页面
+# 增加一个页面根据上面的设置
 # Orientation:orientation属性用来设置文档打印格式.Landscape为横式打印,Portrait为纵向打印.
 # Format:设置此页面的打印格式
 # Keepmargins:true,以当前的边幅代替默认边幅来重写页面边幅
