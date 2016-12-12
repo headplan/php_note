@@ -152,6 +152,28 @@ $pdf->AddPage();
 # Fill:填充.false，单元格的背景为透明，true，单元格必需被填充
 # Link:设置单元格文本的链接
 $pdf->Cell(0, 10, 'test', 1, 1, 'C');
+
+# 设置多行单元格:注意跟Cell的参数位置有些差别,Cell是用来输出单行文本的,MultiCell就能用来输出多行文本
+# H:设置多行单元格的单行的高
+# Text:文本
+# Border:边框
+# Align:文本位置
+# Fill:填充
+# Ln:0,单元格后的内容插到表格右边或左边.1,单元格的下一行.2,在单元格下面.
+# X:设置多行单元格的行坐标
+# Y:设置多行单元格的纵坐标
+# Reseth:true,重新设置最后一行的高度
+# Stretch:调整文本宽度适应单元格的宽度
+# Ishtml:true,可以输出html文本,有时很有用的
+# Autopadding:true,自动调整文本与单元格之间的距离
+# Maxh:设置单元格最大的高度
+# Valign:设置文本在纵坐标中的位置.T,偏上.M,居中.B,偏下. 
+# Fillcell:自动调整文本字体大小来适应单元格大小
+$pdf->MultiCell($w, $h, $txt, $border=0, $align='J',$fill=false, $ln=1, $x='', $y='', $reseth=true, $stretch=0,$ishtml=false, $autopadding=true, $maxh=0, $valign='T', $fitcell=false);
+
+# setCellHeightRatio设置单元格行高,可以引用此函数调整行与行的间距.SetLineWidth设置线条宽度.
+$pdf->setCellHeightRatio($height);
+$pdf->SetLineWidth($width);
 ```
 
 
