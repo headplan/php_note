@@ -62,6 +62,10 @@ $pdf->setFooterFont(array('helvetica', '', '8'));
 # 删除预定义的打印 页眉/页脚
 $pdf->setPrintHeader(false);
 $pdf->setPrintFooter(false);
+
+# 设置默认等宽字体
+# PDF_FONT_MONOSPACED:courier
+$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 ```
 
 
