@@ -203,6 +203,20 @@ $pdf->Image('../img/test.png');
 # Align:调整文本位置
 $pdf->writeHTML("<div><label>hah<strong>aha</strong></label><br/></div>");
 
+# 用此函数可以设置可选边框,背景颜色和HTML文本字符串来输出单元格(矩形区域)
+# W:设置单元格宽度.0,伸展到右边幅的距离
+# H:设置单元格最小的高度
+# X:以左上角为原点的横坐标
+# Y:以左上角为原点的纵坐标
+# Html:html文本
+# Border:边框
+# Ln:0,单元格后的内容插到表格右边或左边.1,单元格的下一行.2,在单元格下面
+# Fill:填充
+# Reseth:true,重新设置最后一行的高度
+# Align:文本的位置
+# Autopadding:true,自动调整文本到边框的距离.
+$pdf->writeHTMLCell();
+
 # 输入PDF文档
 # Name:PDF保存的名字
 # Dest:PDF输出的方式
