@@ -194,7 +194,14 @@ $pdf->SetLineWidth($width);
 # Fitonpage:如果为true,图像调整为不超过页面尺寸
 $pdf->Image('../img/test.png');
 
-
+# 输出HTML文本
+# Html:html文本
+# Ln:true,在文本的下一行插入新行
+# Fill:填充.false,单元格的背景为透明.true,单元格必需被填充
+# Reseth:true,重新设置最后一行的高度
+# Cell:true,就调整间距为当前的间距
+# Align:调整文本位置
+$pdf->writeHTML("<div><label>hah<strong>aha</strong></label><br/></div>");
 
 # 输入PDF文档
 # Name:PDF保存的名字
