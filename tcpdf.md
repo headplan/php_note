@@ -217,6 +217,19 @@ $pdf->writeHTML("<div><label>hah<strong>aha</strong></label><br/></div>");
 # Autopadding:true,自动调整文本到边框的距离.
 $pdf->writeHTMLCell();
 
+# 从当前位置打印文本
+# 行高
+# 文本变量
+# 通过AddLink()返回的URL或标识符
+# 背景画
+# 允许中心或对齐文本
+# 如果正确设置光标底部的线,否则设置游标的行
+# 字体延伸模式,如果真的只打印第一行并返回剩余的字符串
+# 如果真正的字符串是一行的开始
+# 最大高度
+# 补白
+$pdf->Write(0,$str1,'', 0, 'L', true, 0, false, false, 0);
+
 # 输入PDF文档
 # Name:PDF保存的名字
 # Dest:PDF输出的方式
