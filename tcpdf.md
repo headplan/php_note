@@ -239,6 +239,21 @@ $pdf->Write(0,$str1,'', 0, 'L', true, 0, false, false, 0);
 # S,PDF会以字符串形式输出
 # E,PDF以邮件的附件输出
 return $pdf->Output("test001.pdf", "F");
+
+# 扩展内容
+安全密码设置
+$user_pass用户密码、$owner_pass 所有者密码、$mode加密强度0 = RC4 40位;
+1 = RC4 128位;
+2 = AES 128位;
+3 = AES 256位;
+$pubkeys数组包含公钥证书(“c”)的接受者和权限(“p”)$pdffile['password']
+$pdf->SetProtection($permissions = array('print', 'modify', 'copy', 'annot-forms', 'fill-forms', 'extract', 'assemble', 'print-high'), $user_pass = '123456', $owner_pass = null, $mode = 0, $pubkeys = null );
+
+html文字
+setHtmlLinksStyle($color=array(0,0,255), $fontstyle='U');
+setHtmlLinksStyle(颜色默认蓝色, U有下划线);
+addHtmlLink($url, $name, $fill=0, $firstline=false, $color='', $style=-1);
+addHtmlLink(超链接地址, 显示文字, 是否有底色, $firstline=false, $color='', $style=-1);
 ```
 
 
