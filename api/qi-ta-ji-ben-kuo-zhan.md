@@ -7,10 +7,8 @@
 * Lua - 撸啊撸解释器
 * Misc. - 杂项函数 , 没啥归类 , 挺杂的 , 也挺有意思的
 * Parsekit - 查看opcode用的 , 官方改了也不通知 , 说是实验性的 , 醉了... 
-* [SPL](http://php.net/manual/zh/book.spl.php)
-  — PHP标准库 \(SPL\)
-* [SPL Types](http://php.net/manual/zh/book.spl-types.php)
-  — SPL Type Handling
+* SPL - PHP标准库 , 这个牛逼 , 这个牛逼 . 
+* SPL Types - 又整理几种标量类型 , 用它来声明 , 枚举啥是 , 不过也说是实验性质的 . 
 * [Streams](http://php.net/manual/zh/book.stream.php)
 * [Tidy](http://php.net/manual/zh/book.tidy.php)
 * [Tokenizer](http://php.net/manual/zh/book.tokenizer.php)
