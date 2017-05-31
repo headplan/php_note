@@ -27,6 +27,5 @@
   * [TCPDF](tcpdf.md)
 * [BUG记录](bug记录.md)
   * [月份递增错误记录](bug记录/yue-fen-di-zeng-cuo-wu-ji-lu.md)
-* [PHP面试题](phpmian-shi-ti.md)
 * [Api](api.md)
 
