@@ -29,4 +29,5 @@
   * [月份递增错误记录](bug记录/yue-fen-di-zeng-cuo-wu-ji-lu.md)
 * [Api](api.md)
   * [其他基本扩展](api/qi-ta-ji-ben-kuo-zhan.md)
+  * [其它服务](api/qi-ta-fu-wu.md)
 
