@@ -9,17 +9,15 @@
 * Parsekit - 查看opcode用的 , 官方改了也不通知 , 说是实验性的 , 醉了... 
 * SPL - PHP标准库 , 这个牛逼 , 这个牛逼 . 
 * SPL Types - 又整理几种标量类型 , 用它来声明 , 枚举啥是 , 不过也说是实验性质的 . 
-* [Streams](http://php.net/manual/zh/book.stream.php)
-* [Tidy](http://php.net/manual/zh/book.tidy.php)
-* [Tokenizer](http://php.net/manual/zh/book.tokenizer.php)
-* [URLs](http://php.net/manual/zh/book.url.php)
-* [V8js](http://php.net/manual/zh/book.v8js.php)
-  — V8 Javascript Engine Integration
-* [Yaml](http://php.net/manual/zh/book.yaml.php)
-  — YAML 数据序列化
-* [Yaf](http://php.net/manual/zh/book.yaf.php)
-  — Yet Another Framework
-* [Taint](http://php.net/manual/zh/book.taint.php)
+* Streams - 一江春水向东"流"
+* Tidy - 对html代码清洗纠错过滤用的 , 不太想看 . 
+* Tokenizer - 这是个解析器 , 可以自己写个PHP源码分析或者修改工具啥的
+  * http://stackoverflow.com/questions/5727951/what-are-some-practical-uses-of-php-tokenizer
+* URLs - 处理URL字符串的 , 编码,解码,解析...
+* V8js - 这个有啥用 , V8引擎 , 模拟登陆爬数据么?
+* Yaml - YAML数据序列化 , 有过记录 . 
+* Yaf - 鸟哥的框架
+* Taint - 也是鸟哥的 , 一个用来检测XSS/SQL/Shell注入漏洞的扩展
 
 
 
