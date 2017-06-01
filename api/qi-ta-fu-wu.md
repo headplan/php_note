@@ -18,10 +18,8 @@
 * SAM - Simple Asynchronous Messaging , 字面意思是简单的异步消息传递 , 消息队列用的吧 . 
 * SNMP - SNMP扩展提供了一个非常简单和易于使用的工具集 , 通过简单的网络管理协议来管理远程设备 . 
 * Sockets - 扩展是基于流行的BSD sockets , 实现了和socket通讯功能的底层接口 , 它可以和客户端一样当做一个socket服务器
-* [SSH2](http://php.net/manual/zh/book.ssh2.php)
-  — Secure Shell2
-* [Stomp](http://php.net/manual/zh/book.stomp.php)
-  — Stomp Client
+* SSH - Secure Shell2 , 远程连接服务器啥的 . 
+* Stomp - Stomp Client文本定向消息协议
 * [SVM](http://php.net/manual/zh/book.svm.php)
   — 支持向量机
 * [SVN](http://php.net/manual/zh/book.svn.php)
