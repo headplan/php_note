@@ -15,10 +15,9 @@
 * mqseries - IBM的WebSphere MQ队列管理器通信的扩展
 * 网络 - 提供一系列联网函数
 * RRD - RRDtool , 环形数据库
-* [SAM](http://php.net/manual/zh/book.sam.php)
-  — Simple Asynchronous Messaging
-* [SNMP](http://php.net/manual/zh/book.snmp.php)
-* [Sockets](http://php.net/manual/zh/book.sockets.php)
+* SAM - Simple Asynchronous Messaging , 字面意思是简单的异步消息传递 , 消息队列用的吧 . 
+* SNMP - SNMP扩展提供了一个非常简单和易于使用的工具集 , 通过简单的网络管理协议来管理远程设备 . 
+* Sockets - 扩展是基于流行的BSD sockets , 实现了和socket通讯功能的底层接口 , 它可以和客户端一样当做一个socket服务器
 * [SSH2](http://php.net/manual/zh/book.ssh2.php)
   — Secure Shell2
 * [Stomp](http://php.net/manual/zh/book.stomp.php)
