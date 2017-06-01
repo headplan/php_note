@@ -14,8 +14,7 @@
 * Memcached - libmemcached版本 , 相对性能更佳 , 功能更全一些 . 
 * mqseries - IBM的WebSphere MQ队列管理器通信的扩展
 * 网络 - 提供一系列联网函数
-* [RRD](http://php.net/manual/zh/book.rrd.php)
-  — RRDtool
+* RRD - RRDtool , 环形数据库
 * [SAM](http://php.net/manual/zh/book.sam.php)
   — Simple Asynchronous Messaging
 * [SNMP](http://php.net/manual/zh/book.snmp.php)
