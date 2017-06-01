@@ -21,16 +21,13 @@
 * SSH - Secure Shell2 , 远程连接服务器啥的 . 
 * Stomp - Stomp Client文本定向消息协议
 * SVM - 在机器学习领域 , 支持向量机SVM是一个有监督的学习模型 , 通常用来进行模式识别 , 分类以及回归分析 . 
-* [SVN](http://php.net/manual/zh/book.svn.php)
-  — Subversion
-* [TCP](http://php.net/manual/zh/book.tcpwrap.php)
-  — TCP Wrappers
-* [Varnish](http://php.net/manual/zh/book.varnish.php)
-* [YAZ](http://php.net/manual/zh/book.yaz.php)
-* [YP/NIS](http://php.net/manual/zh/book.nis.php)
-* [0MQ消息系统](http://php.net/manual/zh/book.zmq.php)
-  — ZMQ
-* [ZooKeeper](http://php.net/manual/zh/book.zookeeper.php)
+* SVN - Subversion , 字面意思
+* TCP - TCP Wrappers , 应用级防火墙
+* Varnish - 开源HTTP加速器 , 反向代理扩展
+* YAZ - _Z39.50_的扩展 , 这是严格基于ISO的OSI\(开放系统互联\)参考模型的应用层协议
+* YP/NIS - YP/NIS函数库 , 啥啥文件服务
+* ØMQ消息系统 -  ZMQ是一个能让你快速设计 , 开发基于消息应用的函数库
+* ZooKeeper - 动物园扩展 , _ZooKeeper_是一个分布式的 , 开放源码的分布式应用程序协调服务 , 是Hadoop和Hbase的重要组件 . 
 
 
 
