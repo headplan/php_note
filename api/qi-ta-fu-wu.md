@@ -20,8 +20,7 @@
 * Sockets - 扩展是基于流行的BSD sockets , 实现了和socket通讯功能的底层接口 , 它可以和客户端一样当做一个socket服务器
 * SSH - Secure Shell2 , 远程连接服务器啥的 . 
 * Stomp - Stomp Client文本定向消息协议
-* [SVM](http://php.net/manual/zh/book.svm.php)
-  — 支持向量机
+* SVM - 在机器学习领域 , 支持向量机SVM是一个有监督的学习模型 , 通常用来进行模式识别 , 分类以及回归分析 . 
 * [SVN](http://php.net/manual/zh/book.svn.php)
   — Subversion
 * [TCP](http://php.net/manual/zh/book.tcpwrap.php)
