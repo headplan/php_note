@@ -31,4 +31,5 @@
   * [影响PHP行为的扩展](api/ying-xiang-php-xing-wei-de-kuo-zhan.md)
   * [其他基本扩展](api/qi-ta-ji-ben-kuo-zhan.md)
   * [其它服务](api/qi-ta-fu-wu.md)
+* [awesome-php](awesome-php.md)
 
