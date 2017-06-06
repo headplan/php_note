@@ -294,19 +294,35 @@ PHP相关的有用网站
   * [http://www.phptherightway.com/](http://www.phptherightway.com/)
   * [https://laravel-china.github.io/php-the-right-way/](https://laravel-china.github.io/php-the-right-way/) - 简体中文
 * PHP UG - 一个帮助用户定位最近的PHP用户组（UG\)的网站
-  * http://php.ug/
+  * [http://php.ug/](http://php.ug/)
 * PHP Versions - 列出在几个流行的 web 主机上可用的PHP版本
-  * http://phpversions.info/
+  * [http://phpversions.info/](http://phpversions.info/)
 * PHP Weekly - 一个PHP新闻周刊
-  * http://www.phpweekly.com/archive.html
+  * [http://www.phpweekly.com/archive.html](http://www.phpweekly.com/archive.html)
 * PHPTrends - 对Github上增长最快的库的列表
-  * https://phptrends.com/
+  * [https://phptrends.com/](https://phptrends.com/)
 * Securing PHP - 有关PHP安全性和库的新闻\(最近没更新\)
-  * http://securingphp.com/
+  * [http://securingphp.com/](http://securingphp.com/)
+* Seven PHP - 一个PHP社区成员采访的网站
+  * http://7php.com/
 
 #### 其他网站
 
-1
+Web相关其他有用的网站
+
+* Atlassian Git Tutorials - 一个Git教程系列
+  * https://www.atlassian.com/git
+* Hg Init - 一个Mercurial教程系列
+  * http://hginit.com/
+  * Mercurial是一种轻量级分布式版本控制系统
+* Semantic Versioning - 一个解析语义版本的网站
+  * http://semver.org/lang/zh-CN/
+* Servers for Hackers - 一个关于服务器管理的新闻资讯站
+  * https://serversforhackers.com/
+* The Open Web Application Security Project \(OWASP\) - 一个开放软件安全社区
+  * https://www.owasp.org/index.php/Main\_Page
+* WebSec IO - 一个Web安全社区资源
+  * https://websec.io/
 
 #### PHP书籍
 
