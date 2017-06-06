@@ -15,5 +15,19 @@ workshop-manager verify
 echo 'export PATH="$PATH:/Users/******/.php-school/bin"' >> ~/.bashrc && source ~/.bashrc
 ```
 
+#### 使用
+
+安装了workshop-manager , 就可以使用了 , 它仅仅是一个工具 , 用来搜索 , 安装 , 删除PHP School workshops的工具 . 
+
+更详细的说明在Github中查看
+
+https://github.com/php-school/workshop-manager
+
+#### 常用命令
+
+```
+
+```
+
 
 
