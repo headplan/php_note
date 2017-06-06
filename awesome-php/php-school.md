@@ -35,5 +35,18 @@ workshop-manager install <workshopname>
 workshop-manager uninstall <workshopname>
 ```
 
+#### 安装使用
+
+安装workshop
+
+```
+workshop-manager install learnyouphp
+learnyouphp
+workshop-manager install callablefunctions
+callablefunctions
+workshop-manager install php7way
+php7way
+```
+
 
 
