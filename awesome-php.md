@@ -291,8 +291,18 @@ PHP相关的有用网站
 * PHP Security - 一个PHP安全指南
   * [http://phpsecurity.readthedocs.io/en/latest/index.html](http://phpsecurity.readthedocs.io/en/latest/index.html)
 * PHP The Right Way - PHP最佳实践快速指南
-  * http://www.phptherightway.com/
-  * https://laravel-china.github.io/php-the-right-way/ - 简体中文
+  * [http://www.phptherightway.com/](http://www.phptherightway.com/)
+  * [https://laravel-china.github.io/php-the-right-way/](https://laravel-china.github.io/php-the-right-way/) - 简体中文
+* PHP UG - 一个帮助用户定位最近的PHP用户组（UG\)的网站
+  * http://php.ug/
+* PHP Versions - 列出在几个流行的 web 主机上可用的PHP版本
+  * http://phpversions.info/
+* PHP Weekly - 一个PHP新闻周刊
+  * http://www.phpweekly.com/archive.html
+* PHPTrends - 对Github上增长最快的库的列表
+  * https://phptrends.com/
+* Securing PHP - 有关PHP安全性和库的新闻\(最近没更新\)
+  * http://securingphp.com/
 
 #### 其他网站
 
