@@ -360,7 +360,12 @@ PHP相关的非常好的书籍
 
 其他计算机和Web开发相关的书
 
-
+* Elasticsearch:The Definitive Guide - Clinton Cormley和Zachary Tong编写的与Elasticsearch工作的一本指南
+  * https://www.elastic.co/guide/index.html
+* Eloquent JavaScript - Marijin Haverbeke关于JavaScript编程的一本书
+  * http://eloquentjavascript.net/
+* Head First Design Patterns - 关于设计模式的书
+  * http://www.headfirstlabs.com/books/hfdp/
 
 #### PHP视频
 
