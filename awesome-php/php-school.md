@@ -48,5 +48,18 @@ workshop-manager install php7way
 php7way
 ```
 
+```
+# 进入菜单交互方式
+learnyouphp
+# 打印当前进入菜单的说明
+learnyouphp print
+# 验证程序
+learnyouphp verify program.php
+# 输出运行
+learnyouphp run program.php
+```
 
+参考
+
+https://nodeschool.io/
 
