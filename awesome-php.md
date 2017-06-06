@@ -361,11 +361,21 @@ PHP相关的非常好的书籍
 其他计算机和Web开发相关的书
 
 * Elasticsearch:The Definitive Guide - Clinton Cormley和Zachary Tong编写的与Elasticsearch工作的一本指南
-  * https://www.elastic.co/guide/index.html
+  * [https://www.elastic.co/guide/index.html](https://www.elastic.co/guide/index.html)
 * Eloquent JavaScript - Marijin Haverbeke关于JavaScript编程的一本书
-  * http://eloquentjavascript.net/
+  * [http://eloquentjavascript.net/](http://eloquentjavascript.net/)
 * Head First Design Patterns - 关于设计模式的书
-  * http://www.headfirstlabs.com/books/hfdp/
+  * [http://www.headfirstlabs.com/books/hfdp/](http://www.headfirstlabs.com/books/hfdp/)
+* Pro Git - Scott Chacon和Ben Straub关于Git的一本书
+  * https://git-scm.com/book/en/v2
+* The Linux Command Line - William Shotts关于Linux命令行的一本书
+  * http://linuxcommand.org/tlcl.php - 有中文版
+* The Tangled Web:Securing Web Applications -  Michal Zalewski关于web应用安全的一本书
+  * https://www.amazon.com/Tangled-Web-Securing-Modern-Applications/dp/1593273886
+* Understanding Computation - Tom Stuart关于计算理论的一本书
+  * http://computationbook.com/
+* Vagrant Cookbook - Erika Heidi关于创建 Vagrant环境的一本书
+  * https://leanpub.com/vagrantcookbook
 
 #### PHP视频
 
