@@ -329,11 +329,32 @@ Web相关其他有用的网站
 PHP相关的非常好的书籍
 
 * Functional Programming in PHP - 一本讲函数式编程的书 , PHP的
-  * https://www.functionalphp.com/
+  * [https://www.functionalphp.com/](https://www.functionalphp.com/)
 * Grumpy PHPUnit - 一本Chris Hartjes关于使用PHPUnit进行单元测试的书
-  * https://leanpub.com/grumpy-phpunit
+  * [https://leanpub.com/grumpy-phpunit](https://leanpub.com/grumpy-phpunit)
 * Mastering Object-Orientated PHP - 一本Brandon Savage关于PHP面向对象的书
-  * http://www.brandonsavage.net/ - 作者的博客
+  * [http://www.brandonsavage.net/](http://www.brandonsavage.net/) - 作者的博客
+* Modern PHP New Features and Good Practices - 一本关于PHP新特性和最佳实践的书 , 挺有名的书
+  * http://shop.oreilly.com/product/0636920033868.do
+  * https://item.jd.com/11786541.html
+* Modernising Legacy Applications in PHP - 一本Paul M.Jones关于遗留PHP应用进行现代化的书
+  * https://leanpub.com/mlaphp
+* PHP 7 Upgrade Guide - 一本关于PHP7的所有变化和功能的电子书
+  * https://leanpub.com/php7
+* PHP Pandas - 一本关于学习写 php 的书
+  * https://daylerees.com/php-pandas/
+* Scaling PHP Applications - 一本Steve Corona关于扩展PHP应用程序的电子书
+  * http://www.scalingphpbook.com/
+* Securing PHP : Core Concepts - 一本Chris Cornutt关于PHP常见安全条款和实践的书
+  * https://leanpub.com/securingphp-coreconcepts
+* Signaling PHP - 一本Cal Evans关于在CLI脚本捕获PCNTL 信号的书
+  * https://leanpub.com/signalingphp
+* The Grumpy Programmer's Guide to Building Testable PHP Applications - 测试开发的书 , 但是好像已经下架了
+  * https://leanpub.com/grumpy-testing
+* XML Parsing with PHP - 本书介绍了解析和验证xml文档,利用xpath表达式,使用命名空间以及如何以编程方式创建和修改xml文件.
+  * https://www.phparch.com/books/xml-parsing-with-php/
+* Domain-Driven Design in PHP - DDD是领域驱动设计 , 这本书用一个真是例子来讲DDD
+  * https://leanpub.com/ddd-in-php
 
 #### 其他书籍
 
