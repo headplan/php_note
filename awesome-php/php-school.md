@@ -30,6 +30,9 @@ echo 'export PATH="$PATH:/Users/******/.php-school/bin"' >> ~/.bashrc && source 
 workshop-manager list
 # 搜索特定workshop的工具,不指定搜索workshop,会列出所有可用的workshop
 workshop-manager search <topic>
+# 安装和删除workshop
+workshop-manager install <workshopname>
+workshop-manager uninstall <workshopname>
 ```
 
 
