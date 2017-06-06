@@ -32,4 +32,5 @@
   * [其他基本扩展](api/qi-ta-ji-ben-kuo-zhan.md)
   * [其它服务](api/qi-ta-fu-wu.md)
 * [awesome-php](awesome-php.md)
+  * [PHP School](awesome-php/php-school.md)
 

@@ -275,22 +275,22 @@
 PHP相关的有用网站
 
 * Nomad PHP - 一个在线PHP学习资源
-  * https://nomadphp.com/
+  * [https://nomadphp.com/](https://nomadphp.com/)
   * 收集PHP大会之类的信息 , 然后买给你
 * PHP Best Practices - 一个PHP最佳实践指南
-  * https://phpbestpractices.org/
+  * [https://phpbestpractices.org/](https://phpbestpractices.org/)
   * 国内有人翻译了
 * PHP FIG - PHP框架交互组
-  * http://www.php-fig.org/
+  * [http://www.php-fig.org/](http://www.php-fig.org/)
 * PHP Mentoring - 点对点PHP导师组织
-  * http://phpmentoring.org/
+  * [http://phpmentoring.org/](http://phpmentoring.org/)
 * PHP Package Development Standards - PHP软件包开发标准
-  * http://php-pds.com/
+  * [http://php-pds.com/](http://php-pds.com/)
 * PHP School - PHP开源学习站
-  * https://www.phpschool.io/
+  * [https://www.phpschool.io/](https://www.phpschool.io/)
 * PHP Security - 一个PHP安全指南
-  * 
-
+  * http://phpsecurity.readthedocs.io/en/latest/index.html
+* 
 #### 其他网站
 
 1
