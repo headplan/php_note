@@ -289,8 +289,11 @@ PHP相关的有用网站
 * PHP School - PHP开源学习站
   * [https://www.phpschool.io/](https://www.phpschool.io/)
 * PHP Security - 一个PHP安全指南
-  * http://phpsecurity.readthedocs.io/en/latest/index.html
-* 
+  * [http://phpsecurity.readthedocs.io/en/latest/index.html](http://phpsecurity.readthedocs.io/en/latest/index.html)
+* PHP The Right Way - PHP最佳实践快速指南
+  * http://www.phptherightway.com/
+  * https://laravel-china.github.io/php-the-right-way/ - 简体中文
+
 #### 其他网站
 
 1
