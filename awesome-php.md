@@ -276,7 +276,7 @@ PHP相关的有用网站
 
 * Nomad PHP - 一个在线PHP学习资源
   * [https://nomadphp.com/](https://nomadphp.com/)
-  * 收集PHP大会之类的信息 , 然后买给你
+  * 收集PHP大会之类的信息 , 然后卖给你
 * PHP Best Practices - 一个PHP最佳实践指南
   * [https://phpbestpractices.org/](https://phpbestpractices.org/)
   * 国内有人翻译了
@@ -304,29 +304,31 @@ PHP相关的有用网站
 * Securing PHP - 有关PHP安全性和库的新闻\(最近没更新\)
   * [http://securingphp.com/](http://securingphp.com/)
 * Seven PHP - 一个PHP社区成员采访的网站
-  * http://7php.com/
+  * [http://7php.com/](http://7php.com/)
 
 #### 其他网站
 
 Web相关其他有用的网站
 
 * Atlassian Git Tutorials - 一个Git教程系列
-  * https://www.atlassian.com/git
+  * [https://www.atlassian.com/git](https://www.atlassian.com/git)
 * Hg Init - 一个Mercurial教程系列
-  * http://hginit.com/
+  * [http://hginit.com/](http://hginit.com/)
   * Mercurial是一种轻量级分布式版本控制系统
 * Semantic Versioning - 一个解析语义版本的网站
-  * http://semver.org/lang/zh-CN/
+  * [http://semver.org/lang/zh-CN/](http://semver.org/lang/zh-CN/)
 * Servers for Hackers - 一个关于服务器管理的新闻资讯站
-  * https://serversforhackers.com/
+  * [https://serversforhackers.com/](https://serversforhackers.com/)
 * The Open Web Application Security Project \(OWASP\) - 一个开放软件安全社区
-  * https://www.owasp.org/index.php/Main\_Page
+  * [https://www.owasp.org/index.php/Main\_Page](https://www.owasp.org/index.php/Main_Page)
 * WebSec IO - 一个Web安全社区资源
-  * https://websec.io/
+  * [https://websec.io/](https://websec.io/)
 
 #### PHP书籍
 
-1
+PHP相关的非常好的书籍
+
+
 
 #### 其他书籍
 
