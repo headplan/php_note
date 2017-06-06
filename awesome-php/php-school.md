@@ -17,16 +17,19 @@ echo 'export PATH="$PATH:/Users/******/.php-school/bin"' >> ~/.bashrc && source 
 
 #### 使用
 
-安装了workshop-manager , 就可以使用了 , 它仅仅是一个工具 , 用来搜索 , 安装 , 删除PHP School workshops的工具 . 
+安装了workshop-manager , 就可以使用了 , 它仅仅是一个工具 , 用来搜索 , 安装 , 删除PHP School workshops的工具 .
 
 更详细的说明在Github中查看
 
-https://github.com/php-school/workshop-manager
+[https://github.com/php-school/workshop-manager](https://github.com/php-school/workshop-manager)
 
 #### 常用命令
 
 ```
-
+# 列出所有命令
+workshop-manager list
+# 搜索特定workshop的工具,不指定搜索workshop,会列出所有可用的workshop
+workshop-manager search <topic>
 ```
 
 
