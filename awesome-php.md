@@ -328,7 +328,12 @@ Web相关其他有用的网站
 
 PHP相关的非常好的书籍
 
-
+* Functional Programming in PHP - 一本讲函数式编程的书 , PHP的
+  * https://www.functionalphp.com/
+* Grumpy PHPUnit - 一本Chris Hartjes关于使用PHPUnit进行单元测试的书
+  * https://leanpub.com/grumpy-phpunit
+* Mastering Object-Orientated PHP - 一本Brandon Savage关于PHP面向对象的书
+  * http://www.brandonsavage.net/ - 作者的博客
 
 #### 其他书籍
 
