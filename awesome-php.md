@@ -309,28 +309,28 @@
 基于Web的应用和工具
 
 * 3V4L - 一个在线的PHP shell
-  * https://3v4l.org/ - 上面还能看各个版本PHP运行时间内存之类的
+  * [https://3v4l.org/](https://3v4l.org/) - 上面还能看各个版本PHP运行时间内存之类的
 * DBV - 一个数据库版本控制应用
-  * https://dbv.vizuina.com/
+  * [https://dbv.vizuina.com/](https://dbv.vizuina.com/)
 * PHP Queue - 一个管理后端队列的应用
-  * https://github.com/CoderKungfu/php-queue
+  * [https://github.com/CoderKungfu/php-queue](https://github.com/CoderKungfu/php-queue)
 * MailCatcher - 一个抓取和查看邮件的web工具
-  * https://github.com/sj26/mailcatcher - 有PHP版的
+  * [https://github.com/sj26/mailcatcher](https://github.com/sj26/mailcatcher) - 有PHP版的
 * Cachet - 开源的系统状态程序
-  * https://github.com/cachethq/cachet
+  * [https://github.com/cachethq/cachet](https://github.com/cachethq/cachet)
 * phpBeanstalkdAdmin - 监控管理Beanstalkd的Web工具
-  * https://github.com/mnapoli/phpBeanstalkdAdmin 
+  * [https://github.com/mnapoli/phpBeanstalkdAdmin](https://github.com/mnapoli/phpBeanstalkdAdmin) 
 * phpRedisAdmin - 管理Redis数据库的Web工具
-  * https://github.com/ErikDubbelboer/phpRedisAdmin
+  * [https://github.com/ErikDubbelboer/phpRedisAdmin](https://github.com/ErikDubbelboer/phpRedisAdmin)
 * phpPgAdmin - 管理PostgreSQL数据库的Web工具
-  * https://github.com/phppgadmin/phppgadmin
+  * [https://github.com/phppgadmin/phppgadmin](https://github.com/phppgadmin/phppgadmin)
 * phpMyAdmin - 管理MySQL/MariaDB数据库的Web工具
-  * https://github.com/phpmyadmin/phpmyadmin
+  * [https://github.com/phpmyadmin/phpmyadmin](https://github.com/phpmyadmin/phpmyadmin)
 * Adminer - 一个文件管理一堆数据库的工具
-  * https://www.adminer.org/
+  * [https://www.adminer.org/](https://www.adminer.org/)
   * 支持的数据库包括MySQL , PostgreSQL , SQLite , MS SQL , Oracle , Firebird , SimpleDB , Elasticsearch , MongoDB.
 * Grav - 一个现代的文件管理系统
-  * https://github.com/getgrav/grav
+  * [https://github.com/getgrav/grav](https://github.com/getgrav/grav)
 
 #### 基础设施
 
@@ -510,6 +510,8 @@ PHP相关的阅读资料
 #### PHP内核阅读
 
 阅读PHP内核或性能相关的资料
+
+TODO
 
 #### PHP杂志
 
