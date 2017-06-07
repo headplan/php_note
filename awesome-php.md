@@ -386,24 +386,49 @@ PHP相关的视频
 * PHP UK Conference - 英国PHP会议短视频
   * [https://www.youtube.com/user/phpukconference/videos](https://www.youtube.com/user/phpukconference/videos)
 * Programming with Anthony - Anthony Ferrara的视频系列
-  * https://www.youtube.com/playlist?list=PLM-218uGSX3DQ3KsB5NJnuOqPqc5CW2kW
+  * [https://www.youtube.com/playlist?list=PLM-218uGSX3DQ3KsB5NJnuOqPqc5CW2kW](https://www.youtube.com/playlist?list=PLM-218uGSX3DQ3KsB5NJnuOqPqc5CW2kW)
 * Taking PHP Seriously - 来自Facebook Keith Adams讲述PHP优势
-  * https://www.infoq.com/presentations/php-history
+  * [https://www.infoq.com/presentations/php-history](https://www.infoq.com/presentations/php-history)
 
 #### PHP的播客
 
 关注PHP为主的播客
 
 * PHP Town Hall - 一个随意的Ben Edmunds和Phil Sturgeon的PHP播客
-  * https://phptownhall.com/
+  * [https://phptownhall.com/](https://phptownhall.com/)
 * Voices of the ElePHPant - PHP社区名人采访
-  * https://voicesoftheelephpant.com/
+  * [https://voicesoftheelephpant.com/](https://voicesoftheelephpant.com/)
 * PHP Roundtable - PHP圆桌会议
-  * https://www.phproundtable.com/
+  * [https://www.phproundtable.com/](https://www.phproundtable.com/)
 
 #### PHP阅读
 
-1
+PHP相关的阅读资料
+
+* Composer Primer - Composer入门
+  * https://daylerees.com/composer-primer/
+* Composer Stability Flags - 一篇关于Composer稳定性标志的文章
+  * https://igor.io/2013/02/07/composer-stability-flags.html
+* Composer Versioning - 一篇关于Composer版本的文章
+  * https://igor.io/2013/01/07/composer-versioning.html
+* Create Your Own PHP Framework：一部Fabien Potencier的关于如何创建你自己的PHP框架的系列文章
+  * http://symfony.com/doc/current/create\_framework/index.html - 已经更新到Symfony官方文档
+* Don't Worry About BREACH - 一篇关于BREACH攻击和CSRF令牌的文章
+  * http://blog.ircmaxell.com/2013/08/dont-worry-about-breach.html
+* On PHP 5.3, Lamda Functions and Closures - 一篇关于lambda函数和闭包的文章
+  * http://fabien.potencier.org/on-php-5-3-lambda-functions-and-closures.html
+* PHP Is Much Better Than You Think - 一篇关于PHP语言和生态圈的文章
+  * http://fabien.potencier.org/php-is-much-better-than-you-think.html
+* PHP Package Checklist - 开发一个完整的PHP包需要做的
+  * http://phppackagechecklist.com/\#1,2,3,4,5,6,7,8,9,10,11,12,13,14
+* PHP Sucks! But I Like It! - 一篇关于PHP优缺点的文章
+  * http://blog.ircmaxell.com/2012/04/php-sucks-but-i-like-it.html
+* Preventing CSRF Attacks - 一篇关于防止 csrf 攻击的文章
+  * http://blog.ircmaxell.com/2013/02/preventing-csrf-attacks.html
+* Seven Ways to Screw Up BCrypt - 一篇关于纠正BCrypt实现的文章
+  * http://blog.ircmaxell.com/2012/12/seven-ways-to-screw-up-bcrypt.html
+* Use Env - 有关使用unix环境帮助器的文章
+  * https://seancoates.com/blogs/use-env/
 
 #### PHP内核阅读
 
