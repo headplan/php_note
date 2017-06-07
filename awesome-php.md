@@ -240,9 +240,20 @@
 
 ### 软件
 
+用于创建开发环境的软件
+
 #### PHP安装
 
-1
+帮助安装和管理PHP的工具
+
+* HomeBrew PHP - 一个HomeBrew的PHP通道
+* HomeBrew - 一个OSX包管理器
+* PHP Brew - 一个PHP版本管理和安装器
+* PHP Build - 另一个PHP版本安装器
+* PHP Env - 另一个PHP版本管理器
+* PHP OSX - 一个OSX下的PHP安装器
+* PHP Switch - 另一个PHP版本管理器
+* VirtPHP - 一个创建和管理独立PHP环境的工具
 
 #### 开发环境
 
