@@ -247,13 +247,21 @@
 帮助安装和管理PHP的工具
 
 * HomeBrew PHP - 一个HomeBrew的PHP通道
+  * https://github.com/Homebrew/homebrew-php
 * HomeBrew - 一个OSX包管理器
+  * https://brew.sh/
 * PHP Brew - 一个PHP版本管理和安装器
+  * https://github.com/phpbrew/phpbrew
 * PHP Build - 另一个PHP版本安装器
+  * https://github.com/php-build/php-build
 * PHP Env - 另一个PHP版本管理器
+  * https://github.com/CHH/phpenv
 * PHP OSX - 一个OSX下的PHP安装器
+  * https://php-osx.liip.ch/
 * PHP Switch - 另一个PHP版本管理器
+  * https://github.com/jubianchi/phpswitch
 * VirtPHP - 一个创建和管理独立PHP环境的工具
+  * http://virtphp.org/
 
 #### 开发环境
 
