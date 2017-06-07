@@ -367,19 +367,24 @@ PHP相关的非常好的书籍
 * Head First Design Patterns - 关于设计模式的书
   * [http://www.headfirstlabs.com/books/hfdp/](http://www.headfirstlabs.com/books/hfdp/)
 * Pro Git - Scott Chacon和Ben Straub关于Git的一本书
-  * https://git-scm.com/book/en/v2
+  * [https://git-scm.com/book/en/v2](https://git-scm.com/book/en/v2)
 * The Linux Command Line - William Shotts关于Linux命令行的一本书
-  * http://linuxcommand.org/tlcl.php - 有中文版
+  * [http://linuxcommand.org/tlcl.php](http://linuxcommand.org/tlcl.php) - 有中文版
 * The Tangled Web:Securing Web Applications -  Michal Zalewski关于web应用安全的一本书
-  * https://www.amazon.com/Tangled-Web-Securing-Modern-Applications/dp/1593273886
+  * [https://www.amazon.com/Tangled-Web-Securing-Modern-Applications/dp/1593273886](https://www.amazon.com/Tangled-Web-Securing-Modern-Applications/dp/1593273886)
 * Understanding Computation - Tom Stuart关于计算理论的一本书
-  * http://computationbook.com/
+  * [http://computationbook.com/](http://computationbook.com/)
 * Vagrant Cookbook - Erika Heidi关于创建 Vagrant环境的一本书
-  * https://leanpub.com/vagrantcookbook
+  * [https://leanpub.com/vagrantcookbook](https://leanpub.com/vagrantcookbook)
 
 #### PHP视频
 
-1
+PHP相关的视频
+
+* Nomad PHP Lightning Talks - PHP社区成员发布的短视频
+  * https://www.youtube.com/c/nomadphp
+* PHP UK Conference - 英国PHP会议短视频
+  * https://www.youtube.com/user/phpukconference/videos
 
 #### PHP的播客
 
