@@ -382,13 +382,24 @@ PHP相关的非常好的书籍
 PHP相关的视频
 
 * Nomad PHP Lightning Talks - PHP社区成员发布的短视频
-  * https://www.youtube.com/c/nomadphp
+  * [https://www.youtube.com/c/nomadphp](https://www.youtube.com/c/nomadphp)
 * PHP UK Conference - 英国PHP会议短视频
-  * https://www.youtube.com/user/phpukconference/videos
+  * [https://www.youtube.com/user/phpukconference/videos](https://www.youtube.com/user/phpukconference/videos)
+* Programming with Anthony - Anthony Ferrara的视频系列
+  * https://www.youtube.com/playlist?list=PLM-218uGSX3DQ3KsB5NJnuOqPqc5CW2kW
+* Taking PHP Seriously - 来自Facebook Keith Adams讲述PHP优势
+  * https://www.infoq.com/presentations/php-history
 
 #### PHP的播客
 
-1
+关注PHP为主的播客
+
+* PHP Town Hall - 一个随意的Ben Edmunds和Phil Sturgeon的PHP播客
+  * https://phptownhall.com/
+* Voices of the ElePHPant - PHP社区名人采访
+  * https://voicesoftheelephpant.com/
+* PHP Roundtable - PHP圆桌会议
+  * https://www.phproundtable.com/
 
 #### PHP阅读
 
