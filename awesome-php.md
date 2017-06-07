@@ -287,15 +287,22 @@
 相关的PHP虚拟机
 
 * Hack - 一个PHP进行无缝操作的 HHVM编程语言
-  * http://hacklang.org/
+  * [http://hacklang.org/](http://hacklang.org/)
 * HHVM - facebook出的那个
-  * https://github.com/facebook/hhvm
+  * [https://github.com/facebook/hhvm](https://github.com/facebook/hhvm)
 * HippyVM - 另一个PHP虚拟机
-  * https://github.com/hippyvm/hippyvm
+  * [https://github.com/hippyvm/hippyvm](https://github.com/hippyvm/hippyvm)
 
 #### IDE
 
-1
+支持PHP的集成开发环境
+
+* Eclipse for PHP Developers - 一个基于Eclipse平台的PHP IDE
+  * https://www.eclipse.org/downloads/
+* Netbeans - 一个支持PHP和HTML5的IDE
+  * https://netbeans.org/
+* PhpStorm - 一个商业PHP IDE
+  * http://www.jetbrains.com/phpstorm/
 
 #### Web应用
 
