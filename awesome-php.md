@@ -247,25 +247,40 @@
 帮助安装和管理PHP的工具
 
 * HomeBrew PHP - 一个HomeBrew的PHP通道
-  * https://github.com/Homebrew/homebrew-php
+  * [https://github.com/Homebrew/homebrew-php](https://github.com/Homebrew/homebrew-php)
 * HomeBrew - 一个OSX包管理器
-  * https://brew.sh/
+  * [https://brew.sh/](https://brew.sh/)
 * PHP Brew - 一个PHP版本管理和安装器
-  * https://github.com/phpbrew/phpbrew
+  * [https://github.com/phpbrew/phpbrew](https://github.com/phpbrew/phpbrew)
 * PHP Build - 另一个PHP版本安装器
-  * https://github.com/php-build/php-build
+  * [https://github.com/php-build/php-build](https://github.com/php-build/php-build)
 * PHP Env - 另一个PHP版本管理器
-  * https://github.com/CHH/phpenv
+  * [https://github.com/CHH/phpenv](https://github.com/CHH/phpenv)
 * PHP OSX - 一个OSX下的PHP安装器
-  * https://php-osx.liip.ch/
+  * [https://php-osx.liip.ch/](https://php-osx.liip.ch/)
 * PHP Switch - 另一个PHP版本管理器
-  * https://github.com/jubianchi/phpswitch
+  * [https://github.com/jubianchi/phpswitch](https://github.com/jubianchi/phpswitch)
 * VirtPHP - 一个创建和管理独立PHP环境的工具
-  * http://virtphp.org/
+  * [http://virtphp.org/](http://virtphp.org/)
 
 #### 开发环境
 
-1
+创建沙盒开发环境的软件和工具
+
+* Ansible - 一个非常简单的业务流程框架
+  * https://www.ansible.com/
+* Phansible - 一个用Ansible构建PHP开发虚拟机的web工具
+  * http://phansible.com/
+* Protobox - 一个构建PHP开发虚拟机的web工具
+  * http://getprotobox.com/
+* PuPHPet - 一个构建PHP开发虚拟机的web工具
+  * https://puphpet.com/
+* Puppet - 一个服务器自动化框架和应用
+  * https://puppet.com/
+* Vagrant - 一个便携的开发环境工具
+  * https://www.vagrantup.com/
+* Docker - 一个开源的应用容器引擎
+  * https://www.docker.com/
 
 #### 虚拟机
 
