@@ -406,33 +406,33 @@ PHP相关的视频
 PHP相关的阅读资料
 
 * Composer Primer - Composer入门
-  * https://daylerees.com/composer-primer/
+  * [https://daylerees.com/composer-primer/](https://daylerees.com/composer-primer/)
 * Composer Stability Flags - 一篇关于Composer稳定性标志的文章
-  * https://igor.io/2013/02/07/composer-stability-flags.html
+  * [https://igor.io/2013/02/07/composer-stability-flags.html](https://igor.io/2013/02/07/composer-stability-flags.html)
 * Composer Versioning - 一篇关于Composer版本的文章
-  * https://igor.io/2013/01/07/composer-versioning.html
+  * [https://igor.io/2013/01/07/composer-versioning.html](https://igor.io/2013/01/07/composer-versioning.html)
 * Create Your Own PHP Framework：一部Fabien Potencier的关于如何创建你自己的PHP框架的系列文章
-  * http://symfony.com/doc/current/create\_framework/index.html - 已经更新到Symfony官方文档
+  * [http://symfony.com/doc/current/create\_framework/index.html](http://symfony.com/doc/current/create_framework/index.html) - 已经更新到Symfony官方文档
 * Don't Worry About BREACH - 一篇关于BREACH攻击和CSRF令牌的文章
-  * http://blog.ircmaxell.com/2013/08/dont-worry-about-breach.html
+  * [http://blog.ircmaxell.com/2013/08/dont-worry-about-breach.html](http://blog.ircmaxell.com/2013/08/dont-worry-about-breach.html)
 * On PHP 5.3, Lamda Functions and Closures - 一篇关于lambda函数和闭包的文章
-  * http://fabien.potencier.org/on-php-5-3-lambda-functions-and-closures.html
+  * [http://fabien.potencier.org/on-php-5-3-lambda-functions-and-closures.html](http://fabien.potencier.org/on-php-5-3-lambda-functions-and-closures.html)
 * PHP Is Much Better Than You Think - 一篇关于PHP语言和生态圈的文章
-  * http://fabien.potencier.org/php-is-much-better-than-you-think.html
+  * [http://fabien.potencier.org/php-is-much-better-than-you-think.html](http://fabien.potencier.org/php-is-much-better-than-you-think.html)
 * PHP Package Checklist - 开发一个完整的PHP包需要做的
-  * http://phppackagechecklist.com/\#1,2,3,4,5,6,7,8,9,10,11,12,13,14
+  * [http://phppackagechecklist.com/\#1,2,3,4,5,6,7,8,9,10,11,12,13,14](http://phppackagechecklist.com/#1,2,3,4,5,6,7,8,9,10,11,12,13,14)
 * PHP Sucks! But I Like It! - 一篇关于PHP优缺点的文章
-  * http://blog.ircmaxell.com/2012/04/php-sucks-but-i-like-it.html
+  * [http://blog.ircmaxell.com/2012/04/php-sucks-but-i-like-it.html](http://blog.ircmaxell.com/2012/04/php-sucks-but-i-like-it.html)
 * Preventing CSRF Attacks - 一篇关于防止 csrf 攻击的文章
-  * http://blog.ircmaxell.com/2013/02/preventing-csrf-attacks.html
+  * [http://blog.ircmaxell.com/2013/02/preventing-csrf-attacks.html](http://blog.ircmaxell.com/2013/02/preventing-csrf-attacks.html)
 * Seven Ways to Screw Up BCrypt - 一篇关于纠正BCrypt实现的文章
-  * http://blog.ircmaxell.com/2012/12/seven-ways-to-screw-up-bcrypt.html
+  * [http://blog.ircmaxell.com/2012/12/seven-ways-to-screw-up-bcrypt.html](http://blog.ircmaxell.com/2012/12/seven-ways-to-screw-up-bcrypt.html)
 * Use Env - 有关使用unix环境帮助器的文章
-  * https://seancoates.com/blogs/use-env/
+  * [https://seancoates.com/blogs/use-env/](https://seancoates.com/blogs/use-env/)
 
 #### PHP内核阅读
 
-1
+阅读PHP内核或性能相关的资料
 
 #### PHP杂志
 
