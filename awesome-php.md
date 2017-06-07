@@ -268,23 +268,30 @@
 创建沙盒开发环境的软件和工具
 
 * Ansible - 一个非常简单的业务流程框架
-  * https://www.ansible.com/
+  * [https://www.ansible.com/](https://www.ansible.com/)
 * Phansible - 一个用Ansible构建PHP开发虚拟机的web工具
-  * http://phansible.com/
+  * [http://phansible.com/](http://phansible.com/)
 * Protobox - 一个构建PHP开发虚拟机的web工具
-  * http://getprotobox.com/
+  * [http://getprotobox.com/](http://getprotobox.com/)
 * PuPHPet - 一个构建PHP开发虚拟机的web工具
-  * https://puphpet.com/
+  * [https://puphpet.com/](https://puphpet.com/)
 * Puppet - 一个服务器自动化框架和应用
-  * https://puppet.com/
+  * [https://puppet.com/](https://puppet.com/)
 * Vagrant - 一个便携的开发环境工具
-  * https://www.vagrantup.com/
+  * [https://www.vagrantup.com/](https://www.vagrantup.com/)
 * Docker - 一个开源的应用容器引擎
-  * https://www.docker.com/
+  * [https://www.docker.com/](https://www.docker.com/)
 
 #### 虚拟机
 
-1
+相关的PHP虚拟机
+
+* Hack - 一个PHP进行无缝操作的 HHVM编程语言
+  * http://hacklang.org/
+* HHVM - facebook出的那个
+  * https://github.com/facebook/hhvm
+* HippyVM - 另一个PHP虚拟机
+  * https://github.com/hippyvm/hippyvm
 
 #### IDE
 
