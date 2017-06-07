@@ -298,19 +298,25 @@
 支持PHP的集成开发环境
 
 * Eclipse for PHP Developers - 一个基于Eclipse平台的PHP IDE
-  * https://www.eclipse.org/downloads/
+  * [https://www.eclipse.org/downloads/](https://www.eclipse.org/downloads/)
 * Netbeans - 一个支持PHP和HTML5的IDE
-  * https://netbeans.org/
+  * [https://netbeans.org/](https://netbeans.org/)
 * PhpStorm - 一个商业PHP IDE
-  * http://www.jetbrains.com/phpstorm/
+  * [http://www.jetbrains.com/phpstorm/](http://www.jetbrains.com/phpstorm/)
 
 #### Web应用
 
-1
+基于Web的应用和工具
 
+* 
 #### 基础设施
 
-1
+提供php应用程序和服务的基础结构
+
+* appserver.io - 一个php编写的多线程应用服务器
+  * http://appserver.io/
+* php-pm - 用于 php 应用程序的过程管理器 , 增压和负载平衡
+  * https://github.com/php-pm/php-pm
 
 ---
 
