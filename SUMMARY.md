@@ -35,4 +35,5 @@
   * [PHP School](awesome-php/php-school.md)
 * [新建PHP框架](chuang-jian-kuang-jia.md)
 * [函数式编程](han-shu-shi-bian-cheng.md)
+* [PHP特性整合](phpte-xing-zheng-he.md)
 
