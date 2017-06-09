@@ -103,9 +103,12 @@ class SomeClass
     ```
 
 * Strict Type - 严格模式
+
   * 如果你不希望PHP7执行上面的类型转换 , 要求类型严格匹配 , 你可以手动启用PHP7的“严格模式” . 在这个模式下 , 任何不严格匹配的类型都会导致抛出\TypeError异常 . 启用strict type很简单 , 在PHP代码中的第一行 , 写上declare\(strict\_types=1\);
     > “PHP起始标记和declare\(strict\_types=1\);之间 , 不能有任何内容 , namespace必须紧跟在declare语句后面”
   * strict\_types指令只影响指定使用的文件 , 不会影响被它包含\(通过include等方式\)进来的其他文件 . 该指令在运行时编译 , 不能修改 . 它的运作方式 , 是在opcode中设置一个标志位 , 让函数调用和返回类型检查符合类型约束 . 
+    > 在严格模式中 , 前面的转换都不成立了 , 只有一个地方是允许的 , add\(3, 1\) , 因为.0不会带来数据偏差或丢失的风向 , 反之则不行 , 如果要求int类型 , 输入的是float类型 , 即使是.0结尾也会报错 .
+
     ```php
     <?php
     declare(strict_types=1);
