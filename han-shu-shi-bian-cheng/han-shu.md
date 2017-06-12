@@ -146,7 +146,7 @@ class SomeClass
 
 ##### Return Type Hints
 
-在PHP7 , 我们除了可以type hint函数参数之外 , 还可以type hint函数的返回值 , 像下面这样 : 
+在PHP7 , 我们除了可以type hint函数参数之外 , 还可以type hint函数的返回值 , 像下面这样 :
 
 ```php
 <?php
@@ -159,7 +159,75 @@ divisible(6, 3);
 divisible(6, 4);
 ```
 
-Return type hints对类型的处理 , 和参数使用的规则是相同的 . 默认采用coersive type , 当开启strict type之后 , 不满足约定的类型将会导致\TypeError异常 . 
+Return type hints对类型的处理 , 和参数使用的规则是相同的 . 默认采用coersive type , 当开启strict type之后 , 不满足约定的类型将会导致\TypeError异常 .
+
+#### 匿名函数与闭包
+
+之所以将这两个概念放在一起 , 因为容易混淆 , 我们来看看PHP文档中给出的解释 . 
+
+在PHP文档中 , 匿名函数也叫闭包函数 . 允许指定一个没有名称的函数 . 最常用的就是回调函数的参数值 . 一个匿名函数可以看做是闭包类的一个实例 . 将匿名函数放在普通函数中 , 也可以将匿名函数返回 , 这就构成了一个简单的闭包 . 
+
+我们先来看看匿名函数 : 
+
+```
+<?php
+$add = function(float $a, float $b): float {
+    return $a + $b;
+};
+// 注意:花括号后面会有一个分号表示结束
+```
+
+上面这段代码段声明了一个匿名函数 , 并将其分配给一个变量 , 以便以后可以重用它 , 作为参数到另一个函数或直接调用 . 
+
+```
+$add(5, 10);
+$sum = array_reduce([1, 2, 3, 4, 5], $add, 0);
+```
+
+当然 , 也可以直接声明一个匿名函数作为参数
+
+```
+<?php
+$uppercase = array_map(function(string $s): string {
+    return strtoupper($s);
+}, ['hello', 'world']);
+```
+
+当然 , 我们还可以返回一个函数 , 因为可以返回任何类型的值
+
+```
+<?php
+function return_new_function()
+{
+    return function($a, $b, $c) { /* [...] */};
+}
+```
+
+在Yii框架中 , 我们还遇到过这样的使用
+
+```
+'test' => function(){
+    return 'test'
+},
+```
+
+在配置文件的数组中 . 
+
+我们再来回顾一下官方的解释 : 
+
+> **匿名函数\(Anonymous functions\)**
+>
+> 也叫闭包函数\(closures\) , 允许临时创建一个没有指定名称的函数 . 最经常用作回调函数\(callback\)参数的值 . 当然 , 也有其它应用的情况 .
+
+注意 : 在使用匿名函数的时候 , 匿名函数当做变量 , 须提前声明 , js中也是这样的  . 当然 , 使用function声明的函数式不会报错的 . 
+
+```
+// 报错
+echo $callback(); 
+$callback=function(){ 
+ return "aa"; 
+};
+```
 
 
 
