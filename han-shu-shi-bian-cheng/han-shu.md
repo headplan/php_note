@@ -290,7 +290,7 @@ echo $b();
 >
 > 在编程领域我们可以通俗的说：子函数可以使用父函数中的局部变量，这种行为就叫做闭包。
 
-一些帮助消化的例子 : 
+一些帮助消化的例子 :
 
 ```php
 //例一
@@ -331,6 +331,59 @@ callFunc( $printStrFunc );
 callFunc( function( $str ) {
     echo $str;
 } );
+
+//例四
+function getMoney() {
+    $rmb = 1;
+    $dollar = 6;
+    $func = function() use ( $rmb ) {
+        echo $rmb;
+        echo $dollar;
+    };
+    $func();
+}
+
+getMoney();
+
+//输出：
+//1
+//报错，找不到dorllar变量
+
+// 例五
+function getMoney() {
+    $rmb = 1;
+    $func = function() use ( $rmb ) {
+        echo $rmb;
+        //把$rmb的值加1
+        $rmb++;
+    };
+    $func();
+    echo $rmb;
+}
+
+getMoney();
+
+//输出：
+//1
+//1
+
+//例六
+function getMoney() {
+    $rmb = 1;
+    $func = function() use ( &$rmb ) {
+        echo $rmb;
+        //把$rmb的值加1
+        $rmb++;
+    };
+    $func();
+    echo $rmb;
+}
+
+getMoney();
+
+//输出：
+//1
+//2
 ```
 
 **类中的闭包**
