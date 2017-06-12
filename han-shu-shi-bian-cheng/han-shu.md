@@ -452,7 +452,7 @@ print $my_cart->getTotal(0.05) . "\n";
 
 **自动绑定$this**
 
-在类中声明的任何匿名函数 , 会自动绑定$this . 也就是说 : 
+在类中声明的任何匿名函数 , 会自动绑定$this . 也就是说 :
 
 ```php
 <?php
@@ -486,7 +486,7 @@ $test = $object->testing();
 $test();
 ```
 
-以上是PHP5.4的新特性 , 自动绑定$this , 如果不希望使用当前类的自动绑定 , 则可以改用静态匿名函数 . 
+以上是PHP5.4的新特性 , 自动绑定$this , 如果不希望使用当前类的自动绑定 , 则可以改用静态匿名函数 .
 
 ```php
 <?php
@@ -524,5 +524,29 @@ $func();
 Warning: Cannot bind an instance to a static closure in %s on line %d
 ```
 
+#### **\_\_invoke和闭包类**
 
+**使用对象作为函数**
+
+有时 , 可能想把你的helper函数分成几个小部分 , 并且私有化的隐藏起来 , 这是就可以利用任何对象的`__invoke`魔术方法 , 把一个实例当成一个你隐藏的函数来用 , 不过用这样隐藏的方式来解释`__invoke`魔术方式还是有些牵强 , 先来看个例子 : 
+
+```php
+<?php
+class ObjectAsFunction
+{
+    private function helper(int $a, int $b): int
+    {
+        return $a + $b;
+    }
+    
+    public function __invoke(int $a, int $b): int
+    {
+        return $this->helper($a, $b);
+    }
+}
+$instance = new ObjectAsFunction();
+echo $instance(5, 10);
+```
+
+`__invoke`魔术方式可以使用传递给实例的任何参数调用 , 如果需要 , 可以用构造函数初始化你需要的参数和方法 , 给`__invoke`使用.
 
