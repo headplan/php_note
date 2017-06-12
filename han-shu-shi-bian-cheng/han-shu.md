@@ -231,7 +231,7 @@ $callback=function(){
 
 关于匿名函数 , 鸟哥的一片文章 , 可以读读
 
-> http://www.laruence.com/2010/06/20/1602.html
+> [http://www.laruence.com/2010/06/20/1602.html](http://www.laruence.com/2010/06/20/1602.html)
 
 我们再来看看**闭包 .**
 
@@ -390,7 +390,68 @@ getMoney();
 //2
 ```
 
+**总结一下**
+
+前面的例子 , 主要都是在说使用use关键字 , 传递变量到闭包中 . 需要注意的是 , 这些变量都必须在函数或类的头部声明 , 并且PHP 7.1 起 , 不能传入[superglobals](http://php.net/manual/zh/language.variables.predefined.php) , $this或者和参数重名的变量 . 
+
 **类中的闭包**
+
+一个基本的购物车类 , 闭包和作用于的应用案例 : 
+
+```php
+<?php
+// 一个基本的购物车,包括一些已经添加的商品和每种商品的数量
+// 其中有一个方法用来计算购物车中所有商品的总价格
+class Cart
+{
+	# 基本价格
+	const PRICE_BUTTER = 1.00;
+	const PRICE_MILK   = 3.00;
+	const PRICE_EGGS   = 6.95;
+	# 商品
+	protected $products = [];
+	
+	/**
+	 * 添加商品
+	 * $product  商品
+	 * $quantity 个数
+	 */
+	public function add($product, $quantity)
+	{
+		$this->products[$product] = $quantity;
+	}
+	
+	# 获取商品个数
+	public function getQuantity($product)
+	{
+		return isset($this->products[$product]) ? $this->products[$product] : FALSE;
+	}
+	
+	# 获取总价格
+	public function getTotal($tax)
+	{
+		$total = 0.00;
+		$callback = function ($quantity, $product) use ($tax, &$total)
+		{
+			$pricePerItem = constant(__CLASS__ . "::PRICE_" .strtoupper($product));
+			$total += ($pricePerItem * $quantity) * ($tax + 1.0);
+		};
+		
+		array_walk($this->products, $callback);
+		return round($total, 2);
+	}
+}
+
+$my_cart = new Cart;
+$my_cart->add('butter', 1);
+$my_cart->add('milk', 3);
+$my_cart->add('eggs', 6);
+# 其中有5%的销售税
+print $my_cart->getTotal(0.05) . "\n";
+
+```
+
+
 
 
 
