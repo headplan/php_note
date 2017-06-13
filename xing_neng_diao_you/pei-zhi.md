@@ -394,7 +394,15 @@ sudo yum -y --enablerepo=epel,remi-php56 install php-fpm php-cli php-gd \
 
 #### Nginx
 
-和Apache类似 , 也是一个Web服务器 , 而且使用的系统内存通常更少 . 
+和Apache类似 , 也是一个Web服务器 , 而且使用的系统内存通常更少 .
 
-下面的内容主要是安装和把相应的请求转发给PHP-FPM进程池 . 
+下面的内容主要是安装和把相应的请求转发给PHP-FPM进程池 .
+
+**nginx资料**
+
+* http://nginx.org/
+* https://github.com/h5bp/server-configs-nginx
+* https://serversforhackers.com/editions/2014/03/25/nginx/
+
+
 
