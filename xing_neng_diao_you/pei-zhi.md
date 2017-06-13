@@ -370,7 +370,9 @@ sudo yum -y --enablerepo=epel,remi,remi-php56 \
 php -v
 ```
 
+以上的内容只是个引子 , 详细的完整安装查看其它笔记 . 
 
+#### 安装
 
 
 
