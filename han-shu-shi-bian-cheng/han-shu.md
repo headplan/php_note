@@ -528,7 +528,7 @@ Warning: Cannot bind an instance to a static closure in %s on line %d
 
 **使用对象作为函数**
 
-有时 , 可能想把你的helper函数分成几个小部分 , 并且私有化的隐藏起来 , 这是就可以利用任何对象的`__invoke`魔术方法 , 把一个实例当成一个你隐藏的函数来用 , 不过用这样隐藏的方式来解释`__invoke`魔术方式还是有些牵强 , 先来看个例子 : 
+有时 , 可能想把你的helper函数分成几个小部分 , 并且私有化的隐藏起来 , 这是就可以利用任何对象的`__invoke`魔术方法 , 把一个实例当成一个你隐藏的函数来用 , 不过用这样隐藏的方式来解释`__invoke`魔术方式还是有些牵强 , 先来看个例子 :
 
 ```php
 <?php
@@ -538,7 +538,7 @@ class ObjectAsFunction
     {
         return $a + $b;
     }
-    
+
     public function __invoke(int $a, int $b): int
     {
         return $this->helper($a, $b);
@@ -549,4 +549,20 @@ echo $instance(5, 10);
 ```
 
 `__invoke`魔术方式可以使用传递给实例的任何参数调用 , 如果需要 , 可以用构造函数初始化你需要的参数和方法 , 给`__invoke`使用.
+
+> 注意 : 我们之所以能调用变量 , 是因为这个变量的值是一个闭包 , 而且闭包对象实现了\_\_invoke\(\)魔术方法 , 只要变量名后有\(\) , PHP就会查找并调用\_\_invoke方法 .
+
+**Closure类\(闭包类\)**
+
+用于代表匿名函数的类 . 匿名函数\(在PHP5.3中被引入\)会产生这个类型的对象 . 在过去 , 这个类被认为是一个实现细节 , 但现在可以依赖它做一些事情 . 自PHP5.4起 , 这个类带有一些方法 , 允许在匿名函数创建后对其进行更多的控制 . 除了此处列出的方法，还有一个 \_\_invoke 方法 . 这是为了与其他实现了\_\_invoke\(\)魔术方法的对象保持一致性 , 但调用匿名函数的过程与它无关 . 
+
+* Closure::\_\_construct - 用于禁止实例化的构造函数 , 这个方法仅用于禁止实例化一个Closure类的对象
+* Closure::bind - 复制一个闭包 , 绑定指定的$this对象和类作用域 , 这个方法是Closure::bindTo\(\)的静态版本 
+  * `public static Closure Closure::bind ( Closure $closure , object $newthis [, mixed $newscope = 'static' ] )`
+    * closure - 需要绑定的匿名函数
+    * newthis - 需要绑定到匿名函数的对象 , 或者NULL创建未绑定的闭包
+    * newscope - 想要绑定给闭包的类作用域 , 或者'static'表示不改变 . 如果传入一个对象 , 则使用这个对象的类型名 . 类作用域用来决定在闭包中$this对象的私有 , 保护方法的可见性
+* Closure::bindTo - 复制当前闭包对象 , 绑定指定的$this对象和类作用域
+
+
 
