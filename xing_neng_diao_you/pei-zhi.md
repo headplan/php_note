@@ -80,7 +80,7 @@ Enter same passphrase again:
 ssh-keygen -t rsa -f niaoyun -C "headplan@163.com"
 ```
 
-生成之后 , 会看到~/.ssh/id\_rsa.pub\(公钥\)和~/.ssh/id\_rsa\(私钥\).然后我们应该把公钥放到服务器中 . 
+生成之后 , 会看到~/.ssh/id\_rsa.pub\(公钥\)和~/.ssh/id\_rsa\(私钥\).然后我们应该把公钥放到服务器中 .
 
 ```
 scp ~/.ssh/id_rsa.pub demo@127.0.0.1:
@@ -95,7 +95,7 @@ touch ~/.ssh/authorized_keys
 cat ~/demo.pub >> ~/.ssh/authorized_keys
 ```
 
-最后要修改几个目录和文件的访问权限 , 只让用户访问~/.ssh目录和~/.ssh/authorzed\_keys文件 . 
+最后要修改几个目录和文件的访问权限 , 只让用户访问~/.ssh目录和~/.ssh/authorzed\_keys文件 .
 
 ```
 chown -R demo:demo ~/.ssh
@@ -122,5 +122,7 @@ sudo service ssh restart
 sudo systemctl restart sshd.service
 ```
 
+现在,我们的服务器安全了,但是安全是长久性的任务.所以还建议安装防火墙.
 
+Ubuntu用户可以使用UFW , CentOS用户可以使用iptables.
 
