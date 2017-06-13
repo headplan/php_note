@@ -408,14 +408,14 @@ sudo yum -y --enablerepo=epel,remi-php56 install php-fpm php-cli php-gd \
 
 **自动配置工具**
 
-* Puppet\(http://puppetlabs.com/\)
-* Chef\(https://www.getchef.com/chef/\)
-* Ansible\(http://www.ansible.com/home\)
-* SaltStack\(http://www.saltstack.com/\)
+* Puppet\([http://puppetlabs.com/\](http://puppetlabs.com/\)\)
+* Chef\([https://www.getchef.com/chef/\](https://www.getchef.com/chef/\)\)
+* Ansible\([http://www.ansible.com/home\](http://www.ansible.com/home\)\)
+* SaltStack\([http://www.saltstack.com/\](http://www.saltstack.com/\)\)
 
 **委托配置服务器**
 
-* Forge\(https://forge.laravel.com/\)
+* Forge\([https://forge.laravel.com/\](https://forge.laravel.com/\)\)
 
 
 
