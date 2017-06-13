@@ -4,7 +4,7 @@ Web服务器历史
 
 > 几年前的Web服务器 , 我们都会安装Apache Web服务器和Apache mod\_php模块 . Apache Web服务器会为每个HTTP请求派生一个专门的子进程 . Apache mod\_php模块会在派生的每个子进程中嵌入专门的PHP解释器 . 即使进程只是用来伺服静态资源 , 例如js,css,图像等也会嵌入PHP解释器 . 这么做消耗很大 , 会浪费系统资源 . 过后的几年 , Nginx出来了 .
 
-说时迟那时快 , 我们的VPS已经购买好了 . 
+说时迟那时快 , 我们的VPS已经购买好了 .
 
 #### 首次登陆
 
@@ -78,6 +78,48 @@ Enter same passphrase again:
 
 # 直接使用的命令
 ssh-keygen -t rsa -f niaoyun -C "headplan@163.com"
+```
+
+生成之后 , 会看到~/.ssh/id\_rsa.pub\(公钥\)和~/.ssh/id\_rsa\(私钥\).然后我们应该把公钥放到服务器中 . 
+
+```
+scp ~/.ssh/id_rsa.pub demo@127.0.0.1:
+```
+
+然后用demo账户登录服务器,看看里面有没有~/.ssh目录 , 如果没有新建一个
+
+```
+mkdir ~/.ssh
+# 这个文件是一系列允许登录这台远程服务器的公钥.
+touch ~/.ssh/authorized_keys
+cat ~/demo.pub >> ~/.ssh/authorized_keys
+```
+
+最后要修改几个目录和文件的访问权限 , 只让用户访问~/.ssh目录和~/.ssh/authorzed\_keys文件 . 
+
+```
+chown -R demo:demo ~/.ssh
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+```
+
+**禁用密码,禁止根用户登录**
+
+下面我们要禁止所有用户通过密码登录,还要禁止跟用户登录.
+
+编辑SSH服务器软件的配置文件
+
+```
+sudo vim /etc/ssh/sshd_config
+# 找到下面两个配置改为no
+PasswordAuthentication no
+PermitRootLogin no
+
+# 重启SSH服务器
+# Ubuntu
+sudo service ssh restart
+# CentOS
+sudo systemctl restart sshd.service
 ```
 
 
