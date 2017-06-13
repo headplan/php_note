@@ -2,11 +2,12 @@
 
 * [简介](README.md)
 * [软件工程](ruan_jian_gong_cheng.md)
-* [部署,测试,调优](xing_neng_diao_you.md)
+* [部署,测试,调优,分析](xing_neng_diao_you.md)
   * [主机](xing_neng_diao_you/zhu-ji.md)
   * [配置](xing_neng_diao_you/pei-zhi.md)
     * [PHP-FPM配置](xing_neng_diao_you/pei-zhi/php-fpmpei-zhi.md)
-    * Nginx配置
+    * [Nginx配置](xing_neng_diao_you/pei-zhi/nginxpei-zhi.md)
+  * [调优](xing_neng_diao_you/diao-you.md)
   * [PHP详细安装](xing_neng_diao_you/phpxiang-xi-an-zhuang.md)
 * [命令行PHP](ming_ling_hang_php.md)
 * [包](bao.md)
