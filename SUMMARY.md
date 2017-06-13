@@ -5,6 +5,7 @@
 * [部署,测试,调优](xing_neng_diao_you.md)
   * [主机](xing_neng_diao_you/zhu-ji.md)
   * [配置](xing_neng_diao_you/pei-zhi.md)
+    * PHP-FPM配置
   * [PHP详细安装](xing_neng_diao_you/phpxiang-xi-an-zhuang.md)
 * [命令行PHP](ming_ling_hang_php.md)
 * [包](bao.md)

@@ -370,9 +370,31 @@ sudo yum -y --enablerepo=epel,remi,remi-php56 \
 php -v
 ```
 
-以上的内容只是个引子 , 详细的完整安装查看其它笔记 . 
+以上的内容只是个引子 , 不是这篇内容的主题 .
 
-#### 安装
+##### 安装
 
+```
+# Ubuntu
+sudo apt-get install python-software-properties;
+sudo add-apt-repository ppa:ondrej/php5-5.6;
+sudo apt-get update;
+sudo apt-get install php5-fpm php5-cli php5-curl \
+    php5-gd php5-json php5-mcryt php5-mysqlnd;
+# CentOS
+sudo rpm -Uvh \
+    http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
+sudo rpm -Uvh \
+    rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+sudo yum -y --enablerepo=epel,remi-php56 install php-fpm php-cli php-gd \
+    php-mbstring php-mcrypt php-mysqlnd php-opcache php-pdo php-devel
+```
 
+> ##### PHP-FPM配置转入下一篇文章
+
+#### Nginx
+
+和Apache类似 , 也是一个Web服务器 , 而且使用的系统内存通常更少 . 
+
+下面的内容主要是安装和把相应的请求转发给PHP-FPM进程池 . 
 
