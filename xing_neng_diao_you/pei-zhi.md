@@ -355,5 +355,22 @@ $ sudo yum --enablerepo=remi search <keyword>
 $ sudo yum --enablerepo=remi install <package-name>
 ```
 
+2.安装PHP
+
+```
+sudo yum -y --enablerepo=epel,remi,remi-php56 install php-cli
+```
+
+安装PHP扩展
+
+```
+sudo yum -y --enablerepo=epel,remi,remi-php56 \
+    install php-gd php-mbstring php-mcrypt php-mysqlnd php-opcache php-pdo
+# 检查是否安装成功,可以看到版本信息
+php -v
+```
+
+
+
 
 
