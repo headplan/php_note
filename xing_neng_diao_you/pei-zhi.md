@@ -126,3 +126,88 @@ sudo systemctl restart sshd.service
 
 Ubuntu用户可以使用UFW , CentOS用户可以使用iptables.
 
+#### PHP-FPM
+
+PHP FastCGI进程管理器 , 适用于管理PHP进程池的软件 . 用于接收和处理来自Web服务器\(例如nginx\)的请求 . 
+
+PHP-FPM软件会创建一个主进程\(通常以操作系统root用户的身份运行\),控制何时以及如何把HTTP请求转发给一个或多个子进程处理 . PHP-FPM主进程还控制着什么时候创建\(处理Web应用更多的流量\)和销毁\(子进程运行时间太久或不再需要了\)PHP子进程.PHP-FPM进程池中的每个进程存在的时间都比单个HTTP请求长,可以处理10,50,100,500或更多的HTTP请求 . 
+
+**安装**
+
+最简单的方式是使用操作系统原生的包管理器 : 
+
+> 包管理器 , Ubuntu使用aptitude管理器 , CentOS和RHEL使用yum包管理器 .
+
+**Ubuntu14.04LTS**
+
+默认的软件仓库中没有提供最新版本的PHP,因此需要添加社区维护的个人软件包档案PPA , 这是Ubuntu专用的 , 它使用第三方软件仓库扩展了默认的软件 . 
+
+1.安装依赖
+
+添加PPA之前要确保系统中有add-apt-repository二进制文件,这个二进制文件包含在Ubuntu包python-software-properties中.安装:
+
+```
+sudo apt-get install python-software-properties
+```
+
+上面的命令会安装包含add-apt-repository二进制文件的python-software-properties包 . 现在就可以自定义添加PPA了.
+
+2.添加ppa:ondrej/php5-5.6 PPA
+
+开始扩充默认软件仓库
+
+```
+sudo add-apt-repository ppa:ondrej/php5-5.6
+```
+
+命令添加了PPA到软件源列表 , 还会下载这个PPA的GPG公钥,并将其添加到本地GPG密钥环中.GPG公钥是让Ubuntu验证PPA中的包,确保原始作者构建并签名之后没有被篡改.
+
+然后刷新缓存
+
+```
+sudo apt-get update
+```
+
+3.安装PHP
+
+```
+# 首先安装PHP CLI包
+sudo apt-get install php5-cli
+# 然后安装几个PHP扩展包
+sudo apt-get install php5-curl php5-gd php5-json php5-mcrypt php5-mysqlnd
+# 检查是否安装成功,可以看到版本信息
+php -v
+```
+
+**CentOS7**
+
+这里我们使用EPEL,就是企业版Linux的额外包 , 虽然EPEL和官方发行版没啥关系 , 不过仍然可以用来扩充默认的软件仓库 . 
+
+1.添加EPEL仓库
+
+```
+# 查看添加了那些仓库
+yum repolist
+
+# 针对系统架构选择相应的类型:http://dl.fedoraproject.org/pub/epel/7/
+rpm -Uvh \
+http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
+或者
+wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
+rpm -Uvh epel-release-7-2.noarch.rpm
+或者直接yum安装
+yum -y install epel-release
+# 添加remi仓库
+CentOS7
+$ sudo rpm --import http://rpms.famillecollet.com/RPM-GPG-KEY-remi
+$ sudo rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+CentOS6
+$ sudo rpm --import http://rpms.famillecollet.com/RPM-GPG-KEY-remi
+$ sudo rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+# 默认地REMI是禁用的,检查安装情况
+yum repolist disabled | grep remi
+
+```
+
+
+
