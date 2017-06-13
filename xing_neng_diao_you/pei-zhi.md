@@ -400,9 +400,9 @@ sudo yum -y --enablerepo=epel,remi-php56 install php-fpm php-cli php-gd \
 
 **nginx资料**
 
-* http://nginx.org/
-* https://github.com/h5bp/server-configs-nginx
-* https://serversforhackers.com/editions/2014/03/25/nginx/
+* [http://nginx.org/](http://nginx.org/)
+* [https://github.com/h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx)
+* [https://serversforhackers.com/](https://serversforhackers.com/editions/2014/03/25/nginx/)
 
 
 
