@@ -128,19 +128,19 @@ Ubuntu用户可以使用UFW , CentOS用户可以使用iptables.
 
 #### PHP-FPM
 
-PHP FastCGI进程管理器 , 适用于管理PHP进程池的软件 . 用于接收和处理来自Web服务器\(例如nginx\)的请求 . 
+PHP FastCGI进程管理器 , 适用于管理PHP进程池的软件 . 用于接收和处理来自Web服务器\(例如nginx\)的请求 .
 
-PHP-FPM软件会创建一个主进程\(通常以操作系统root用户的身份运行\),控制何时以及如何把HTTP请求转发给一个或多个子进程处理 . PHP-FPM主进程还控制着什么时候创建\(处理Web应用更多的流量\)和销毁\(子进程运行时间太久或不再需要了\)PHP子进程.PHP-FPM进程池中的每个进程存在的时间都比单个HTTP请求长,可以处理10,50,100,500或更多的HTTP请求 . 
+PHP-FPM软件会创建一个主进程\(通常以操作系统root用户的身份运行\),控制何时以及如何把HTTP请求转发给一个或多个子进程处理 . PHP-FPM主进程还控制着什么时候创建\(处理Web应用更多的流量\)和销毁\(子进程运行时间太久或不再需要了\)PHP子进程.PHP-FPM进程池中的每个进程存在的时间都比单个HTTP请求长,可以处理10,50,100,500或更多的HTTP请求 .
 
 **安装**
 
-最简单的方式是使用操作系统原生的包管理器 : 
+最简单的方式是使用操作系统原生的包管理器 :
 
 > 包管理器 , Ubuntu使用aptitude管理器 , CentOS和RHEL使用yum包管理器 .
 
 **Ubuntu14.04LTS**
 
-默认的软件仓库中没有提供最新版本的PHP,因此需要添加社区维护的个人软件包档案PPA , 这是Ubuntu专用的 , 它使用第三方软件仓库扩展了默认的软件 . 
+默认的软件仓库中没有提供最新版本的PHP,因此需要添加社区维护的个人软件包档案PPA , 这是Ubuntu专用的 , 它使用第三方软件仓库扩展了默认的软件 .
 
 1.安装依赖
 
@@ -181,13 +181,154 @@ php -v
 
 **CentOS7**
 
-这里我们使用EPEL,就是企业版Linux的额外包 , 虽然EPEL和官方发行版没啥关系 , 不过仍然可以用来扩充默认的软件仓库 . 
+这里我们使用EPEL,就是企业版Linux的额外包 , 虽然EPEL和官方发行版没啥关系 , 不过仍然可以用来扩充默认的软件仓库 .
+
+> #### Centos/RedHat 7/6/5切换阿里云源并安装EPEL/IUS/REMI仓库
+>
+> CentOS安装完毕后，默认的yum源是国外的，国内访问速度很慢，需要切换为国内的源，这里选用的是阿里云的源。此外，一些常用的仓库，如epel和ius，最好也一并安装了。
+>
+> ##### 切换基本源为阿里云源
+>
+> 备份
+>
+> ```
+> mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+> ```
+>
+> 下载新的`CentOS-Base.repo`到`/etc/yum.repos.d/`
+>
+> * CentOS 5
+>
+> ```
+> wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-5.repo
+> ```
+>
+> * CentOS 6
+>
+> ```
+> wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo
+> ```
+>
+> * CentOS 7
+>
+> ```
+> wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+> ```
+>
+> #### 安装第三方源
+>
+> ##### 安装EPEL仓库
+>
+> ```
+> yum install -y epel-release
+> ```
+>
+> **如果以上命令不起作用：**
+>
+> * CentOS/RHEL 7
+>
+> ```
+> rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+> ```
+>
+> * CentOS/RHEL 6
+>
+> ```
+> rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+> ```
+>
+> * CentOS/RHEL 5
+>
+> ```
+> rpm -Uvh http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+> ```
+>
+> ##### 
+>
+> ##### 安装IUS仓库
+>
+> ###### RHEL
+>
+> * RHEL 5
+>
+> ```
+> rpm -Uvh https://rhel5.iuscommunity.org/ius-release.rpm
+> ```
+>
+> * RHEL 6
+>
+> ```
+> rpm -Uvh https://rhel6.iuscommunity.org/ius-release.rpm
+> ```
+>
+> * RHEL 7
+>
+> ```
+> rpm -Uvh https://rhel7.iuscommunity.org/ius-release.rpm
+> ```
+>
+> ###### 
+>
+> ###### CentOS
+>
+> * CentOS 5
+>
+> ```
+> rpm -Uvh https://centos5.iuscommunity.org/ius-release.rpm
+> ```
+>
+> * CentOS 6
+>
+> ```
+> rpm -Uvh https://centos6.iuscommunity.org/ius-release.rpm
+> ```
+>
+> * CentOS 7
+>
+> ```
+> rpm -Uvh https://centos7.iuscommunity.org/ius-release.rpm
+> ```
+>
+> ##### 
+>
+> ##### 安装REMI仓库
+>
+> * CentOS/RHEL 7
+>
+> ```
+> rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+> ```
+>
+> * CentOS/RHEL 6
+>
+> ```
+> rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+> ```
+>
+> * CentOS/RHEL 5
+>
+> ```
+> rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-5.rpm
+> ```
+>
+> ##### 查看yum软件仓库列表
+>
+> ```
+> yum repolist
+> ```
+>
+> ##### 生成缓存
+>
+> ```
+> yum makecache
+> ```
 
 1.添加EPEL仓库
 
 ```
 # 查看添加了那些仓库
 yum repolist
+
 
 # 针对系统架构选择相应的类型:http://dl.fedoraproject.org/pub/epel/7/
 rpm -Uvh \
@@ -197,6 +338,8 @@ wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
 rpm -Uvh epel-release-7-2.noarch.rpm
 或者直接yum安装
 yum -y install epel-release
+
+
 # 添加remi仓库
 CentOS7
 $ sudo rpm --import http://rpms.famillecollet.com/RPM-GPG-KEY-remi
@@ -207,6 +350,9 @@ $ sudo rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 # 默认地REMI是禁用的,检查安装情况
 yum repolist disabled | grep remi
 
+# 要搜索或安装REMI仓库中的包,使用这些命令:
+$ sudo yum --enablerepo=remi search <keyword>
+$ sudo yum --enablerepo=remi install <package-name>
 ```
 
 
