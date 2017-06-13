@@ -404,5 +404,18 @@ sudo yum -y --enablerepo=epel,remi-php56 install php-fpm php-cli php-gd \
 * [https://github.com/h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx)
 * [https://serversforhackers.com/](https://serversforhackers.com/editions/2014/03/25/nginx/)
 
+#### 其他渠道配置服务器
+
+**自动配置工具**
+
+* Puppet\(http://puppetlabs.com/\)
+* Chef\(https://www.getchef.com/chef/\)
+* Ansible\(http://www.ansible.com/home\)
+* SaltStack\(http://www.saltstack.com/\)
+
+**委托配置服务器**
+
+* Forge\(https://forge.laravel.com/\)
+
 
 
