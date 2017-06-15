@@ -569,7 +569,69 @@ echo $instance(5, 10);
     * newscope - 关联到匿名函数的类作用域 , 或者 'static' 保持当前状态 . 如果是一个对象 , 则使用这个对象的类型为心得类作用域 , 这会决定绑定的对象的保护,私有成员方法的可见性
     * 返回一个新创建的Closure对象或者在失败时返回FALSE
 
-这里的介绍还有些模糊 , 下面这篇Laravel相关的文章可以帮助更好的理解 : http://laravelacademy.org/post/4341.html
+这里的介绍还有些模糊 , 下面这篇Laravel相关的文章可以帮助更好的理解 : [http://laravelacademy.org/post/4341.html](http://laravelacademy.org/post/4341.html)
+
+> 现代 PHP 新特性系列（五） —— 闭包和匿名函数
+>
+> 闭包是指在创建时封装周围状态的函数，即使闭包所在的环境的不存在了，闭包中封装的状态依然存在。
+>
+> 匿名函数其实就是没有名称的函数，匿名函数可以赋值给变量，还能像其他任何PHP函数对象那样传递。不过匿名函数仍然是函数，因此可以调用，还可以传入参数，适合作为函数或方法的回调。
+>
+> > 注：理论上讲闭包和匿名函数是不同的概念，不过PHP将其视作相同的概念（匿名函数在PHP中也叫作闭包函数），所以下面提到闭包时指的也是匿名函数；反之亦然 . **前面我们也提到过 . **
+>
+> **创建闭包**
+>
+> 闭包和普通的PHP函数很像：常用的句法相同，也接受参数，而且能返回值。不过闭包没有函数名。
+>
+> > 注：我们之所以能调用$greet变量，是因为这个变量的值是一个闭包，而且闭包对象实现了\_\_invoke\(\)魔术方法，只要变量名后有\(\)，PHP就会查找并调用\_\_invoke方法。**之前我们也提到过 . **
+>
+> ### **从父作用域继承变量** {#ipt_kb_toc_4341_2}
+>
+> 在PHP中必须手动调用闭包对象的bindTo方法或使用use关键字把父作用域的变量及状态附加到PHP闭包中。而实际应用中，又以使用use关键字实现居多。
+>
+> 里面use关键字的用法不在冗述 , 重点看bindTo方法 : 
+>
+> 通过该方法，我们可以把闭包的内部状态绑定到其他对象上。这里`bindTo`方法的第二个参数显得尤为重要，其作用是指定绑定闭包的那个对象所属的PHP类，这样，闭包就可以在其他地方访问邦定闭包的对象中受保护和私有的成员变量。
+>
+> PHP框架经常使用`bindTo`方法把路由URL映射到匿名回调函数上，框架会把匿名回调函数绑定到应用对象上，这样在匿名函数中就可以使用`$this`关键字引用重要的应用对象：
+>
+> ```php
+> <?php
+> class App
+> {
+> 	protected $routes = [];
+> 	protected $responseStatus = '200 OK';
+> 	protected $responseContentType = 'text/html';
+> 	protected $responseBody = '测试路由';
+> 	
+> 	public function addRoute($routePath, $routeCallback)
+> 	{
+> 		$this->routes[$routePath] = $routeCallback->bindTo($this, __CLASS__);
+> 	}
+> 	
+> 	public function dispatch($currentPath)
+> 	{
+> 		foreach ($this->routes as $routePath => $callback) {
+> 			if( $routePath === $currentPath) {
+> 				$callback();
+> 			}
+> 		}
+> 		header('HTTP/1.1 ' . $this->responseStatus);
+> 		header('Content-Type: ' . $this->responseContentType);
+> 		header('Content-Length: ' . mb_strlen($this->responseBody));
+> 		echo $this->responseBody;
+> 	}
+> }
+>
+> $app = new App();
+> $app->addRoute('user/nonfu', function(){
+> 	$this->responseContentType = 'application/json;charset=utf8';
+> 	$this->responseBody = '{"name":"测试路由"}';
+> });
+> $app->dispatch('user/nonfu');
+> ```
+>
+> 这里我们需要重点关注`addRoute`方法，这个方法的参数分别是一个路由路径和一个路由回调，`dispatch`方法的参数是当前HTTP请求的路径，它会调用匹配的路由回调。第9行是重点所在，我们将路由回调绑定到了当前的App实例上。这么做能够在回调函数中处理App实例的状态 . **看看我们之前的一个简单个购物车类 , 更好理解 . **
 
 
 
