@@ -42,6 +42,7 @@
 * [新建PHP框架](chuang-jian-kuang-jia.md)
 * [函数式编程](han-shu-shi-bian-cheng.md)
   * [函数](han-shu-shi-bian-cheng/han-shu.md)
-    * 代码示例
+    * [高阶函数](han-shu-shi-bian-cheng/han-shu/gao-jie-han-shu.md)
+    * [更多代码示例](han-shu-shi-bian-cheng/han-shu/dai-ma-shi-li.md)
 * [PHP特性整合](phpte-xing-zheng-he.md)
 
