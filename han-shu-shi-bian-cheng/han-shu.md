@@ -568,6 +568,11 @@ echo $instance(5, 10);
     * newthis - 绑定给匿名函数的一个对象 , 或者NULL来取消绑定
     * newscope - 关联到匿名函数的类作用域 , 或者 'static' 保持当前状态 . 如果是一个对象 , 则使用这个对象的类型为心得类作用域 , 这会决定绑定的对象的保护,私有成员方法的可见性
     * 返回一个新创建的Closure对象或者在失败时返回FALSE
+    * 创建并返回一个[匿名函数](http://php.net/manual/zh/functions.anonymous.php)， 它与当前对象的函数体相同、绑定了同样变量，但可以绑定不同的对象，也可以绑定新的类作用域。
+
+      “绑定的对象”决定了函数体中的_$this_的取值，“类作用域”代表一个类型、决定在这个匿名函数中能够调用哪些 私有 和 保护 的方法。 也就是说，此时 $this 可以调用的方法，与`newscope`类的成员函数是相同的。
+
+      静态闭包不能有绑定的对象（`newthis`参数的值应该设为**`NULL`**）不过仍然可以用 bindTo 方法来改变它们的类作用域。
 
 这里的介绍还有些模糊 , 下面这篇Laravel相关的文章可以帮助更好的理解 : [http://laravelacademy.org/post/4341.html](http://laravelacademy.org/post/4341.html)
 
@@ -589,7 +594,7 @@ echo $instance(5, 10);
 >
 > 在PHP中必须手动调用闭包对象的bindTo方法或使用use关键字把父作用域的变量及状态附加到PHP闭包中。而实际应用中，又以使用use关键字实现居多。
 >
-> 里面use关键字的用法不在冗述 , 重点看bindTo方法 : 
+> 里面use关键字的用法不在冗述 , 重点看bindTo方法 :
 >
 > 通过该方法，我们可以把闭包的内部状态绑定到其他对象上。这里`bindTo`方法的第二个参数显得尤为重要，其作用是指定绑定闭包的那个对象所属的PHP类，这样，闭包就可以在其他地方访问邦定闭包的对象中受保护和私有的成员变量。
 >
@@ -599,34 +604,34 @@ echo $instance(5, 10);
 > <?php
 > class App
 > {
-> 	protected $routes = [];
-> 	protected $responseStatus = '200 OK';
-> 	protected $responseContentType = 'text/html';
-> 	protected $responseBody = '测试路由';
-> 	
-> 	public function addRoute($routePath, $routeCallback)
-> 	{
-> 		$this->routes[$routePath] = $routeCallback->bindTo($this, __CLASS__);
-> 	}
-> 	
-> 	public function dispatch($currentPath)
-> 	{
-> 		foreach ($this->routes as $routePath => $callback) {
-> 			if( $routePath === $currentPath) {
-> 				$callback();
-> 			}
-> 		}
-> 		header('HTTP/1.1 ' . $this->responseStatus);
-> 		header('Content-Type: ' . $this->responseContentType);
-> 		header('Content-Length: ' . mb_strlen($this->responseBody));
-> 		echo $this->responseBody;
-> 	}
+>     protected $routes = [];
+>     protected $responseStatus = '200 OK';
+>     protected $responseContentType = 'text/html';
+>     protected $responseBody = '测试路由';
+>     
+>     public function addRoute($routePath, $routeCallback)
+>     {
+>         $this->routes[$routePath] = $routeCallback->bindTo($this, __CLASS__);
+>     }
+>     
+>     public function dispatch($currentPath)
+>     {
+>         foreach ($this->routes as $routePath => $callback) {
+>             if( $routePath === $currentPath) {
+>                 $callback();
+>             }
+>         }
+>         header('HTTP/1.1 ' . $this->responseStatus);
+>         header('Content-Type: ' . $this->responseContentType);
+>         header('Content-Length: ' . mb_strlen($this->responseBody));
+>         echo $this->responseBody;
+>     }
 > }
 >
 > $app = new App();
 > $app->addRoute('user/nonfu', function(){
-> 	$this->responseContentType = 'application/json;charset=utf8';
-> 	$this->responseBody = '{"name":"测试路由"}';
+>     $this->responseContentType = 'application/json;charset=utf8';
+>     $this->responseBody = '{"name":"测试路由"}';
 > });
 > $app->dispatch('user/nonfu');
 > ```
