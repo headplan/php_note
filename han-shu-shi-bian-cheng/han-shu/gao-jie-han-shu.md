@@ -26,7 +26,7 @@ callable的形式 :
 * 一个\_\_invoke方法对象
 * 用于匿名函数或闭包的变量
 
-看一些例子 : 
+看一些例子 :
 
 ```php
 # 这是第一种
@@ -39,17 +39,17 @@ class A
 {
     public function hi($name)
     {
-	return "Hi $name !\n";
+    return "Hi $name !\n";
     }
 
     static function hello($name) 
     {
-	return "Hello $name !\n";
+    return "Hello $name !\n";
     }
-	
+
     public function __invoke($name)
     {
-	return $this->hi($name) . '-' . self::hello($name);
+    return $this->hi($name) . self::hello($name);
     }
 }
 
@@ -66,7 +66,30 @@ echo $callback('小明');
 # 还有第三种,就是如果类中有__invoke()方法时,可以直接调用对象
 $callback = $a;
 $callback('World');
+# 还有第四种,就是我们前面介绍了很多的闭包
+$callback = function (string $s)
+{
+    return "Hello $s !\n";
+};
+echo $callback('World');
+
+# 最后PHP还提供了两个函数用在回调函数上
+call_user_func_array()
+call_user_func()
 ```
 
+最后需要注意的是 , 如果使用了callback强制类型 , 就是这种 : 
 
+```php
+<?php
+function test_callable(callable $callback) : callable
+{
+    $callback();
+    return function() {
+        // [...]
+    };
+}
+```
+
+**接下来 , 任何函数名字符串\(包括自己声明的函数\) , 就都是可执行的了 , 这一点需要注意一下 . 如果你引入了你不太熟悉的库 , 你写的一些字符串可能和里面的名字重名了 , 但你认为这只是字符串 . **
 
