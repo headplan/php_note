@@ -74,11 +74,15 @@ $callback = function (string $s)
 echo $callback('World');
 
 # 最后PHP还提供了两个函数用在回调函数上
-call_user_func_array()
-call_user_func()
+# call_user_func_array()
+# call_user_func()
+# 这里的用法和上面是类似的,不再冗述,举一个例子
+$foo = new foo;
+# 第一个参数和前面的一样类的实例和其中的方法,第二个是这个方法的参数
+call_user_func_array(array($foo, "bar"), array("three", "four"));
 ```
 
-最后需要注意的是 , 如果使用了callback强制类型 , 就是这种 : 
+最后需要注意的是 , 如果使用了callback强制类型 , 就是这种 :
 
 ```php
 <?php
