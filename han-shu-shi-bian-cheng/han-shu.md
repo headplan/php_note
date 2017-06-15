@@ -569,5 +569,7 @@ echo $instance(5, 10);
     * newscope - 关联到匿名函数的类作用域 , 或者 'static' 保持当前状态 . 如果是一个对象 , 则使用这个对象的类型为心得类作用域 , 这会决定绑定的对象的保护,私有成员方法的可见性
     * 返回一个新创建的Closure对象或者在失败时返回FALSE
 
+这里的介绍还有些模糊 , 下面这篇Laravel相关的文章可以帮助更好的理解 : http://laravelacademy.org/post/4341.html
+
 
 
