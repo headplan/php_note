@@ -44,5 +44,6 @@
   * [函数](han-shu-shi-bian-cheng/han-shu.md)
     * [高阶函数](han-shu-shi-bian-cheng/han-shu/gao-jie-han-shu.md)
     * [更多代码示例](han-shu-shi-bian-cheng/han-shu/dai-ma-shi-li.md)
+  * [纯,透明,不变](han-shu-shi-bian-cheng/han-shu/7eaf2c-tou-660e2c-bu-bian.md)
 * [PHP特性整合](phpte-xing-zheng-he.md)
 
