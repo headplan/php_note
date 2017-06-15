@@ -564,6 +564,10 @@ echo $instance(5, 10);
     * newscope - 想要绑定给闭包的类作用域 , 或者'static'表示不改变 . 如果传入一个对象 , 则使用这个对象的类型名 . 类作用域用来决定在闭包中$this对象的私有 , 保护方法的可见性
     * 返回一个新的Closure对象或者在失败时返回FALSE
 * Closure::bindTo - 复制当前闭包对象 , 绑定指定的$this对象和类作用域
+  * `public Closure Closure::bindTo ( object $newthis [, mixed $newscope = 'static' ] )`
+    * newthis - 绑定给匿名函数的一个对象 , 或者NULL来取消绑定
+    * newscope - 关联到匿名函数的类作用域 , 或者 'static' 保持当前状态 . 如果是一个对象 , 则使用这个对象的类型为心得类作用域 , 这会决定绑定的对象的保护,私有成员方法的可见性
+    * 返回一个新创建的Closure对象或者在失败时返回FALSE
 
 
 
