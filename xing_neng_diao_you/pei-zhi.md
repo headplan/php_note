@@ -114,6 +114,10 @@ sudo vim /etc/ssh/sshd_config
 # 找到下面两个配置改为no
 PasswordAuthentication no
 PermitRootLogin no
+# 这里再开启两个配置
+# 启用客户端活动检查,每60秒检查一次,3次不活动断开连接
+ClientAliveInterval 60
+ClientAliveCountMax 3
 
 # 重启SSH服务器
 # Ubuntu
@@ -408,14 +412,14 @@ sudo yum -y --enablerepo=epel,remi-php56 install php-fpm php-cli php-gd \
 
 **自动配置工具**
 
-* Puppet\([http://puppetlabs.com/\](http://puppetlabs.com/\)\)
-* Chef\([https://www.getchef.com/chef/\](https://www.getchef.com/chef/\)\)
-* Ansible\([http://www.ansible.com/home\](http://www.ansible.com/home\)\)
-* SaltStack\([http://www.saltstack.com/\](http://www.saltstack.com/\)\)
+* Puppet\([http://puppetlabs.com/\](http://puppetlabs.com/%29\)
+* Chef\([https://www.getchef.com/chef/\](https://www.getchef.com/chef/%29\)
+* Ansible\([http://www.ansible.com/home\](http://www.ansible.com/home%29\)
+* SaltStack\([http://www.saltstack.com/\](http://www.saltstack.com/%29\)
 
 **委托配置服务器**
 
-* Forge\([https://forge.laravel.com/\](https://forge.laravel.com/\)\)
+* Forge\([https://forge.laravel.com/\](https://forge.laravel.com/%29\)
 
 
 
