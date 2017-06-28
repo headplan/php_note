@@ -2,7 +2,7 @@
 
 这里先对shared和static静态模式 , 进一步描述 . 共享模式shared的意思是linux中.so文件的意思 , 也有Win系统中的.dll文件的意思 . 其理解的方式可以看做是一个exe应用程序 , 里面调用了一部分扩展函数 , 如果这些函数已经静态的安装在其中 . 那么这个程序就可以在任意其他系统上直接运行起来 . 如果这个程序调用了共享模式的扩展 , 那程序里值记录了调用这个扩展的一个路径或者地址 , 调用时候去寻找这个扩展 , 本机安装了 , 正常运行 , 但是换了其他机器 , 没有这个扩展 , 就无法运行了 .
 
-为了方便记录 , 把扩展部分的内容分块描述 , 但顺序不变 . 
+为了方便记录 , 把扩展部分的内容分块描述 , 但顺序不变 .
 
 ```
 Extensions(扩展):
@@ -18,34 +18,80 @@ Extensions(扩展):
       o foobar package install prefix is /usr/local/foobar/
 ```
 
+**扩展列表**
+
+```
+# ===== [libxml]
+# ===== [OpenSSL]
+# ===== [PREC]
+# ===== [SQLite3]
+# ===== [Zlib]
+# ===== [BC Math]
+# ===== [Bzip2]
+# ===== [Calendar]
+# ===== [ctype]
+# ===== [cURL]
+.10
+# ===== [DBA]
+```
+
 ```
 --disable-all          关闭默认为启用的所有扩展功能
 
+# ===== [libxml]
 --disable-libxml       禁用libxml支持
---with-libxml-dir=DIR  LIBXML:libxml安装目录
+--with-libxml-dir=DIR  LIBXML:用于指定安装libxml库文件的位置
+# 此扩展默认为启用,编译时可通过disable选项禁用
+# Debian/Ubuntu 需安装 libxml2,libxml2-dev 依赖包
+# Redhat/CentOS 需安装 libxml2,libxml2-devel 依赖包
 
+# ===== [OpenSSL]
 --with-openssl=DIR     启用openssl支持 (OpenSSL版本号必须大于等于 1.0.1)
 --with-kerberos=DIR    OPENSSL:包含kerberos支持
 --with-system-ciphers  OPENSSL:用系统自带的密码清单(cipher list)去替代硬编码(hard coded)
+# PHP 7.1 所需的 openssl 版本是 >= 1.0.1
+# PHP 7.0 所需的 openssl 版本是 >= 0.9.8
+# PHP 5.6 所需的 openssl 版本是 >= 0.9.6
+# PHP 5.5 所需的 openssl 版本是 >= 0.9.6
+# PHP 5.4 所需的 openssl 版本是 >= 0.9.6
+# PHP 5.3 所需的 openssl 版本是 >= 0.9.6
 
+# ===== [PREC]
 --with-pcre-regex=DIR  引用PCRE兼容的正则表达式库,目录是PCRE的安装目录
 --with-pcre-jit        引用PCRE兼容的jit编译器(jit实时编译)
 
+# ===== [SQLite3]
 --without-sqlite3=DIR  不开启sqlite3支持. DIR是SQLite3的安装路径.
 
+# ===== [Zlib]
 --with-zlib=DIR        开启ZLIB支持(ZLIB版本号必须大于等于 1.0.9)
 --with-zlib-dir=<DIR>  定义ZLIB的安装路径
+# Debian/Ubuntu 需安装 zlib1g-dev 依赖包
+# Redhat/CentOS 需安装 zlib-devel 依赖包
 
+# ===== [BC Math]
 --enable-bcmath        启用bcmatch函数支持(公元前风格精度数学)
+
+# ===== [Bzip2]
 --with-bz2=DIR         开启BZip2支持
+# Debian/Ubuntu 需安装 libbz2-dev 依赖包
+# Redhat/CentOS 需安装 bzip2-devel 依赖包
+
+# ===== [Calendar]
 --enable-calendar      启用日历转换支持
+
+# ===== [ctype]
 --disable-ctype        禁用ctype功能
+# 此扩展默认为启用,编译时可禁用
+
+# ===== [cURL]
 --with-curl=DIR        启用cURL支持
-
-
+# Debian/Ubuntu 需安装 libcurl4-gnutls-dev 依赖包
+# Redhat/CentOS 需安装 curl-devel 依赖包
 ```
 
 ```
+# ===== [DBA]
 --enable-dba           构架捆绑模块的DBA.要建立扩展的共享模块使用--enable-dba=shared参数.
 --with-qdbm=DIR        DBA: QDBM support
 --with-gdbm=DIR        DBA: GDBM support
@@ -59,31 +105,76 @@ Extensions(扩展):
 --without-cdb=DIR      DBA: CDB support (bundled)
 --disable-inifile      DBA: INI support (bundled)
 --disable-flatfile     DBA: FlatFile support (bundled)
+# 该参数会默认自带3个参数
+# −−with-cdb,−−enable-inifile,inifile-flatfile
+# 若要禁止,则需通过参数−−without-cdb=DIR,−−disable-inifile,−−disable-flatfile实现
+
+# ===== [DOM]
+--disable-dom Disable DOM support
+--with-libxml-dir=DIR DOM: libxml2 install prefix
+# 此扩展默认为启用.编译时可通过−−disable-dom禁用.
+
+# ===== [enchant]
+--with-enchant=DIR Include enchant support.
+GNU Aspell version 1.1.3 or higher required.
+# Debian/Ubuntu 需安装 libenchant-dev,libpspell-dev 依赖包
+# Redhat/CentOS 需安装 enchant-devel,aspell-devel 依赖包
+
+# ===== [EXIF]
+--enable-exif Enable EXIF (metadata from images) support
+
+# ===== [fileinfo]
+--disable-fileinfo Disable fileinfo support
+# 此扩展默认为启用,fileinfo support.编译时可通过下列选项禁用:−−disable-fileinfo
+# 注意:在内存比较小的机器上编译此扩展时可能会失败,因此内存加SWAP的容量小于480MB时就不要安装了.
+
+# ===== [Filter]
+--disable-filter Disable input filter support
+--with-pcre-dir FILTER: pcre install prefix
+# 此扩展默认为启用,input filter support.编译时可通过下列选项禁用:−−disable-filter
+# 另如果要给此扩展指定PCRE安装目录的话,则还有第二个编译参数.
+
+# ===== [FTP]
+--enable-ftp Enable FTP support
+--with-openssl-dir=DIR FTP: openssl install prefix
+# 通过指定编译参数−−enable-ftp安装.Enable FTP support
+# 安装该扩展还有个参数−−with-openssl-dir=DIR FTP: openssl install prefix,可不指定,则使用系统自带openssl库
+
+# ===== [GD imaging(gd)]
+--with-gd=DIR Include GD support. DIR is the GD library base
+install directory BUNDLED
+--with-webp-dir=DIR GD: Set the path to libwebp install prefix
+--with-jpeg-dir=DIR GD: Set the path to libjpeg install prefix
+--with-png-dir=DIR GD: Set the path to libpng install prefix
+--with-zlib-dir=DIR GD: Set the path to libz install prefix
+--with-xpm-dir=DIR GD: Set the path to libXpm install prefix
+--with-freetype-dir=DIR GD: Set the path to FreeType 2 install prefix
+--enable-gd-native-ttf GD: Enable TrueType string function
+--enable-gd-jis-conv GD: Enable JIS-mapped Japanese font support
+# 通过指定编译参数.这是一个打包式的依赖,需要依赖后面列出的安装包.
+# −−with-webp-dir=DIR(PHP 7.0, 7.1 only)
+# PHP5.4、PHP5.5、PHP5.6 则还有个−−with-vpx-dir=DIR
+# Debian/Ubuntu 需安装 libwebp-dev, libjpeg-dev, libpng-dev, libxpm-dev, libfreetype6-dev, libvpx-dev 依赖包
+# Redhat/CentOS 需安装 libwebp-devel, libjpeg-devel, libpng-devel, libXpm-devel, freetype-devel, libvpx-devel 依赖包
+
+# ===== [GetText]
+--with-gettext=DIR Include GNU gettext support
+# 通过指定编译参数安装.
+# Debian/Ubuntu 需安装 gettext 依赖包
+# Redhat/CentOS 需安装 gettext,gettext-devel 依赖包
+
+# ===== [GMP]
+--with-gmp=DIR Include GNU MP support
+# 通过指定编译参数安装.
+# Debian/Ubuntu 需安装 libgmp-dev 依赖包
+# Redhat/CentOS 需安装 gmp-devel 依赖包
 ```
 
 ```
-  --disable-dom           Disable DOM support
-  --with-libxml-dir=DIR   DOM: libxml2 install prefix
-  --with-enchant=DIR      Include enchant support.
-                          GNU Aspell version 1.1.3 or higher required.
-  --enable-exif           Enable EXIF (metadata from images) support
-  --disable-fileinfo      Disable fileinfo support
-  --disable-filter        Disable input filter support
-  --with-pcre-dir         FILTER: pcre install prefix
-  --enable-ftp            Enable FTP support
-  --with-openssl-dir=DIR  FTP: openssl install prefix
-  --with-gd=DIR           Include GD support.  DIR is the GD library base
-                          install directory BUNDLED
-  --with-webp-dir=DIR      GD: Set the path to libwebp install prefix
-  --with-jpeg-dir=DIR     GD: Set the path to libjpeg install prefix
-  --with-png-dir=DIR      GD: Set the path to libpng install prefix
-  --with-zlib-dir=DIR     GD: Set the path to libz install prefix
-  --with-xpm-dir=DIR      GD: Set the path to libXpm install prefix
-  --with-freetype-dir=DIR GD: Set the path to FreeType 2 install prefix
-  --enable-gd-native-ttf  GD: Enable TrueType string function
-  --enable-gd-jis-conv    GD: Enable JIS-mapped Japanese font support
-  --with-gettext=DIR      Include GNU gettext support
-  --with-gmp=DIR          Include GNU MP support
+
+
+
+
   --with-mhash=DIR        Include mhash support
   --disable-hash          Disable hash support
   --without-iconv=DIR     Exclude iconv support
