@@ -10,6 +10,8 @@
     * [PHP配置](xing_neng_diao_you/diao-you.md)
   * [PHP详细安装](xing_neng_diao_you/phpxiang-xi-an-zhuang.md)
     * [PHP编译配置](xing_neng_diao_you/phpxiang-xi-an-zhuang/phpbian-yi-pei-zhi.md)
+      * [SAPI模块](xing_neng_diao_you/phpxiang-xi-an-zhuang/phpbian-yi-pei-zhi/sapimo-kuai.md)
+    * [配置总结](xing_neng_diao_you/phpxiang-xi-an-zhuang/pei-zhi-zong-jie.md)
 * [命令行PHP](ming_ling_hang_php.md)
 * [包](bao.md)
   * [Composer](composer.md)
