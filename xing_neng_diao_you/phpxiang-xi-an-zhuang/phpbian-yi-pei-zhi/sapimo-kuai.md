@@ -59,7 +59,6 @@ SAPI modules:
   --enable-phpdbg-webhelper  编译phpdbg的web支持
   --enable-phpdbg-debug      编译phpdbg的debug模式
   --disable-cgi           禁止编译CGI版本的PHP.PHP4.3.0之后的版本有效.
-  # PHP5.3.0起,这个选项会启用FastCGI,而在以前必须使用--enable-fastcgi启用FastCGI
 ```
 
 
