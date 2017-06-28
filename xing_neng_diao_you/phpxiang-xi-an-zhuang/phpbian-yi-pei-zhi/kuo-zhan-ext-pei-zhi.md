@@ -305,7 +305,6 @@ to use an Oracle Instant Client installation
 Use the special value of 0 to prevent an explicit ODBCVER to be defined.
 # ODBCVER决定你使用的ODBC API,ODBCVER=0x0351表示使用的是3.5.1版本的ODBC,ODBCVER=0x0200表示使用ODBC 2
 
-
 # ===== [ADABAS D]
 --with-adabas=DIR Include Adabas D support /usr/local
 # ADABAS D是一种新的关系型数据库
@@ -333,9 +332,14 @@ Use the special value of 0 to prevent an explicit ODBCVER to be defined.
 Include Empress Local Access support \$EMPRESSPATH
 (Empress Version >= 8.60 required)
 # Empress嵌入式实时数据库
+```
 
+```
+# ===== [Birdstep]
 --with-birdstep=DIR Include Birdstep support /usr/local/birdstep
+# Birdstep RDM Server数据库
 
+# ===== [ODBC]
 --with-custom-odbc=DIR Include user defined ODBC support. DIR is ODBC install base
 directory /usr/local. Make sure to define CUSTOM_ODBC_LIBS and
 have some odbc.h in your include dirs. f.e. you should define
@@ -344,9 +348,16 @@ running this configure script:
 CPPFLAGS=\"-DODBC_QNX -DSQLANY_BUG\"
 LDFLAGS=-lunix
 CUSTOM_ODBC_LIBS=\"-ldblib -lodbc\"
+# 自定义安装的ODBC数据库
 
+# ===== [iODBC]
 --with-iodbc=DIR Include iODBC support /usr/local
+# 一个独立开发的数据库
+
+# ===== [Easysoft OOB(esoob)]
 --with-esoob=DIR Include Easysoft OOB support /usr/local/easysoft/oob/client
+# 包括Easysoft OOB的支持.DIR是OOB的基本安装目录,默认为/usr/local/easysoft/oob/client
+
 --with-unixODBC=DIR Include unixODBC support /usr/local
 --with-dbmaker=DIR Include DBMaker support
 ```
