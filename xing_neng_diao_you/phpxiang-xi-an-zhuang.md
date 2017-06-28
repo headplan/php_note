@@ -1,4 +1,281 @@
 # PHP详细安装
 
+#### 源码安装
 
+**获取源码**
+
+http://php.net/downloads.php
+
+**src/目录**
+
+在家目录中创建src/目录 , 用来存放刚才下载的源码 , 进入这个目录 : 
+
+```
+mkdir ~/src
+cd ~/src
+```
+
+**下载源码**
+
+```
+wget -O php.tar.gz http://hk1.php.net/get/php-7.1.6.tar.gz/from/this/mirror
+tar -xzvf php.tar.gz
+cd php-*
+```
+
+**配置PHP**
+
+构建工具下载
+
+```
+# Ubuntu
+apt-get install build-essenial
+# CentOS
+yum groupinstall "Development Tools"
+```
+
+执行`./configure --help`可以查看php的配置选项 , 可以直接执行`./configure`查看执行失败所缺少的软件依赖 , 直到执行成功 . 
+
+---
+
+Linux环境下 , 如果通过源代码编译安装程序的简单过程可以描述为
+
+```
+./configure-->make-->make install
+```
+
+其中./configure配置脚本功能就是对你的系统做很多的测试 , 以用来检测出你的安装平台的目标特征 , 比如它会检测你是不是有CC或GCC , 它是个shell脚本 , 是autoconf的工具的基本应用 , 它会产生一个输出文件"./Makefiles" , 接下来make程序通过该文件来实现编译
+
+configure脚本有大量的命令行选项 , 对不同的软件包来说 , 这些选项可能会有变化 , 但是许多基本的选项是不会改变的 . configure脚本位于待安装程序源码根目录下面 , 会有一个configure可执行文件 , 使用`./configure --help`命令就可以看到可用的所有选项 , 尽管许多选项是很少用到的 , 但是当你为了特殊的需求而configure一个包时 , 知道他们的存在是很有益处的 . 
+
+**configure脚本选项的配置内容基本上分成9块内容**
+
+1. 配置区【Configuration】
+2. 程序安装目录区【Installation directories】
+3. 程序名称区【Program names】
+4. 系统类型区【System types】
+5. 可选特性区【Optional Features】
+6. 可选安装包区【Optional Packages】
+7. 影响安装的环境变量区【Some influential environment variables】
+
+下面是对PHP最新版7.1.6的拆解 . 
+
+---
+
+**配置区【Configuration】**
+
+这块内容主要是对./configure脚本本身运行的过程进行配置 , 如是否显示运行结果给用户 , 是否创建cache文件等等
+
+    Configuration:
+      -h, --help              display this help and exit
+          --help=short        display options specific to this package
+          --help=recursive    display the short help of all the included packages
+      -V, --version           display version information and exit
+      -q, --quiet, --silent   do not print `checking ...' messages
+          --cache-file=FILE   cache test results in FILE [disabled]
+      -C, --config-cache      alias for `--cache-file=config.cache'
+      -n, --no-create         do not create output files
+          --srcdir=DIR        find the sources in DIR [configure dir or `..']
+
+    配置帮助参数:  
+      -h, --help              显示帮助信息并退出
+          --help=short        显示具体指令的帮助信息
+          --help=recursive    显示所有包含此信息的帮助信息
+      -V, --version           显示版本信息
+      -q, --quiet, --silent   将不打印“CHECKing....”这样的信息
+          --cache-file=FILE   测试返回的缓存文件 [disabled]
+      -C, --config-cache      `--cache-file=config.cache'的另一种用法
+      -n, --no-create         将不创建输出文件
+          --srcdir=DIR        查询目标目录的源文件 [configure dir or `..']
+
+**--cache-file=FILE**
+
+'configure'会在你的系统上测试存在的特性\(或者bug!\) , 为了加速随后进行的配置 , 测试的结果会存储在一个cache file里 , 尤其当configure一个复杂的源码树时 , 一个很好的cache file的存在会对性能有很大帮助 . 
+
+**--no-create**
+
+'configure'中的一个主要函数会制作输出文件\(./Makefile\) , 此选项阻止'configure'生成这个文件 , 你可以认为这是一种演习\(dry run\) , 尽管缓存\(cache\)仍然被改写了 . 
+
+---
+
+**程序安装目录区【Installation directories】**
+
+```
+  --prefix=PREFIX         install architecture-independent files in PREFIX
+                          [/usr/local]
+  --exec-prefix=EPREFIX   install architecture-dependent files in EPREFIX
+                          [PREFIX]
+```
+
+即如果你想指定安装的程序的具体目录 , 就用这两个选项 , 他们之间的区别就只有是否平台相关性 . 通过指定这两个选项后 , 程序就完全的被安装在指定的目录下面了 , 此时以后删除该程序 , 只需要简单的移除该目录下所有内容就可以了 . 
+
+```
+  --prefix=PREFIX         安装至指定[PREFIX]的目录
+                          默认[/usr/local]
+  --exec-prefix=EPREFIX   安装至指定[EPREFIX]的目录
+                          默认与[PREFIX]相同
+```
+
+这个区块是./configure脚本中经常被配置的选项区 , 这里的主要作用就是配置你要安装的软件的安装后的目录 , 默认情况下\`make install'将把文件安装至'/usr/local/bin' , '/usr/local/lib'等目录 . 但你可以通过以上参数定义\[PREFIX\]的值来改变目录 . 
+
+例如默认情况下目录为'/usr/local'使用指令'--prefix'改变目录 . 
+
+例子 : '--prefix=$HOME'
+
+为了更好的定义项目 , 使用以下参数改变更多选项.
+
+以下参数可直接定义更细致的系统目录\(以下参数尽量默认\) : 
+
+```
+Fine tuning of the installation directories:
+  --bindir=DIR            user executables [EPREFIX/bin]
+  --sbindir=DIR           system admin executables [EPREFIX/sbin]
+  --libexecdir=DIR        program executables [EPREFIX/libexec]
+  --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
+  --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
+  --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
+  --runstatedir=DIR       modifiable per-process data [LOCALSTATEDIR/run]
+  --libdir=DIR            object code libraries [EPREFIX/lib]
+  --includedir=DIR        C header files [PREFIX/include]
+  --oldincludedir=DIR     C header files for non-gcc [/usr/include]
+  --datarootdir=DIR       read-only arch.-independent data root [PREFIX/share]
+  --datadir=DIR           read-only architecture-independent data [DATAROOTDIR]
+  --infodir=DIR           info documentation [DATAROOTDIR/info]
+  --localedir=DIR         locale-dependent data [DATAROOTDIR/locale]
+  --mandir=DIR            man documentation [DATAROOTDIR/man]
+  --docdir=DIR            documentation root [DATAROOTDIR/doc/PACKAGE]
+  --htmldir=DIR           html documentation [DOCDIR]
+  --dvidir=DIR            dvi documentation [DOCDIR]
+  --pdfdir=DIR            pdf documentation [DOCDIR]
+  --psdir=DIR             ps documentation [DOCDIR]
+```
+
+```
+以下参数可直接定义更细致的系统目录:
+  --bindir=DIR            用户系统所执行程序目录 默认：[EPREFIX/bin]
+  --sbindir=DIR           系统管理员所执行程序目录 默认： [EPREFIX/sbin]
+  --libexecdir=DIR        应用程序执行目录 默认：[EPREFIX/libexec]
+  --sysconfdir=DIR        只读配置文件目录 默认： [PREFIX/etc]
+  --sharedstatedir=DIR    数据文件描述安装目录 默认： [PREFIX/com]
+  --localstatedir=DIR     本地数据安装目录 默认： [PREFIX/var]
+  --libdir=DIR            对象库 默认：[EPREFIX/lib]
+  --includedir=DIR        C语言头文件 默认： [PREFIX/include]
+  --oldincludedir=DIR     c语言头文件旧目录 默认： [/usr/include]
+  --datarootdir=DIR       read-only arch.-independent data root [PREFIX/share]
+  --datadir=DIR           read-only architecture-independent data [DATAROOTDIR]
+  --infodir=DIR           info文档目录 [DATAROOTDIR/info]
+  --localedir=DIR         本地数据目录 [DATAROOTDIR/locale]
+  --mandir=DIR            man 文档目录 [DATAROOTDIR/man]
+  --docdir=DIR            ROOT文档目录 [DATAROOTDIR/doc/PACKAGE]
+  --htmldir=DIR           html文档目录 [DOCDIR]
+  --dvidir=DIR            DVI文档目录 [DOCDIR]
+  --pdfdir=DIR            pdf文档目录 [DOCDIR]
+  --psdir=DIR             ps文档目录 [DOCDIR]
+```
+
+---
+
+> **程序名称区【Program names】**
+>
+> 这里没有出现的几个配置参数
+>
+> ```
+> --program-prefix=PREFIX            prepend PREFIX to installed program names
+> --program-suffix=SUFFIX            append SUFFIX to installed program names
+> --program-transform-name=PROGRAM   run sed PROGRAM on installed program names
+> ```
+>
+> ```
+> --program-prefix=PREFIX            在安装的程序名前面加上前缀
+> --program-suffix=SUFFIX            在安装的程序名前面加上后缀
+> --program-transform-name=PROGRAM   在运行的时候要运行sed程序脚本
+> ```
+
+---
+
+**系统类型区【System types】: 也叫交叉编译选项**
+
+一个程序开发完成以后 , 对源代码进行编译 , 将编译后的文件发布出去形成所谓的各个平台的安装版本\(非开源的都是这么干的 , 开源的也可以这样编译后不同运行平台的编译版本\) , 这就是所谓的交叉编译 . 下面介绍有关这个平台相关性的选项 . 
+
+```
+System types:
+  --build=BUILD     configure for building on BUILD [guessed]
+  --host=HOST       cross-compile to build programs to run on HOST [BUILD]
+  --target=TARGET   configure for building compilers for TARGET [HOST]
+```
+
+```
+系统类型:
+  --build=BUILD     配置BUILD方式,指定编译工具所在系统的系统类型 [guessed]
+  --host=HOST       指定HTTP服务器将要进行交叉编译时运行的目标系统类型的主机 [BUILD]
+  --target=TARGET   指定交叉编译所产生的目标代码类型 [HOST]
+```
+
+* 通过--build选项来指定执行代码编译工作的主机 , 通常该值默认是cofig.guess\(该shell脚本和./configure在同一目录\)来猜即可\(一般就是你执行编译操作的主机\) , 当然你也可以通过这个选项指定具体的值 . 
+* 编译的程序在什么机器上运行是由--host选项指定的 , 其默认值都是--build , 当两者不一样的时候就是所谓的交叉编译 . 
+* --target选项用来配置编译工具 , 它只有在建立交叉编译环境的时候用到 , 正常编译和交叉编译都不会用到 . 他用--build主机上的编译器 , 编译一个新的编译器\(binutils, gcc,gdb等\) , 这个新的编译器将来编译出来的其他程序将运行在target指定的系统上 . 
+
+---
+
+**可选特性区【Optional Features】和 可选安装包区【Optional Packages】**
+
+当你想在./configure时使用某个特性的时候 , 可以来配置该区块中的选项值 , 它主要分为disable和enable两大类 , 具体有哪些特性可以用过`./configure --help`来查询 . 软件的包安装的时候 , 可能会存在依赖 . 加上a软件依赖于b软件 , 那么在安装a软件的时候 , 必须要先安装b软件 , 而此时b软件偏偏不在系统的默认查询目录\(即系统无法查询到 , 或者你不想使用系统默认的b软件而想使用你自己安装的b软件\) , 就可用通过with选项来指定具体的软件包地址 , 通过without选项来指定不使用指定的软件包 . 
+
+```
+Optional Features and Packages:
+  --disable-option-checking  ignore unrecognized --enable/--with options
+  --disable-FEATURE       do not include FEATURE (same as --enable-FEATURE=no)
+  --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
+  --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
+  --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
+  --with-libdir=NAME      Look for libraries in .../NAME rather than .../lib
+  --disable-rpath         Disable passing additional runtime library
+                          search paths
+  --enable-re2c-cgoto     Enable -g flag to re2c to use computed goto gcc extension
+  --disable-gcc-global-regs
+                          whether to enable GCC global register variables
+```
+
+```
+配置可特性和包:
+  --disable-option-checking 忽略未执行 --enable/--with 的所有选项
+  --disable-FEATURE	     关闭特征选项.将不包含FEATURE(指定的特性)(与--enable-FEATURE=no一致)
+  --enable-FEATURE[=ARG]    启用特征选项.包含FEATURE(指定特性)[ARG=yes]注:结尾为YES或NO(YES为打开,NO为关闭)
+  --with-PACKAGE[=ARG]	     开启使用的包[ARG=yes]注:ARG可选YES或NO
+  --without-PACKAGE	     关闭不用的包 (与--with-PACKAGE=no一致)
+  --with-libdir=NAME	     库文件查找路径设置.../XXX/lib/
+  --disable-rpath	     禁用传递其他运行库搜索路径
+  
+  --enable-re2c-cgoto       Enable -g flag to re2c to use computed goto gcc extension
+  --disable-gcc-global-regs whether to enable GCC global register variables  
+```
+
+---
+
+**影响安装的环境变量区【Some influential environment variables】**
+
+这块主要是影响编译器的编译环境变量
+
+    Some influential environment variables:
+      CC          C compiler command
+      CFLAGS      C compiler flags
+      LDFLAGS     linker flags, e.g. -L<lib dir> if you have libraries in a
+                  nonstandard directory <lib dir>
+      LIBS        libraries to pass to the linker, e.g. -l<library>
+      CPPFLAGS    (Objective) C/C++ preprocessor flags, e.g. -I<include dir> if
+                  you have headers in a nonstandard directory <include dir>
+      CPP         C preprocessor
+      YACC        The `Yet Another Compiler Compiler' implementation to use.
+                  Defaults to the first program found out of: `bison -y', `byacc',
+                  `yacc'.
+      YFLAGS      The list of arguments that will be passed by default to $YACC.
+                  This script will default YFLAGS to the empty string to avoid a
+                  default value of `-d' given by some make applications.
+      CXX         C++ compiler command
+      CXXFLAGS    C++ compiler flags
+      CXXCPP      C++ preprocessor
+
+---
+
+主要和PHP相关的部分 , 就是可选区和环境变量区之间的部分 . 另开一篇内容 , 继续描述 : 
 
