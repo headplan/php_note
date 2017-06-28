@@ -33,6 +33,17 @@ Extensions(扩展):
 # ===== [cURL]
 .10
 # ===== [DBA]
+# ===== [DOM]
+# ===== [enchant]
+# ===== [EXIF]
+# ===== [fileinfo]
+# ===== [Filter]
+# ===== [FTP]
+# ===== [GD imaging(gd)]
+# ===== [GetText]
+# ===== [GMP]
+.20
+
 ```
 
 ```
@@ -171,10 +182,6 @@ install directory BUNDLED
 ```
 
 ```
-
-
-
-
   --with-mhash=DIR        Include mhash support
   --disable-hash          Disable hash support
   --without-iconv=DIR     Exclude iconv support
