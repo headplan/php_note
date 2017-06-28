@@ -46,15 +46,14 @@ SAPI modules:
 
   --with-apxs2=FILE       编译共享的apache2.0处理程序的模块.FILE是可选的Apache apxs工具的路径,默认指向apxs.
   --disable-cli           PHP4.3.0之后的版本有效.禁止编译PHP的CLI版本(使用它将同时强制使用--without-pear选项)
-  --enable-embed=TYPE     实验性:建立内嵌的SAPI库.参数为shared,static.鸟哥的博客中有对次解释.http://www.laruence.com/2008/09/23/539.html
+  --enable-embed=TYPE     实验性:建立内嵌的SAPI库.参数(TYPE)为shared,static.鸟哥的博客中有对次解释.http://www.laruence.com/2008/09/23/539.html
   # PHP容许你在C/C++语言中调用PHP/ZE提供的函数
-  --enable-fpm            Enable building of the fpm SAPI executable
-  --with-fpm-user=USER    Set the user for php-fpm to run as. (default: nobody)
-  --with-fpm-group=GRP    Set the group for php-fpm to run as. For a system user, this
-                          should usually be set to match the fpm username (default: nobody)
-  --with-fpm-systemd      Activate systemd integration
-  --with-fpm-acl          Use POSIX Access Control Lists
-  --with-litespeed        Build PHP as litespeed module
+  --enable-fpm            编译PHP时需要--enable-fpm配置选项来激活FPM支持
+  --with-fpm-user=USER    设置FPM运行的用户身份(默认-nobody)
+  --with-fpm-group=GRP    设置FPM运行时的用户组(默认-nobody)
+  --with-fpm-systemd      启用systemd集成(默认-no)
+  --with-fpm-acl          使用POSIX访问控制列表(默认-no)5.6.5版本起有效
+  --with-litespeed        编译litespeed模块,LiteSpeed可与DirectAdmin,cPanel与Plesk等虚拟主机控制面板配套使用.
   --enable-phpdbg            Build phpdbg
   --enable-phpdbg-webhelper  Build phpdbg web SAPI support
   --enable-phpdbg-debug      Build phpdbg in debug mode
