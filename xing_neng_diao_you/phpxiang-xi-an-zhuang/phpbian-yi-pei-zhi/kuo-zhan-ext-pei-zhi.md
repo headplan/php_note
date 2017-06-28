@@ -358,8 +358,13 @@ CUSTOM_ODBC_LIBS=\"-ldblib -lodbc\"
 --with-esoob=DIR Include Easysoft OOB support /usr/local/easysoft/oob/client
 # 包括Easysoft OOB的支持.DIR是OOB的基本安装目录,默认为/usr/local/easysoft/oob/client
 
+# ===== [unixODBC]
 --with-unixODBC=DIR Include unixODBC support /usr/local
+# unixodbc是一个来连接数据库的组件
+
+# ===== [DBMaker]
 --with-dbmaker=DIR Include DBMaker support
+# DBMaker 为功能强大的关联式资料库管理系统
 ```
 
 ```
