@@ -464,6 +464,8 @@ When built as 'shared' the extension filename is always pdo_odbc.so
   --with-zlib-dir=DIR     mysqlnd: Set the path to libz install prefix
 ```
 
+---
+
 ```
 Extensions:
 
