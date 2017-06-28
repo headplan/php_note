@@ -445,52 +445,97 @@ install directory BUNDLED
 ```
 
 ```
+# ===== [PostgreSQL]
+--with-pgsql=DIR Include PostgreSQL support. DIR is the PostgreSQL
+base install directory or the path to pg_config
+# PostgreSQL对象关系型数据库管理系统
 
-                          
-  --with-pgsql=DIR        Include PostgreSQL support.  DIR is the PostgreSQL
-                          base install directory or the path to pg_config
-  --disable-phar          Disable phar support
-  --disable-posix         Disable POSIX-like functions
-  --with-pspell=DIR       Include PSPELL support.
-                          GNU Aspell version 0.50.0 or higher required
-  --with-libedit=DIR      Include libedit readline replacement (CLI/CGI only)
-  --with-readline=DIR     Include readline support (CLI/CGI only)
-  --with-recode=DIR       Include recode support
-  --disable-session       Disable session support
-  --with-mm=DIR           SESSION: Include mm support for session storage
-  --enable-shmop          Enable shmop support
-  --disable-simplexml     Disable SimpleXML support
-  --with-libxml-dir=DIR   SimpleXML: libxml2 install prefix
-  --with-snmp=DIR         Include SNMP support
-  --with-openssl-dir=DIR  SNMP: openssl install prefix
-  --enable-soap           Enable SOAP support
-  --with-libxml-dir=DIR   SOAP: libxml2 install prefix
-  --enable-sockets        Enable sockets support
-  --enable-sysvmsg        Enable sysvmsg support
-  --enable-sysvsem        Enable System V semaphore support
+# ===== [Phar]
+--disable-phar Disable phar support
+# 此扩展默认为启用,编译时可通过此选项禁用
+
+# ===== [Posix]
+--disable-posix Disable POSIX-like functions
+# 此扩展默认为启用,编译时可通过此选项禁用
+
+# ===== [Aspell]
+--with-pspell=DIR Include PSPELL support.
+GNU Aspell version 0.50.0 or higher required
+# 在PHP中使用Pspell实现拼写检查
+
+# ===== [Libedit]
+--with-libedit=DIR Include libedit readline replacement (CLI/CGI only)
+# 命令行工具
+
+# ===== [Readline]
+--with-readline=DIR Include readline support (CLI/CGI only)
+# 命令行工具
+
+
+
+--with-recode=DIR Include recode support
+
+--disable-session Disable session support
+
+--with-mm=DIR SESSION: Include mm support for session storage
+
+--enable-shmop Enable shmop support
+
+--disable-simplexml Disable SimpleXML support
+--with-libxml-dir=DIR SimpleXML: libxml2 install prefix
+
+--with-snmp=DIR Include SNMP support
+--with-openssl-dir=DIR SNMP: openssl install prefix
+
+
+--enable-soap Enable SOAP support
+--with-libxml-dir=DIR SOAP: libxml2 install prefix
+
+--enable-sockets Enable sockets support
+
+--enable-sysvmsg Enable sysvmsg support
+
+--enable-sysvsem Enable System V semaphore support
+```
+
+```
+
   --enable-sysvshm        Enable the System V shared memory support
+  
   --with-tidy=DIR         Include TIDY support
+  
   --disable-tokenizer     Disable tokenizer support
+  
   --enable-wddx           Enable WDDX support
   --with-libxml-dir=DIR   WDDX: libxml2 install prefix
   --with-libexpat-dir=DIR WDDX: libexpat dir for XMLRPC-EPI (deprecated)
+  
   --disable-xml           Disable XML support
   --with-libxml-dir=DIR   XML: libxml2 install prefix
   --with-libexpat-dir=DIR XML: libexpat install prefix (deprecated)
+  
+  
   --disable-xmlreader     Disable XMLReader support
   --with-libxml-dir=DIR   XMLReader: libxml2 install prefix
+  
   --with-xmlrpc=DIR       Include XMLRPC-EPI support
   --with-libxml-dir=DIR   XMLRPC-EPI: libxml2 install prefix
   --with-libexpat-dir=DIR XMLRPC-EPI: libexpat dir for XMLRPC-EPI (deprecated)
   --with-iconv-dir=DIR    XMLRPC-EPI: iconv dir for XMLRPC-EPI
+  
+  
   --disable-xmlwriter     Disable XMLWriter support
   --with-libxml-dir=DIR   XMLWriter: libxml2 install prefix
+  
   --with-xsl=DIR          Include XSL support.  DIR is the libxslt base
                           install directory (libxslt >= 1.1.0 required)
+                          
   --enable-zip            Include Zip read/write support
   --with-zlib-dir=DIR     ZIP: Set the path to libz install prefix
   --with-pcre-dir         ZIP: pcre install prefix
   --with-libzip=DIR       ZIP: use libzip
+  
+  
   --enable-mysqlnd        Enable mysqlnd explicitly, will be done implicitly
                           when required by other extensions
   --disable-mysqlnd-compression-support
