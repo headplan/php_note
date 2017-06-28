@@ -54,6 +54,27 @@ Extensions(扩展):
 # ===== [LDAP]
 # ===== [Multibyte String Functions(mbstring)]
 .30
+# ===== [mcrypt]
+# ===== [mysqli]
+# ===== [OCI8]
+# ===== [ODBCVER]
+# ===== [ADABAS D]
+# ===== [SAP DB]
+# ===== [Solid]
+# ===== [IBM DB2]
+# ===== [ODBCRouter]
+# ===== [Empress]
+.40
+# ===== [Birdstep]
+# ===== [ODBC]
+# ===== [iODBC]
+# ===== [Easysoft OOB(esoob)]
+# ===== [unixODBC]
+# ===== [DBMaker]
+# ===== [opcache]
+# ===== [Hugepages]
+# ===== [pcntl]
+# ===== [PDO]
 ```
 
 ```
@@ -365,14 +386,25 @@ CUSTOM_ODBC_LIBS=\"-ldblib -lodbc\"
 # ===== [DBMaker]
 --with-dbmaker=DIR Include DBMaker support
 # DBMaker 为功能强大的关联式资料库管理系统
+
+# ===== [opcache]
+--disable-opcache Disable Zend OPcache support
+--disable-opcache-file Disable file based caching
+# PHP5.5之后的版本,此扩展默认为启用,编译时可通过选项禁用
+# 注意:默认编译安装不代表默认启用,还需配置到ini文件里才行
+
+# ===== [Hugepages]
+--disable-huge-code-pages
+Disable copying PHP CODE pages into HUGE PAGES
+# 让php7更快
+
+# ===== [pcntl]
+--enable-pcntl Enable pcntl support (CLI/CGI only)
+# PHP使用PCNTL系列的函数也能做到多进程处理一个事务
 ```
 
 ```
---disable-opcache Disable Zend OPcache support
---disable-opcache-file Disable file based caching
---disable-huge-code-pages
-Disable copying PHP CODE pages into HUGE PAGES
---enable-pcntl Enable pcntl support (CLI/CGI only)
+# ===== [PDO]
 --disable-pdo Disable PHP Data Objects support
 --with-pdo-dblib=DIR PDO: DBLIB-DB support. DIR is the FreeTDS home directory
 --with-pdo-firebird=DIR PDO: Firebird support. DIR is the Firebird base
@@ -405,14 +437,16 @@ flavour. The syntax for generic ODBC support is:
 --with-pdo-odbc=generic,dir,libname,ldflags,cflags
 
 When built as 'shared' the extension filename is always pdo_odbc.so
+--with-pdo-pgsql=DIR PDO: PostgreSQL support. DIR is the PostgreSQL base
+install directory or the path to pg_config
+--without-pdo-sqlite=DIR
+PDO: sqlite 3 support. DIR is the sqlite base
+install directory BUNDLED
 ```
 
 ```
-  --with-pdo-pgsql=DIR    PDO: PostgreSQL support.  DIR is the PostgreSQL base
-                          install directory or the path to pg_config
-  --without-pdo-sqlite=DIR
-                          PDO: sqlite 3 support.  DIR is the sqlite base
-                          install directory BUNDLED
+
+                          
   --with-pgsql=DIR        Include PostgreSQL support.  DIR is the PostgreSQL
                           base install directory or the path to pg_config
   --disable-phar          Disable phar support
