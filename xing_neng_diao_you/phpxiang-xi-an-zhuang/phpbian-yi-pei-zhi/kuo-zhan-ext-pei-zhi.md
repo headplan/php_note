@@ -326,12 +326,16 @@ Use the special value of 0 to prevent an explicit ODBCVER to be defined.
 --with-ODBCRouter=DIR Include ODBCRouter.com support /usr
 # ODBCRouter关系数据库数据交换组件
 
+# ===== [Empress]
 --with-empress=DIR Include Empress support \$EMPRESSPATH
 (Empress Version >= 8.60 required)
 --with-empress-bcs=DIR
 Include Empress Local Access support \$EMPRESSPATH
 (Empress Version >= 8.60 required)
+# Empress嵌入式实时数据库
+
 --with-birdstep=DIR Include Birdstep support /usr/local/birdstep
+
 --with-custom-odbc=DIR Include user defined ODBC support. DIR is ODBC install base
 directory /usr/local. Make sure to define CUSTOM_ODBC_LIBS and
 have some odbc.h in your include dirs. f.e. you should define
@@ -340,6 +344,7 @@ running this configure script:
 CPPFLAGS=\"-DODBC_QNX -DSQLANY_BUG\"
 LDFLAGS=-lunix
 CUSTOM_ODBC_LIBS=\"-ldblib -lodbc\"
+
 --with-iodbc=DIR Include iODBC support /usr/local
 --with-esoob=DIR Include Easysoft OOB support /usr/local/easysoft/oob/client
 --with-unixODBC=DIR Include unixODBC support /usr/local
