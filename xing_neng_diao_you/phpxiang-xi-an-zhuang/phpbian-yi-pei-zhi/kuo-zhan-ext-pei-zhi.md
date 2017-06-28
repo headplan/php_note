@@ -43,6 +43,17 @@ Extensions(扩展):
 # ===== [GetText]
 # ===== [GMP]
 .20
+# ===== [Mhash]
+# ===== [hash]
+# ===== [iconv]
+# ===== [IMAP]
+# ===== [Firebird/InterBase]
+# ===== [Internationalization(intl)]
+# ===== [International Components for Unicode(ICU)]
+# ===== [json]
+# ===== [LDAP]
+# ===== [Multibyte String Functions(mbstring)]
+.30
 ```
 
 ```
@@ -206,21 +217,49 @@ install directory BUNDLED
 # 通过指定编译参数安装
 # 注意:编译此选项时,PHP需指定libc-client.a所在目录
 
-# ===== []
+# ===== [Firebird/InterBase]
 --with-interbase=DIR Include Firebird support. DIR is the Firebird base
 install directory /opt/firebird
+# InterBase是一种关系数据管理系统
+# 这里的路径是Firebird的默认安装路径/opt/firebird
 
-# ===== []
+# ===== [Internationalization(intl)]
 --enable-intl Enable internationalization support
+# PHP intl是国际化扩展,是ICU库的一个包装器.所以在安装PHP intl扩展前要先安装ICU库.
+# 安装icu
+# cd /usr/local/src/
+# wget http://download.icu-project.org/files/icu4c/56.1/icu4c-56_1-src.tgz
+# tar -xzf icu4c-56_1-src.tgz
+# cd icu/source
+# ./configure -prefix=/usr/local/icu
+# make && make install
+# 安装intl
+# cd /usr/local/src/lnmp/src/
+# tar -xzf php-7.0.1.tar.gz
+# cd php-7.0.1/ext/intl
+# /usr/local/php/bin/phpize
+# ./configure –with-php-config=/usr/local/php/bin/php-config –with-icu-dir=/usr/local/icu
+# make && make install
+# echo ‘extension = intl.so’ >> /usr/local/php/etc/php.ini
+# service php-fpm restart
 
+# ===== [International Components for Unicode(ICU)]
 --with-icu-dir=DIR Specify where ICU libraries and headers can be found
+# ICU是一套稳定成熟,功能强大,轻便易用和跨平台支持Unicode的开发包
+# 需要先安装ICU组件
 
 # ===== [json]
 --disable-json Disable JavaScript Object Serialization support
 # 此扩展默认为启用,编译时可通过此选项禁用
 
+# ===== [LDAP]
 --with-ldap=DIR Include LDAP support
 --with-ldap-sasl=DIR LDAP: Include Cyrus SASL support
+# LDAP是轻量目录访问协议
+# Debian/Ubuntu 需安装 libldap-2.4-2, libldap2-dev 依赖包
+# Redhat/CentOS 需安装 openldap, openldap-devel 依赖包
+
+# ===== [Multibyte String Functions(mbstring)]
 --enable-mbstring Enable multibyte string support
 --disable-mbregex MBSTRING: Disable multibyte regex support
 --disable-mbregex-backtrack
@@ -229,6 +268,13 @@ MBSTRING: Disable multibyte regex backtrack check
 install directory BUNDLED
 --with-onig=DIR MBSTRING: Use external oniguruma. DIR is the oniguruma install prefix.
 If DIR is not set, the bundled oniguruma will be used
+# 通过指定编译参数安装
+# libmbfl对mbstring是必要的
+# Debian/Ubuntu 需安装 libonig2,libonig-dev 依赖包
+# Redhat/CentOS 需安装 oniguruma,oniguruma-devel 依赖包
+```
+
+```
 --with-mcrypt=DIR Include mcrypt support
 --with-mysqli=FILE Include MySQLi support. FILE is the path
 to mysql_config. If no value or mysqlnd is passed
@@ -236,7 +282,6 @@ as FILE, the MySQL native driver will be used
 ```
 
 ```
-
   --enable-embedded-mysqli
                           MYSQLi: Enable embedded support
                           Note: Does not work with MySQL native driver!
