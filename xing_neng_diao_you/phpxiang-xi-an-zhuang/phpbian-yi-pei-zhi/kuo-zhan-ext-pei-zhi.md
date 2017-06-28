@@ -387,8 +387,6 @@ When built as 'shared' the extension filename is always pdo_odbc.so
 ```
 
 ```
-
-
   --with-pdo-pgsql=DIR    PDO: PostgreSQL support.  DIR is the PostgreSQL base
                           install directory or the path to pg_config
   --without-pdo-sqlite=DIR
