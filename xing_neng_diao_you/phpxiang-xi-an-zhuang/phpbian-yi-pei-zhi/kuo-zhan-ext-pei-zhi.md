@@ -43,7 +43,6 @@ Extensions(扩展):
 # ===== [GetText]
 # ===== [GMP]
 .20
-
 ```
 
 ```
@@ -182,31 +181,62 @@ install directory BUNDLED
 ```
 
 ```
-  --with-mhash=DIR        Include mhash support
-  --disable-hash          Disable hash support
-  --without-iconv=DIR     Exclude iconv support
-  --with-imap=DIR         Include IMAP support. DIR is the c-client install prefix
-  --with-kerberos=DIR     IMAP: Include Kerberos support. DIR is the Kerberos install prefix
-  --with-imap-ssl=DIR     IMAP: Include SSL support. DIR is the OpenSSL install prefix
-  --with-interbase=DIR    Include Firebird support.  DIR is the Firebird base
-                          install directory /opt/firebird
-  --enable-intl           Enable internationalization support
-  --with-icu-dir=DIR      Specify where ICU libraries and headers can be found
-  --disable-json          Disable JavaScript Object Serialization support
-  --with-ldap=DIR         Include LDAP support
-  --with-ldap-sasl=DIR    LDAP: Include Cyrus SASL support
-  --enable-mbstring       Enable multibyte string support
-  --disable-mbregex       MBSTRING: Disable multibyte regex support
-  --disable-mbregex-backtrack
-                          MBSTRING: Disable multibyte regex backtrack check
-  --with-libmbfl=DIR      MBSTRING: Use external libmbfl.  DIR is the libmbfl base
-                          install directory BUNDLED
-  --with-onig=DIR         MBSTRING: Use external oniguruma. DIR is the oniguruma install prefix.
-                          If DIR is not set, the bundled oniguruma will be used
-  --with-mcrypt=DIR       Include mcrypt support
-  --with-mysqli=FILE      Include MySQLi support.  FILE is the path
-                          to mysql_config.  If no value or mysqlnd is passed
-                          as FILE, the MySQL native driver will be used
+# ===== [Mhash]
+--with-mhash=DIR Include mhash support
+# 启用Mhash.Mhash是基于离散数学原理的不可逆向的php加密方式扩展库
+# 这里需要先给Linux安装mhash扩展http://mhash.sourceforge.net/
+# tar zxvf mhash-0.9.9.tar.gz
+# cd mhash-0.9.9
+# ./configure
+# make install
+# 安装时-–with-mhash=/usr/local/include即可
+
+# ===== [hash]
+--disable-hash Disable hash support
+# 此扩展默认为启用,编译时可通过此选项禁用
+
+# ===== [iconv]
+--without-iconv=DIR Exclude iconv support
+# 此扩展默认为启用,编译时可通过此选项禁用
+
+# ===== [IMAP]
+--with-imap=DIR Include IMAP support. DIR is the c-client install prefix
+--with-kerberos=DIR IMAP: Include Kerberos support. DIR is the Kerberos install prefix
+--with-imap-ssl=DIR IMAP: Include SSL support. DIR is the OpenSSL install prefix
+# 通过指定编译参数安装
+# 注意:编译此选项时,PHP需指定libc-client.a所在目录
+
+# ===== []
+--with-interbase=DIR Include Firebird support. DIR is the Firebird base
+install directory /opt/firebird
+
+# ===== []
+--enable-intl Enable internationalization support
+
+--with-icu-dir=DIR Specify where ICU libraries and headers can be found
+
+# ===== [json]
+--disable-json Disable JavaScript Object Serialization support
+# 此扩展默认为启用,编译时可通过此选项禁用
+
+--with-ldap=DIR Include LDAP support
+--with-ldap-sasl=DIR LDAP: Include Cyrus SASL support
+--enable-mbstring Enable multibyte string support
+--disable-mbregex MBSTRING: Disable multibyte regex support
+--disable-mbregex-backtrack
+MBSTRING: Disable multibyte regex backtrack check
+--with-libmbfl=DIR MBSTRING: Use external libmbfl. DIR is the libmbfl base
+install directory BUNDLED
+--with-onig=DIR MBSTRING: Use external oniguruma. DIR is the oniguruma install prefix.
+If DIR is not set, the bundled oniguruma will be used
+--with-mcrypt=DIR Include mcrypt support
+--with-mysqli=FILE Include MySQLi support. FILE is the path
+to mysql_config. If no value or mysqlnd is passed
+as FILE, the MySQL native driver will be used
+```
+
+```
+
   --enable-embedded-mysqli
                           MYSQLi: Enable embedded support
                           Note: Does not work with MySQL native driver!
