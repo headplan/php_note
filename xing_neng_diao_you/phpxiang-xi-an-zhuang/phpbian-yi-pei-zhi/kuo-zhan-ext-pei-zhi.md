@@ -2,52 +2,66 @@
 
 这里先对shared和static静态模式 , 进一步描述 . 共享模式shared的意思是linux中.so文件的意思 , 也有Win系统中的.dll文件的意思 . 其理解的方式可以看做是一个exe应用程序 , 里面调用了一部分扩展函数 , 如果这些函数已经静态的安装在其中 . 那么这个程序就可以在任意其他系统上直接运行起来 . 如果这个程序调用了共享模式的扩展 , 那程序里值记录了调用这个扩展的一个路径或者地址 , 调用时候去寻找这个扩展 , 本机安装了 , 正常运行 , 但是换了其他机器 , 没有这个扩展 , 就无法运行了 .
 
+为了方便记录 , 把扩展部分的内容分块描述 , 但顺序不变 . 
+
 ```
-Extensions:
+Extensions(扩展):
 
   --with-EXTENSION=shared[,PATH]
 
-    NOTE: Not all extensions can be build as 'shared'.
+    NOTE:并非所有扩展都能编译成共享方式.
 
+    例子:如何把扩展编译成共享模式                   
     Example: --with-foobar=shared,/usr/local/foobar/
 
       o Builds the foobar extension as shared extension.
       o foobar package install prefix is /usr/local/foobar/
+```
+
+```
+--disable-all          关闭默认为启用的所有扩展功能
+
+--disable-libxml       禁用libxml支持
+--with-libxml-dir=DIR  LIBXML:libxml安装目录
+
+--with-openssl=DIR     启用openssl支持 (OpenSSL版本号必须大于等于 1.0.1)
+--with-kerberos=DIR    OPENSSL:包含kerberos支持
+--with-system-ciphers  OPENSSL:用系统自带的密码清单(cipher list)去替代硬编码(hard coded)
+
+--with-pcre-regex=DIR  引用PCRE兼容的正则表达式库,目录是PCRE的安装目录
+--with-pcre-jit        引用PCRE兼容的jit编译器(jit实时编译)
+
+--without-sqlite3=DIR  不开启sqlite3支持. DIR是SQLite3的安装路径.
+
+--with-zlib=DIR        开启ZLIB支持(ZLIB版本号必须大于等于 1.0.9)
+--with-zlib-dir=<DIR>  定义ZLIB的安装路径
+
+--enable-bcmath        启用bcmatch函数支持(公元前风格精度数学)
+--with-bz2=DIR         开启BZip2支持
+--enable-calendar      启用日历转换支持
+--disable-ctype        禁用ctype功能
+--with-curl=DIR        启用cURL支持
 
 
-  --disable-all           Disable all extensions which are enabled by default
+```
 
-  --disable-libxml        Disable LIBXML support
-  --with-libxml-dir=DIR   LIBXML: libxml2 install prefix
-  --with-openssl=DIR      Include OpenSSL support (requires OpenSSL >= 1.0.1)
-  --with-kerberos=DIR     OPENSSL: Include Kerberos support
-  --with-system-ciphers   OPENSSL: Use system default cipher list instead of hardcoded value
-  --with-pcre-regex=DIR   Include Perl Compatible Regular Expressions support.
-                          DIR is the PCRE install prefix BUNDLED
-  --with-pcre-jit         Enable PCRE JIT functionality
-  --without-sqlite3=DIR   Do not include SQLite3 support. DIR is the prefix to
-                          SQLite3 installation directory.
-  --with-zlib=DIR         Include ZLIB support (requires zlib >= 1.0.9)
-  --with-zlib-dir=<DIR>   Define the location of zlib install directory
-  --enable-bcmath         Enable bc style precision math functions
-  --with-bz2=DIR          Include BZip2 support
-  --enable-calendar       Enable support for calendar conversion
-  --disable-ctype         Disable ctype functions
-  --with-curl=DIR         Include cURL support
-  --enable-dba            Build DBA with bundled modules. To build shared DBA
-                          extension use --enable-dba=shared
-  --with-qdbm=DIR         DBA: QDBM support
-  --with-gdbm=DIR         DBA: GDBM support
-  --with-ndbm=DIR         DBA: NDBM support
-  --with-db4=DIR          DBA: Oracle Berkeley DB 4.x or 5.x support
-  --with-db3=DIR          DBA: Oracle Berkeley DB 3.x support
-  --with-db2=DIR          DBA: Oracle Berkeley DB 2.x support
-  --with-db1=DIR          DBA: Oracle Berkeley DB 1.x support/emulation
-  --with-dbm=DIR          DBA: DBM support
-  --with-tcadb=DIR        DBA: Tokyo Cabinet abstract DB support
-  --without-cdb=DIR       DBA: CDB support (bundled)
-  --disable-inifile       DBA: INI support (bundled)
-  --disable-flatfile      DBA: FlatFile support (bundled)
+```
+--enable-dba           构架捆绑模块的DBA.要建立扩展的共享模块使用--enable-dba=shared参数.
+--with-qdbm=DIR        DBA: QDBM support
+--with-gdbm=DIR        DBA: GDBM support
+--with-ndbm=DIR        DBA: NDBM support
+--with-db4=DIR         DBA: Oracle Berkeley DB 4.x or 5.x support
+--with-db3=DIR         DBA: Oracle Berkeley DB 3.x support
+--with-db2=DIR         DBA: Oracle Berkeley DB 2.x support
+--with-db1=DIR         DBA: Oracle Berkeley DB 1.x support/emulation
+--with-dbm=DIR         DBA: DBM support
+--with-tcadb=DIR       DBA: Tokyo Cabinet abstract DB support
+--without-cdb=DIR      DBA: CDB support (bundled)
+--disable-inifile      DBA: INI support (bundled)
+--disable-flatfile     DBA: FlatFile support (bundled)
+```
+
+```
   --disable-dom           Disable DOM support
   --with-libxml-dir=DIR   DOM: libxml2 install prefix
   --with-enchant=DIR      Include enchant support.
@@ -371,21 +385,21 @@ Extensions:
                             --with-pdo-oci=instantclient,/usr,10.2.0.4
   --with-pdo-odbc=flavour,dir
                           PDO: Support for 'flavour' ODBC driver.
-			  include and lib dirs are looked for under 'dir'.
+              include and lib dirs are looked for under 'dir'.
 
-			  'flavour' can be one of:  ibm-db2, iODBC, unixODBC, generic
-			  If ',dir' part is omitted, default for the flavour
-			  you have selected will be used. e.g.:
+              'flavour' can be one of:  ibm-db2, iODBC, unixODBC, generic
+              If ',dir' part is omitted, default for the flavour
+              you have selected will be used. e.g.:
 
-			    --with-pdo-odbc=unixODBC
+                --with-pdo-odbc=unixODBC
 
-			  will check for unixODBC under /usr/local. You may attempt
-			  to use an otherwise unsupported driver using the \"generic\"
-			  flavour.  The syntax for generic ODBC support is:
+              will check for unixODBC under /usr/local. You may attempt
+              to use an otherwise unsupported driver using the \"generic\"
+              flavour.  The syntax for generic ODBC support is:
 
-			    --with-pdo-odbc=generic,dir,libname,ldflags,cflags
+                --with-pdo-odbc=generic,dir,libname,ldflags,cflags
 
-			  When built as 'shared' the extension filename is always pdo_odbc.so
+              When built as 'shared' the extension filename is always pdo_odbc.so
   --with-pdo-pgsql=DIR    PDO: PostgreSQL support.  DIR is the PostgreSQL base
                           install directory or the path to pg_config
   --without-pdo-sqlite=DIR
