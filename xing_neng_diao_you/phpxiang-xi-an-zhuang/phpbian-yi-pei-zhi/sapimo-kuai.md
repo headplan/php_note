@@ -54,9 +54,10 @@ SAPI modules:
   --with-fpm-systemd      启用systemd集成(默认-no)
   --with-fpm-acl          使用POSIX访问控制列表(默认-no)5.6.5版本起有效
   --with-litespeed        编译litespeed模块,LiteSpeed可与DirectAdmin,cPanel与Plesk等虚拟主机控制面板配套使用.
-  --enable-phpdbg            Build phpdbg
-  --enable-phpdbg-webhelper  Build phpdbg web SAPI support
-  --enable-phpdbg-debug      Build phpdbg in debug mode
+  --enable-phpdbg            编译phpdbg.可以在PHP5.4和之上版本中使用.在php5.6和之上版本将内部集成.
+  # PHPDBG是一个PHP的SAPI模块,可以在不用修改代码和不影响性能的情况下控制PHP的运行环境.
+  --enable-phpdbg-webhelper  编译phpdbg的web支持
+  --enable-phpdbg-debug      编译phpdbg的debug模式
   --disable-cgi           禁止编译CGI版本的PHP.PHP4.3.0之后的版本有效.
   # PHP5.3.0起,这个选项会启用FastCGI,而在以前必须使用--enable-fastcgi启用FastCGI
 ```
