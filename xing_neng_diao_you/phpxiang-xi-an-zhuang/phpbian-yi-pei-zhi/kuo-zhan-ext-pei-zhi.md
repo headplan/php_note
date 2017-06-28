@@ -275,84 +275,120 @@ If DIR is not set, the bundled oniguruma will be used
 ```
 
 ```
+# ===== [mcrypt]
 --with-mcrypt=DIR Include mcrypt support
+# 通过指定编译参数安装
+# Debian/Ubuntu 需安装 libmcrypt-dev 依赖包
+# Redhat/CentOS 需编译安装libmcrypt和mcrypt.如果安装了EPEL的话,则需安装libmcrypt-devel依赖包.
+
+# ===== [mysqli]
 --with-mysqli=FILE Include MySQLi support. FILE is the path
 to mysql_config. If no value or mysqlnd is passed
 as FILE, the MySQL native driver will be used
+--enable-embedded-mysqli
+MYSQLi: Enable embedded support
+Note: Does not work with MySQL native driver!
+--with-mysql-sock=SOCKPATH
+MySQLi/PDO_MYSQL: Location of the MySQL unix socket pointer.
+If unspecified, the default locations are searched
+# 指定系统里安装的MYSQL的目录下的mysql_config文件路径
+
+# ===== [OCI8]
+--with-oci8=DIR Include Oracle Database OCI8 support. DIR defaults to $ORACLE_HOME.
+Use --with-oci8=instantclient,/path/to/instant/client/lib
+to use an Oracle Instant Client installation
+# 系统里安装了Oracle数据库的话,则指定为$ORACLE_HOME
+# 否则需安装Oracle Instant Client,指定为/path/to/instant/client/lib
+
+# ===== [ODBCVER]
+--with-odbcver=HEX Force support for the passed ODBC version. A hex number is expected, default 0x0350.
+Use the special value of 0 to prevent an explicit ODBCVER to be defined.
+# ODBCVER决定你使用的ODBC API,ODBCVER=0x0351表示使用的是3.5.1版本的ODBC,ODBCVER=0x0200表示使用ODBC 2
+
+
+# ===== [ADABAS D]
+--with-adabas=DIR Include Adabas D support /usr/local
+# ADABAS D是一种新的关系型数据库
+
+# ===== [SAP DB]
+--with-sapdb=DIR Include SAP DB support /usr/local
+# SAP DB 原来叫ADABAS,关系型数据库
+
+# ===== [Solid]
+--with-solid=DIR Include Solid support /usr/local/solid
+# Solid高可用轻量级关系数据库
+
+# ===== [IBM DB2]
+--with-ibm-db2=DIR Include IBM DB2 support /home/db2inst1/sqllib
+# IBM DB2关系型数据库
+
+# ===== [ODBCRouter]
+--with-ODBCRouter=DIR Include ODBCRouter.com support /usr
+# ODBCRouter关系数据库数据交换组件
+
+--with-empress=DIR Include Empress support \$EMPRESSPATH
+(Empress Version >= 8.60 required)
+--with-empress-bcs=DIR
+Include Empress Local Access support \$EMPRESSPATH
+(Empress Version >= 8.60 required)
+--with-birdstep=DIR Include Birdstep support /usr/local/birdstep
+--with-custom-odbc=DIR Include user defined ODBC support. DIR is ODBC install base
+directory /usr/local. Make sure to define CUSTOM_ODBC_LIBS and
+have some odbc.h in your include dirs. f.e. you should define
+following for Sybase SQL Anywhere 5.5.00 on QNX, prior to
+running this configure script:
+CPPFLAGS=\"-DODBC_QNX -DSQLANY_BUG\"
+LDFLAGS=-lunix
+CUSTOM_ODBC_LIBS=\"-ldblib -lodbc\"
+--with-iodbc=DIR Include iODBC support /usr/local
+--with-esoob=DIR Include Easysoft OOB support /usr/local/easysoft/oob/client
+--with-unixODBC=DIR Include unixODBC support /usr/local
+--with-dbmaker=DIR Include DBMaker support
 ```
 
 ```
-  --enable-embedded-mysqli
-                          MYSQLi: Enable embedded support
-                          Note: Does not work with MySQL native driver!
-  --with-mysql-sock=SOCKPATH
-                          MySQLi/PDO_MYSQL: Location of the MySQL unix socket pointer.
-                          If unspecified, the default locations are searched
-  --with-oci8=DIR         Include Oracle Database OCI8 support. DIR defaults to $ORACLE_HOME.
-                          Use --with-oci8=instantclient,/path/to/instant/client/lib
-                          to use an Oracle Instant Client installation
-  --with-odbcver=HEX      Force support for the passed ODBC version. A hex number is expected, default 0x0350.
-                             Use the special value of 0 to prevent an explicit ODBCVER to be defined.
-  --with-adabas=DIR       Include Adabas D support /usr/local
-  --with-sapdb=DIR        Include SAP DB support /usr/local
-  --with-solid=DIR        Include Solid support /usr/local/solid
-  --with-ibm-db2=DIR      Include IBM DB2 support /home/db2inst1/sqllib
-  --with-ODBCRouter=DIR   Include ODBCRouter.com support /usr
-  --with-empress=DIR      Include Empress support \$EMPRESSPATH
-                          (Empress Version >= 8.60 required)
-  --with-empress-bcs=DIR
-                          Include Empress Local Access support \$EMPRESSPATH
-                          (Empress Version >= 8.60 required)
-  --with-birdstep=DIR     Include Birdstep support /usr/local/birdstep
-  --with-custom-odbc=DIR  Include user defined ODBC support. DIR is ODBC install base
-                          directory /usr/local. Make sure to define CUSTOM_ODBC_LIBS and
-                          have some odbc.h in your include dirs. f.e. you should define
-                          following for Sybase SQL Anywhere 5.5.00 on QNX, prior to
-                          running this configure script:
-                            CPPFLAGS=\"-DODBC_QNX -DSQLANY_BUG\"
-                            LDFLAGS=-lunix
-                            CUSTOM_ODBC_LIBS=\"-ldblib -lodbc\"
-  --with-iodbc=DIR        Include iODBC support /usr/local
-  --with-esoob=DIR        Include Easysoft OOB support /usr/local/easysoft/oob/client
-  --with-unixODBC=DIR     Include unixODBC support /usr/local
-  --with-dbmaker=DIR      Include DBMaker support
-  --disable-opcache       Disable Zend OPcache support
-  --disable-opcache-file  Disable file based caching
-  --disable-huge-code-pages
-                          Disable copying PHP CODE pages into HUGE PAGES
-  --enable-pcntl          Enable pcntl support (CLI/CGI only)
-  --disable-pdo           Disable PHP Data Objects support
-  --with-pdo-dblib=DIR    PDO: DBLIB-DB support.  DIR is the FreeTDS home directory
-  --with-pdo-firebird=DIR PDO: Firebird support.  DIR is the Firebird base
-                          install directory /opt/firebird
-  --with-pdo-mysql=DIR    PDO: MySQL support. DIR is the MySQL base directory
-                          If no value or mysqlnd is passed as DIR, the
-                          MySQL native driver will be used
-  --with-zlib-dir=DIR     PDO_MySQL: Set the path to libz install prefix
-  --with-pdo-oci=DIR      PDO: Oracle OCI support. DIR defaults to \$ORACLE_HOME.
-                          Use --with-pdo-oci=instantclient,prefix,version
-                          for an Oracle Instant Client SDK.
-                          For example on Linux with 11.2 RPMs use:
-                            --with-pdo-oci=instantclient,/usr,11.2
-                          With 10.2 RPMs use:
-                            --with-pdo-oci=instantclient,/usr,10.2.0.4
-  --with-pdo-odbc=flavour,dir
-                          PDO: Support for 'flavour' ODBC driver.
-              include and lib dirs are looked for under 'dir'.
+--disable-opcache Disable Zend OPcache support
+--disable-opcache-file Disable file based caching
+--disable-huge-code-pages
+Disable copying PHP CODE pages into HUGE PAGES
+--enable-pcntl Enable pcntl support (CLI/CGI only)
+--disable-pdo Disable PHP Data Objects support
+--with-pdo-dblib=DIR PDO: DBLIB-DB support. DIR is the FreeTDS home directory
+--with-pdo-firebird=DIR PDO: Firebird support. DIR is the Firebird base
+install directory /opt/firebird
+--with-pdo-mysql=DIR PDO: MySQL support. DIR is the MySQL base directory
+If no value or mysqlnd is passed as DIR, the
+MySQL native driver will be used
+--with-zlib-dir=DIR PDO_MySQL: Set the path to libz install prefix
+--with-pdo-oci=DIR PDO: Oracle OCI support. DIR defaults to \$ORACLE_HOME.
+Use --with-pdo-oci=instantclient,prefix,version
+for an Oracle Instant Client SDK.
+For example on Linux with 11.2 RPMs use:
+--with-pdo-oci=instantclient,/usr,11.2
+With 10.2 RPMs use:
+--with-pdo-oci=instantclient,/usr,10.2.0.4
+--with-pdo-odbc=flavour,dir
+PDO: Support for 'flavour' ODBC driver.
+include and lib dirs are looked for under 'dir'.
 
-              'flavour' can be one of:  ibm-db2, iODBC, unixODBC, generic
-              If ',dir' part is omitted, default for the flavour
-              you have selected will be used. e.g.:
+'flavour' can be one of: ibm-db2, iODBC, unixODBC, generic
+If ',dir' part is omitted, default for the flavour
+you have selected will be used. e.g.:
 
-                --with-pdo-odbc=unixODBC
+--with-pdo-odbc=unixODBC
 
-              will check for unixODBC under /usr/local. You may attempt
-              to use an otherwise unsupported driver using the \"generic\"
-              flavour.  The syntax for generic ODBC support is:
+will check for unixODBC under /usr/local. You may attempt
+to use an otherwise unsupported driver using the \"generic\"
+flavour. The syntax for generic ODBC support is:
 
-                --with-pdo-odbc=generic,dir,libname,ldflags,cflags
+--with-pdo-odbc=generic,dir,libname,ldflags,cflags
 
-              When built as 'shared' the extension filename is always pdo_odbc.so
+When built as 'shared' the extension filename is always pdo_odbc.so
+```
+
+```
+
+
   --with-pdo-pgsql=DIR    PDO: PostgreSQL support.  DIR is the PostgreSQL base
                           install directory or the path to pg_config
   --without-pdo-sqlite=DIR
