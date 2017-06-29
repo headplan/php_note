@@ -125,14 +125,21 @@ yum install re2c -y
 ~/php-src>./configure --help | less
 ```
 
-帮助的第一部分将列出各种通用选项 , 完全支持autoconf-based的配置 , 就是通用配置 . 例如前面我们已经提到的`--prefix=DIR` , 更改并指定安装目录 . 另一个可能有用的选项是-C , 它将缓存各种测试的结果到config.cache文件中 , 并加快后续的./configure调用 . 当然这个此选项仅在已经构建完成并且希望在不同配置之间快速更改时才有意义 . 
+帮助的第一部分将列出各种通用选项 , 完全支持autoconf-based的配置 , 就是通用配置 . 例如前面我们已经提到的`--prefix=DIR` , 更改并指定安装目录 . 另一个可能有用的选项是-C , 它将缓存各种测试的结果到config.cache文件中 , 并加快后续的./configure调用 . 当然这个此选项仅在已经构建完成并且希望在不同配置之间快速更改时才有意义 .
 
-除了通用的autoconf选项之外 , 当然还有许多PHP特定的配置 . 例如 , 可以使用 `--enable-NAME` 和 `--disable-NAME` 开关来选择想要编译的扩展和SAPIs . 如果这个扩展或sapi具有外部依赖项 , 则需要使用 `--with-NAME` 和 `--without-NAME` 来配置 . 如果NAME所需的库不是位于默认的安装路径\(例如你自己编译过它\) , 则可以使用`--with-NAME=DIR`指定其位置 . 
+除了通用的autoconf选项之外 , 当然还有许多PHP特定的配置 . 例如 , 可以使用 `--enable-NAME` 和 `--disable-NAME` 开关来选择想要编译的扩展和SAPIs . 如果这个扩展或sapi具有外部依赖项 , 则需要使用 `--with-NAME` 和 `--without-NAME` 来配置 . 如果NAME所需的库不是位于默认的安装路径\(例如你自己编译过它\) , 则可以使用`--with-NAME=DIR`指定其位置 .
 
-默认情况下 , php将生成cli和cgi SAPIs , 以及一些扩展 . 我们可以使用 -m 选项查找 php 二进制文件所包含的扩展名 . 
+默认情况下 , php将生成cli和cgi SAPIs , 以及一些扩展 . 我们可以使用 -m 选项查找 php 二进制文件所包含的扩展名 .
 
 ```
 ~/php-src> sapi/cli/php -m
+```
+
+现在举个例子 , 如果现在想要停止编译CGI SAPI , Tokenizer和sqlite3的扩展 , 开启编译opcache扩展和gmp扩展 , 配置命令应该这样写 
+
+```
+~/php-src> ./configure --disable-cgi --disable-tokenizer --without-sqlite3 \
+                       --enable-opcache --with-gmp
 ```
 
 ---
