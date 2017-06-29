@@ -75,6 +75,35 @@ Extensions(扩展):
 # ===== [Hugepages]
 # ===== [pcntl]
 # ===== [PDO]
+.50
+# ===== [PostgreSQL]
+# ===== [Phar]
+# ===== [Posix]
+# ===== [Aspell]
+# ===== [Libedit]
+# ===== [Readline]
+# ===== [Recode]
+# ===== [session]
+# ===== [shmop]
+# ===== [SimpleXML]
+.60
+# ===== [SNMP]
+# ===== [SOAP]
+# ===== [sockets]
+# ===== [sysvmsg]
+# ===== [sysvsem]
+# ===== [sysvshm]
+# ===== [TIDY]
+# ===== [Tokenizer]
+# ===== [WDDX]
+# ===== [XML]
+.70
+# ===== [XMLReader]
+# ===== [XMLRPC-EPI]
+# ===== [XMLWriter]
+# ===== [XSL]
+# ===== [Zip]
+# ===== [Mysqlnd]
 ```
 
 ```
