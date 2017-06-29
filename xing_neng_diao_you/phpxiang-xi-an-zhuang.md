@@ -115,11 +115,11 @@ yum install re2c -y
 
 --debug - 调用autoconf和autoheader时禁用警告静默 . 就是会显示警告 .
 
---force - 这个选项允许./buildconf脚本运行在发布包上 . 例如下载的是打包好的源码 , 希望生成一个新的./configure配置文件 ,  并清楚配置缓存config.cache和autom4te.cache/ . 如果使用git pull更新了仓库 , 并在make的时候有奇怪的报错 , 通常是因为配置文件中发生了某些更改 , 就可以使用`./buildconf --force` . 
+--force - 这个选项允许./buildconf脚本运行在发布包上 . 例如下载的是打包好的源码 , 希望生成一个新的./configure配置文件 ,  并清楚配置缓存config.cache和autom4te.cache/ . 如果使用git pull更新了仓库 , 并在make的时候有奇怪的报错 , 通常是因为配置文件中发生了某些更改 , 就可以使用`./buildconf --force` .
 
 **./configure脚本**
 
-一旦生成了'./configure'脚本 , 就可以利用它来定制PHP了 . 可以使用帮助列表列出所有支持的选项 : 
+一旦生成了'./configure'脚本 , 就可以利用它来定制PHP了 . 可以使用帮助列表列出所有支持的选项 :
 
 ```
 ~/php-src>./configure --help | less
@@ -127,7 +127,13 @@ yum install re2c -y
 
 帮助的第一部分将列出各种通用选项 , 完全支持autoconf-based的配置 , 就是通用配置 . 例如前面我们已经提到的`--prefix=DIR` , 更改并指定安装目录 . 另一个可能有用的选项是-C , 它将缓存各种测试的结果到config.cache文件中 , 并加快后续的./configure调用 . 当然这个此选项仅在已经构建完成并且希望在不同配置之间快速更改时才有意义 . 
 
+除了通用的autoconf选项之外 , 当然还有许多PHP特定的配置 . 例如 , 可以使用 `--enable-NAME` 和 `--disable-NAME` 开关来选择想要编译的扩展和SAPIs . 如果这个扩展或sapi具有外部依赖项 , 则需要使用 `--with-NAME` 和 `--without-NAME` 来配置 . 如果NAME所需的库不是位于默认的安装路径\(例如你自己编译过它\) , 则可以使用`--with-NAME=DIR`指定其位置 . 
 
+默认情况下 , php将生成cli和cgi SAPIs , 以及一些扩展 . 我们可以使用 -m 选项查找 php 二进制文件所包含的扩展名 . 
+
+```
+~/php-src> sapi/cli/php -m
+```
 
 ---
 
