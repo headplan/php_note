@@ -105,17 +105,29 @@ yum install re2c -y
 
 **./buildconf脚本**
 
-如果是git仓库检出 , 首先要执行这个脚本 . 这个脚本调用了build/build.mk和build/build2.mk文件 . 这些文件的主要作用是调用`autoconf`生成./configure配置文件 , 调用`autoheader`生成`main/php_config.h.in`模板 , 这个模板用来配置生成最终的头文件`main/php_config.h`. 
+如果是git仓库检出 , 首先要执行这个脚本 . 这个脚本调用了build/build.mk和build/build2.mk文件 . 这些文件的主要作用是调用`autoconf`生成./configure配置文件 , 调用`autoheader`生成`main/php_config.h.in`模板 , 这个模板用来配置生成最终的头文件`main/php_config.h`.
 
 > Both utilities produce their results from theconfigure.infile \(which specifies most of the PHP build process\), theacinclude.m4file \(which specifies a large number of PHP-specific M4 macros\) and theconfig.m4files of individual extensions and SAPIs \(as well as a bunch of otherm4files\).
 >
 > The good news is that writing extensions or even doing core modifications will not require much interaction with the build system. You will have to write smallconfig.m4files later on, but those usually just use two or three of the high-level macros thatacinclude.m4provides. As such we will not go into further detail here.
 
-./buildconf脚本只有两个选项 : 
+./buildconf脚本只有两个选项 :
 
---debug - 调用autoconf和autoheader时禁用警告静默 . 就是会显示警告 . 
+--debug - 调用autoconf和autoheader时禁用警告静默 . 就是会显示警告 .
 
 --force - 这个选项允许./buildconf脚本运行在发布包上 . 例如下载的是打包好的源码 , 希望生成一个新的./configure配置文件 ,  并清楚配置缓存config.cache和autom4te.cache/ . 如果使用git pull更新了仓库 , 并在make的时候有奇怪的报错 , 通常是因为配置文件中发生了某些更改 , 就可以使用`./buildconf --force` . 
+
+**./configure脚本**
+
+一旦生成了'./configure'脚本 , 就可以利用它来定制PHP了 . 可以使用帮助列表列出所有支持的选项 : 
+
+```
+~/php-src>./configure --help | less
+```
+
+帮助的第一部分将列出各种通用选项 , 完全支持autoconf-based的配置 , 就是通用配置 . 例如前面我们已经提到的`--prefix=DIR` , 更改并指定安装目录 . 另一个可能有用的选项是-C , 它将缓存各种测试的结果到config.cache文件中 , 并加快后续的./configure调用 . 当然这个此选项仅在已经构建完成并且希望在不同配置之间快速更改时才有意义 . 
+
+
 
 ---
 
