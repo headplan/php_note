@@ -142,7 +142,9 @@ yum install re2c -y
                        --enable-opcache --with-gmp
 ```
 
-默认情况下 , 大多数扩展将静态编译 , 即它们是生成的二进制文件的一部分 . 默认情况下 , 只有opcache扩展是共享的 , 也就是说 , 它将在modules/directory中生成一个 opcache.so文件 . 还可以通过编写配置--enable-NAME=shared或--with-NAME=shared来将其他扩展编译为共享对象\(但不是所有扩展都支持此功能\) . 
+默认情况下 , 大多数扩展将静态编译 , 即它们是生成的二进制文件的一部分 . 默认情况下 , 只有opcache扩展是共享的 , 也就是说 , 它将在modules/directory中生成一个 opcache.so文件 . 还可以通过编写配置--enable-NAME=shared或--with-NAME=shared来将其他扩展编译为共享对象\(但不是所有扩展都支持此功能\) .
+
+若要找出需要使用的开关以及默认情况下是否启用了扩展 , 可以检查./configure --help . 如果开关是--enable-NAME和--with-NAME , 则表示该扩展不是默认编译的 , 需要配置显式启用 . --disable-NAME或--without-NAME表示默认情况下是编译的扩展 , 但可以配置禁用 . 
 
 
 
