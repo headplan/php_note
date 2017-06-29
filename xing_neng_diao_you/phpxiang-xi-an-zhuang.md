@@ -79,7 +79,7 @@ yum install re2c -y
 
 执行`./configure --help`可以查看php的配置选项 , 可以直接执行`./configure`查看执行失败所缺少的软件依赖 , 直到执行成功 .
 
-在配置阶段启用的扩展 , 就是./configure时配置需要安装的扩展 , 会需要依赖很多附加库 . 如果有-dev或-devel版本 , 尽量安装这些版本 . 因为开发者版通常不会包含必要的头文件 . 例如默认构建php时 , 需要libxml库 , 这里就可以安装 libxml2-dev 包 . 
+在配置阶段启用的扩展 , 就是./configure时配置需要安装的扩展 , 会需要依赖很多附加库 . 如果有-dev或-devel版本 , 尽量安装这些版本 . 因为开发者版通常不会包含必要的头文件 . 例如默认构建php时 , 需要libxml库 , 这里就可以安装 libxml2-dev 包 .
 
 > 有的系统自带的`autoconf`程序版本会有Bug , 可能导致扩展的配置无法更新 , 如果在执行`./buildconf`时报错 , 可以根据出错信息安装合适版本的autoconf工具 .
 
@@ -96,16 +96,26 @@ yum install re2c -y
 > 之后可以make install , 把PHP安装到/usr/local目录 , 可以在配置时指定路径 .
 >
 > ./configure --prefix=$HOME/myphp
+>
+> 也可以编译一个最精简的PHP , 使用`./configure --disable-all`来进行配置 .
 
 在默认情况下,PHP将生成CLI和CGI SAPIs二进制文件 , 分别位于`sapi/cli/php`和`sapi/cgi/php-cgi`分别 .
 
-可以尝试运行`sapi/cli/php -v`检查生成情况 . 
+可以尝试运行`sapi/cli/php -v`检查生成情况 .
 
-**./buildconf**
+**./buildconf脚本**
 
-如果是git仓库检出 , 首先要执行这个脚本 , 
+如果是git仓库检出 , 首先要执行这个脚本 . 这个脚本调用了build/build.mk和build/build2.mk文件 . 这些文件的主要作用是调用`autoconf`生成./configure配置文件 , 调用`autoheader`生成`main/php_config.h.in`模板 , 这个模板用来配置生成最终的头文件`main/php_config.h`. 
 
+> Both utilities produce their results from theconfigure.infile \(which specifies most of the PHP build process\), theacinclude.m4file \(which specifies a large number of PHP-specific M4 macros\) and theconfig.m4files of individual extensions and SAPIs \(as well as a bunch of otherm4files\).
+>
+> The good news is that writing extensions or even doing core modifications will not require much interaction with the build system. You will have to write smallconfig.m4files later on, but those usually just use two or three of the high-level macros thatacinclude.m4provides. As such we will not go into further detail here.
 
+./buildconf脚本只有两个选项 : 
+
+--debug - 调用autoconf和autoheader时禁用警告静默 . 就是会显示警告 . 
+
+--force - 这个选项允许./buildconf脚本运行在发布包上 . 例如下载的是打包好的源码 , 希望生成一个新的./configure配置文件 ,  并清楚配置缓存config.cache和autom4te.cache/ . 如果使用git pull更新了仓库 , 并在make的时候有奇怪的报错 , 通常是因为配置文件中发生了某些更改 , 就可以使用`./buildconf --force` . 
 
 ---
 
