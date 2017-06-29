@@ -471,47 +471,61 @@ GNU Aspell version 0.50.0 or higher required
 --with-readline=DIR Include readline support (CLI/CGI only)
 # 命令行工具
 
-
-
+# ===== [Recode]
 --with-recode=DIR Include recode support
 
+# ===== [session]
 --disable-session Disable session support
-
 --with-mm=DIR SESSION: Include mm support for session storage
 
+# ===== [shmop]
 --enable-shmop Enable shmop support
 
+# ===== [SimpleXML]
 --disable-simplexml Disable SimpleXML support
 --with-libxml-dir=DIR SimpleXML: libxml2 install prefix
+```
 
+```
+# ===== [SNMP]
 --with-snmp=DIR Include SNMP support
 --with-openssl-dir=DIR SNMP: openssl install prefix
 
-
+# ===== [SOAP]
 --enable-soap Enable SOAP support
 --with-libxml-dir=DIR SOAP: libxml2 install prefix
 
+# ===== [sockets]
 --enable-sockets Enable sockets support
 
+# ===== [sysvmsg]
 --enable-sysvmsg Enable sysvmsg support
 
+# ===== [sysvsem]
 --enable-sysvsem Enable System V semaphore support
+
+# ===== [sysvshm]
+--enable-sysvshm Enable the System V shared memory support
+
+# ===== [TIDY]
+--with-tidy=DIR Include TIDY support
+
+# ===== [Tokenizer]
+--disable-tokenizer Disable tokenizer support
+
+# ===== [WDDX]
+--enable-wddx Enable WDDX support
+--with-libxml-dir=DIR WDDX: libxml2 install prefix
+--with-libexpat-dir=DIR WDDX: libexpat dir for XMLRPC-EPI (deprecated)
+
+# ===== [XML]
+--disable-xml Disable XML support
+--with-libxml-dir=DIR XML: libxml2 install prefix
+--with-libexpat-dir=DIR XML: libexpat install prefix (deprecated)
 ```
 
 ```
-  --enable-sysvshm        Enable the System V shared memory support
 
-  --with-tidy=DIR         Include TIDY support
-
-  --disable-tokenizer     Disable tokenizer support
-
-  --enable-wddx           Enable WDDX support
-  --with-libxml-dir=DIR   WDDX: libxml2 install prefix
-  --with-libexpat-dir=DIR WDDX: libexpat dir for XMLRPC-EPI (deprecated)
-
-  --disable-xml           Disable XML support
-  --with-libxml-dir=DIR   XML: libxml2 install prefix
-  --with-libexpat-dir=DIR XML: libexpat install prefix (deprecated)
 
 
   --disable-xmlreader     Disable XMLReader support
