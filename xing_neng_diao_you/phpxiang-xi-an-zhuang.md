@@ -144,7 +144,30 @@ yum install re2c -y
 
 默认情况下 , 大多数扩展将静态编译 , 即它们是生成的二进制文件的一部分 . 默认情况下 , 只有opcache扩展是共享的 , 也就是说 , 它将在modules/directory中生成一个 opcache.so文件 . 还可以通过编写配置--enable-NAME=shared或--with-NAME=shared来将其他扩展编译为共享对象\(但不是所有扩展都支持此功能\) .
 
-若要找出需要使用的开关以及默认情况下是否启用了扩展 , 可以检查./configure --help . 如果开关是--enable-NAME和--with-NAME , 则表示该扩展不是默认编译的 , 需要配置显式启用 . --disable-NAME或--without-NAME表示默认情况下是编译的扩展 , 但可以配置禁用 . 
+若要找出需要使用的开关以及默认情况下是否启用了扩展 , 可以检查./configure --help . 如果开关是--enable-NAME和--with-NAME , 则表示该扩展不是默认编译的 , 需要配置显式启用 . --disable-NAME或--without-NAME表示默认情况下是编译的扩展 , 但可以配置禁用 .
+
+某些扩展始终被编译 , 无法禁用 . 若要创建只包含最小扩展的PHP , 可以使用 " --disable-all" 选项 : 
+
+```
+~/php-src> ./configure --disable-all && make -jN
+~/php-src> sapi/cli/php -m
+[PHP Modules]
+Core
+date
+ereg
+pcre
+Reflection
+SPL
+standard
+```
+
+如果想要快速构建并且不需要太多功能\(例如,在实现语言更改时\) ,  "--disable-all"选项非常有用 . 对于最小的构建 , 还可以另外指定 "--disable-cgi" 开关 , 因此只生成 cli 二进制文件 . 
+
+```
+./configure --disable-all --disable-cgi
+```
+
+还有两个配置开关 , 在开发扩展或使用php时应始终指定 : 
 
 
 
