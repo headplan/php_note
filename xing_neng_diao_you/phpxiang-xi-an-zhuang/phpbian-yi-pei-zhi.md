@@ -1,8 +1,4 @@
-# PHP编译安装
-
-参考网站
-
-http://www.phpinternalsbook.com/
+# PHP编译配置
 
 前面主要描述的是configure的主要构成 , 和基本配置所必须的内容 , 下面是对PHP配置的完整描述 .
 
@@ -13,8 +9,6 @@ http://www.phpinternalsbook.com/
 * Zend相关【Zend】
 * TSRM相关【TSRM】
 * Libtool相关【Libtool】
-
-
 
 
 

@@ -1,14 +1,28 @@
 # PHP详细安装
 
+**参考网站**
+
+[http://www.phpinternalsbook.com/](http://www.phpinternalsbook.com/)
+
 #### 源码安装
 
 **获取源码**
 
-http://php.net/downloads.php
+[http://php.net/downloads.php](http://php.net/downloads.php)
+
+http://git.php.net/
+
+https://github.com/php/php-src
+
+源码下载的方式有上面的两种 , 第一种是源码包下载 , 第二个是直接从git检出 . 两者稍有区别 : 
+
+git库检出的源码没有configure脚本 , 所以需要使用buildconf脚本,利用 autoconf 来生成配置脚本configure . 
+
+git库检出的源码不包含预生成的解析器 , 所以还需要安装bison\(GNU bison是属于GNU项目的一个语法分析器生成器\) . 
 
 **src/目录**
 
-在家目录中创建src/目录 , 用来存放刚才下载的源码 , 进入这个目录 : 
+在家目录中创建src/目录 , 用来存放刚才下载的源码 , 进入这个目录 :
 
 ```
 mkdir ~/src
@@ -23,6 +37,16 @@ tar -xzvf php.tar.gz
 cd php-*
 ```
 
+**Git检出**
+
+```
+~/src> git clone http://git.php.net/repository/php-src.git
+~/src> git clone https://github.com/php/php-src.git
+~/src> cd php-src
+# 默认是在master分支上,这是当前的开发版本.你也可以直接检出一个稳定版.
+~/php-src> git checkout PHP-7.0
+```
+
 **配置PHP**
 
 构建工具下载
@@ -34,7 +58,48 @@ apt-get install build-essenial
 yum groupinstall "Development Tools"
 ```
 
+如果是Git仓库的版本 , 你需要以下依赖 : 
+
+* gcc - 或其他编译器套件\(build-essenial包含\)
+* libc-dev - 它提供C标准库 , 包括头文件\(build-essenial包含\)
+* make - 构建管理工具\(build-essenial包含\)
+* autoconf - 用来生成配置脚本的 , 版本2.59或更高
+* automake - 用来生成Makefile.in文件 , 版本1.4或更高
+* libtool - 用来帮助管理共享库\(shared libraries\)
+* bison - 用来生成PHP解析器的 , 版本2.4或更高
+* re2c\(可选\) - 用来生成PHP分析器的 . 默认git库里已经包括了一个PHP的语法分析器 . 如果想用re2c也是可以的 . 
+
+```
+# Ubuntu
+apt-get install build-essenial autoconf automake libtool bison re2c
+# CentOS
+yum groupinstall "Development Tools"
+yum install re2c -y
+```
+
 执行`./configure --help`可以查看php的配置选项 , 可以直接执行`./configure`查看执行失败所缺少的软件依赖 , 直到执行成功 . 
+
+在配置阶段启用的扩展 , 就是./configure时配置需要安装的扩展 , 会需要依赖很多附加库 . 如果有-dev或-devel版本 , 尽量安装这些版本 . 因为开发者版通常不会包含必要的头文件 . 例如默认构建php时 , 需要libxml库 , 这里就可以安装 libxml2-dev 包 . 
+
+**构建初始化**
+
+```
+~/php-src> ./buildconf
+~/php-src> ./configure
+~/php-src> make -jN
+```
+
+> 查看CPU核心数 , 然后替换N . `grep "cpu cores" /proc/cpuinfo`
+>
+> 之后可以make install , 把PHP安装到/usr/local目录 , 可以在配置时指定路径 . 
+>
+> ./configure --prefix=$HOME/myphp
+
+在默认情况下,PHP将生成CLI和CGI SAPIs二进制文件 , 分别位于`sapi/cli/php`和`sapi/cgi/php-cgi`分别 . 
+
+可以尝试运行`sapi/cli/php -v`检查生成情况 . 
+
+
 
 ---
 
@@ -46,7 +111,7 @@ Linux环境下 , 如果通过源代码编译安装程序的简单过程可以描
 
 其中./configure配置脚本功能就是对你的系统做很多的测试 , 以用来检测出你的安装平台的目标特征 , 比如它会检测你是不是有CC或GCC , 它是个shell脚本 , 是autoconf的工具的基本应用 , 它会产生一个输出文件"./Makefiles" , 接下来make程序通过该文件来实现编译
 
-configure脚本有大量的命令行选项 , 对不同的软件包来说 , 这些选项可能会有变化 , 但是许多基本的选项是不会改变的 . configure脚本位于待安装程序源码根目录下面 , 会有一个configure可执行文件 , 使用`./configure --help`命令就可以看到可用的所有选项 , 尽管许多选项是很少用到的 , 但是当你为了特殊的需求而configure一个包时 , 知道他们的存在是很有益处的 . 
+configure脚本有大量的命令行选项 , 对不同的软件包来说 , 这些选项可能会有变化 , 但是许多基本的选项是不会改变的 . configure脚本位于待安装程序源码根目录下面 , 会有一个configure可执行文件 , 使用`./configure --help`命令就可以看到可用的所有选项 , 尽管许多选项是很少用到的 , 但是当你为了特殊的需求而configure一个包时 , 知道他们的存在是很有益处的 .
 
 **configure脚本选项的配置内容基本上分成9块内容**
 
@@ -58,7 +123,7 @@ configure脚本有大量的命令行选项 , 对不同的软件包来说 , 这�
 6. 可选安装包区【Optional Packages】
 7. 影响安装的环境变量区【Some influential environment variables】
 
-下面是对PHP最新版7.1.6的拆解 . 
+下面是对PHP最新版7.1.6的拆解 .
 
 ---
 
@@ -90,11 +155,11 @@ configure脚本有大量的命令行选项 , 对不同的软件包来说 , 这�
 
 **--cache-file=FILE**
 
-'configure'会在你的系统上测试存在的特性\(或者bug!\) , 为了加速随后进行的配置 , 测试的结果会存储在一个cache file里 , 尤其当configure一个复杂的源码树时 , 一个很好的cache file的存在会对性能有很大帮助 . 
+'configure'会在你的系统上测试存在的特性\(或者bug!\) , 为了加速随后进行的配置 , 测试的结果会存储在一个cache file里 , 尤其当configure一个复杂的源码树时 , 一个很好的cache file的存在会对性能有很大帮助 .
 
 **--no-create**
 
-'configure'中的一个主要函数会制作输出文件\(./Makefile\) , 此选项阻止'configure'生成这个文件 , 你可以认为这是一种演习\(dry run\) , 尽管缓存\(cache\)仍然被改写了 . 
+'configure'中的一个主要函数会制作输出文件\(./Makefile\) , 此选项阻止'configure'生成这个文件 , 你可以认为这是一种演习\(dry run\) , 尽管缓存\(cache\)仍然被改写了 .
 
 ---
 
@@ -107,7 +172,7 @@ configure脚本有大量的命令行选项 , 对不同的软件包来说 , 这�
                           [PREFIX]
 ```
 
-即如果你想指定安装的程序的具体目录 , 就用这两个选项 , 他们之间的区别就只有是否平台相关性 . 通过指定这两个选项后 , 程序就完全的被安装在指定的目录下面了 , 此时以后删除该程序 , 只需要简单的移除该目录下所有内容就可以了 . 
+即如果你想指定安装的程序的具体目录 , 就用这两个选项 , 他们之间的区别就只有是否平台相关性 . 通过指定这两个选项后 , 程序就完全的被安装在指定的目录下面了 , 此时以后删除该程序 , 只需要简单的移除该目录下所有内容就可以了 .
 
 ```
   --prefix=PREFIX         安装至指定[PREFIX]的目录
@@ -116,15 +181,15 @@ configure脚本有大量的命令行选项 , 对不同的软件包来说 , 这�
                           默认与[PREFIX]相同
 ```
 
-这个区块是./configure脚本中经常被配置的选项区 , 这里的主要作用就是配置你要安装的软件的安装后的目录 , 默认情况下\`make install'将把文件安装至'/usr/local/bin' , '/usr/local/lib'等目录 . 但你可以通过以上参数定义\[PREFIX\]的值来改变目录 . 
+这个区块是./configure脚本中经常被配置的选项区 , 这里的主要作用就是配置你要安装的软件的安装后的目录 , 默认情况下\`make install'将把文件安装至'/usr/local/bin' , '/usr/local/lib'等目录 . 但你可以通过以上参数定义\[PREFIX\]的值来改变目录 .
 
-例如默认情况下目录为'/usr/local'使用指令'--prefix'改变目录 . 
+例如默认情况下目录为'/usr/local'使用指令'--prefix'改变目录 .
 
 例子 : '--prefix=$HOME'
 
 为了更好的定义项目 , 使用以下参数改变更多选项.
 
-以下参数可直接定义更细致的系统目录\(以下参数尽量默认\) : 
+以下参数可直接定义更细致的系统目录\(以下参数尽量默认\) :
 
 ```
 Fine tuning of the installation directories:
@@ -195,7 +260,7 @@ Fine tuning of the installation directories:
 
 **系统类型区【System types】: 也叫交叉编译选项**
 
-一个程序开发完成以后 , 对源代码进行编译 , 将编译后的文件发布出去形成所谓的各个平台的安装版本\(非开源的都是这么干的 , 开源的也可以这样编译后不同运行平台的编译版本\) , 这就是所谓的交叉编译 . 下面介绍有关这个平台相关性的选项 . 
+一个程序开发完成以后 , 对源代码进行编译 , 将编译后的文件发布出去形成所谓的各个平台的安装版本\(非开源的都是这么干的 , 开源的也可以这样编译后不同运行平台的编译版本\) , 这就是所谓的交叉编译 . 下面介绍有关这个平台相关性的选项 .
 
 ```
 System types:
@@ -219,7 +284,7 @@ System types:
 
 **可选特性区【Optional Features】和 可选安装包区【Optional Packages】**
 
-当你想在./configure时使用某个特性的时候 , 可以来配置该区块中的选项值 , 它主要分为disable和enable两大类 , 具体有哪些特性可以用过`./configure --help`来查询 . 软件的包安装的时候 , 可能会存在依赖 . 加上a软件依赖于b软件 , 那么在安装a软件的时候 , 必须要先安装b软件 , 而此时b软件偏偏不在系统的默认查询目录\(即系统无法查询到 , 或者你不想使用系统默认的b软件而想使用你自己安装的b软件\) , 就可用通过with选项来指定具体的软件包地址 , 通过without选项来指定不使用指定的软件包 . 
+当你想在./configure时使用某个特性的时候 , 可以来配置该区块中的选项值 , 它主要分为disable和enable两大类 , 具体有哪些特性可以用过`./configure --help`来查询 . 软件的包安装的时候 , 可能会存在依赖 . 加上a软件依赖于b软件 , 那么在安装a软件的时候 , 必须要先安装b软件 , 而此时b软件偏偏不在系统的默认查询目录\(即系统无法查询到 , 或者你不想使用系统默认的b软件而想使用你自己安装的b软件\) , 就可用通过with选项来指定具体的软件包地址 , 通过without选项来指定不使用指定的软件包 .
 
 ```
 Optional Features and Packages:
@@ -239,15 +304,15 @@ Optional Features and Packages:
 ```
 配置可特性和包:
   --disable-option-checking 忽略未执行 --enable/--with 的所有选项
-  --disable-FEATURE	     关闭特征选项.将不包含FEATURE(指定的特性)(与--enable-FEATURE=no一致)
+  --disable-FEATURE         关闭特征选项.将不包含FEATURE(指定的特性)(与--enable-FEATURE=no一致)
   --enable-FEATURE[=ARG]    启用特征选项.包含FEATURE(指定特性)[ARG=yes]注:结尾为YES或NO(YES为打开,NO为关闭)
-  --with-PACKAGE[=ARG]	     开启使用的包[ARG=yes]注:ARG可选YES或NO
-  --without-PACKAGE	     关闭不用的包 (与--with-PACKAGE=no一致)
-  --with-libdir=NAME	     库文件查找路径设置.../XXX/lib/
-  --disable-rpath	     禁用传递其他运行库搜索路径
-  
+  --with-PACKAGE[=ARG]         开启使用的包[ARG=yes]注:ARG可选YES或NO
+  --without-PACKAGE         关闭不用的包 (与--with-PACKAGE=no一致)
+  --with-libdir=NAME         库文件查找路径设置.../XXX/lib/
+  --disable-rpath         禁用传递其他运行库搜索路径
+
   --enable-re2c-cgoto       Enable -g flag to re2c to use computed goto gcc extension
-  --disable-gcc-global-regs whether to enable GCC global register variables  
+  --disable-gcc-global-regs whether to enable GCC global register variables
 ```
 
 ---
@@ -277,5 +342,5 @@ Optional Features and Packages:
 
 ---
 
-主要和PHP相关的部分 , 就是可选区和环境变量区之间的部分 . 另开一篇内容 , 继续描述 : 
+主要和PHP相关的部分 , 就是可选区和环境变量区之间的部分 . 另开一篇内容 , 继续描述 :
 
