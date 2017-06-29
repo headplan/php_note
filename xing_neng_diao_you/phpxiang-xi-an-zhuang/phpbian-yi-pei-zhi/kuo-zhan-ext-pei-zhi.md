@@ -525,35 +525,36 @@ GNU Aspell version 0.50.0 or higher required
 ```
 
 ```
+# ===== [XMLReader]
+--disable-xmlreader Disable XMLReader support
+--with-libxml-dir=DIR XMLReader: libxml2 install prefix
 
+# ===== [XMLRPC-EPI]
+--with-xmlrpc=DIR Include XMLRPC-EPI support
+--with-libxml-dir=DIR XMLRPC-EPI: libxml2 install prefix
+--with-libexpat-dir=DIR XMLRPC-EPI: libexpat dir for XMLRPC-EPI (deprecated)
+--with-iconv-dir=DIR XMLRPC-EPI: iconv dir for XMLRPC-EPI
 
+# ===== [XMLWriter]
+--disable-xmlwriter Disable XMLWriter support
+--with-libxml-dir=DIR XMLWriter: libxml2 install prefix
 
-  --disable-xmlreader     Disable XMLReader support
-  --with-libxml-dir=DIR   XMLReader: libxml2 install prefix
+# ===== [XSL]
+--with-xsl=DIR Include XSL support. DIR is the libxslt base
+install directory (libxslt >= 1.1.0 required)
 
-  --with-xmlrpc=DIR       Include XMLRPC-EPI support
-  --with-libxml-dir=DIR   XMLRPC-EPI: libxml2 install prefix
-  --with-libexpat-dir=DIR XMLRPC-EPI: libexpat dir for XMLRPC-EPI (deprecated)
-  --with-iconv-dir=DIR    XMLRPC-EPI: iconv dir for XMLRPC-EPI
+# ===== [Zip]
+--enable-zip Include Zip read/write support
+--with-zlib-dir=DIR ZIP: Set the path to libz install prefix
+--with-pcre-dir ZIP: pcre install prefix
+--with-libzip=DIR ZIP: use libzip
 
-
-  --disable-xmlwriter     Disable XMLWriter support
-  --with-libxml-dir=DIR   XMLWriter: libxml2 install prefix
-
-  --with-xsl=DIR          Include XSL support.  DIR is the libxslt base
-                          install directory (libxslt >= 1.1.0 required)
-
-  --enable-zip            Include Zip read/write support
-  --with-zlib-dir=DIR     ZIP: Set the path to libz install prefix
-  --with-pcre-dir         ZIP: pcre install prefix
-  --with-libzip=DIR       ZIP: use libzip
-
-
-  --enable-mysqlnd        Enable mysqlnd explicitly, will be done implicitly
-                          when required by other extensions
-  --disable-mysqlnd-compression-support
-                          Disable support for the MySQL compressed protocol in mysqlnd
-  --with-zlib-dir=DIR     mysqlnd: Set the path to libz install prefix
+# ===== [Mysqlnd]
+--enable-mysqlnd Enable mysqlnd explicitly, will be done implicitly
+when required by other extensions
+--disable-mysqlnd-compression-support
+Disable support for the MySQL compressed protocol in mysqlnd
+--with-zlib-dir=DIR mysqlnd: Set the path to libz install prefix
 ```
 
 
