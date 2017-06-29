@@ -10,15 +10,15 @@
 
 [http://php.net/downloads.php](http://php.net/downloads.php)
 
-http://git.php.net/
+[http://git.php.net/](http://git.php.net/)
 
-https://github.com/php/php-src
+[https://github.com/php/php-src](https://github.com/php/php-src)
 
-源码下载的方式有上面的两种 , 第一种是源码包下载 , 第二个是直接从git检出 . 两者稍有区别 : 
+源码下载的方式有上面的两种 , 第一种是源码包下载 , 第二个是直接从git检出 . 两者稍有区别 :
 
-git库检出的源码没有configure脚本 , 所以需要使用buildconf脚本,利用 autoconf 来生成配置脚本configure . 
+git库检出的源码没有configure脚本 , 所以需要使用buildconf脚本,利用 autoconf 来生成配置脚本configure .
 
-git库检出的源码不包含预生成的解析器 , 所以还需要安装bison\(GNU bison是属于GNU项目的一个语法分析器生成器\) . 
+git库检出的源码不包含预生成的解析器 , 所以还需要安装bison\(GNU bison是属于GNU项目的一个语法分析器生成器\) .
 
 **src/目录**
 
@@ -58,7 +58,7 @@ apt-get install build-essenial
 yum groupinstall "Development Tools"
 ```
 
-如果是Git仓库的版本 , 你需要以下依赖 : 
+如果是Git仓库的版本 , 你需要以下依赖 :
 
 * gcc - 或其他编译器套件\(build-essenial包含\)
 * libc-dev - 它提供C标准库 , 包括头文件\(build-essenial包含\)
@@ -77,9 +77,11 @@ yum groupinstall "Development Tools"
 yum install re2c -y
 ```
 
-执行`./configure --help`可以查看php的配置选项 , 可以直接执行`./configure`查看执行失败所缺少的软件依赖 , 直到执行成功 . 
+执行`./configure --help`可以查看php的配置选项 , 可以直接执行`./configure`查看执行失败所缺少的软件依赖 , 直到执行成功 .
 
 在配置阶段启用的扩展 , 就是./configure时配置需要安装的扩展 , 会需要依赖很多附加库 . 如果有-dev或-devel版本 , 尽量安装这些版本 . 因为开发者版通常不会包含必要的头文件 . 例如默认构建php时 , 需要libxml库 , 这里就可以安装 libxml2-dev 包 . 
+
+> 有的系统自带的`autoconf`程序版本会有Bug , 可能导致扩展的配置无法更新 , 如果在执行`./buildconf`时报错 , 可以根据出错信息安装合适版本的autoconf工具 .
 
 **构建初始化**
 
@@ -91,13 +93,17 @@ yum install re2c -y
 
 > 查看CPU核心数 , 然后替换N . `grep "cpu cores" /proc/cpuinfo`
 >
-> 之后可以make install , 把PHP安装到/usr/local目录 , 可以在配置时指定路径 . 
+> 之后可以make install , 把PHP安装到/usr/local目录 , 可以在配置时指定路径 .
 >
 > ./configure --prefix=$HOME/myphp
 
-在默认情况下,PHP将生成CLI和CGI SAPIs二进制文件 , 分别位于`sapi/cli/php`和`sapi/cgi/php-cgi`分别 . 
+在默认情况下,PHP将生成CLI和CGI SAPIs二进制文件 , 分别位于`sapi/cli/php`和`sapi/cgi/php-cgi`分别 .
 
 可以尝试运行`sapi/cli/php -v`检查生成情况 . 
+
+**./buildconf**
+
+如果是git仓库检出 , 首先要执行这个脚本 , 
 
 
 
