@@ -274,6 +274,47 @@ Additional .ini files parsed:      (none)
 
 正如上面看到的 , 默认 "php.ini"文件的目录是 "$PREFIX/lib"\(libdir\) , 而不是 "$PREFIX/etc"\(sysconfdir\) . 可以使用 "--with-config-file-path=PATH" 配置选项来调整默认的 "php.ini" 位置 . 
 
+刚刚说的只是目录 , 另外请注意的是 , "make install" 是不会创建 ini 文件的 . 如果要使用 "php. ini" 文件 , 必须自己创建一个 . 例如 , 可以复制默认的开发配置 : 
+
+```
+~/myphp/bin> cp ~/php-src/php.ini-development ~/myphp/lib/php.ini
+~/myphp/bin> ./php --ini
+Configuration File (php.ini) Path: /home/myuser/myphp/lib
+Loaded Configuration File:         /home/myuser/myphp/lib/php.ini
+Scan for additional .ini files in: (none)
+Additional .ini files parsed:      (none)
+```
+
+除了 "php" 二进制文件 ,  "bin/" 目录下还包含两个重要的脚本 : phpize 和 php-config . 
+
+"phpize" 相当于 "./buildconf" 的扩展 . 它将从lib/php/build复制不同的文件 , 并调用autoconf和autoheader . 下一节扩展再详细说明 . 
+
+"php-配置" 提供了有关构建php的配置信息 .
+
+```
+[root@localhost bin]# ./php-config
+Usage: ./php-config [OPTION]
+Options:
+  --prefix            [/root/src/myphp]
+  --includes          [-I/root/src/myphp/include/php -I/root/src/myphp/include/php/main -I/root/src/myphp/include/php/TSRM -I/root/src/myphp/include/php/Zend -I/root/src/myphp/include/php/ext -I/root/src/myphp/include/php/ext/date/lib]
+  --ldflags           []
+  --libs              [-lcrypt   -lresolv -lcrypt -lrt -lrt -lm -ldl -lnsl  -lxml2 -lz -lm -ldl -lxml2 -lz -lm -ldl -lxml2 -lz -lm -ldl -lcrypt -lxml2 -lz -lm -ldl -lxml2 -lz -lm -ldl -lxml2 -lz -lm -ldl -lcrypt ]
+  --extension-dir     [/root/src/myphp/lib/php/extensions/no-debug-non-zts-20160303]
+  --include-dir       [/root/src/myphp/include/php]
+  --man-dir           [/root/src/myphp/php/man]
+  --php-binary        [/root/src/myphp/bin/php]
+  --php-sapis         [ cli phpdbg cgi]
+  --configure-options [--prefix=/root/src/myphp --without-pear]
+  --version           [7.1.6]
+  --vernum            [70106]
+```
+
+php-config脚本类似于 linux 发行版使用的 "pkg-config" 脚本 . 在扩展生成过程中调用它以获取有关编译器选项和路径的信息 . 还可以使用它快速获取有关生成的信息 , 如配置选项或默认扩展目录等 . 这些信息用 "./php i"\(phpinfo\) 也可以获取到 , 但 "php-config" 提供了一种简单的形式\(可以更容易地被自动化工具使用\) . 
+
+**运行测试套件**
+
+
+
 ---
 
 Linux环境下 , 如果通过源代码编译安装程序的简单过程可以描述为
