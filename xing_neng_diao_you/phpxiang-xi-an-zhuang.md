@@ -204,13 +204,13 @@ standard
 ~/php-src> make -jN
 ```
 
-此操作的主要结果是将启用SAPIs的php二进制文件\(默认为 sapi/cli/php 和 sapi/cgi/php-cgi\) , 以及modules/目录中的共享扩展 . 
+此操作的主要结果是将启用SAPIs的php二进制文件\(默认为 sapi/cli/php 和 sapi/cgi/php-cgi\) , 以及modules/目录中的共享扩展 .
 
-现在, 您可以运行 "make install" 将 php 安装到 "/usr/local" \(默认\) 或使用 "--prefix" 配置开关指定的任何目录中 . 
+现在, 您可以运行 "make install" 将 php 安装到 "/usr/local" \(默认\) 或使用 "--prefix" 配置开关指定的任何目录中 .
 
 执行"make install"只会将多个文件复制到新位置 . 除非在配置中指定了"--without-pear" , 否则它还会下载并安装 "PEAR" . 下面是默认php安装完成的结果树:
 
-    > tree -L 3 -F ~/myphp
+> tree -L 3 -F ~/myphp
 
     /root/myphp
     |-- bin
@@ -261,6 +261,18 @@ standard
 * include/php - 包含头文件 , 在额外的扩展或自定义软件中嵌入 PHP 所需的头文件。
 * lib/php - 包含PEAR文件 . 其中lib/php/build目录包含了构建扩展所必需的文件 , 例如"acinclude.m4"文件 , 其中包含PHP的M4宏 . 如果我们编译了任何共享的扩展 , 这些文件将生成在一个lib/php/extensions的子目录中 . 
 * php/man - PHP的man文件
+
+如前所述 , 默认的"php.ini"文件的位置不是"etc/" . 可以使用 "php" 二进制文件的 "-ini" 选项来显示该位置:
+
+```
+~/myphp/bin> ./php --ini
+Configuration File (php.ini) Path: /home/myuser/myphp/lib
+Loaded Configuration File:         (none)
+Scan for additional .ini files in: (none)
+Additional .ini files parsed:      (none)
+```
+
+正如上面看到的 , 默认 "php.ini"文件的目录是 "$PREFIX/lib"\(libdir\) , 而不是 "$PREFIX/etc"\(sysconfdir\) . 可以使用 "--with-config-file-path=PATH" 配置选项来调整默认的 "php.ini" 位置 . 
 
 ---
 
