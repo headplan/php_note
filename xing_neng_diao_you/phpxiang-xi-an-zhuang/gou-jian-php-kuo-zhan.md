@@ -79,11 +79,107 @@ PECL是php扩展社区库 , 提供了大量的php扩展 . 当从主php分发中�
 ~/php-src> ./configure --enable-apcu # --other-options
 ```
 
-
+最后运行 "make -jN" 来执行实际的构建 . 正如我们没有使用 "--enable-apcu=shared" 的扩展是静态链接到PHP的 , 即不需要额外的行动来利用它 . 显然 , 您还可以使用 "make install" 来安装生成的二进制文件 . 
 
 #### 使用phpize构建扩展
 
+还可以通过使用php构建部分中已经提到的phpize脚本 , 来分别构建php的扩展 . 
+
+"phpize" 扮演的角色与用于php构建的 "./buildconf" 脚本类似 . 首先 , 它将通过复制 "$PREFIX/lib/php/build" 的文件将php构建系统导入到您的扩展中。这些文件中有 "acinclude.m4" \(PHP的 "M4" 宏\)、"phpize.m4" \(将在您的扩展中重命名为configure.in , 并包含主生成指令\) 和 "run-tests. php" 脚本 . 
+
+然后, "phpize" 将调用 "autoconf" 来生成 "./configure" 文件 , 可用于自定义扩展的构建 . 注意 , 没有必要将 "--enable-apcu" 传递给它 , 因为这是隐式假定的 . 相反 , 您应该使用 "--with-php-config" 来指定您的 "php-config" 脚本的路径 : 
+
+```
+/tmp/apcu-4.0.2> ~/myphp/bin/phpize
+Configuring for:
+PHP Api Version:         20121113
+Zend Module Api No:      20121113
+Zend Extension Api No:   220121113
+
+/tmp/apcu-4.0.2> ./configure --with-php-config=$HOME/myphp/bin/php-config
+/tmp/apcu-4.0.2> make -jN && make install
+```
+
+在构建扩展时, 您应该始终指定 "--with-php-config" 选项 \(除非您只有一个单独的、全局安装的 php\), 否则 "./configure" 将无法正确确定要生成的 php 版本和标志 . 指定 "php-config" 脚本还可确保 "make install" 将正确移动生成的 ".so" 文件 \(可以在 "modules/" 目录中找到\) 到正确的扩展目录 . 
+
+由于 "run-tests.php" 文件在 "phpize" 阶段也被复制 , 所以您可以使用 "make test" \(或对 "run-tests" 的显式调用\) 运行扩展测试 . 
+
+如果增量生成在更改后失败 , 也可以使用 "make clean" 删除已编译的目标对象 , 并允许您强制对扩展进行完全重建 . 此外, "phpize" 提供了一个清洁选项, 通过 "phpize --clean" . 这将删除 "phpize" 导入的所有文件以及由 "./configure" 脚本生成的文件 . 
+
 #### 显示扩展相关信息
+
+PHP CLI二进制文件提供了几个选项来显示有关扩展的信息 . 您已经知道的"-m"选项 , 它将列出所有已加载的扩展 . 您可以使用它来验证是否正确加载了扩展 : 
+
+```
+~/myphp/bin> ./php -dextension=apcu.so -m | grep apcu
+apcu
+```
+
+有几个以 "-r" 开头的进一步公开反射功能的开关 . 例如 , 您可以使用 "-ri" 来显示扩展的配置 : 
+
+```
+~/myphp/bin> ./php -dextension=apcu.so --ri apcu
+apcu
+
+APCu Support => disabled
+Version => 4.0.2
+APCu Debugging => Disabled
+MMAP Support => Enabled
+MMAP File Mask =>
+Serialization Support => broken
+Revision => $Revision: 328290 $
+Build Date => Jan  1 2014 16:40:00
+
+Directive => Local Value => Master Value
+apc.enabled => On => On
+apc.shm_segments => 1 => 1
+apc.shm_size => 32M => 32M
+apc.entries_hint => 4096 => 4096
+apc.gc_ttl => 3600 => 3600
+apc.ttl => 0 => 0
+# ...
+```
+
+"-re" 开关列出了由扩展添加的所有 ini 设置、常量、函数和类:
+
+```
+~/myphp/bin> ./php -dextension=apcu.so --re apcu
+Extension [ <persistent> extension #27 apcu version 4.0.2 ] {
+  - INI {
+    Entry [ apc.enabled <SYSTEM> ]
+      Current = '1'
+    }
+    Entry [ apc.shm_segments <SYSTEM> ]
+      Current = '1'
+    }
+    # ...
+  }
+
+  - Constants [1] {
+    Constant [ boolean APCU_APC_FULL_BC ] { 1 }
+  }
+
+  - Functions {
+    Function [ <internal:apcu> function apcu_cache_info ] {
+
+      - Parameters [2] {
+        Parameter #0 [ <optional> $type ]
+        Parameter #1 [ <optional> $limited ]
+      }
+    }
+    # ...
+  }
+}
+```
+
+"-re" 开关只适用于正常的扩展, Zend扩展使用 "-rz" 代替 . 例如opcache扩展 : 
+
+```
+~/myphp/bin> ./php -dzend_extension=opcache.so --rz "Zend OPcache"
+Zend Extension [ Zend OPcache 7.0.3-dev Copyright (c) 1999-2013 by Zend Technologies <http://www.zend.com/> ]
+```
+
+正如您所看到的 , 这并不显示任何有用的信息 . 原因是 opcache 注册了一个正常的扩展和一个Zend扩展 , 其中前者包含所有的 ini 设置, 常量和函数 . 因此 , 在这个特殊的情况下 , 你仍然需要使用"-re"选项 . 其他的Zend扩展 , 可以使用" -rz "选项 . 
 
 
 
