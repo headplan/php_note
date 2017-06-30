@@ -171,24 +171,24 @@ standard
 
 "--enable-debug" 启用调试模式 , 具有多种效果 . 编译将以 "-g" 运行以生成调试符号 , 并另外使用最低的优化级别 "-O0" . 这将使 php 慢很多 , 但是用像 gdb 这样的工具进行调试更方便 . 此外 , 调试模式定义了ZEND\_DEBUG宏 , 它将在引擎中启用各种调试帮助器 . 除其他外 , 将报告内存泄漏以及某些数据结构的错误使用 .
 
-"--enable-maintainer-zts" 选项实现了线程安全 . 此开关将定义 ZTS 宏 , 它反过来将启用php使用的整个TSRM\(线程安全资源管理器\)器 . 编写php的线程安全扩展非常简单 , 但必须确保启用此开关 . 否则 , 您一定会忘记某个TSRMLS\_的宏 , 并且代码不会在线程安全的环境中生成 . 
+"--enable-maintainer-zts" 选项实现了线程安全 . 此开关将定义 ZTS 宏 , 它反过来将启用php使用的整个TSRM\(线程安全资源管理器\)器 . 编写php的线程安全扩展非常简单 , 但必须确保启用此开关 . 否则 , 您一定会忘记某个TSRMLS\_的宏 , 并且代码不会在线程安全的环境中生成 .
 
-另一方面 , 如果想要以执行性能为基准测试代码的话 , 不应该使用这两个配置 , 因为他们都可能会导致重大和不对称的速度变慢 . 
+另一方面 , 如果想要以执行性能为基准测试代码的话 , 不应该使用这两个配置 , 因为他们都可能会导致重大和不对称的速度变慢 .
 
 > 注意 : "--enable-debug" 和"--enable-maintainer-zts"会更改ABI的PHP的二进制文件 , 例如他们会向许多功能添加额外的参数 . 因此在调试模式下编译的共享扩展和在发布模式编译的扩展是不兼容的 .
 
-由于ABI不兼容make install\(和pecl安装\) , 所以会根据配置将共享扩展放在不同的目录中 : 
+由于ABI不兼容make install\(和pecl安装\) , 所以会根据配置将共享扩展放在不同的目录中 :
 
 * $PREFIX/lib/php/extensions/no-debug-non-zts-API\_NO 为发布版本没有 ZTS
 * $PREFIX/lib/php/extensions/debug-non-zts-API\_NO 为调试版本没有 ZTS
 * $PREFIX/lib/php/extensions/no-debug-zts-API\_NO 为发布版本有 ZTS
 * $PREFIX/lib/php/extensions/debug-zts-API\_NO 为调试版本有 ZTS
 
-上面的API\_NO占位符指的是ZEND\_MODULE\_API\_NO , 它只是一个类似于20100525的日期 , 用于内部 api 版本控制 . 
+上面的API\_NO占位符指的是ZEND\_MODULE\_API\_NO , 它只是一个类似于20100525的日期 , 用于内部 api 版本控制 .
 
-在大多数情况下 , 上面描述的配置开关应该足够了 , 当然 ./configure 配置提供了更多的选项 , 都可以在"--help"中找到 . 
+在大多数情况下 , 上面描述的配置开关应该足够了 , 当然 ./configure 配置提供了更多的选项 , 都可以在"--help"中找到 .
 
-除了传递选项以进行配置外 , 还可以指定许多环境变量 , `./configure --help | tail -25` 例如 : 
+除了传递选项以进行配置外 , 还可以指定许多环境变量 , `./configure --help | tail -25` 例如 :
 
 使用CC选择不同的编译器 , 使用CFLAGS更改使用的编译标志等
 
@@ -198,7 +198,69 @@ standard
 
 **make 和 make install**
 
+配置完所有内容后 , 就可以使用 "make" 来执行实际的编译了:
 
+```
+~/php-src> make -jN
+```
+
+此操作的主要结果是将启用SAPIs的php二进制文件\(默认为 sapi/cli/php 和 sapi/cgi/php-cgi\) , 以及modules/目录中的共享扩展 . 
+
+现在, 您可以运行 "make install" 将 php 安装到 "/usr/local" \(默认\) 或使用 "--prefix" 配置开关指定的任何目录中 . 
+
+执行"make install"只会将多个文件复制到新位置 . 除非在配置中指定了"--without-pear" , 否则它还会下载并安装 "PEAR" . 下面是默认php安装完成的结果树:
+
+    > tree -L 3 -F ~/myphp
+
+    /root/myphp
+    |-- bin
+    |   |-- pear*
+    |   |-- peardev*
+    |   |-- pecl*
+    |   |-- phar -> /home/myuser/myphp/bin/phar.phar*
+    |   |-- phar.phar*
+    |   |-- php*
+    |   |-- php-cgi*
+    |   |-- php-config*
+    |   `-- phpize*
+    |-- etc
+    |   `-- pear.conf
+    |-- include
+    |   `-- php
+    |       |-- ext/
+    |       |-- include/
+    |       |-- main/
+    |       |-- sapi/
+    |       |-- TSRM/
+    |       `-- Zend/
+    |-- lib
+    |   `-- php
+    |       |-- Archive/
+    |       |-- build/
+    |       |-- Console/
+    |       |-- data/
+    |       |-- doc/
+    |       |-- OS/
+    |       |-- PEAR/
+    |       |-- PEAR5.php
+    |       |-- pearcmd.php
+    |       |-- PEAR.php
+    |       |-- peclcmd.php
+    |       |-- Structures/
+    |       |-- System.php
+    |       |-- test/
+    |       `-- XML/
+    `-- php
+        `-- man
+            `-- man1/
+
+目录结构说明
+
+* bin/ - 包含 "sapi" 二进制文件\(php 和 php-cgi\) , 以及 phpize 和 php-config 脚本 . 它也是各种PEAR/PECL脚本的home目录 . 
+* etc/ - 包含各种配置 . 请注意 , 默认的 php. ini 目录不在这里 . 
+* include/php - 包含头文件 , 在额外的扩展或自定义软件中嵌入 PHP 所需的头文件。
+* lib/php - 包含PEAR文件 . 其中lib/php/build目录包含了构建扩展所必需的文件 , 例如"acinclude.m4"文件 , 其中包含PHP的M4宏 . 如果我们编译了任何共享的扩展 , 这些文件将生成在一个lib/php/extensions的子目录中 . 
+* php/man - PHP的man文件
 
 ---
 
