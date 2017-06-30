@@ -169,7 +169,36 @@ standard
 
 还有两个配置开关 , 在开发扩展或使用php时应始终指定 :
 
-"--enable-debug" 启用调试模式 , 具有多种效果 . 编译将以 "-g" 运行以生成调试符号 , 并另外使用最低的优化级别 "-O0" . 这将使 php 慢很多 , 但是用像 gdb 这样的工具进行调试更方便 . 此外 , 调试模式定义了ZEND\_DEBUG宏 , 它将在引擎中启用各种调试帮助器 . 除其他外 , 将报告内存泄漏以及某些数据结构的错误使用 .  
+"--enable-debug" 启用调试模式 , 具有多种效果 . 编译将以 "-g" 运行以生成调试符号 , 并另外使用最低的优化级别 "-O0" . 这将使 php 慢很多 , 但是用像 gdb 这样的工具进行调试更方便 . 此外 , 调试模式定义了ZEND\_DEBUG宏 , 它将在引擎中启用各种调试帮助器 . 除其他外 , 将报告内存泄漏以及某些数据结构的错误使用 .
+
+"--enable-maintainer-zts" 选项实现了线程安全 . 此开关将定义 ZTS 宏 , 它反过来将启用php使用的整个TSRM\(线程安全资源管理器\)器 . 编写php的线程安全扩展非常简单 , 但必须确保启用此开关 . 否则 , 您一定会忘记某个TSRMLS\_的宏 , 并且代码不会在线程安全的环境中生成 . 
+
+另一方面 , 如果想要以执行性能为基准测试代码的话 , 不应该使用这两个配置 , 因为他们都可能会导致重大和不对称的速度变慢 . 
+
+> 注意 : "--enable-debug" 和"--enable-maintainer-zts"会更改ABI的PHP的二进制文件 , 例如他们会向许多功能添加额外的参数 . 因此在调试模式下编译的共享扩展和在发布模式编译的扩展是不兼容的 .
+
+由于ABI不兼容make install\(和pecl安装\) , 所以会根据配置将共享扩展放在不同的目录中 : 
+
+* $PREFIX/lib/php/extensions/no-debug-non-zts-API\_NO 为发布版本没有 ZTS
+* $PREFIX/lib/php/extensions/debug-non-zts-API\_NO 为调试版本没有 ZTS
+* $PREFIX/lib/php/extensions/no-debug-zts-API\_NO 为发布版本有 ZTS
+* $PREFIX/lib/php/extensions/debug-zts-API\_NO 为调试版本有 ZTS
+
+上面的API\_NO占位符指的是ZEND\_MODULE\_API\_NO , 它只是一个类似于20100525的日期 , 用于内部 api 版本控制 . 
+
+在大多数情况下 , 上面描述的配置开关应该足够了 , 当然 ./configure 配置提供了更多的选项 , 都可以在"--help"中找到 . 
+
+除了传递选项以进行配置外 , 还可以指定许多环境变量 , `./configure --help | tail -25` 例如 : 
+
+使用CC选择不同的编译器 , 使用CFLAGS更改使用的编译标志等
+
+```
+~/php-src> ./configure --disable-all CC=clang CFLAGS="-O3 -march=native"
+```
+
+**make 和 make install**
+
+
 
 ---
 
