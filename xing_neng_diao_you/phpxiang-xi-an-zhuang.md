@@ -272,9 +272,9 @@ Scan for additional .ini files in: (none)
 Additional .ini files parsed:      (none)
 ```
 
-正如上面看到的 , 默认 "php.ini"文件的目录是 "$PREFIX/lib"\(libdir\) , 而不是 "$PREFIX/etc"\(sysconfdir\) . 可以使用 "--with-config-file-path=PATH" 配置选项来调整默认的 "php.ini" 位置 . 
+正如上面看到的 , 默认 "php.ini"文件的目录是 "$PREFIX/lib"\(libdir\) , 而不是 "$PREFIX/etc"\(sysconfdir\) . 可以使用 "--with-config-file-path=PATH" 配置选项来调整默认的 "php.ini" 位置 .
 
-刚刚说的只是目录 , 另外请注意的是 , "make install" 是不会创建 ini 文件的 . 如果要使用 "php. ini" 文件 , 必须自己创建一个 . 例如 , 可以复制默认的开发配置 : 
+刚刚说的只是目录 , 另外请注意的是 , "make install" 是不会创建 ini 文件的 . 如果要使用 "php. ini" 文件 , 必须自己创建一个 . 例如 , 可以复制默认的开发配置 :
 
 ```
 ~/myphp/bin> cp ~/php-src/php.ini-development ~/myphp/lib/php.ini
@@ -285,9 +285,9 @@ Scan for additional .ini files in: (none)
 Additional .ini files parsed:      (none)
 ```
 
-除了 "php" 二进制文件 ,  "bin/" 目录下还包含两个重要的脚本 : phpize 和 php-config . 
+除了 "php" 二进制文件 ,  "bin/" 目录下还包含两个重要的脚本 : phpize 和 php-config .
 
-"phpize" 相当于 "./buildconf" 的扩展 . 它将从lib/php/build复制不同的文件 , 并调用autoconf和autoheader . 下一节扩展再详细说明 . 
+"phpize" 相当于 "./buildconf" 的扩展 . 它将从lib/php/build复制不同的文件 , 并调用autoconf和autoheader . 下一节扩展再详细说明 .
 
 "php-配置" 提供了有关构建php的配置信息 .
 
@@ -309,11 +309,18 @@ Options:
   --vernum            [70106]
 ```
 
-php-config脚本类似于 linux 发行版使用的 "pkg-config" 脚本 . 在扩展生成过程中调用它以获取有关编译器选项和路径的信息 . 还可以使用它快速获取有关生成的信息 , 如配置选项或默认扩展目录等 . 这些信息用 "./php i"\(phpinfo\) 也可以获取到 , 但 "php-config" 提供了一种简单的形式\(可以更容易地被自动化工具使用\) . 
+php-config脚本类似于 linux 发行版使用的 "pkg-config" 脚本 . 在扩展生成过程中调用它以获取有关编译器选项和路径的信息 . 还可以使用它快速获取有关生成的信息 , 如配置选项或默认扩展目录等 . 这些信息用 "./php i"\(phpinfo\) 也可以获取到 , 但 "php-config" 提供了一种简单的形式\(可以更容易地被自动化工具使用\) .
 
 **运行测试套件**
 
+在成功执行完make命令之后 , 最后会打印出一条信息 , 让你执行make test : 
 
+```
+Build complete.
+Don't forget to run 'make test'
+```
+
+"make test"将对"测试套件"运行"PHP CLI"二进制 , 它位于php源码的不同 "test/" 目录中\(\*\*\*.phpt文件\) . 由于要运行9000个以上的测试 , 所以这可能需要几分钟的时间 . 但"make test"不是并行的 , 所以用参数"-jN"也不会更快 . 
 
 ---
 
