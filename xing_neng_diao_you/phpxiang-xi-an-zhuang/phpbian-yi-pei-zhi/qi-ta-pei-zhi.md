@@ -16,12 +16,12 @@ Zend:
                           如果编译zend_execute.lo失败，则使用此参数
   --disable-zend-signals  whether to enable zend signal handling # 信号处理zend signal看一下下面你的文章[zend signal]
 
-TSRM:
+TSRM(Thread Safe Resource Manager线程安全资源管理器相关配置):
 
   --with-tsrm-pth=pth-config
-                          Use GNU Pth
-  --with-tsrm-st          Use SGI's State Threads
-  --with-tsrm-pthreads    Use POSIX threads (default)
+                          Use GNU Pth 使用GNU方式管理线程
+  --with-tsrm-st          Use SGI's State Threads 使用SGI静态线程方式管理线程
+  --with-tsrm-pthreads    Use POSIX threads (default) 使用POSIX线程方式管理线程
 
 Libtool:
 
