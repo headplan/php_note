@@ -14,6 +14,8 @@
       * [SAPI模块](xing_neng_diao_you/phpxiang-xi-an-zhuang/phpbian-yi-pei-zhi/sapimo-kuai.md)
       * [General基本配置](xing_neng_diao_you/phpxiang-xi-an-zhuang/phpbian-yi-pei-zhi/generalji-ben-pei-zhi.md)
       * [扩展Ext配置](xing_neng_diao_you/phpxiang-xi-an-zhuang/phpbian-yi-pei-zhi/kuo-zhan-ext-pei-zhi.md)
+        * [整理 - 默认启用的扩展](xing_neng_diao_you/phpxiang-xi-an-zhuang/phpbian-yi-pei-zhi/kuo-zhan-ext-pei-zhi/zheng-li-mo-ren-qi-yong-de-kuo-zhan.md)
+        * [将php的session保存到内存中](xing_neng_diao_you/phpxiang-xi-an-zhuang/phpbian-yi-pei-zhi/kuo-zhan-ext-pei-zhi/jiang-php-de-session-bao-cun-dao-nei-cun-zhong.md)
       * [其他配置](xing_neng_diao_you/phpxiang-xi-an-zhuang/phpbian-yi-pei-zhi/qi-ta-pei-zhi.md)
         * [线程安全](xing_neng_diao_you/phpxiang-xi-an-zhuang/phpbian-yi-pei-zhi/qi-ta-pei-zhi/xian-cheng-an-quan.md)
         * [Zend Signal](xing_neng_diao_you/phpxiang-xi-an-zhuang/phpbian-yi-pei-zhi/qi-ta-pei-zhi/zend-signal.md)
