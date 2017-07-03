@@ -8,9 +8,12 @@ PEAR:
 
 Zend:
 
-  --enable-maintainer-zts Enable thread safety - for code maintainers only!!
+  --enable-maintainer-zts Enable thread safety - for code maintainers only!! 参考下面的[线程安全]文章
   --disable-inline-optimization
                           If building zend_execute.lo fails, try this switch
+                          # 原来优化时需要开启,现在已经默认开启了.
+                          # 使 PHP 有可能更快地执行（不需使用类似 Zend Engine 的软件进行额外的操作码优化）
+                          如果编译zend_execute.lo失败，则使用此参数
   --disable-zend-signals  whether to enable zend signal handling
 
 TSRM:
