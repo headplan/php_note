@@ -21,36 +21,36 @@ Extensions(扩展):
 **扩展列表**
 
 ```
-# ===== [libxml]
+# ===== [libxml] - 默认启用
 # ===== [OpenSSL]
 # ===== [PREC]
-# ===== [SQLite3]
+# ===== [SQLite3] - 默认启用
 # ===== [Zlib]
 # ===== [BC Math]
 # ===== [Bzip2]
 # ===== [Calendar]
-# ===== [ctype]
+# ===== [ctype] - 默认启用
 # ===== [cURL]
 .10
 # ===== [DBA]
-# ===== [DOM]
+# ===== [DOM] - 默认启用
 # ===== [enchant]
 # ===== [EXIF]
-# ===== [fileinfo]
-# ===== [Filter]
+# ===== [fileinfo] - 默认启用
+# ===== [Filter] - 默认启用
 # ===== [FTP]
 # ===== [GD imaging(gd)]
 # ===== [GetText]
 # ===== [GMP]
 .20
 # ===== [Mhash]
-# ===== [hash]
-# ===== [iconv]
+# ===== [hash] - 默认启用
+# ===== [iconv] - 默认启用
 # ===== [IMAP]
 # ===== [Firebird/InterBase]
 # ===== [Internationalization(intl)]
 # ===== [International Components for Unicode(ICU)]
-# ===== [json]
+# ===== [json] - 默认启用
 # ===== [LDAP]
 # ===== [Multibyte String Functions(mbstring)]
 .30
@@ -71,21 +71,21 @@ Extensions(扩展):
 # ===== [Easysoft OOB(esoob)]
 # ===== [unixODBC]
 # ===== [DBMaker]
-# ===== [opcache]
-# ===== [Hugepages]
+# ===== [opcache] - 默认启用
+# ===== [Hugepages] - 默认启用
 # ===== [pcntl]
-# ===== [PDO]
+# ===== [PDO] - 默认启用
 .50
 # ===== [PostgreSQL]
-# ===== [Phar]
-# ===== [Posix]
+# ===== [Phar] - 默认启用
+# ===== [Posix] - 默认启用
 # ===== [Aspell]
 # ===== [Libedit]
 # ===== [Readline]
 # ===== [Recode]
-# ===== [session]
+# ===== [session] - 默认启用
 # ===== [shmop]
-# ===== [SimpleXML]
+# ===== [SimpleXML] - 默认启用
 .60
 # ===== [SNMP]
 # ===== [SOAP]
@@ -94,13 +94,13 @@ Extensions(扩展):
 # ===== [sysvsem]
 # ===== [sysvshm]
 # ===== [TIDY]
-# ===== [Tokenizer]
+# ===== [Tokenizer] - 默认启用
 # ===== [WDDX]
-# ===== [XML]
+# ===== [XML]- 默认启用
 .70
-# ===== [XMLReader]
+# ===== [XMLReader] - 默认启用
 # ===== [XMLRPC-EPI]
-# ===== [XMLWriter]
+# ===== [XMLWriter] - 默认启用
 # ===== [XSL]
 # ===== [Zip]
 # ===== [Mysqlnd]
