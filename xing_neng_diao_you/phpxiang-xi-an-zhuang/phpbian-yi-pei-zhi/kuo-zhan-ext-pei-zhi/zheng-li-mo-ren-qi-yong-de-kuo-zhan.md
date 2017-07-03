@@ -11,7 +11,8 @@
 # ===== [Filter] - 依赖pcre,pcre-devel
 --with-pcre-dir
 # ===== [hash]
-# ===== [iconv] - 依赖libiconv
+# ===== [iconv] - 依赖libiconv,这个依赖在glibc,glibc-devel中.iconv是内建glibc的组成部分
+# 这里的glibc可能会转码支持的不完善,所以一般会换成编译安装libiconv,需要用到下面的配置参数
 --with-iconv-dir=DIR
 # ===== [json]
 # ===== [opcache]
