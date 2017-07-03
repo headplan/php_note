@@ -59,15 +59,22 @@ make clean
 ./configure --prefix=$php_install_dir \
 --with-config-file-path=$php_install_dir/etc \
 --with-config-file-scan-dir=$php_install_dir/etc/php.d \
---enable-fpm --with-fpm-user=$run_user --with-fpm-group=$run_user --with-fpm-systemd --with-fpm-acl\
-# 其他SAPI和General有关的配置
+
+# FPM方式
+--enable-fpm --with-fpm-user=$run_user --with-fpm-group=$run_user --with-fpm-systemd (--with-fpm-acl) \
+# Apache模块
+--with-apxs2=$apache_install_dir/bin/apxs
+
+# 其他SAPI和General有关的配置(生成环境不建议开启)
 --enable-embed --enable-phpdbg --enable-phpdbg-webhelper --enable-phpdbg-debug \
 
-# 扩展相关配置
-
-
-
+# 扩展相关配置(默认)
 $PHP_cache_tmp --disable-fileinfo \
+
+# 扩展相关配置(其他)
+
+
+
 ```
 
 
