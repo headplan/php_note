@@ -16,6 +16,7 @@
       * [扩展Ext配置](xing_neng_diao_you/phpxiang-xi-an-zhuang/phpbian-yi-pei-zhi/kuo-zhan-ext-pei-zhi.md)
       * [其他配置](xing_neng_diao_you/phpxiang-xi-an-zhuang/phpbian-yi-pei-zhi/qi-ta-pei-zhi.md)
         * [线程安全](xing_neng_diao_you/phpxiang-xi-an-zhuang/phpbian-yi-pei-zhi/qi-ta-pei-zhi/xian-cheng-an-quan.md)
+        * [Zend Signal](xing_neng_diao_you/phpxiang-xi-an-zhuang/phpbian-yi-pei-zhi/qi-ta-pei-zhi/zend-signal.md)
     * [配置总结](xing_neng_diao_you/phpxiang-xi-an-zhuang/pei-zhi-zong-jie.md)
 * [命令行PHP](ming_ling_hang_php.md)
 * [包](bao.md)

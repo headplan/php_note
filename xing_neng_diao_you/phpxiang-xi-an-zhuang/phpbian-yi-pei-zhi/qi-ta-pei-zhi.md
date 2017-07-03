@@ -14,7 +14,7 @@ Zend:
                           # 原来优化时需要开启,现在已经默认开启了.
                           # 使 PHP 有可能更快地执行（不需使用类似 Zend Engine 的软件进行额外的操作码优化）
                           如果编译zend_execute.lo失败，则使用此参数
-  --disable-zend-signals  whether to enable zend signal handling
+  --disable-zend-signals  whether to enable zend signal handling # 信号处理zend signal看一下下面你的文章[zend signal]
 
 TSRM:
 
