@@ -62,8 +62,7 @@ make clean
 
 # FPM方式
 --enable-fpm --with-fpm-user=$run_user --with-fpm-group=$run_user --with-fpm-systemd (--with-fpm-acl) \
-# Apache模块
---with-apxs2=$apache_install_dir/bin/apxs
+# Apache模块 --with-apxs2=$apache_install_dir/bin/apxs
 
 # 其他SAPI和General有关的配置(生成环境不建议开启)
 --enable-embed --enable-phpdbg --enable-phpdbg-webhelper --enable-phpdbg-debug \
@@ -99,6 +98,15 @@ make clean
 --with-gettext \ 
 --disable-rpath \ # 关闭额外运行库支持
 
+--enable-gd-jis-conv 
+--enable-sysvmsg
+--enable-sysvshm
+--with-pcre-dir  
+--with-readline 
+--with-recode 
+--with-tidy
+--with-bz2   
+
 # 这三个配置已经默认了
 --enable-xml
 --disable-debug 
@@ -107,6 +115,7 @@ make clean
 --enable-opcache
 --with-pear
 
+# ${THREAD} = grep "cpu cores" /proc/cpuinfo
 make ZEND_EXTRA_LIBS='-liconv' -j ${THREAD}
 make install
 ```
