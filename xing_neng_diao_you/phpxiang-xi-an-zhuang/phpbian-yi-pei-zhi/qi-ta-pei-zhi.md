@@ -3,8 +3,8 @@
 ```
 PEAR:
 
-  --with-pear=DIR         Install PEAR in DIR [PREFIX/lib/php]
-  --without-pear          Do not install PEAR
+  --with-pear=DIR         Install PEAR in DIR [PREFIX/lib/php] 默认安装
+  --without-pear          Do not install PEAR 不安装
 
 Zend:
 

@@ -51,7 +51,7 @@ SAPI modules:
   --enable-fpm            编译PHP时需要--enable-fpm配置选项来激活FPM支持
   --with-fpm-user=USER    设置FPM运行的用户身份(默认-nobody)
   --with-fpm-group=GRP    设置FPM运行时的用户组(默认-nobody)
-  --with-fpm-systemd      启用systemd集成(默认-no)
+  --with-fpm-systemd      启用systemd集成(默认-no)可以使PHP7支持centos7的systemd服务管理
   --with-fpm-acl          使用POSIX访问控制列表(默认-no)5.6.5版本起有效
   --with-litespeed        编译litespeed模块,LiteSpeed可与DirectAdmin,cPanel与Plesk等虚拟主机控制面板配套使用.
   --enable-phpdbg            编译phpdbg.可以在PHP5.4和之上版本中使用.在php5.6和之上版本将内部集成.
