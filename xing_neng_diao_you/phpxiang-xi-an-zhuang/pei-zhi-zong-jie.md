@@ -5,15 +5,23 @@
 ```
 # 基础依赖可以按照前面的安装
 # Ubuntu
-apt-get install build-essenial
+apt-get install build-essenial autoconf automake libtool bison re2c
 # CentOS
 yum groupinstall "Development Tools"
+yum install re2c -y
 ```
 
 **其他依赖**
 
 ```
-yum -y install
+yum -y install gcc gcc-c++ \
+
+# 默认依赖
+libxml2 libxml2-devel \
+pcre pcre-devel \
+glibc glibc-devel \ # 编译安装libiconv替换,--with-iconv-dir=DIR
+
+# 扩展依赖
 ```
 
 #### 基本配置
