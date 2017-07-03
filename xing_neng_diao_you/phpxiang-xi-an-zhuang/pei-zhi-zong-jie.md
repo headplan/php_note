@@ -69,12 +69,46 @@ make clean
 --enable-embed --enable-phpdbg --enable-phpdbg-webhelper --enable-phpdbg-debug \
 
 # 扩展相关配置(默认)
-$PHP_cache_tmp --disable-fileinfo \
-
+--disable-fileinfo --with-iconv-dir=/usr/local \
+--with-libxml-dir=/usr \ # 很多扩展需要这个路径支持
 # 扩展相关配置(其他)
+# MySQL支持
+--enable-mysqlnd --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd \
 
+# GD库支持
+--with-gd --enable-gd-native-ttf --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib \
 
+--enable-bcmath \
+--enable-shmop \
+--enable-exif \
+--enable-sysvsem \
+--enable-mbregex \
+--enable-mbstring \
+--enable-pcntl
+--enable-sockets
+--enable-ftp \
+--enable-intl \
+--enable-zip \
+--enable-soap \
+--with-mcrypt \
+--with-openssl \
+--with-curl=/usr/local \
+--with-mhash \  
+--with-xmlrpc \ 
+--with-xsl \
+--with-gettext \ 
+--disable-rpath \ # 关闭额外运行库支持
 
+# 这三个配置已经默认了
+--enable-xml
+--disable-debug 
+--enable-inline-optimization
+# 此外下面两项也已经默认开启了
+--enable-opcache
+--with-pear
+
+make ZEND_EXTRA_LIBS='-liconv' -j ${THREAD}
+make install
 ```
 
 
