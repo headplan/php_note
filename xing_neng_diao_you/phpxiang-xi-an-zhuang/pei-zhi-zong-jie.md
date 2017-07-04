@@ -120,5 +120,73 @@ make ZEND_EXTRA_LIBS='-liconv' -j ${THREAD}
 make install
 ```
 
+**加入环境变量**
+
+    [ -z "`grep ^'export PATH=' /etc/profile`" ] && echo "export PATH=$php_install_dir/bin:\$PATH" >> /etc/profile
+    [ -n "`grep ^'export PATH=' /etc/profile`" -a -z "`grep $php_install_dir /etc/profile`" ] && sed -i "s@^export PATH=\(.*\)@export PATH=$php_install_dir/bin:\1@" /etc/profile
+    # 这里的点空格表示source
+    . /etc/profile
+
+**配置文件**
+
+```
+# 如果php.d目录不存在,则创建该目录
+[ ! -e "$php_install_dir/etc/php.d" ] && mkdir -p $php_install_dir/etc/php.d
+# 复制配置文件到php安装目录的/etc目录下
+/bin/cp php.ini-production $php_install_dir/etc/php.ini
+```
+
+然后是配置文件的优化 , 这里查看关于PHP配置文件的笔记 . 如果有扩展 , 配置可以放到 , 
+
+```
+$php_install_dir/etc/php.d/ext-opcache.ini
+```
+
+**然后是FPM文件加入到开机启动**
+
+```
+/bin/cp sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
+chmod +x /etc/init.d/php-fpm
+```
+
+**添加服务**
+
+```
+chkconfig --add php-fpm; chkconfig php-fpm on;
+```
+
+然后是优化配置FPM , 这部分查看PHP-FPM配置文件笔记 . 
+
+**最后启动**
+
+```
+service php-fpm start
+```
+
+**参考资料**
+
+http://blog.csdn.net/u010861514/article/details/51926575
+
+https://typecodes.com/web/centos7compilephp7.html
+
+---
+
+#### 动态编译加载其他php模块
+
+```
+# 查看
+ls php-src/ext/
+# 假设编译mbstring模块
+# 进入mbstring的源码包目录,利用phpize生成configure文件
+cd mbstring/
+/usr/local/php/bin/phpize
+./configure --with-php-config=/usr/local/php/bin/php-config
+make && make install
+# 编译完成后生成文件
+ls /usr/local/php/lib/php/extensions/no-debug-non-zts-20131226/
+# 添加配置文件到php.d目录
+echo "extension=mbstring.so" > $php_install_dir/etc/php.d/ext-mbstring.ini
+```
+
 
 
