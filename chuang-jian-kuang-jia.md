@@ -78,16 +78,16 @@ HttpFoundation还解决了安全问题 .
 
 > 把一个单一PHP脚本暴露给（exposing）末级用户是一个被称之为前端控制器的设计模式 .
 
-为了拥有多个页面可以访问 , 我们可以把前面的代码中公共的部分提取出来 , 创建一个文件引入到新建的页面当中 . 
+为了拥有多个页面可以访问 , 我们可以把前面的代码中公共的部分提取出来 , 创建一个文件引入到新建的页面当中 .
 
 **index.php**
 
 ```
 require_once __DIR__.'/vendor/autoload.php';
- 
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
- 
+
 $request = Request::createFromGlobals();
 $response = new Response();
 ```
@@ -96,9 +96,9 @@ $response = new Response();
 
 ```
 require_once __DIR__.'/index.php';
- 
+
 $input = $request->get('name', 'World');
- 
+
 $response->setContent(sprintf('Hello %s', htmlspecialchars($input, ENT_QUOTES, 'UTF-8')));
 $response->send();
 ```
@@ -112,7 +112,52 @@ $response->setContent('About!');
 $response->send();
 ```
 
-对于所有页面 , 我们仍要保留`send()`方法 , 页面也不像个模板 . 还有 , 添加一个新页 , 必须创建一个新的PHP脚本 , 其名字通过URL完全暴露给末级用户 , 也就是PHP脚本名称与客户端URL之间是直接的映射关系 . 
+对于所有页面 , 我们仍要保留`send()`方法 , 页面也不像个模板 . 还有 , 添加一个新页 , 必须创建一个新的PHP脚本 , 其名字通过URL完全暴露给末级用户 , 也就是PHP脚本名称与客户端URL之间是直接的映射关系 .
 
-但是我们要做的是通过把所有客户端请求发送\(routing\)到一个独立PHP脚本来实现 , 也就是利用前端控制器设计模式 . 
+但是我们要做的是通过把所有客户端请求发送\(routing\)到一个独立PHP脚本来实现 , 也就是利用前端控制器设计模式 .
+
+**继续重构代码 , 查看commit -m"Front Controller"**
+
+通过自定义map数组和获取请求的pathinfo引入不同的文件 . 其他页面就不需要require入口文件 , 也不需要send\(\)函数响应 , 只写和自己相关的要响应的内容就好了 . 
+
+不存在的页面 , 也就是不在map中的文件 , 就会直接返回404状态 , 和Not Found内容 . 
+
+现在测试脚本 , 就可以模拟URL请求来测试了
+
+```
+$request = Request::create('/hello?name=Baby');
+```
+
+**框架目录结构 , 查看commit -m"New Directory"**
+
+```
+./
+├── composer.json
+├── composer.lock
+├── public/
+│   └── index.php
+├── src/
+│   └── views/
+│       ├── about.php
+│       └── hello.php
+└── vendor
+    ├── autoload.php
+    ├── composer/
+    └── symfony/
+```
+
+新的目录结构 , 我们把about和hello页面放到了views视图目录下 , 所以也要将全部页面转换成“模板” , 现在页面重复的部分就是把内容输出给response , 响应Content的内容 .
+
+```
+# 修改入口文件
+ob_start();
+include $map[$path];
+$response->setContent(ob_get_clean());
+```
+
+然后把about和hello页面改成标签的方式就可以了 . 
+
+> 别忘了修改自动加载和map的引入路径
+
+
 
