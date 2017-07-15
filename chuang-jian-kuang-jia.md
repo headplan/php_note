@@ -72,5 +72,47 @@ $response = new Response(sprintf('Hello %s', htmlspecialchars($input, ENT_QUOTES
 $response->send();
 ```
 
+HttpFoundation还解决了安全问题 .
 
+#### 前端控制器
+
+> 把一个单一PHP脚本暴露给（exposing）末级用户是一个被称之为前端控制器的设计模式 .
+
+为了拥有多个页面可以访问 , 我们可以把前面的代码中公共的部分提取出来 , 创建一个文件引入到新建的页面当中 . 
+
+**index.php**
+
+```
+require_once __DIR__.'/vendor/autoload.php';
+ 
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+ 
+$request = Request::createFromGlobals();
+$response = new Response();
+```
+
+**hello.php**
+
+```
+require_once __DIR__.'/index.php';
+ 
+$input = $request->get('name', 'World');
+ 
+$response->setContent(sprintf('Hello %s', htmlspecialchars($input, ENT_QUOTES, 'UTF-8')));
+$response->send();
+```
+
+**about.php**
+
+```
+require_once __DIR__.'/index.php';
+
+$response->setContent('About!');
+$response->send();
+```
+
+对于所有页面 , 我们仍要保留`send()`方法 , 页面也不像个模板 . 还有 , 添加一个新页 , 必须创建一个新的PHP脚本 , 其名字通过URL完全暴露给末级用户 , 也就是PHP脚本名称与客户端URL之间是直接的映射关系 . 
+
+但是我们要做的是通过把所有客户端请求发送\(routing\)到一个独立PHP脚本来实现 , 也就是利用前端控制器设计模式 . 
 
