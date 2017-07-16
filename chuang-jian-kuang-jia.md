@@ -118,9 +118,9 @@ $response->send();
 
 **继续重构代码 , 查看commit -m"Front Controller"**
 
-通过自定义map数组和获取请求的pathinfo引入不同的文件 . 其他页面就不需要require入口文件 , 也不需要send\(\)函数响应 , 只写和自己相关的要响应的内容就好了 . 
+通过自定义map数组和获取请求的pathinfo引入不同的文件 . 其他页面就不需要require入口文件 , 也不需要send\(\)函数响应 , 只写和自己相关的要响应的内容就好了 .
 
-不存在的页面 , 也就是不在map中的文件 , 就会直接返回404状态 , 和Not Found内容 . 
+不存在的页面 , 也就是不在map中的文件 , 就会直接返回404状态 , 和Not Found内容 .
 
 现在测试脚本 , 就可以模拟URL请求来测试了
 
@@ -135,11 +135,11 @@ $request = Request::create('/hello?name=Baby');
 ├── composer.json
 ├── composer.lock
 ├── public/
-│   └── index.php
+│   └── index.php
 ├── src/
-│   └── views/
-│       ├── about.php
-│       └── hello.php
+│   └── views/
+│       ├── about.php
+│       └── hello.php
 └── vendor
     ├── autoload.php
     ├── composer/
@@ -155,7 +155,7 @@ include $map[$path];
 $response->setContent(ob_get_clean());
 ```
 
-然后把about和hello页面改成标签的方式就可以了 . 
+然后把about和hello页面改成标签的方式就可以了 .
 
 > 别忘了修改自动加载和map的引入路径
 
