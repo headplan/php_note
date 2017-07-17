@@ -52,6 +52,7 @@
   * [PHP School](awesome-php/php-school.md)
 * [新建PHP框架](chuang-jian-kuang-jia.md)
   * [HttpFoundation组件](chuang-jian-kuang-jia/httpfoundationzu-jian.md)
+  * 添加路由
 * [函数式编程](han-shu-shi-bian-cheng.md)
   * [函数](han-shu-shi-bian-cheng/han-shu.md)
     * [高阶函数](han-shu-shi-bian-cheng/han-shu/gao-jie-han-shu.md)
