@@ -5,10 +5,11 @@
 * [https://github.com/noahbuscher/Macaw](https://github.com/noahbuscher/Macaw)
 * [https://github.com/klein/klein.php](https://github.com/klein/klein.php)
 * [https://github.com/laravel/framework](https://github.com/laravel/framework)
+* http://www.symfony.com/doc/current/components/routing.html
 
 **路由组件**
 
-我们先来看看Symfony的路由组件 . 
+我们先来看看Symfony的路由组件 .
 
 ```
 composer require symfony/routing
@@ -25,10 +26,43 @@ $routes = new RouteCollection();
 
 ```
 use Symfony\Component\Routing\Route;
- 
+
 $routes->add('hello', new Route('/hello/{name}', array('name' => 'World')));
 $routes->add('bye', new Route('/about'));
 ```
+
+基于存放在`RouteCollection`实例中的信息 , 使用`UrlMatcher`实例能够匹配URL路径
+
+```
+use Symfony\Component\Routing\RequestContext;
+use Symfony\Component\Routing\Matcher\UrlMatcher;
+ 
+$context = new RequestContext();
+$context->fromRequest($request);
+$matcher = new UrlMatcher($routes, $context);
+ 
+$attributes = $matcher->match($request->getPathInfo());
+```
+
+`match()`方法接收一个request路径 , 返回一个属性数组 . 
+
+```
+print_r($matcher->match('/hello'));
+/* Gives:
+array (
+  'name' => 'World',
+  '_route' => 'hello',
+);
+*/
+```
+
+> URL matcher在匹配不到路由时会抛出一个异常
+>
+> ```
+> $matcher->match('/not-found');
+>  
+> // throws a Symfony\Component\Routing\Exception\ResourceNotFoundException
+> ```
 
 **创建路由文件夹及文件**
 
@@ -42,8 +76,6 @@ $routes->add('bye', new Route('/about'));
 * 一个存放路由的属性
 * 一个设置路由属性的方法
 * 还需要一个调度方法 , 调度url的请求与响应
-
-
 
 **路由类初始化 , 查看commit -m"Route Class Init"**
 
