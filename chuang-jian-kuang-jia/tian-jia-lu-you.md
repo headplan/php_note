@@ -73,20 +73,5 @@ array (
 * 请求的属性被提取出来了 , 模板内容更加纯粹 , 不过之前也已经提取出来了
 * 路由配置已被移入属于它的一个文件routes/web.php
 
----
 
-**创建路由文件夹及文件**
-
-```
- mkdir -p framework/routing
- touch route.php
-```
-
-**路由类基本组成**
-
-* 一个存放路由的属性
-* 一个设置路由属性的方法
-* 还需要一个调度方法 , 调度url的请求与响应
-
-路由类初始化 , 查看commit -m"Route Class Init"
 
