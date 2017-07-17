@@ -64,7 +64,14 @@ array (
 > // throws a Symfony\Component\Routing\Exception\ResourceNotFoundException
 > ```
 
+**重构框架 , 引入路由 , commit -m"Routing"**
 
+更新的重点部分
+
+* 路由名称被当做模板名称
+* 500错误已被正确管理
+* 请求的属性被提取出来了 , 模板内容更加纯粹 , 不过之前也已经提取出来了
+* 路由配置已被移入属于它的一个文件routes/web.php
 
 ---
 
@@ -81,5 +88,5 @@ array (
 * 一个设置路由属性的方法
 * 还需要一个调度方法 , 调度url的请求与响应
 
-**路由类初始化 , 查看commit -m"Route Class Init"**
+路由类初始化 , 查看commit -m"Route Class Init"
 
