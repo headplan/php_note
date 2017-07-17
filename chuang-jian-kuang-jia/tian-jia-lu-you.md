@@ -1,11 +1,11 @@
-# 添加路由 - 新建PHP框架框架
+# 路由组件
 
 **参考资料**
 
 * [https://github.com/noahbuscher/Macaw](https://github.com/noahbuscher/Macaw)
 * [https://github.com/klein/klein.php](https://github.com/klein/klein.php)
 * [https://github.com/laravel/framework](https://github.com/laravel/framework)
-* http://www.symfony.com/doc/current/components/routing.html
+* [http://www.symfony.com/doc/current/components/routing.html](http://www.symfony.com/doc/current/components/routing.html)
 
 **路由组件**
 
@@ -36,15 +36,15 @@ $routes->add('bye', new Route('/about'));
 ```
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
- 
+
 $context = new RequestContext();
 $context->fromRequest($request);
 $matcher = new UrlMatcher($routes, $context);
- 
+
 $attributes = $matcher->match($request->getPathInfo());
 ```
 
-`match()`方法接收一个request路径 , 返回一个属性数组 . 
+`match()`方法接收一个request路径 , 返回一个属性数组 .
 
 ```
 print_r($matcher->match('/hello'));
