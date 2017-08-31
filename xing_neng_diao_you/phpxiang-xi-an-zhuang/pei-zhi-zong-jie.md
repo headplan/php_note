@@ -136,7 +136,7 @@ make install
 /bin/cp php.ini-production $php_install_dir/etc/php.ini
 ```
 
-然后是配置文件的优化 , 这里查看关于PHP配置文件的笔记 . 如果有扩展 , 配置可以放到 , 
+然后是配置文件的优化 , 这里查看关于PHP配置文件的笔记 . 如果有扩展 , 配置可以放到 ,
 
 ```
 $php_install_dir/etc/php.d/ext-opcache.ini
@@ -155,7 +155,7 @@ chmod +x /etc/init.d/php-fpm
 chkconfig --add php-fpm; chkconfig php-fpm on;
 ```
 
-然后是优化配置FPM , 这部分查看PHP-FPM配置文件笔记 . 
+然后是优化配置FPM , 这部分查看PHP-FPM配置文件笔记 .
 
 **最后启动**
 
@@ -165,9 +165,9 @@ service php-fpm start
 
 **参考资料**
 
-http://blog.csdn.net/u010861514/article/details/51926575
+[http://blog.csdn.net/u010861514/article/details/51926575](http://blog.csdn.net/u010861514/article/details/51926575)
 
-https://typecodes.com/web/centos7compilephp7.html
+[https://typecodes.com/web/centos7compilephp7.html](https://typecodes.com/web/centos7compilephp7.html)
 
 ---
 

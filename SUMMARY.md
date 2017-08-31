@@ -1,7 +1,6 @@
 # Summary
 
 * [简介](README.md)
-* [软件工程](ruan_jian_gong_cheng.md)
 * [部署,测试,调优,分析](xing_neng_diao_you.md)
   * [主机](xing_neng_diao_you/zhu-ji.md)
   * [配置与调优](xing_neng_diao_you/pei-zhi.md)
