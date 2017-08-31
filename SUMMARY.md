@@ -49,6 +49,7 @@
     * [更多代码示例](han-shu-shi-bian-cheng/han-shu/dai-ma-shi-li.md)
   * [纯,透明,不变](han-shu-shi-bian-cheng/han-shu/7eaf2c-tou-660e2c-bu-bian.md)
 * [底层分析](di-ceng-fen-xi.md)
+* [设计模式](she-ji-mo-shi.md)
 * [Api](api.md)
   * [影响PHP行为的扩展](api/ying-xiang-php-xing-wei-de-kuo-zhan.md)
   * [其他基本扩展](api/qi-ta-ji-ben-kuo-zhan.md)
@@ -60,5 +61,4 @@
     * [输出控制](输出控制.md)
 * [Awesome PHP](awesome-php.md)
   * [PHP School](awesome-php/php-school.md)
-* [设计模式](she-ji-mo-shi.md)
 
