@@ -60,4 +60,5 @@
     * [输出控制](输出控制.md)
 * [Awesome PHP](awesome-php.md)
   * [PHP School](awesome-php/php-school.md)
+* [设计模式](she-ji-mo-shi.md)
 
