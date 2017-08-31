@@ -1,4 +1,4 @@
-# 新建PHP框架
+# 框架技术
 
 > 参考资料 : [http://symfony.com/doc/current/create\_framework/index.html](http://symfony.com/doc/current/create_framework/index.html)
 
@@ -161,9 +161,9 @@ $response->setContent(ob_get_clean());
 
 **让模板更具可读性 , extract请求部分 , 查看commit -m"Extrace Query parameters"**
 
-依靠$map的URL映射 , 把URL从“负责生成响应的”代码解耦 . 
+依靠$map的URL映射 , 把URL从“负责生成响应的”代码解耦 .
 
 #### 添加路由
 
-开启新篇章 . 
+开启新篇章 .
 
