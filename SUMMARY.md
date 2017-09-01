@@ -31,6 +31,7 @@
   * [PECL](pecl.md)
 * [扩展类库](类库类包应用.md)
   * [命令行工具](ming_ling_hang_php.md)
+  * [phpredis](phpredis.md)
   * [ezSQL](ezsql.md)
   * [php-enum](php-enum.md)
   * [验证服务](验证服务.md)
