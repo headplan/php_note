@@ -1,6 +1,8 @@
 # 框架技术
 
 > 参考资料 : [http://symfony.com/doc/current/create\_framework/index.html](http://symfony.com/doc/current/create_framework/index.html)
+>
+> 中文资料 : http://www.symfonychina.com/doc/current/create\_framework/index.html
 
 开始之前 , 你需要最新版的PHP , 我知道你是喜新厌旧的 . Web服务器 , 用PHP自带的就好 . 当然Composer是你必备的 , 这是你创作必备的良师益友 , 开始吧 , 给你的框架起个名字 , 建个文件夹 :
 
