@@ -162,7 +162,7 @@ $response->setContent(ob_get_clean());
 
 > 别忘了修改自动加载和map的引入路径
 
-**让模板更具可读性 , extract请求部分 , 查看commit -m"Extrace Query parameters"**
+**让模板更具可读性 , extract请求部分 , 查看commit -m"Extrace Query parameters,更简洁的map"**
 
 依靠$map的URL映射 , 把URL从“负责生成响应的”代码解耦 .
 
