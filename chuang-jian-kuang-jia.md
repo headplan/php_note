@@ -119,7 +119,7 @@ $response->send();
 
 但是我们要做的是通过把所有客户端请求发送\(routing\)到一个独立PHP脚本来实现 , 也就是利用前端控制器设计模式 .
 
-**继续重构代码 , 查看commit -m"Front Controller"**
+**继续重构代码 , 查看commit -m"引入Front Controller"**
 
 通过自定义map数组和获取请求的pathinfo引入不同的文件 . 其他页面就不需要require入口文件 , 也不需要send\(\)函数响应 , 只写和自己相关的要响应的内容就好了 .
 
