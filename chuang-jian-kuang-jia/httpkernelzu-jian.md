@@ -63,7 +63,9 @@ interface ControllerResolverInterface
 public function indexAction(Request $request, $year = null)
 ```
 
-解析器负责对控制器回调\(注:symfony的控制器是个callable\)及其参数进行验证 . 如果有问题 , 它会抛出一个异常 , 解析问题所在并给出信息 . 
+解析器负责对控制器回调\(注:symfony的控制器是个callable\)及其参数进行验证 . 如果有问题 , 它会抛出一个异常 , 解析问题所在并给出信息 .
 
 默认的控制器解析器和参数解析器已经超级灵活 , 但也可以自定义 , 因为给出了interface接口 , 在Symfony中`getController()`被强化为支持把控制器作为服务 , 而`getArguments()`提供了一个扩展点\(extension point\) , 用于修改或强化对参数的解析 . 
+
+---
 
