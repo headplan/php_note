@@ -67,5 +67,9 @@ public function indexAction(Request $request, $year = null)
 
 默认的控制器解析器和参数解析器已经超级灵活 , 但也可以自定义 , 因为给出了interface接口 , 在Symfony中`getController()`被强化为支持把控制器作为服务 , 而`getArguments()`提供了一个扩展点\(extension point\) , 用于修改或强化对参数的解析 . 
 
+> 注意 : 类型提示时别忘记引入命名空间
+
 ---
+
+
 
