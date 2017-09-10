@@ -65,7 +65,7 @@
 
 > 运行PHPUnit的“test coverage”功能 , 需要先开启XDebug功能 .
 
-这里要注意下继承TestCase的问题 . 
+这里要注意下继承TestCase的问题 .
 
 ```
 use PHPUnit\Framework\TestCase;

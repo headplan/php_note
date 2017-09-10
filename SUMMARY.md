@@ -46,6 +46,7 @@
   * [HttpKernel组件之控制器解析](chuang-jian-kuang-jia/httpkernelzu-jian.md)
   * [关联分离](chuang-jian-kuang-jia/guan-lian-fen-li.md)
   * [单元测试](chuang-jian-kuang-jia/dan-yuan-ce-shi.md)
+  * [Hook组件](chuang-jian-kuang-jia/hookzu-jian.md)
 * [函数式编程](han-shu-shi-bian-cheng.md)
   * [函数](han-shu-shi-bian-cheng/han-shu.md)
     * [高阶函数](han-shu-shi-bian-cheng/han-shu/gao-jie-han-shu.md)
