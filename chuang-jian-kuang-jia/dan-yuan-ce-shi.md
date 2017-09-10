@@ -19,7 +19,7 @@
     xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/5.1/phpunit.xsd"
     backupGlobals="false"
     backupStaticAttributes="false"
-    bootstrap="vendor/autoload.php"
+    bootstrap="bootstrap/autoload.php"
     colors="true"
     convertErrorsToExceptions="true"
     convertNoticesToExceptions="true"
@@ -35,6 +35,7 @@
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./app</directory>
             <directory suffix=".php">./src</directory>
         </whitelist>
     </filter>
