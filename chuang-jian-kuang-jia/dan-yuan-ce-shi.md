@@ -48,15 +48,15 @@
 
 配置文件对一些PHPunit选项进行了必要的默认定义 , 自动加载器被用于启动测试 , 而测试文件将被存放在`/tests/`目录下 .
 
-为了避免在编写测试代码时引入全部依赖 , 同时真正做到“仅测试想要的部分” , 这里我们使用测试替身\(Test Doubles\) , 其在我们依赖接口而非具体类时更容易创建 , Symfony为核心对象都提供了类似的接口 . 
+为了避免在编写测试代码时引入全部依赖 , 同时真正做到“仅测试想要的部分” , 这里我们使用测试替身\(Test Doubles\) , 其在我们依赖接口而非具体类时更容易创建 , Symfony为核心对象都提供了类似的接口 .
 
-然后编写单元测试 . 然后输入命令测试 : 
+然后编写单元测试 . 然后输入命令测试 :
 
 ```
 ./vendor/phpunit/phpunit/phpunit
 ```
 
-还有检查覆盖率的命令 , 可以在命令行显示 , 也可以生成html文件 . 
+还有检查覆盖率的命令 , 可以在命令行显示 , 也可以生成html文件 .
 
 ```
 ./vendor/phpunit/phpunit/phpunit --coverage-text
@@ -65,7 +65,11 @@
 
 > 运行PHPUnit的“test coverage”功能 , 需要先开启XDebug功能 .
 
+这里要注意下继承TestCase的问题 . 
 
+```
+use PHPUnit\Framework\TestCase;
+```
 
 
 
