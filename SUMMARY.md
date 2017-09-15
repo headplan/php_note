@@ -58,8 +58,12 @@
     * [更多代码示例](han-shu-shi-bian-cheng/han-shu/dai-ma-shi-li.md)
   * [纯,透明,不变](han-shu-shi-bian-cheng/han-shu/7eaf2c-tou-660e2c-bu-bian.md)
 * [底层分析](di-ceng-fen-xi.md)
-  * [PHP编译特点](di-ceng-fen-xi/phpbian-yi-te-dian.md)
-  * [变量的底层实现](di-ceng-fen-xi/bian-liang-de-di-ceng-shi-xian.md)
+  * [PHP5与PHP7内部功能的测试](di-ceng-fen-xi/php5yu-php7-nei-bu-gong-neng-de-ce-shi.md)
+  * [PHP5源码分析](di-ceng-fen-xi/php5yuan-ma-fen-xi.md)
+    * [PHP编译特点](di-ceng-fen-xi/phpbian-yi-te-dian.md)
+    * [变量的底层实现](di-ceng-fen-xi/bian-liang-de-di-ceng-shi-xian.md)
+    * 变量类型的实现
+  * PHP7源码分析
 * [设计模式](she-ji-mo-shi.md)
 * [Api](api.md)
   * [影响PHP行为的扩展](api/ying-xiang-php-xing-wei-de-kuo-zhan.md)
