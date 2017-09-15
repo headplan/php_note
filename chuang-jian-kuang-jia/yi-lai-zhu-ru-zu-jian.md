@@ -56,7 +56,7 @@ composer require symfony/dependency-injection
 
 > 更轻量的容器还可以考虑[https://github.com/silexphp/Pimple](https://github.com/silexphp/Pimple) , 他还有php扩展版 .
 
-创建一个新文件 , 用于容纳“DI容器”的配置信息 : 
+创建一个新文件 , 用于容纳“DI容器”的配置信息 :
 
 ```php
 <?php
@@ -71,9 +71,9 @@ $c->register('matcher', 'Symfony\Component\Routing\Matcher\UrlMatcher')
 ...
 ```
 
-这个文件的目的 , 就是要配置对象和它们的依赖 , 这里的配置过程中并没有任何东西被实例化 , 纯粹是对需要操作的对象的静态描述，以及如何创建它们 . 对象 , 将在从容器中访问它们时 , 或者在容器需要它们来创建其他对象时 , 被创建出来 . 
+这个文件的目的 , 就是要配置对象和它们的依赖 , 这里的配置过程中并没有任何东西被实例化 , 纯粹是对需要操作的对象的静态描述，以及如何创建它们 . 对象 , 将在从容器中访问它们时 , 或者在容器需要它们来创建其他对象时 , 被创建出来 .
 
-现在 , Framework文件又变成了之前的简洁版 : 
+现在 , Framework文件又变成了之前的简洁版 :
 
 ```php
 <?php
@@ -83,6 +83,36 @@ namespace Headplan;
 use Symfony\Component\HttpKernel\HttpKernel;
 
 class Framework extends HttpKernel {}
+```
+
+前端控制器也不用实例化了 , 引入容器配置 , 然后get获取即可 : 
+
+```php
+$framework = $c->get('framework');
+```
+
+在前端控制器中 , 注册一个自定义的监听器 : 
+
+```php
+$c->register('listener.string_response', 'Headplan\Events\StringResponseListener');
+$c->getDefinition('dispatcher')
+    ->addMethodCall('addSubscriber', [new  Symfony\Component\DependencyInjection\Reference('listener.string_response')]);
+```
+
+除了要描述的对象 , DI容器也可以通过参数来配置 , 而且这些参数 , 在进行对象定义时 , 也可以使用 : 
+
+```php
+# 例如
+$c->setParameter('debug', true);
+echo $sc->getParameter('debug');
+
+->setArguments(array('%charset%'))
+```
+
+这样的话 , 把路由文件也可以引入到容器中 : 
+
+```
+$c->setParameter('routes', include __DIR__.'/../routes/web.php');
 ```
 
 
