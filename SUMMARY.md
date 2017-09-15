@@ -58,6 +58,7 @@
     * [更多代码示例](han-shu-shi-bian-cheng/han-shu/dai-ma-shi-li.md)
   * [纯,透明,不变](han-shu-shi-bian-cheng/han-shu/7eaf2c-tou-660e2c-bu-bian.md)
 * [底层分析](di-ceng-fen-xi.md)
+  * [PHP编译特点](di-ceng-fen-xi/phpbian-yi-te-dian.md)
 * [设计模式](she-ji-mo-shi.md)
 * [Api](api.md)
   * [影响PHP行为的扩展](api/ying-xiang-php-xing-wei-de-kuo-zhan.md)
