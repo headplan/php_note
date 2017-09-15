@@ -60,6 +60,7 @@
 * [底层分析](di-ceng-fen-xi.md)
   * [PHP5与PHP7内部功能的测试](di-ceng-fen-xi/php5yu-php7-nei-bu-gong-neng-de-ce-shi.md)
   * [PHP5源码分析](di-ceng-fen-xi/php5yuan-ma-fen-xi.md)
+    * [搭建环境](di-ceng-fen-xi/da-jian-huan-jing.md)
     * [PHP编译特点](di-ceng-fen-xi/phpbian-yi-te-dian.md)
     * [变量的底层实现](di-ceng-fen-xi/bian-liang-de-di-ceng-shi-xian.md)
     * 变量类型的实现
