@@ -85,13 +85,13 @@ use Symfony\Component\HttpKernel\HttpKernel;
 class Framework extends HttpKernel {}
 ```
 
-前端控制器也不用实例化了 , 引入容器配置 , 然后get获取即可 : 
+前端控制器也不用实例化了 , 引入容器配置 , 然后get获取即可 :
 
 ```php
 $framework = $c->get('framework');
 ```
 
-在前端控制器中 , 注册一个自定义的监听器 : 
+在前端控制器中 , 注册一个自定义的监听器 :
 
 ```php
 $c->register('listener.string_response', 'Headplan\Events\StringResponseListener');
@@ -99,7 +99,7 @@ $c->getDefinition('dispatcher')
     ->addMethodCall('addSubscriber', [new  Symfony\Component\DependencyInjection\Reference('listener.string_response')]);
 ```
 
-除了要描述的对象 , DI容器也可以通过参数来配置 , 而且这些参数 , 在进行对象定义时 , 也可以使用 : 
+除了要描述的对象 , DI容器也可以通过参数来配置 , 而且这些参数 , 在进行对象定义时 , 也可以使用 :
 
 ```php
 # 例如
@@ -109,9 +109,9 @@ echo $sc->getParameter('debug');
 ->setArguments(array('%charset%'))
 ```
 
-这样的话 , 把路由文件也可以引入到容器中 : 
+这样的话 , 把路由文件也可以引入到容器中 :
 
-```
+```php
 $c->setParameter('routes', include __DIR__.'/../routes/web.php');
 ```
 
