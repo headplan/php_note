@@ -73,5 +73,46 @@ set tags+=/server/php-src/tags
 
 **\#\#和\#**
 
-宏是C/C++中非常强大 , 使用也很多的一个功能 . 有时用来实现类似函数内联的效果 , 或者将复杂的代码进行简单封装 , 提高可读性或可移植性等 .
+宏是C/C++中非常强大 , 使用也很多的一个功能 . 有时用来实现类似函数内联的效果 , 或者将复杂的代码进行简单封装 , 提高可读性或可移植性等 . 
+
+**双井号\(\#\#\)**
+
+在C语言的宏中，"\#\#"被称为**连接符**\(concatenator\) , 它是一种预处理运算符 , 用来把两个语言符号\(Token\)组合成单个语言符号 . 这里的语言符号不一定是宏的变量 . 并且双井号不能作为第一个或最后一个元素存在 . 如下所示源码 : 
+
+```c
+#define PHP_FUNCTION            ZEND_FUNCTION
+#define ZEND_FUNCTION(name)             ZEND_NAMED_FUNCTION(ZEND_FN(name))
+#define ZEND_FN(name) zif_##name
+#define ZEND_NAMED_FUNCTION(name)       void name(INTERNAL_FUNCTION_PARAMETERS)
+#define INTERNAL_FUNCTION_PARAMETERS int ht, zval *return_value, zval **return_value_ptr, \
+zval *this_ptr, int return_value_used TSRMLS_DC
+ 
+PHP_FUNCTION(count);
+ 
+//  预处理器处理以后， PHP_FUCNTION(count);就展开为如下代码
+void zif_count(int ht, zval *return_value, zval **return_value_ptr,
+        zval *this_ptr, int return_value_used TSRMLS_DC)
+```
+
+宏ZEND\_FN\(name\)中有一个"\#\#"，它的作用一如之前所说，是一个连接符，将zif和宏的变量name的值连接起来。 以这种连接的方式以基础，多次使用这种宏形式，可以将它当作一个代码生成器，这样可以在一定程度上减少代码密度， 我们也可以将它理解为一种代码重用的手段，间接地减少不小心所造成的错误。
+
+**单引号\(\#\)**
+
+"\#"是一种预处理运算符 , 它的功能是将其后面的宏参数进行**字符串化操作 , **简单说就是在对它所引用的宏变量通过替换后在其左右各加上一个双引号 , 用比较官方的话说就是将语言符号\(Token\)转化为字符串 . 例如 : 
+
+```c
+#define STR(x) #x
+ 
+int main(int argc, char** argv)
+{
+    printf("%s\n", STR(It's a long string)); // 输出 It's a long string
+    return 0;
+}
+```
+
+如前文所说，It's a long string 是宏STR的参数，在展开后被包裹成一个字符串了。所以printf函数能直接输出这个字符串， 当然这个使用场景并不是很适合，因为这种用法并没有实际的意义，实际中在宏中可能会包裹其他的逻辑，比如对字符串进行封装等等。
+
+
+
+
 
