@@ -88,7 +88,126 @@ function get_roles(User $u)
 
 #### 发现副作用结果
 
-关于对象方法
+通常情况下 , 输出的副作用比输入的副作用容易发现一些 . 任何时候 , 如果更改的值在外部会有明显的效果, 或者调用另一个函数, 那么就会产生副作用 , 我们再来看看上面前两个递增的例子 : 
 
-结束语
+```php
+<?php
+$counter = 0;
+function increment()
+{
+    global $counter;
+    return ++$counter;
+}
+function increment2()
+{
+    static $counter = 0;
+    return ++$counter;
+}
+```
+
+第一个明确对全局变量的副作用 . 但是第二个呢 ? 变量本身不能从外部访问 , 那么我们可以考虑这个函数没有副作用吗 ? 答案是否定的 , 因为这个变化意味着对函数的后续调用将返回另一个值 , 这也可以作为副作用的 . 
+
+再看一些其他的例子 : 
+
+```php
+<?php
+function set_administrator(EntityManager $em, User $u)
+{
+    $em->createQueryBuilder()
+    ->update('models\User', 'u')
+    ->set('u.admin', 1)
+    ->where('u.id = ?1')
+    ->setParameter(1, $u->id)
+    ->getQuery()->execute();
+}
+function log_message($message)
+{
+    echo $message."\n";
+}
+function updatePlayers(Player $winner, Player $loser, int $score)
+{
+    $winner->updateScore($score);
+    $loser->updateScore(-$score);
+}
+```
+
+* 第一个函数显然具有副作用 , 因为我们更新了数据库中的值 . 
+* 第二种方法在屏幕上打印一些东西 . 通常 , 这被认为是一种副作用 , 因为该函数对其范围之外的某物有影响 . 
+* 最后一个函数可能会产生副作用 . 这是一个基于方法名称的专业的猜测 . 但我们不能给肯定的答案 , 直到我们看到的方法的代码来验证它 . 要发现原因 , 你往往需要挖更深一点 , 而不是只是一个功能, 以确定它是否会导致副作用 . 
+
+#### 关于对象方法
+
+在纯函数式语言中 , 只要您需要更改对象、数组或任何类型的集合中的值 , 您实际上就会返回一个具有新值的副本 . 这意味着任何方法 , 如前面的提到的`updateScore`方法 , 不会修改对象的内部属性 , 但会以新的分数返回新实例 . 那不是所有的都是不纯的么 ? 这里可以从另一个角度去思考 , 我们可以做到的是在更改后确定该实例的值不是相同 . 举个例子 : 
+
+```php
+<?php
+class Test
+{
+    private $value;
+    public function __construct($v)
+    {
+        $this->set($v);
+    }
+
+    public function set($v) {
+        $this->value = $v;
+    }
+}
+
+function compare($a, $b)
+{
+    echo ($a == $b ? 'identical' : 'different')."\n";
+}
+
+$a = new Test(2);
+$b = new Test(2);
+compare($a, $b);
+// identical
+$b->set(10);
+compare($a, $b);
+// different
+$c = clone $a;
+$c->set(5);
+compare($a, $c);
+```
+
+在两个对象之间进行简单的相等比较时, PHP 会考虑内部值, 而不是实例本身来进行比较 . 需要注意的是 , 当您使用严格的比较 \(例如, 使用 === 运算符\) 时, PHP 将验证两个变量是否都保持同一实例 , 并在所有三案例中返回 "不同" 字符串 . 
+
+但是 , 这与引用透明度的概念不兼容 , 我们将在本章后面讨论 . 
+
+#### 结束语
+
+由于翻译或者一些未知的概念 , 这部分内容可能会让你迷惑 , 可以读一读最后的扩展内容 , 这里给出检查函数是否纯净的最佳操作过程的内容 : 
+
+* 放弃使用global关键字
+* 检查您是否使用了不是函数本身的参数的任何值
+* 确认你所调用的所有函数都是纯函数
+* 对外部存储的任何访问都是不纯的 \(例如,数据库和文件\)
+* 特别注意返回值依赖于外部的函数
+* 状态 \(time时间, random随机\)
+
+---
+
+> https://zh.wikipedia.org/wiki/纯函数
+
+在程序设计中，若一个函数符合以下要求，则它可能被认为是纯函数：
+
+* 此函数在相同的输入值时，需产生相同的输出。函数的输出和输入值以外的其他隐藏信息或状态无关，也和由I/O设备产生的外部输出无关。
+* 该函数不能有语义上可观察的函数副作用，诸如“触发事件”，使输出设备输出，或更改输出值以外物件的内容等。
+
+纯函数的输出可以不用和所有的输入值有关，甚至可以和所有的输入值都无关。但纯函数的输出不能和输入值以外的任何资讯有关。纯函数可以传回多个输出值，但上述的原则需针对所有输出值都要成立。若引数是传引用调用，若有对参数物件的更改，就会影响函数以外物件的内容，因此就不是纯函数。
+
+---
+
+Pure Function，直译一下就是「纯函数」。
+
+1.在给定同样的参数的前提下 , Pure Function 都会返回同样的结果 . 即Pure Function 的返回值 , 只能由其函数入参所决定 , 而不能有其他的干扰因素 . 
+
+2.Pure Function 在计算返回值的时候不会产生 Side Effect
+
+所谓 Side Effect 就是我们在平时经常做的一些工作 , 例如 : I/O 操作 , 修改函数入参或函数外部的变量，抛出异常等 . 即 , 会产生 Side Effect 的 Function 不是真正的 Pure Function . 
+
+**每个 Pure Function 的运行结果都是可重现的 . 这样的好处就是 Pure Function 十分容易进行测试 , 因为这完全是一个透明的盒子 . **
+
+
 
