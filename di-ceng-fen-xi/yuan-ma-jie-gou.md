@@ -41,16 +41,16 @@
 
 **使用VIM + Ctags**
 
-Vim不用说了 , 这里推荐在Linux下编写代码的读者或多或少的试一试ctags , ctags支持非常多的语言 , 可以将源代码中的各种符号\(如:函数、宏类等信息\)抽取出来做上标记并保存到一个文件中 , 供其他文本编辑工具\(VIM , EMACS等\)进行检索 . 它保存的文件格式符合[UNIX的哲学-小即是美](http://zh.wikipedia.org/zh/Unix%E5%93%B2%E5%AD%A6) , 使用也比较简洁 : 
+Vim不用说了 , 这里推荐在Linux下编写代码的读者或多或少的试一试ctags , ctags支持非常多的语言 , 可以将源代码中的各种符号\(如:函数、宏类等信息\)抽取出来做上标记并保存到一个文件中 , 供其他文本编辑工具\(VIM , EMACS等\)进行检索 . 它保存的文件格式符合[UNIX的哲学-小即是美](http://zh.wikipedia.org/zh/Unix哲学) , 使用也比较简洁 :
 
 ```
 #在PHP源码目录(假定为/server/php-src)执行:
 $ cd /server/php-src
 $ ctags -R
- 
+
 #小技巧：在当前目录生成的tags文件中使用的是相对路径，
 #若改用 ctags -R /server/ ，可以生成包含完整路径的ctags，就可以随意放到任意文件夹中了。 
- 
+
 #在~/.vimrc中添加:
 set tags+=/server/php-src/tags
 #或者在vim中运行命令:
@@ -59,5 +59,5 @@ set tags+=/server/php-src/tags
 
 **使用IDE**
 
-这里使用CLion
+这里可以使用CLion
 
