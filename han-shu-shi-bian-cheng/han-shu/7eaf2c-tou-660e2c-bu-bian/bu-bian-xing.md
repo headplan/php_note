@@ -136,7 +136,7 @@ class A
 // PHP Fatal error: Constant expression contains invalid operations
 ```
 
-但是 , 从 PHP 5.6 开始 , 就可以使用 const 关键字对任何标量表达式或以前声明的常量 : 
+但是 , 从 PHP 5.6 开始 , 就可以使用 const 关键字对任何标量表达式或以前声明的常量 :
 
 ```php
 <?php
@@ -149,7 +149,7 @@ class B
 }
 ```
 
-在常量和变量的不变性之外还有一个基本的区别 , 通常为作用域规则不通用 . 可以在代码中任意位置使用常量 , 只要它被声明 : 
+在常量和变量的不变性之外还有一个基本的区别 , 通常为作用域规则不通用 . 可以在代码中任意位置使用常量 , 只要它被声明 :
 
 ```php
 <?php
@@ -165,6 +165,24 @@ function test()
     global $bar;
     echo $bar;
 }
+```
+
+在PHP 7.1版本中 , 引入了类常量可见性修饰符 : 
+
+```php
+<?php
+class A
+{
+    public const FOO='public const';
+    protected const BAR='protected const';
+    private const BAZ='private const';
+}
+// public constants are accessible as always
+echo A::FOO;
+// this will however generate an error
+echo A::BAZ;
+// PHP Fatal error: Uncaught Error: Cannot access private const
+A::BAR
 ```
 
 
