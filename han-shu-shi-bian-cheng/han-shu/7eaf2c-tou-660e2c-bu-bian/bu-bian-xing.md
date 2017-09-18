@@ -65,14 +65,14 @@ define('BAZ7', ['one', 'two', 'three']);
 define('__FOO__', 'possible clash');
 ```
 
-可以使用函数的结果来填充常量 . 但是 , 这仅在使用define\(\)时才有可能 . 如果使用 const 关键字 , 则必须直接使用标量值 : 
+可以使用函数的结果来填充常量 . 但是 , 这仅在使用define\(\)时才有可能 . 如果使用 const 关键字 , 则必须直接使用标量值 :
 
 ```php
 <?php
 define('UPPERCASE', strtoupper('Hello World !'));
 ```
 
-如果您尝试访问不存在的常量 , PHP将假定您实际上是在尝试将该值用作字符串 : 
+如果您尝试访问不存在的常量 , PHP将假定您实际上是在尝试将该值用作字符串 :
 
 ```php
 <?php
@@ -84,6 +84,47 @@ I_DONT_EXISTS
 //- assumed'I_DONT_EXISTS'
 //display 'I_DONT_EXISTS'anyway
 ```
+
+这可能存在很大的误导作用 , 因为所假设的字符串将被评估为true , 但如果希望常量保持一个false值 , 那么可能会破坏您的代码 . 
+
+如果要避免此陷阱 , 可以使用defined\(\)或constant\(\)函数 . 但是 , 这会增加很多冗长的内容 : 
+
+```php
+<?php
+echo constant('UPPERCASE');
+// display 'HELLO WORLD !'
+echo defined('UPPERCASE') ? 'true' : 'false';
+// display 'true'
+echo constant('I_DONT_EXISTS');
+// PHP Warning: constant(): Couldn't find constant I_DONT_EXISTS
+// display nothings as 'constant' returns 'null' in this case
+echo defined('I_DONT_EXISTS') ? 'true' : 'false';
+// display 'false'
+```
+
+PHP 还允许在类中声明常量 : 
+
+```php
+<?php
+class A
+{
+    const FOO='some value';
+    public static function bar()
+    {
+        echo self::FOO;
+    }
+}
+echo A::FOO;
+// display 'some value'
+echo constant('A::FOO');
+// display 'some value'
+echo defined('A::FOO') ? 'true' : 'false';
+// display 'true'
+A::bar();
+// display 'some value'
+```
+
+不过 , 上面的例子中只能直接使用标量值 , 无法使用函数的返回值 , like 用define\(\)函数那样 . 
 
 
 
