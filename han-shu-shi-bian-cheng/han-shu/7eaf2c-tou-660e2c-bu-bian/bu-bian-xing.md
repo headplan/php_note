@@ -85,9 +85,9 @@ I_DONT_EXISTS
 //display 'I_DONT_EXISTS'anyway
 ```
 
-这可能存在很大的误导作用 , 因为所假设的字符串将被评估为true , 但如果希望常量保持一个false值 , 那么可能会破坏您的代码 . 
+这可能存在很大的误导作用 , 因为所假设的字符串将被评估为true , 但如果希望常量保持一个false值 , 那么可能会破坏您的代码 .
 
-如果要避免此陷阱 , 可以使用defined\(\)或constant\(\)函数 . 但是 , 这会增加很多冗长的内容 : 
+如果要避免此陷阱 , 可以使用defined\(\)或constant\(\)函数 . 但是 , 这会增加很多冗长的内容 :
 
 ```php
 <?php
@@ -102,7 +102,7 @@ echo defined('I_DONT_EXISTS') ? 'true' : 'false';
 // display 'false'
 ```
 
-PHP 还允许在类中声明常量 : 
+PHP 还允许在类中声明常量 :
 
 ```php
 <?php
@@ -124,7 +124,48 @@ A::bar();
 // display 'some value'
 ```
 
-不过 , 上面的例子中只能直接使用标量值 , 无法使用函数的返回值 , like 用define\(\)函数那样 . 
+不过 , 上面的例子中只能直接使用标量值 , 无法使用函数的返回值 , like 用define\(\)函数那样 .
+
+```php
+<?php
+class A
+{
+    const FOO=uppercase('Hello World !');
+}
+// This will generate an error when parsing the file :
+// PHP Fatal error: Constant expression contains invalid operations
+```
+
+但是 , 从 PHP 5.6 开始 , 就可以使用 const 关键字对任何标量表达式或以前声明的常量 : 
+
+```php
+<?php
+const FOO=6;
+
+class B
+{
+    const BAR=FOO*7;
+    const BAZ="The answer is ": self::BAR;
+}
+```
+
+在常量和变量的不变性之外还有一个基本的区别 , 通常为作用域规则不通用 . 可以在代码中任意位置使用常量 , 只要它被声明 : 
+
+```php
+<?php
+const FOO='foo';
+$bar='bar';
+
+function test()
+{
+    // here FOO is accessible
+    echo FOO;
+    // however, if you want to access $bar, you have to use
+    // the 'global' keyword.
+    global $bar;
+    echo $bar;
+}
+```
 
 
 
