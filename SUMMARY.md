@@ -63,6 +63,7 @@
     * [更多代码示例](han-shu-shi-bian-cheng/han-shu/dai-ma-shi-li.md)
   * [函数式特性](han-shu-shi-bian-cheng/han-shu/7eaf2c-tou-660e2c-bu-bian.md)
     * [Pure functions](han-shu-shi-bian-cheng/han-shu/7eaf2c-tou-660e2c-bu-bian/pure-functions.md)
+    * [不变性](han-shu-shi-bian-cheng/han-shu/7eaf2c-tou-660e2c-bu-bian/bu-bian-xing.md)
 * [底层分析](di-ceng-fen-xi.md)
   * [PHP5与PHP7内部功能的测试](di-ceng-fen-xi/php5yu-php7-nei-bu-gong-neng-de-ce-shi.md)
   * [PHP5源码分析](di-ceng-fen-xi/php5yuan-ma-fen-xi.md)
