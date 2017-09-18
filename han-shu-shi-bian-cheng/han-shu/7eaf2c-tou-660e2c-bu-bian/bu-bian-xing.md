@@ -257,3 +257,7 @@ class Message
 
 值对象的常见用途是存储和操作与货币相关的数据 . 你可以看看 [http://money.rtfd.org](http://money.rtfd.org) , 这是一个很好的例子, 告诉你如何有效地使用它们 .
 
+值对象的另一个重要的用法是PSR-7 : "HTTP 消息接口" . 此标准引入并形式化了一种框架和应用程序以可互操作的方式管理 HTTP 请求和响应的方法 . 所有主要框架都有核心支持或插件可用 . 阅读他们的完整理论 , 其说明l 为什么您应该对 PHP 生态系统中如此重要的部分使用不变性 : http://www.php-fig.org/psr/psr-7/meta/\#why-value-objects 
+
+
+
