@@ -167,7 +167,7 @@ function test()
 }
 ```
 
-在PHP 7.1版本中 , 引入了类常量可见性修饰符 : 
+在PHP 7.1版本中 , 引入了类常量可见性修饰符 :
 
 ```php
 <?php
@@ -185,5 +185,75 @@ echo A::BAZ;
 A::BAR
 ```
 
+#### 一个正在进行的RFC
 
+我们从上面的最后一句警告中看到 , 尽管常量是不可变的 , 但它们是全局的 , 这使它们成为应用程序的状态 . 所以 , 任何使用常量的函数都是不纯的 , 所以你应该谨慎使用它们 .
+
+正如我们刚刚看到的 , 常量对于不变性来说充其量是一条木腿 . 他们很好地存储简单的信息 , 如我们希望每页显示的项目数 . 但是 , 一旦你想拥有一些复杂的数据结构 , 就会被卡主了 .
+
+幸运的是, PHP 核心团队的成员很清楚, 不变性是重要的 , 目前在 RFC 中正在进行一些工作, 将其包含在语言级别里 .
+
+> [https://wiki.php.net/rfc/immutability](https://wiki.php.net/rfc/immutability)
+
+对于那些不熟悉PHP新特性的进度的人 , RFC让核心团队成员向PHP添加新内容的一个建议 . 这个命题首先通过一个草稿阶段 , 在这里写下并完成一些例子的实现 . 之后 , 有一个讨论阶段 , 其他人可以给出建议和建议 . 最后 , 进行表决以决定是否将该功能包含在下一个 PHP 版本中 .
+
+目前看来 , 不可变的类和属性 RFC 仍处于草稿阶段 . 没有真正的论据 , 无论是为或反对它 , 只有时间能证明它是否被接受 .
+
+#### 值对象
+
+> [https://en.wikipedia.org/wiki/Value\_object](https://en.wikipedia.org/wiki/Value_object)
+
+在计算机科学中 , 值对象是一个小对象 , 它表示一个简单的实体 , 其等式不基于标识 . 也就是说 , 即当两个值对象具有相同的值时 , 它们是相等的 , 不一定是同一个对象 .
+
+值对象应该是不可变的 : 对于创建了相等的两个值对象的隐式协定 , 这是必需的 , 应保持相等 . 对于值对象是不可变的也很有用 , 因为客户端代码不能将值对象置于无效状态 , 也不能在实例化后引入 bug 行为 .
+
+由于没有在 PHP 中获得真正的不可变性的意思 , 它通常是通过拥有私有属性 , 而不是类上的 setter 来实现的 . 因此 , 当开发人员要修改某个值时 , 它会强制创建一个新对象 . 该类还可以提供实用方法来简化新对象的创建 . 让我们看一个简短的例子 :
+
+```php
+<?php
+class Message
+{
+    private $message;
+    private $status;
+
+    public function __construct(string $message, string $status)
+    {
+        $this->status = $status;
+        $this->message = $message;
+    }
+
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    public function equals($m)
+    {
+        return $m->status === $this->status &&
+
+        $m->message === $this->message;
+    }
+
+    public function withStatus($status): Message
+    {
+        $new = clone $this;
+        $new->status = $status;
+        return $new;
+    }
+}
+```
+
+此类模式可用于创建从数据使用者的角度看不可变的数据实体 . 但是 , 您必须特别注意保证类上的所有方法不破坏不变性 , 否则你的努力将会毫无意义 . 此外, 如果你不是以数组的形式使用它们 , 则可以 :
+
+* 使用它们作为类型提示, 而不是简单的数组
+* 避免由于一个错误的带来的任何错误
+* 强制执行某些项目的存在或格式
+* 为不同的上下文提供格式化值的方法
+
+值对象的常见用途是存储和操作与货币相关的数据 . 你可以看看 [http://money.rtfd.org](http://money.rtfd.org) , 这是一个很好的例子, 告诉你如何有效地使用它们 .
 
