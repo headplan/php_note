@@ -265,5 +265,27 @@ class Message
 
 #### 不可变集合的库
 
+如果想对不变性有更深入的了解 , 可以看下这两个关于不可变集合的库 : Laravel Collections 和 immutable.php
+
+这两个库协调了与数组相关的PHP函数的参数顺序的差异 , 如 array\_map 和 array\_filter . 还提供了各种不同方式的Iterable和Traversable , 与大多数需要实际数组的PHP函数相反 . 
+
+本章只会简单的介绍库 . 用法示例将在后面关于函数式基础中给出 , 使它们可以与其他允许执行同一任务的库一起解释 . 此外, 我们还没有详细介绍诸如映射或折叠之类的详细技术 , 所以现在的例子可能不那么清楚 . 
+
+**Laravel Collection**
+
+Laravel 框架包含一个名为 "集合" 的类以取代 PHP 数组 . 此类在内部使用简单数组, 但可以使用收集帮助器函数从任何集合 \(如变量\) 创建 . 然后 , 它提出了许多非常有用的方法来处理数据 , 主要是在功能的方式 . 这也是 Laravel 的中心部分, 如Eloquent ORM , 将数据库实体作为集合实例返回 . 
+
+如果您不使用 Laravel , 但仍想从这个伟大的库中受益 , 可以只使用 Laravel 支持包的部分分离的集合部件 , 以便保持较小 . 
+
+> https://github.com/tightenco/collect
+
+**Immutable.php**
+
+这个库定义了 ImmArray 类 , 它实现了一个像集合一样的不可变数组 . ImmArray 类是 SplFixedArray 类周围的包装器, 它通过提供通常要对集合执行的性能操作的方法来修复其 API 的一些缺点 . 在幕后使用 SplFixedArray 类的优点是, 实现是用 C 编写的 , 并且是真正的性能和内存效率 . 
+
+您可以参考 GitHub 存储库, 以了解关于不可变的更多见解 : 
+
+> https://github.com/jkoudys/immutable.php
+
 
 
