@@ -110,19 +110,42 @@ $ted = new Player(8, 7, 9);
 
 #### 非即时或延后计算\(惰性计算\)
 
-引用透明度的最大好处是编译器或解析器的延后计算 . 例如, 您可以通过一个数学函数来定义一个无限列表 . 因为语言的懒惰性确保了只有在需要值时才计算列表的值 . 
+引用透明度的最大好处是编译器或解析器的延后计算 . 例如, 您可以通过一个数学函数来定义一个无限列表 . 因为语言的懒惰性确保了只有在需要值时才计算列表的值 .
 
-在术语表中 , 我们将非严格或非即时的语言定义为评懒惰性的语言 . 事实上 , 非严格性和惰性还是有细微的差别的 . 这里有一篇文章 , 更详细的描述这些术语和细微的差别 . 
+在术语表中 , 我们将非严格或非即时的语言定义为评懒惰性的语言 . 事实上 , 非严格性和惰性还是有细微的差别的 . 这里有一篇文章 , 更详细的描述这些术语和细微的差别 .
 
-> https://wiki.haskell.org/Lazy\_vs.\_non-strict
+> [https://wiki.haskell.org/Lazy\_vs.\_non-strict](https://wiki.haskell.org/Lazy_vs._non-strict)
 
-这里我们先暂时忽略这些差别 . 
+这里我们先暂时忽略这些差别 .
 
+**性能**
 
+通过使用惰性计算 , 可以确保根据需求去计算需要的值 . 让我们看一个简短而简单的例子来说明这个好处 : 
 
+```php
+<?php
+function wait(int $value): int
+{
+    // let's imagine this is a function taking a while
+    // to compute a value
+    sleep(10);
+    return $value;
+}
 
+function do_something(bool $a, int $b, int $c): int
+{
+    if($a) {
+        return $b;
+    } else {
+        return $c;
+    }
+}
 
-性能
+do_something(true, sleep(10), sleep(8));
+```
+
+  
+
 
 代码可读性
 
