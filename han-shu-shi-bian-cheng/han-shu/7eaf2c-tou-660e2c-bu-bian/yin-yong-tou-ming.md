@@ -60,11 +60,20 @@ return abs($p->x - $target->x) < 2 && abs($p->y - $target->y) < 2
 : $target;
 ```
 
-我们的数据是不可变的 , 所以可以直接的使用以下值 : 
+我们的数据是不可变的 , 所以可以直接的使用以下值 :
 
 ```php
 <?php
 return abs(8 - 7) < 2 && abs(8 - 8) < 2 
+? loseHitpoint($target) 
+: $target;
+```
+
+做一些简单的数学题 : 
+
+```php
+<?php
+return 1<2 && 0<2 
 ? loseHitpoint($target) 
 : $target;
 ```
