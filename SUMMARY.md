@@ -70,8 +70,9 @@
     * [Map函数](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/maphan-shu.md)
     * [Filter函数](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/filterhan-shu.md)
     * [Reduce函数](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/reducehan-shu.md)
-    * [Map和Filter函数实现折叠](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/maphe-filter-han-shu-shi-xian-zhe-die.md)
-    * [向左和向右折叠](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/xiang-zuo-he-xiang-you-zhe-die.md)
+      * [Map和Filter函数实现折叠](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/maphe-filter-han-shu-shi-xian-zhe-die.md)
+      * [向左和向右折叠](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/xiang-zuo-he-xiang-you-zhe-die.md)
+      * MapReduce模型
 * [底层分析](di-ceng-fen-xi.md)
   * [PHP5与PHP7内部功能的测试](di-ceng-fen-xi/php5yu-php7-nei-bu-gong-neng-de-ce-shi.md)
   * [PHP5源码分析](di-ceng-fen-xi/php5yuan-ma-fen-xi.md)
