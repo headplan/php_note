@@ -73,7 +73,7 @@
       * [Map和Filter函数实现折叠](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/maphe-filter-han-shu-shi-xian-zhe-die.md)
       * [向左和向右折叠](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/xiang-zuo-he-xiang-you-zhe-die.md)
       * [MapReduce模型](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/mapreducemo-xing.md)
-    * 卷积和Zip
+    * [卷积和Zip](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/juan-ji-he-zip.md)
     * 递归
     * 异常
     * 异常的替代
