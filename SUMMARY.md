@@ -68,6 +68,7 @@
     * [本章总结](han-shu-shi-bian-cheng/han-shu/7eaf2c-tou-660e2c-bu-bian/ben-zhang-zong-jie.md)
   * [PHP中的函数式基础](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu.md)
     * [Map函数](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/maphan-shu.md)
+    * [Filter函数](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/filterhan-shu.md)
 * [底层分析](di-ceng-fen-xi.md)
   * [PHP5与PHP7内部功能的测试](di-ceng-fen-xi/php5yu-php7-nei-bu-gong-neng-de-ce-shi.md)
   * [PHP5源码分析](di-ceng-fen-xi/php5yuan-ma-fen-xi.md)
