@@ -73,6 +73,12 @@
       * [Map和Filter函数实现折叠](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/maphe-filter-han-shu-shi-xian-zhe-die.md)
       * [向左和向右折叠](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/xiang-zuo-he-xiang-you-zhe-die.md)
       * MapReduce模型
+    * 卷积和Zip
+    * 递归
+    * 异常
+    * 异常的替代
+    * Option/Maybe和Either
+    * 类库/类包
 * [底层分析](di-ceng-fen-xi.md)
   * [PHP5与PHP7内部功能的测试](di-ceng-fen-xi/php5yu-php7-nei-bu-gong-neng-de-ce-shi.md)
   * [PHP5源码分析](di-ceng-fen-xi/php5yuan-ma-fen-xi.md)
