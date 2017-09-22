@@ -77,7 +77,7 @@
     * [递归](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/di-gui.md)
       * [递归和循环](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/di-gui/di-gui-he-xun-huan.md)
     * [异常](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/yi-chang.md)
-    * 异常的替代
+    * [异常的替代](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/yi-chang-de-ti-dai.md)
     * Option/Maybe和Either
     * 类库/类包
 * [底层分析](di-ceng-fen-xi.md)
