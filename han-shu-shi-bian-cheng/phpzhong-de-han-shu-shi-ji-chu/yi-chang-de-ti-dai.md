@@ -44,7 +44,64 @@ function max2(array $data): int
 
 #### 错误代码
 
+错误代码是一种来自 C 语言的遗产, 它没有任何异常的概念。其思想是, 函数总是返回一个代码来表示计算的状态, 并找到其他方法来传递返回值。通常, 代码0意味着一切都很顺利, 任何其他的都是错误。
 
+当涉及到数字错误代码时 , PHP就没有使用它们作为返回值的功能 , 据我所知 . 但是 , 当出现错误而不是期望值时 , PHP有很多函数返回false值 . 只用一个潜在的值来表示失败 , 可能会导致传播信息方面的困难 . 例如 , move\_uploaded\_file的文档规定 :
+
+> 成功返回 TRUE。
+>
+> 如果文件名不是有效的上载文件, 则不会发生任何操作, 并且move\_uploaded\_file \(\) 将返回 False。如果文件名是有效的上载文件, 但由于某种原因无法移动, 则不操作将会发生, 而 move\_uploaded\_file \(\) 将返回 False。此外,将发出警告。
+
+这意味着当您有错误时, 您将得到通知, 但您无法知道它是哪一类错误, 而不诉诸于读取错误信息。即使这样, 您也将缺少重要的信息, 例如, 上传的文件为何无效。
+
+如果我们想更好地模拟 PHP 的max函数 , 我们可以这样做 : 
+
+```php
+<?php
+function max3(array $data)
+{
+    if(empty($data)) {
+        trigger_error('max3(): Array must contain at least oneelement', E_USER_WARNING);
+        return false;
+    }
+    
+    return array_reduce($data, function(int $max, int $i) : int {
+        return $i > $max ? $i : $max;
+    }, 0);
+}
+```
+
+因为现在我们的函数需要返回错误值的情况下, 我们不得不删除返回值的类型提示, 从而使我们的签名少一些自我记录。
+
+其他函数 \(通常是包装外部库的功能\) 也会返回错误值, 以防出错, 但在窗体 X\_errno 和 X\_error 中有辅助函数, 返回有关所执行的上一个函数的错误的更多信息。几个例子是 curl\_exec、curl\_errno 和 curl\_error 函数。
+
+这样的帮助者可以进行更细粒度的错误处理, 但你必须考虑到认知成本。未实施错误管理。为了进一步说明我的观点, 让我们注意, 即使是正式文档中的 curl\_exec 函数的示例也没有设置检查返回值的最佳做法 : 
+
+```php
+<?php
+/* create a new cURL resource */
+$ch = curl_init();
+/* set URL and other appropriate options */
+curl_setopt($ch, CURLOPT_URL, "http://www.example.com/");
+curl_setopt($ch, CURLOPT_HEADER, 0);
+/* grab URL and pass it to the browser */
+curl_exec($ch);
+/* close cURL resource, and free up system resources */
+curl_close($ch);
+```
+
+使用错误的值作为失败的标记在执行松散类型转换 \(如 PHP\) 的语言中还有另一个后果。如上述文档中所述, 如果不执行严格的相等比较, 则可能会考虑将计算结果为 false 的有效返回值作为错误 : 
+
+> 警告: 此函数可能返回布尔值 false, 但也可能返回计算结果为 false 的非布尔数值。有关详细信息, 请阅读有关布尔值的部分。使用 === 运算符测试此函数的返回值。
+
+PHP仅在出现错误的情况下使用错误代码，但不像C中通常情况那样返回true或0。您不需要找到向用户传回返回值的方式。
+
+但是, 如果您希望使用数字错误代码实现自己的函数, 从而有可能对错误进行分类, 则必须找到一种方法来返回代码和值。通常, 您可以使用以下两个选项之一 : 
+
+* 使用通过引用传递的参数来保存结果;例如, 即使出于不同的原因, preg\_match 参数也会这样做。只要参数被清楚地确定为返回值, 这并不是严格地反对功能纯度。
+* 返回可以容纳两个或更多值的数组或其他数据结构。这个想法是我们将在下一节中提出的功能性解决方案的开始。
+
+#### 默认值或null
 
 
 
