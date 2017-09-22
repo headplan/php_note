@@ -76,7 +76,7 @@
     * [卷积和Zip](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/juan-ji-he-zip.md)
     * [递归](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/di-gui.md)
       * [递归和循环](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/di-gui/di-gui-he-xun-huan.md)
-    * 异常
+    * [异常](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/yi-chang.md)
     * 异常的替代
     * Option/Maybe和Either
     * 类库/类包
