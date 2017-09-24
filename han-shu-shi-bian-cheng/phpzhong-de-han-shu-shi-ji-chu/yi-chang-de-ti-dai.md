@@ -132,9 +132,9 @@ function max4(array $data, int $default = 0): int
 * 不能将返回类型提示用作 null, 不会将其视为正确的类型。此外, 如果计划将该值用作参数, 则它也不能被提示为类型, 或者它必须是可选的, 值为 null 作为默认值。这将强制您删除类型提示或使参数可选。
 * 如果函数通常返回对象, 则必须检查值是否为 null, 否则您将面临托尼霍尔所称的十亿美元错误的风险, 这是一个空指针引用。或者, 正如在 PHP 中报告的那样, 在 null 时调用一个成员函数XXX \(\)
 
-> 这里托尼霍尔的典故可以查看下面的内容了解 : 
+> 这里托尼霍尔的典故可以查看下面的内容了解 :
 >
-> https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare
+> [https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare](https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare)
 
 #### Error handler\(错误处理程序\)
 
@@ -161,6 +161,14 @@ max5([], function(): int {
     return 42;
 });
 ```
+
+同样, 我们保留了返回类型提示, 因为我们与调用方的约定是返回一个整数值。如注释中所述, 在这种特殊情况下, 作为参数的默认值可能已经足够, 但在更复杂的情况下, 这种方法提供了更多的权力。
+
+我们还可以设想将初始参数传递给回调, 以及有关失败的信息, 以便错误处理程序可以相应地采取行动。在某种程度上, 这种方法有点像我们之前看到的所有内容的组合, 因为它允许您:
+
+* 指定选择的默认返回值
+* 显示或记录所需的任何类型的错误信息
+* 如果您希望, 返回一个更复杂的数据结构和错误代码
 
 
 
