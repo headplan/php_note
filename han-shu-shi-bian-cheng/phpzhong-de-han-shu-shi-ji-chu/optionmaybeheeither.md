@@ -10,7 +10,7 @@
 
 就我个人而言, 我更喜欢这个教派, 因为我认为这是另外一种选择。因此, 本书的其余部分将使用此方法, 除非某个特定库有一个称为 "选项\(Option\)" 的类型。
 
-“Maybe”类型是特殊的 , 它可以持有特定类型的值或相当于任何值 , 或者如果您喜欢的是null值 . 在Haskell中 , 这两个可能的值称为Just和Nothing . 在Scala中 , 它是Some和None , 因为没有用于指定值为null的类型 . 
+“Maybe”类型是特殊的 , 它可以持有特定类型的值或相当于任何值 , 或者如果您喜欢的是null值 . 在Haskell中 , 这两个可能的值称为Just和Nothing . 在Scala中 , 它是Some和None , 因为没有用于指定值为null的类型 .
 
 PHP 只实现了一个 "Maybe" 或 "Option" 类型的库, 并且本章后面介绍的一些库也带有这样的类型。但是, 为了正确地理解他们的工作方式和力量, 我们将实施我们自己的。
 
@@ -36,16 +36,16 @@ abstract class Maybe
     {
         return Nothing::get();
     }
-    
+
     abstract public function isJust(): bool;
     abstract public function isNothing(): bool;
     abstract public function getOrElse($default);
 }
 ```
 
-我们的类有两个静态帮助器方法来创建代表我们两个可能状态的即将到来的子类的两个实例 . 出于性能原因, Nothing值将作为单一实例实现 , 因为它永远不会持有任何值 , 这样做是安全的 . 
+我们的类有两个静态帮助器方法来创建代表我们两个可能状态的即将到来的子类的两个实例 . 出于性能原因, Nothing值将作为单一实例实现 , 因为它永远不会持有任何值 , 这样做是安全的 .
 
-我们类中最重要的部分是一个抽象的getOrElse函数 , 它将强制任何人想要获取一个值 , 也可以传递一个默认值 , 如果没有 , 返回值 . 这样 , 我们可以强制执行一个有效的值即使在出现错误的情况下也会返回 . 显然 , 您可以将值null作为默认值 , 因为PHP没有机制执行其他操作 , 这有点像搬起石头砸自己的脚 : 
+我们类中最重要的部分是一个抽象的getOrElse函数 , 它将强制任何人想要获取一个值 , 也可以传递一个默认值 , 如果没有 , 返回值 . 这样 , 我们可以强制执行一个有效的值即使在出现错误的情况下也会返回 . 显然 , 您可以将值null作为默认值 , 因为PHP没有机制执行其他操作 , 这有点像搬起石头砸自己的脚 :
 
 ```php
 <?php
@@ -76,7 +76,61 @@ final class Just extends Maybe
 
 > 搬起石头砸自己的脚的典故 , 可以查看文章
 >
-> http://www-users.cs.york.ac.uk/susan/joke/foot.htm
+> [http://www-users.cs.york.ac.uk/susan/joke/foot.htm](http://www-users.cs.york.ac.uk/susan/joke/foot.htm)
+
+我们的“Just”类很简单 , 一个构造函数和一个getter : 
+
+```php
+<?php
+final class Nothing extends Maybe
+{
+    private static $instance = null;
+    public static function get()
+    {
+        if(is_null(self::$instance)) {
+            self::$instance = new static();
+        }
+        return self::$instance;
+    }
+
+    public function isJust(): bool
+    {
+        return false;
+    }
+
+    public function isNothing(): bool
+    {
+        return true;
+    }
+
+    public function getOrElse($default)
+    {
+        return $default;
+    }
+}
+```
+
+如果您不考虑单个元素 , Nothing类更简单 , 因为getOrElse函数总是返回默认值 . 对于那些想知道的人来说 , 保持建设者的公开是一个刻意的选择 . 如果有人想直接创建一个Nothing实例 , 它绝对没有任何后果 , 为什么要费心？
+
+我们来测试我们的新Maybe类型 : 
+
+```php
+<?php
+$hello = Maybe::just("Hello World !");
+$nothing = Maybe::nothing();
+echo $hello->getOrElse("Nothing to see...");
+// Hello World !
+var_dump($hello->isJust());
+// bool(true)
+var_dump($hello->isNothing());
+// bool(false)
+echo $nothing->getOrElse("Nothing to see...");
+// Nothing to see...
+var_dump($nothing->isJust());
+// bool(false)
+var_dump($nothing->isNothing());
+// bool(true)
+```
 
 
 
