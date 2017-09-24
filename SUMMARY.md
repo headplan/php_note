@@ -78,7 +78,7 @@
       * [递归和循环](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/di-gui/di-gui-he-xun-huan.md)
     * [异常](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/yi-chang.md)
     * [异常的替代](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/yi-chang-de-ti-dai.md)
-    * Option/Maybe和Either
+    * [Option/Maybe和Either](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/optionmaybeheeither.md)
     * 类库/类包
 * [底层分析](di-ceng-fen-xi.md)
   * [PHP5与PHP7内部功能的测试](di-ceng-fen-xi/php5yu-php7-nei-bu-gong-neng-de-ce-shi.md)
