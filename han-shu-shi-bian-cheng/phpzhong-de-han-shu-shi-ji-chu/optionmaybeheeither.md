@@ -78,7 +78,7 @@ final class Just extends Maybe
 >
 > [http://www-users.cs.york.ac.uk/susan/joke/foot.htm](http://www-users.cs.york.ac.uk/susan/joke/foot.htm)
 
-我们的“Just”类很简单 , 一个构造函数和一个getter : 
+我们的“Just”类很简单 , 一个构造函数和一个getter :
 
 ```php
 <?php
@@ -112,7 +112,7 @@ final class Nothing extends Maybe
 
 如果您不考虑单个元素 , Nothing类更简单 , 因为getOrElse函数总是返回默认值 . 对于那些想知道的人来说 , 保持建设者的公开是一个刻意的选择 . 如果有人想直接创建一个Nothing实例 , 它绝对没有任何后果 , 为什么要费心？
 
-我们来测试我们的新Maybe类型 : 
+我们来测试我们的新Maybe类型 :
 
 ```php
 <?php
@@ -132,5 +132,100 @@ var_dump($nothing->isNothing());
 // bool(true)
 ```
 
+一切似乎都很好 . 可以改进对样板的需求 . 此时 , 每次要实例化一个新的Maybe类型时 , 都需要检查您所拥有的值 , 并在“Some”和“Nothing”值之间进行选择 . 
 
+此外 , 可能会发生这种情况 , 您需要在进一步传递该值之前应用一些函数 , 而不知道什么是最佳的默认值 . 因为在创建一个新的Maybe类型之前获取一些临时默认值是一件麻烦的事情 , 所以我们也尝试修复这个方面 : 
+
+```php
+<?php
+abstract class Maybe
+{
+    // [...]
+    public static function fromValue($value, $nullValue = null)
+    {
+        return $value === $nullValue ?
+        self::nothing() :
+        self::just($value);
+    }
+    
+    abstract public function map(callable $f): Maybe;
+}
+
+final class Just extends Maybe
+{
+    // [...]
+    public function map(callable $f): Maybe
+    {
+        return new self($f($this->value));
+    }
+}
+
+final class Nothing extends Maybe
+{
+    // [...]
+    public function map(callable $f): Maybe
+    {
+        return $this;
+    }
+}
+```
+
+为了对实用程序方法有一些一致的命名 , 我们使用与使用集合的功能相同的名称 . 在某种程度上 , 您可以将Maybe类型视为列表中的一个或没有值 . 我们根据相同的假设添加一些其他的实用方法 : 
+
+```php
+<?php
+
+abstract class Maybe
+{
+    // [...]
+    abstract public function orElse(Maybe $m): Maybe;
+    abstract public function flatMap(callable $f): Maybe;
+    abstract public function filter(callable $f): Maybe;
+}
+
+final class Just extends Maybe
+{
+    // [...]
+    public function orElse(Maybe $m): Maybe
+    {
+        return $this;
+    }
+
+    public function flatMap(callable $f): Maybe
+    {
+        return $f($this->value);
+    }
+
+    public function filter(callable $f): Maybe
+    {
+        return $f($this->value) ? $this : Maybe::nothing();
+    }
+}
+
+final class Nothing extends Maybe
+{
+    // [...]
+
+    public function orElse(Maybe $m): Maybe
+    {
+        return $m;
+    }
+
+    public function flatMap(callable $f): Maybe
+    {
+        return $this;
+    }
+
+    public function filter(callable $f): Maybe
+    {
+        return $this;
+    }
+}
+```
+
+我们在实施中增加了三新方法 : 
+
+orElse 方法返回当前值 \(如果有\) 或给定值 \(如果没有\) . 这使我们可以轻松地从多个可能的来源获取数据 . 
+
+flatMap 方法对我们的值进行回调 , 但不将其包装在Maybe类中 . 回调的责任是返回Maybe类本身 . 
 
