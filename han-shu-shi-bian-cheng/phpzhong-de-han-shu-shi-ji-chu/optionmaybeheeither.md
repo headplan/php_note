@@ -229,5 +229,90 @@ final class Nothing extends Maybe
 * flatMap 方法对我们的值进行回调 , 但不将其包装在Maybe类中 . 回调的责任是返回Maybe类本身 .
 * filter 方法将给定的谓词\(判断\)应用于该值 . 如果谓词\(判断\)返回真值 , 我们保留该值 , 否则返回值Nothing . 
 
+现在, 我们已经实现了一个可以工作的Maybe类型 , 让我们看看如何使用它来轻松的管理并摆脱错误和空的 . 假设我们希望在应用程序的右上角显示有关连接用户的信息 . 如果没有可能的类型 , 您可以执行如下操作 :
+
+```php
+<?php
+#先获取用户对象
+$user = getCurrentUser();
+#判断并显示用户名
+$name = $user == null ? 'Guest' : $user->name;
+echo sprintf("Welcome %s", $name);
+// Welcome John
+```
+
+在这里, 我们只使用的用户名 , 所以我们可以限制自己到一个空检查 . 如果我们需要来自用户的更多信息 , 通常的方法是使用有时称为 Null 对象模式的模式 . 在我们的例子中 , 我们的 Null 对象将是一个 AnonymousUser 方法的实例 :
+
+```php
+<?php
+$user = getCurrentUser();
+if($user == null) {
+    $user = new AnonymousUser();
+}
+echo sprintf("Welcome %s", $user->name);
+// Welcome John
+```
+
+现在我们尝试用我们的Maybe类型来做同样的事情 : 
+
+```php
+<?php
+$user = Maybe::fromValue(getCurrentUser());
+$name = $user->map(function(User $u) {
+ return $u->name;
+})->getOrElse('Guest');
+echo sprintf("Welcome %s", $name);
+// Welcome John
+echo sprintf("Welcome %s", $user->getOrElse(new AnonymousUser())->name);
+// Welcome John
+```
+
+第一个版本可能不太好, 因为我们必须创建一个新函数来提取名称。但是让我们记住, 在需要提取最终值之前, 您可以对对象进行任何数量的处理。此外, 我们在以后提供的大多数功能库都是以更简单的方式从对象获取值的帮助器方法。
+
+您还可以很容易地调用一个方法链, 直到其中一个返回一个值。假设您希望显示一个仪表板, 但可以根据每个组和每个级别重新定义这些面板。让我们比较一下我们的两种方法的票价。
+
+首先 , 空值检查方法 :
+
+```php
+<?php
+$dashboard = getUserDashboard();
+if($dashboard == null) {
+    $dashboard = getGroupDashboard();
+}
+if($dashboard == null) {
+    $dashboard = getDashboard();
+}
+```
+
+现在 , 使用Maybe类型 :
+
+```php
+<?php
+/* 我们假设仪表板方法现在返回Maybe实例 */
+$dashboard = getUserDashboard()
+ ->orElse(getGroupDashboard())
+ ->orElse(getDashboard());
+```
+
+我觉得更容易识别谁的可读性更强 ! 
+
+最后, 让我们演示一个小例子, 说明如何在一个可能的实例上链接到多个调用, 而不必检查当前是否有值。所选的例子可能有点傻, 但它显示了什么是可能的 : 
+
+```php
+<?php
+$num = Maybe::fromValue(42);
+$val = $num->map(function($n) { return $n * 2; })
+    ->filter(function($n) { return $n < 80; })
+    ->map(function($n) { return $n + 10; })
+    ->orElse(Maybe::fromValue(99))
+    ->map(function($n) { return $n / 3; })
+    ->getOrElse(0);
+echo $val;
+// 33
+```
+
+我们的Maybe类型的力量是 , 我们从来没有必要考虑实例是否包含一个值 . 我们只需要应用函数 , 直到最后 , 使用getOrElse方法提取最终值 .   
+
+
 
 
