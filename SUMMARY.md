@@ -79,6 +79,7 @@
     * [异常](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/yi-chang.md)
     * [异常的替代](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/yi-chang-de-ti-dai.md)
     * [Option/Maybe和Either](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/optionmaybeheeither.md)
+      * [提升函数Lifting functions](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/optionmaybeheeither/ti-sheng-han-shu-lifting-functions.md)
     * [类库/类包](han-shu-shi-bian-cheng/phpzhong-de-han-shu-shi-ji-chu/lei-5e93-lei-bao.md)
 * [底层分析](di-ceng-fen-xi.md)
   * [PHP5与PHP7内部功能的测试](di-ceng-fen-xi/php5yu-php7-nei-bu-gong-neng-de-ce-shi.md)
