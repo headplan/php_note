@@ -64,5 +64,5 @@ function liftEither(callable $f, $error = "An error occured")
 }
 ```
 
-
+但是 , 此函数比自定义包装的用处小一些 , 因为您无法指定特定于可能错误的错误消息 . 
 
