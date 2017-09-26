@@ -140,15 +140,13 @@ composer require phpoption/phpoption
 
 > [https://github.com/tightenco/collect](https://github.com/tightenco/collect)
 
-官方文档 : 
+官方文档 :
 
-> https://laravel.com/docs/5.5/collections
+> [https://laravel.com/docs/5.5/collections](https://laravel.com/docs/5.5/collections)
 
-如果想了解更多关于Laravel的collections类库 , 可以看看下面的视频配套教材 , 因为Laravel的作者也说他在其中学了不少 : 
+如果想了解更多关于Laravel的collections类库 , 可以看看下面的视频配套教材 , 因为Laravel的作者也说他在其中学了不少 :
 
-> https://adamwathan.me/refactoring-to-collections
-
-
+> [https://adamwathan.me/refactoring-to-collections](https://adamwathan.me/refactoring-to-collections)/
 
 
 
