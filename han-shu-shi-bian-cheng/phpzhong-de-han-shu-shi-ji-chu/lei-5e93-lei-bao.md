@@ -132,13 +132,21 @@ composer require phpoption/phpoption
 
 #### Laravel collections
 
-正如前面已经提到的 , Laravel 提供了一个很好的库来管理集合 . 它声明一个称为Collection的类 , 它由其 ORM、Eloquent的内部使用 , 还有大多数依赖于集合的部分 . 
+正如前面已经提到的 , Laravel 提供了一个很好的库来管理集合 . 它声明一个称为Collection的类 , 它由其 ORM、Eloquent的内部使用 , 还有大多数依赖于集合的部分 .
 
-在内部 , 使用了一个简单的数组 , 但它以一种促进数据不变性和操作数据的功能方法的方式进行包装 . 为了实现这一目标 , 大部分的方法开发者建议开发的 . 
+在内部 , 使用了一个简单的数组 , 但它以一种促进数据不变性和操作数据的功能方法的方式进行包装 . 为了实现这一目标 , 大部分的方法开发者建议开发的 .
 
-如果您已经使用了 Laravel, 您可能已经熟悉了此支持类提供的可能性。如果您使用的是任何其他框架, 您仍然可以从中受益, 从它得到提取的部分 : 
+如果您已经使用了 Laravel, 您可能已经熟悉了此支持类提供的可能性。如果您使用的是任何其他框架, 您仍然可以从中受益, 从它得到提取的部分 :
 
-> https://github.com/tightenco/collect
+> [https://github.com/tightenco/collect](https://github.com/tightenco/collect)
+
+官方文档 : 
+
+> https://laravel.com/docs/5.5/collections
+
+如果想了解更多关于Laravel的collections类库 , 可以看看下面的视频配套教材 , 因为Laravel的作者也说他在其中学了不少 : 
+
+> https://adamwathan.me/refactoring-to-collections
 
 
 
