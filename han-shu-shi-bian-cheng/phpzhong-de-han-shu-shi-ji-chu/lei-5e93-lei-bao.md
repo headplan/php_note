@@ -148,5 +148,19 @@ composer require phpoption/phpoption
 
 > [https://adamwathan.me/refactoring-to-collections](https://adamwathan.me/refactoring-to-collections)/
 
+**使用类库**
+
+第一步是使用collect实用程序函数将您的数组或Traversable接口转换为Collection类的一个实例 . 然后您将可以访问该类提供的各种方法 . 让我们快速列出那些我们已经在另一种形式中遇到的方法函数 : 
+
+* map方法将函数应用于所有元素并返回新值
+* filter方法使用谓词过滤收集
+* reduce方法使用给定的回调折叠集合
+* pluck从所有元素获取给定的属性
+* groupBy方法使用每个元素的给定值对集合进行分区
+
+所有这些方法返回一个Collection类的新实例 , 保留原始实例的值 . 
+
+完成操作后 , 您可以使用所有方法将当前值作为数组获取 . 
+
 
 
