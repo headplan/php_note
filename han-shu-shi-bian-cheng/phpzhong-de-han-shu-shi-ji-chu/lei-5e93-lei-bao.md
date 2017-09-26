@@ -150,7 +150,7 @@ composer require phpoption/phpoption
 
 **使用类库**
 
-第一步是使用collect实用程序函数将您的数组或Traversable接口转换为Collection类的一个实例 . 然后您将可以访问该类提供的各种方法 . 让我们快速列出那些我们已经在另一种形式中遇到的方法函数 : 
+第一步是使用collect实用程序函数将您的数组或Traversable接口转换为Collection类的一个实例 . 然后您将可以访问该类提供的各种方法 . 让我们快速列出那些我们已经在另一种形式中遇到的方法函数 :
 
 * map方法将函数应用于所有元素并返回新值
 * filter方法使用谓词过滤收集
@@ -158,9 +158,29 @@ composer require phpoption/phpoption
 * pluck从所有元素获取给定的属性
 * groupBy方法使用每个元素的给定值对集合进行分区
 
-所有这些方法返回一个Collection类的新实例 , 保留原始实例的值 . 
+所有这些方法返回一个Collection类的新实例 , 保留原始实例的值 .
 
-完成操作后 , 您可以使用所有方法将当前值作为数组获取 . 
+完成操作后 , 您可以使用所有方法将当前值作为数组获取 .
+
+#### immutable-php类库
+
+这个库提出了一个不可变数据结构 , 由于标准PHP库中的SplFixedArray方法的各种各样的困难 , 主要是使用其难以使用的API而诞生的 . 在其核心 , immutable-php库使用前面提到的数据结构 , 但使用一套很好的方法来包装它 . 
+
+SplFixedArray方法是具有固定大小的数组的特定实现 , 并且仅允许数字索引 . 这些约束允许真正快速的结构数组 . 
+
+**Github**
+
+> https://github.com/jkoudys/immutable.php
+
+**Composer安装**
+
+```
+composer require qaribou/immutable.php
+```
+
+**使用类库**
+
+
 
 
 
