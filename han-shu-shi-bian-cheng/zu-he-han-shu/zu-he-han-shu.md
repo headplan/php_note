@@ -23,7 +23,7 @@ function safe_title2(string $s)
 }
 ```
 
-当您只想编写一些函数时 , 这很有效 . 但是 , 创建大量这些包装函数会变得非常麻烦 . 如果你可以简单地使用 `$safe _title = strtoupper htmlspecialchars` 一行代码岂妙哉 , 可悲的是 , 这个操作符不存在于php中 , 但是我们前面介绍的functional-php库包含一个compose函数 , 它完全是这样的 : 
+当您只想编写一些函数时 , 这很有效 . 但是 , 创建大量这些包装函数会变得非常麻烦 . 如果你可以简单地使用 `$safe _title = strtoupper htmlspecialchars` 一行代码岂妙哉 , 可悲的是 , 这个操作符不存在于php中 , 但是我们前面介绍的functional-php库包含一个compose函数 , 它完全是这样的 :
 
 ```php
 <?php
@@ -35,5 +35,27 @@ use function Functional\compose;
 $safe_title2 = compose('htmlspecialchars', 'strtoupper');
 ```
 
+增益可能似乎并不重要 , 但让我们比较一下在更多的上下文中使用这样的方法 : 
 
+```php
+<?php
+$titles = ['Firefly', 'Buffy the Vampire Slayer', 'Stargate Atlantis', 'Tom & Jerry', 'Dawson\'s Creek'];
+
+$titles2 = array_map(function(string $s) {
+    return strtoupper(htmlspecialchars($s));
+}, $titles);
+
+$titles3 = array_map(compose('htmlspecialchars', 'strtoupper'), $titles);
+```
+
+就我个人而言 , 第二种方法容易阅读和理解 . 而且它会变得更好 , 因为您可以将两个以上的函数传递给 "组合" 函数 : 
+
+```php
+<?php
+$titles4 = array_map(compose('htmlspecialchars', 'strtoupper', 'trim'), $titles);
+```
+
+可能引发歧义的一件事是 "函数" 的应用顺序 . 数学符号 f ∘ g 首先执行 g 然后结果被传递到 f . 但是 , "functional-php" 库中的 "compose" 函数按照它们在`compose('first', 'second', 'third')`参数中传递的顺序应用这些函数 . 
+
+根据您的个人喜好 , 这可能更容易理解 , 但在使用其他库时要小心 , 因为应用程序的顺序可能会反转 , 所以一定要仔细阅读文档 . 
 
