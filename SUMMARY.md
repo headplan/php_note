@@ -86,6 +86,7 @@
     * [组合函数](han-shu-shi-bian-cheng/zu-he-han-shu/zu-he-han-shu.md)
     * [部分应用](han-shu-shi-bian-cheng/zu-he-han-shu/bu-fen-ying-yong.md)
     * [局部套用](han-shu-shi-bian-cheng/zu-he-han-shu/ju-bu-tao-yong.md)
+    * [PHP中的Currying函数](han-shu-shi-bian-cheng/zu-he-han-shu/phpzhong-de-currying-han-shu.md)
 * [底层分析](di-ceng-fen-xi.md)
   * [PHP5与PHP7内部功能的测试](di-ceng-fen-xi/php5yu-php7-nei-bu-gong-neng-de-ce-shi.md)
   * [PHP5源码分析](di-ceng-fen-xi/php5yuan-ma-fen-xi.md)
