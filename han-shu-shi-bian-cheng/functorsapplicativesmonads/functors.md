@@ -164,3 +164,5 @@ class IdentityFunctor implements Functor
 
 与恒等函数一样 , 对这样的Functor的使用并不是立竿见影的 . 然而 , 当你有一些函数具有Functor作为参数 , 但是你不想修改其实际值时 , 这个想法和上面是一样的 , 可以使用它 . 
 
+后面的内容应该会更有意义 . 后面 , 我们将使用恒等Functor来解释一些更高级的概念 . 
+
