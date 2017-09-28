@@ -91,6 +91,7 @@
     * [使用组合来解决实际问题](han-shu-shi-bian-cheng/zu-he-han-shu/shi-yong-zu-he-lai-jie-jue-shi-ji-wen-ti.md)
   * [Functors,Applicatives,Monads](han-shu-shi-bian-cheng/functorsapplicativesmonads.md)
     * [Functors](han-shu-shi-bian-cheng/functorsapplicativesmonads/functors.md)
+    * [Applicative functors](han-shu-shi-bian-cheng/functorsapplicativesmonads/applicative-functors.md)
 * [底层分析](di-ceng-fen-xi.md)
   * [PHP5与PHP7内部功能的测试](di-ceng-fen-xi/php5yu-php7-nei-bu-gong-neng-de-ce-shi.md)
   * [PHP5源码分析](di-ceng-fen-xi/php5yuan-ma-fen-xi.md)
