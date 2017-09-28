@@ -38,7 +38,7 @@ Functors允许我们共享一个通用接口 , 我们的映射方法或函数 , 
 >
 > > Operator是C++和pascal的关键字，它和运算符一起使用，表示一个运算符函数，理解时应将operator=整体上视为一个函数名。
 
-#### 身份函数
+#### 恒等函数
 
 通过上面的概念 , 我们得到两个functor的规律 , 在介绍规律之前 , 先来看看本小节的主题 , 身份函数 , 或者叫id函数 , 它是一个非常简单的函数 , 只需返回其参数 :
 
@@ -110,9 +110,9 @@ var_dump(
 
 该组合是手动执行的 , 没有进行 "currying" , 以免让事情变得更复杂 .
 
-正如我们所看到的 , 这两个定律都保留了 array\_map 方法 , 这是一个好兆头 , 这意味着没有隐藏的进行一些数据处理 , 而且我们可以避免在我们的数组上循环两次或更多次 , 只有一次就足够了 . 
+正如我们所看到的 , 这两个定律都保留了 array\_map 方法 , 这是一个好兆头 , 这意味着没有隐藏的进行一些数据处理 , 而且我们可以避免在我们的数组上循环两次或更多次 , 只有一次就足够了 .
 
-让我们尝试一下我们之前定义的Maybe类型 : 
+让我们尝试一下我们之前定义的Maybe类型 :
 
 ```php
 <?php
@@ -124,7 +124,7 @@ var_dump($nothing->map('id') === id($nothing));
 // bool(true)
 ```
 
-这里 , 我们不得不把$just部分转换为非严格的模式\(即两个等号\) , 否则返回的结果为false . 因为PHP比较实例对象 , 而不是它们的value值 . Maybe类型将结果值包装在一个新的对象中 , 而PHP只在非严格相等比较的情况下才执行内部值比较 , 上面定义的 add2、times10 和组合函数也是这样 : 
+这里 , 我们不得不把$just部分转换为非严格的模式\(即两个等号\) , 否则返回的结果为false . 因为PHP比较实例对象 , 而不是它们的value值 . Maybe类型将结果值包装在一个新的对象中 , 而PHP只在非严格相等比较的情况下才执行内部值比较 , 上面定义的 add2、times10 和组合函数也是这样 :
 
 ```php
 <?php
@@ -134,9 +134,9 @@ var_dump($nothing->map('times10')->map('add2') === $nothing->map('composed'));
 // bool(true)
 ```
 
-#### 身份Functor
+#### 恒等Functor
 
-正如前面在关于身份函数的部分中讨论的 , 身份Functor也是存在的 . 它作为一个非常简单的Functor，除了持有它 , 对 "value" 没有任何作用 : 
+正如前面在关于身份函数的部分中讨论的 , 身份Functor也是存在的 . 它作为一个非常简单的Functor，除了持有它 , 对 "value" 没有任何作用 :
 
 ```php
 <?php
@@ -144,7 +144,7 @@ var_dump($nothing->map('times10')->map('add2') === $nothing->map('composed'));
 class IdentityFunctor implements Functor
 {
     private $value;
-    
+
     public function __construct($value)
     {
         $this->value = $value;
@@ -162,5 +162,5 @@ class IdentityFunctor implements Functor
 }
 ```
 
-
+与恒等函数一样 , 对这样的Functor的使用并不是立竿见影的 . 然而 , 当你有一些函数具有Functor作为参数 , 但是你不想修改其实际值时 , 这个想法和上面是一样的 , 可以使用它 . 
 
