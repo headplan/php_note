@@ -108,9 +108,59 @@ var_dump(
 // bool(true)
 ```
 
-该组合是手动执行的 , 没有进行 "currying" , 以免让事情变得更复杂 . 
+该组合是手动执行的 , 没有进行 "currying" , 以免让事情变得更复杂 .
 
 正如我们所看到的 , 这两个定律都保留了 array\_map 方法 , 这是一个好兆头 , 这意味着没有隐藏的进行一些数据处理 , 而且我们可以避免在我们的数组上循环两次或更多次 , 只有一次就足够了 . 
 
-恒等式Functor
+让我们尝试一下我们之前定义的Maybe类型 : 
+
+```php
+<?php
+$just = Maybe::just(10);
+$nothing = Maybe::nothing();
+var_dump($just->map('id') == id($just));
+// bool(true)
+var_dump($nothing->map('id') === id($nothing));
+// bool(true)
+```
+
+这里 , 我们不得不把$just部分转换为非严格的模式\(即两个等号\) , 否则返回的结果为false . 因为PHP比较实例对象 , 而不是它们的value值 . Maybe类型将结果值包装在一个新的对象中 , 而PHP只在非严格相等比较的情况下才执行内部值比较 , 上面定义的 add2、times10 和组合函数也是这样 : 
+
+```php
+<?php
+var_dump($just->map('times10')->map('add2') == $just->map('composed'));
+// bool(true)
+var_dump($nothing->map('times10')->map('add2') === $nothing->map('composed'));
+// bool(true)
+```
+
+#### 身份Functor
+
+正如前面在关于身份函数的部分中讨论的 , 身份Functor也是存在的 . 它作为一个非常简单的Functor，除了持有它 , 对 "value" 没有任何作用 : 
+
+```php
+<?php
+
+class IdentityFunctor implements Functor
+{
+    private $value;
+    
+    public function __construct($value)
+    {
+        $this->value = $value;
+    }
+
+    public function map(callable $f): Functor
+    {
+        return new static($f($this->value));
+    }
+
+    public function get()
+    {
+        return $this->value;
+    }
+}
+```
+
+
 
