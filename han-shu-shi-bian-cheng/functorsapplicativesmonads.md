@@ -6,16 +6,16 @@
 
 > [https://byorgey.wordpress.com/2009/01/12/abstraction-intuition-and-the-monad-tutorial-fallacy/](https://byorgey.wordpress.com/2009/01/12/abstraction-intuition-and-the-monad-tutorial-fallacy/)
 
-你可能不会第一次得到一切 . “Monads”是一个非常抽象的概念 , 即使你已经看了很多关于Monads的概念 , 你也可能会不经意的突然模糊了概念 , 这会阻碍你对 Monad 的真正的直觉 . 
+你可能不会第一次得到一切 . “Monads”是一个非常抽象的概念 , 即使你已经看了很多关于Monads的概念 , 你也可能会不经意的突然模糊了概念 , 这会阻碍你对 Monad 的真正的直觉 .
 
-如果这里还是没有解释清楚 , 我会继续翻译更多相关的资料 , 比如上面提到的文章 . 而现在 , 我们要讨论的主题是 : 
+如果这里还是没有解释清楚 , 我会继续翻译更多相关的资料 , 比如上面提到的文章 . 而现在 , 我们要讨论的主题是 :
 
 * Functors 的相关规则
 * Applicative functors 的相关规则
 * Monoids 的相关规则
 * Monads 的相关规则
 
-
+这里的概念完全理解之后 , 下一章节的真实例子会让你更加的理解Monad . 
 
 
 
