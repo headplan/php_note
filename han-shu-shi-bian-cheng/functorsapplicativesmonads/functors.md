@@ -100,6 +100,7 @@ function composed($a)
 {
     return add2(times10($a));
 }
+
 var_dump(
     array_map('add2', array_map('times10', $data))
     === array_map('composed', $data)
