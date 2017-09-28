@@ -78,7 +78,34 @@ compose(id, f) == compose(f, id)
 
 第一定律指出, 在所包含的值上映射 id 函数与在函子本身上直接调用 id 函数是完全相同的 . 当这项定律成立时 , 这保证了我们的 map 函数只将给定的函数应用到数据中, 而不执行任何其他类型的处理 .
 
-第二定律说, 第一个映射 f 函数, 然后映射 g 函数 与 首先将 f 和 g 组合到一起 , 然后映射产生的结果是相同的 . 知道这一点, 我们可以执行各种优化 . 例如, 我们可以将它们组合在一起, 只执行一个循环, 而不是将三不同方法的数据循环三次 . 
+第二定律说, 第一个映射 f 函数, 然后映射 g 函数 与 首先将 f 和 g 组合到一起 , 然后映射产生的结果是相同的 . 知道这一点, 我们可以执行各种优化 . 例如, 我们可以将它们组合在一起, 只执行一个循环, 而不是将三不同方法的数据循环三次 .
+
+```php
+<?php
+$data = [1, 2, 3, 4];
+var_dump(array_map('id', $data) === id($data));
+// bool(true)
+
+function add2($a)
+{
+    return $a + 2;
+}
+
+function times10($a)
+{
+    return $a * 10;
+}
+
+function composed($a)
+{
+    return add2(times10($a));
+}
+var_dump(
+    array_map('add2', array_map('times10', $data))
+    === array_map('composed', $data)
+);
+// bool(true)
+```
 
 恒等式Functor
 
