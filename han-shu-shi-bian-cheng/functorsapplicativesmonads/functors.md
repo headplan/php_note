@@ -30,7 +30,7 @@ Functors允许我们共享一个通用接口 , 我们的映射方法或函数 , 
 
 > 百度百科
 >
-> https://baike.baidu.com/item/%E4%BB%BF%E5%87%BD%E6%95%B0
+> [https://baike.baidu.com/item/仿函数](https://baike.baidu.com/item/仿函数)
 >
 > 仿函数\(functor\)，就是使一个类的使用看上去像一个函数。其实现就是类中实现一个operator\(\)，这个类就有了类似函数的行为，就是一个仿函数类了。
 >
@@ -38,9 +38,17 @@ Functors允许我们共享一个通用接口 , 我们的映射方法或函数 , 
 >
 > > Operator是C++和pascal的关键字，它和运算符一起使用，表示一个运算符函数，理解时应将operator=整体上视为一个函数名。
 
-#### 恒等式函数
+#### 身份函数
 
+通过上面的概念 , 我们得到两个functor的规律 , 在介绍规律之前 , 先来看看本小节的主题 , 身份函数 , 或者叫id函数 , 它是一个非常简单的函数 , 只需返回其参数 : 
 
+```php
+<?php
+function id($value)
+{
+    return $value;
+}
+```
 
 Functor定律
 
