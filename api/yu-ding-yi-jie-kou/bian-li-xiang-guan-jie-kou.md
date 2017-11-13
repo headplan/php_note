@@ -154,7 +154,7 @@ IteratorAggregate extends Traversable {
 }
 ```
 
-实现getIterator方法时必须返回一个实现了Iterator接口的类的实例 . 下面来看看代码示例 : 
+实现getIterator方法时必须返回一个实现了Iterator接口的类的实例 . 下面来看看代码示例 :
 
 ```php
 <?php
@@ -182,5 +182,5 @@ class TestIteratorAggregate implements IteratorAggregate
 }
 ```
 
-这里的ArrayIterator迭代器会把对象或数组封装为一个可以通过foreach来操作的类 . 
+这里的ArrayIterator迭代器会把对象或数组封装为一个可以通过foreach来操作的类 . ArrayIterator就是SPL的迭代器 . 这里也可以使用前面我们自己实现的TestIterator迭代器去处理迭代方式\(前面我们提到过is\_iterable\(\)\) . 
 
