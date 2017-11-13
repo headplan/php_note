@@ -141,5 +141,18 @@ class TestIterator implements Iterator
 }
 ```
 
+PHP 已经提供了一些用于日常任务的迭代器 , 可以查看SPLd迭代器 , 这部分另开一篇记录 , 下面继续说和Traversable相关的类 . 
+
+#### IteratorAggregate聚合式迭代器接口
+
+它提供了创建外部迭代器的接口 . 意思是对一个非迭代器对象 , 用函数getIterator返回迭代器 . 
+
+```php
+IteratorAggregate extends Traversable {
+    //获取一个外部迭代器  
+    abstract public Traversable getIterator ( void )  
+} 
+```
+
 
 
