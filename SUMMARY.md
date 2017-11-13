@@ -114,6 +114,7 @@
     * [ignore\_user\_abort](ignoreuserabort.md)
     * [输出控制](输出控制.md)
   * [预定义接口](api/yu-ding-yi-jie-kou.md)
+    * [遍历相关接口](api/yu-ding-yi-jie-kou/bian-li-xiang-guan-jie-kou.md)
 * [Awesome PHP](awesome-php.md)
   * [PHP School](awesome-php/php-school.md)
 * [相关文章](xiang-guan-wen-zhang.md)
