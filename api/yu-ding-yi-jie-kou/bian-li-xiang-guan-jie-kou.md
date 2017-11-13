@@ -242,9 +242,5 @@ class TestIteratorAggregate2 implements IteratorAggregate
 }
 ```
 
-其实 , 我们也可以使用前面我们自己实现的TestIterator迭代器去处理迭代方式 . 简单修改即可 . 查看本地代码示例 . 
-
-
-
-
+其实 , 我们也可以使用前面我们自己实现的TestIterator迭代器去处理迭代方式 . 简单修改即可 . 查看本地代码示例 . 官方文档下面还提供了一个例子 , 在IteratorAggregate::getIterator\(\)中直接返回生成器 , 因为生成器接口继承了Iterator接口 , 生成器部分再做讨论 . 
 
