@@ -1,5 +1,7 @@
 # 遍历相关接口
 
+**Traversable , Iterator , IteratorAggregate .**
+
 #### Traversable遍历接口
 
 检测一个类是否可以使用foreach进行遍历的接口 . 这是一个无法在 PHP 脚本中实现的内部引擎接口 , 实际编程中我们使用Iterator接口或者IteratorAggregate接口来实现遍历 . 所以这个接口没有任何方法 , 它的作用仅仅是作为所有可遍历类的基本接口 .
@@ -242,9 +244,7 @@ class TestIteratorAggregate2 implements IteratorAggregate
 
 其实 , 我们也可以使用前面我们自己实现的TestIterator迭代器去处理迭代方式 . 简单修改即可 . 查看本地代码示例 . 
 
-```
 
-```
 
 
 
