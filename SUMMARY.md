@@ -113,6 +113,7 @@
     * [register\_shutdown\_function](registershutdownfunction.md)
     * [ignore\_user\_abort](ignoreuserabort.md)
     * [输出控制](输出控制.md)
+  * [预定义接口](api/yu-ding-yi-jie-kou.md)
 * [Awesome PHP](awesome-php.md)
   * [PHP School](awesome-php/php-school.md)
 * [相关文章](xiang-guan-wen-zhang.md)
