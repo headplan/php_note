@@ -188,8 +188,56 @@ class TestIteratorAggregate implements IteratorAggregate
 
 这里的ArrayIterator迭代器会把对象或数组封装为一个可以通过foreach来操作的类 . ArrayIterator就是SPL的迭代器 . 再来看一个例子:
 
-```
+```php
+<?php
 
+namespace Iterable;
+
+use IteratorAggregate;
+use ArrayIterator;
+
+class TestIteratorAggregate2 implements IteratorAggregate
+{
+    # 迭代数据
+    private $_var = [];
+
+    # 索引类型
+    const TYPE_INDEX = 1;
+
+    # 关联类型
+    const TYPE_ASSOC = 2;
+
+    /**
+     * TestIteratorAggregate2 constructor.
+     *
+     * @param array $var
+     * @param int $type
+     */
+    public function __construct(array $var, $type = self::TYPE_INDEX)
+    {
+        $this->setVar($var,$type);
+    }
+
+    /**
+     * @param array $var
+     * @param $type
+     */
+    public function setVar(array $var, $type)
+    {
+        reset($var);
+        while (list($k, $v) = each($var)) {
+            $type == self::TYPE_INDEX ? $this->_var[] = $v : $this->_var[$k] = $v;
+        }
+    }
+
+    /**
+     * @return \ArrayIterator
+     */
+    public function getIterator()
+    {
+        return new ArrayIterator($this->_var);
+    }
+}
 ```
 
 其实 , 我们也可以使用前面我们自己实现的TestIterator迭代器去处理迭代方式 . 代码示例 :
