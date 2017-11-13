@@ -19,15 +19,104 @@ ArrayAccess {
 
 **代码示例**
 
-```
+```php
+<?php
 
+namespace InterfaceTest;
+
+use ArrayAccess;
+
+class TestArrayAccess implements ArrayAccess
+{
+    # 存储数据
+    private $data = [];
+
+    public function __construct($data)
+    {
+        $this->data = $data;
+    }
+
+    /**
+     * 以对象的方式访问数组中的数据
+     *
+     * @param $key
+     * @return mixed
+     */
+    public function __get($key)
+    {
+        return $this->data[$key];
+    }
+
+    /**
+     * 以对象方式添加一个数组元素
+     *
+     * @param $key
+     * @param $val
+     */
+    public function __set($key, $val)
+    {
+        $this->data[$key] = $val;
+    }
+
+    /**
+     * 以对象方式判断数组元素是否设置
+     *
+     * @param $key
+     * @return bool
+     */
+    public function __isset($key)
+    {
+        return isset($this->data[$key]);
+    }
+
+    /**
+     * 以对象方式删除一个数组元素
+     *
+     * @param $key
+     */
+    public function __unset($key)
+    {
+        unset($this->data[$key]);
+    }
+
+    public function offsetGet($offset)
+    {
+        return $this->offsetExists($offset) ? $this->data[$offset] : null;
+    }
+
+    public function offsetSet($offset, $value)
+    {
+        if (is_null($offset)) {
+            $this->data[] = $value;
+        } else {
+            $this->data[$offset] = $value;
+        }
+    }
+
+    public function offsetExists($offset)
+    {
+        return isset($this->data[$offset]);
+    }
+
+    public function offsetUnset($offset)
+    {
+        if ($this->offsetExists($offset)) {
+            unset($this->data[$offset]);
+        }
+    }
+
+    public function __invoke()
+    {
+        return $this->data;
+    }
+}
 ```
 
 **问题记录**
 
-如果在实现ArrayAccess的类的对象上调用array\_key\_exists\(\) , 那么ArrayAccess:: offsetExists\(\)将不会被调用 . 
+如果在实现ArrayAccess的类的对象上调用array\_key\_exists\(\) , 那么ArrayAccess:: offsetExists\(\)将不会被调用 .
 
-实现 ArrayAccess 的对象不支持递增/递减运算符 : 
+实现 ArrayAccess 的对象不支持递增/递减运算符 :
 
 ```php
 <?php
@@ -47,7 +136,7 @@ $x[0] += 1 ; // this works OK.
 
 在 ArrayAccess 对象中使用的索引不仅限于字符串和整数\(意思就是不限于标量键\) , 就像数组 . 可以使用任何类型的索引 , 只要编写实现来处理它们 . 例如用在SplObjectStorage类上 .
 
-尽管不限于标量键 , 但别忘记 : 
+尽管不限于标量键 , 但别忘记 :
 
 ```
 $x[1]  offset is integer 1
@@ -55,5 +144,20 @@ $x['1'] offset is integer 1
 $x['1.'] offset is string '1.'
 ```
 
-还有前面提到的问题 , 其实大部分php的数组函数都不能与 ArrayAccess 对象一起使用 , 这点需要注意 . 
+还有前面提到的问题 , 其实大部分php的数组函数都不能与 ArrayAccess 对象一起使用\(比如sizeof\(\),array\_values\(\)等等\) , 这点需要注意 . 但是还是又解决方式的 , 那就是使用\_\_invoke\(\)魔术方法 , 尝试以调用函数的方式调用一个对象 : 
+
+```php
+# 在之前的类中添加
+public function __invoke()
+{
+    return $this->data;
+}
+
+# 使用方式如下
+
+```
+
+
+
+
 
