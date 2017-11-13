@@ -240,7 +240,7 @@ class TestIteratorAggregate2 implements IteratorAggregate
 }
 ```
 
-其实 , 我们也可以使用前面我们自己实现的TestIterator迭代器去处理迭代方式 . 代码示例 :
+其实 , 我们也可以使用前面我们自己实现的TestIterator迭代器去处理迭代方式 . 简单修改即可 . 查看本地代码示例 . 
 
 ```
 
