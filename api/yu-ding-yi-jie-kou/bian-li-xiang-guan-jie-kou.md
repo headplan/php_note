@@ -182,5 +182,17 @@ class TestIteratorAggregate implements IteratorAggregate
 }
 ```
 
-这里的ArrayIterator迭代器会把对象或数组封装为一个可以通过foreach来操作的类 . ArrayIterator就是SPL的迭代器 . 这里也可以使用前面我们自己实现的TestIterator迭代器去处理迭代方式\(前面我们提到过is\_iterable\(\)\) . 
+这里的ArrayIterator迭代器会把对象或数组封装为一个可以通过foreach来操作的类 . ArrayIterator就是SPL的迭代器 . 再来看一个例子:
+
+```
+
+```
+
+其实 , 我们也可以使用前面我们自己实现的TestIterator迭代器去处理迭代方式 . 代码示例 : 
+
+```
+
+```
+
+
 
