@@ -43,7 +43,7 @@ foreach ($myobj as $value) {
 
 PHP7以后 , iterable伪类型将匹配遍历和数组 , 因为有了类型提示type-hinting . 还可以使用一个新的函数去判断 :
 
-```
+```php
 if ( !is_iterable( $items ))
     //Throw exception here
 ```
