@@ -115,6 +115,7 @@
     * [输出控制](输出控制.md)
   * [预定义接口](api/yu-ding-yi-jie-kou.md)
     * [遍历相关接口](api/yu-ding-yi-jie-kou/bian-li-xiang-guan-jie-kou.md)
+    * [数组式访问接口](api/yu-ding-yi-jie-kou/shu-zu-shi-fang-wen-jie-kou.md)
     * [生成器](api/yu-ding-yi-jie-kou/bian-li-xiang-guan-jie-kou/sheng-cheng-qi.md)
     * [SPL迭代器](api/yu-ding-yi-jie-kou/bian-li-xiang-guan-jie-kou/spldie-dai-qi.md)
 * [Awesome PHP](awesome-php.md)
