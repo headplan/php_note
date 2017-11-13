@@ -175,6 +175,10 @@ class TestIteratorAggregate implements IteratorAggregate
         $this->_var4 = '小刚';
     }
 
+    /**
+     * 获取一个外部迭代器
+     * @return \ArrayIterator
+     */
     public function getIterator()
     {
         return new ArrayIterator($this);
@@ -188,7 +192,7 @@ class TestIteratorAggregate implements IteratorAggregate
 
 ```
 
-其实 , 我们也可以使用前面我们自己实现的TestIterator迭代器去处理迭代方式 . 代码示例 : 
+其实 , 我们也可以使用前面我们自己实现的TestIterator迭代器去处理迭代方式 . 代码示例 :
 
 ```
 
