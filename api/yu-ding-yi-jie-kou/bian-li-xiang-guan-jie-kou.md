@@ -69,5 +69,77 @@ Iterator extends Traversable {
 }
 ```
 
+**代码示例**
+
+```php
+<?php
+
+namespace Iterable;
+
+use Iterator;
+
+class TestIterator implements Iterator
+{
+    # 迭代数据
+    private $_var = ['apple', 'banana', 'orange'];
+    # 索引游标起始位置
+    private $_key = 0;
+
+    /**
+     * TestIterator初始化
+     */
+    public function __construct()
+    {
+        var_dump("执行".__METHOD__);
+        $this->_key = 0;
+    }
+
+    /**
+     * 返回当前索引游标指向的元素(值)
+     */
+    public function current()
+    {
+        var_dump("执行".__METHOD__);
+        return $this->_var[$this->_key];
+    }
+
+    /**
+     * 返回当前索引游标指向的键
+     */
+    public function key()
+    {
+        var_dump("执行".__METHOD__);
+        return $this->_key;
+    }
+
+    /**
+     * 移动当前索引游标到下一元素
+     */
+    public function next()
+    {
+        var_dump("执行".__METHOD__);
+        ++$this->_key;
+    }
+
+    /**
+     * 索引游标指向初始位置
+     */
+    public function rewind()
+    {
+        var_dump("执行".__METHOD__);
+        $this->_key = 0;
+    }
+
+    /**
+     * 判断当前索引游标指向的元素是否有效
+     */
+    public function valid()
+    {
+        var_dump("执行".__METHOD__);
+        return isset($this->_var[$this->_key]);
+    }
+}
+```
+
 
 
