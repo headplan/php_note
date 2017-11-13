@@ -11,7 +11,7 @@ Traversable {
 
 Traversable 重要的一个用处就是判断一个类是否可以遍历 , 官方给了例子 :
 
-```
+```php
 <?php
     if( !is_array( $items ) && !$items instanceof Traversable )
         //Throw exception here
@@ -52,7 +52,7 @@ if ( !is_iterable( $items ))
 
 #### Iterator迭代器接口
 
-可在内部迭代自己的外部迭代器或类的接口 . 意思就是Iterator接口允许对象以自己的方式迭代内部的数据 , 从而使它可以被循环访问 . 
+可在内部迭代自己的外部迭代器或类的接口 . 意思就是Iterator接口允许对象以自己的方式迭代内部的数据 , 从而使它可以被循环访问 .
 
 ```php
 Iterator extends Traversable {  
@@ -66,7 +66,7 @@ Iterator extends Traversable {
     abstract public void rewind ( void )  
     //判断当前索引游标指向的元素是否有效  
     abstract public boolean valid ( void )  
-}  
+}
 ```
 
 
