@@ -164,5 +164,20 @@ var_dump($arr);
 # 现在不会报错了
 ```
 
+对于前面提到的引用传递问题 , 也可以在方法中添加 , 或者直接&\_\_invoke\(\)也可以 , 同时这也解决了一些array函数无法使用的问题 , 例如 : 
+
+```php
+int array_push ( array &$array , mixed $value1 [, mixed $... ] )
+```
+
+这种函数的问题也解决了 , 代码 : 
+
+```php
+public function &__invoke()
+{
+    return $this->data;
+}
+```
+
 
 
