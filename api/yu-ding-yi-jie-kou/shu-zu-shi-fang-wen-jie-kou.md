@@ -144,7 +144,7 @@ $x['1'] offset is integer 1
 $x['1.'] offset is string '1.'
 ```
 
-还有前面提到的问题 , 其实大部分php的数组函数都不能与 ArrayAccess 对象一起使用\(比如sizeof\(\),array\_values\(\)等等\) , 这点需要注意 . 但是还是又解决方式的 , 那就是使用\_\_invoke\(\)魔术方法 , 尝试以调用函数的方式调用一个对象 : 
+还有前面提到的问题 , 其实大部分php的数组函数都不能与 ArrayAccess 对象一起使用\(比如sizeof\(\),array\_values\(\)等等\) , 这点需要注意 . 但是还是有解决方式的 , 那就是使用\_\_invoke\(\)魔术方法 , 尝试以调用函数的方式调用一个对象 :
 
 ```php
 # 在之前的类中添加
@@ -154,10 +154,11 @@ public function __invoke()
 }
 
 # 使用方式如下
-
+$testArrayAccess = new \InterfaceTest\TestArrayAccess($data);
+$arr = array_values($testArrayAccess());
+var_dump($arr);
+# 现在不会报错了
 ```
-
-
 
 
 
