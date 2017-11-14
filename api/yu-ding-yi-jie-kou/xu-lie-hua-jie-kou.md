@@ -10,5 +10,46 @@ Serializable {
 }
 ```
 
+**代码示例**
+
+```php
+<?php
+
+namespace InterfaceTest;
+
+use Serializable;
+
+class TestSerializable implements Serializable
+{
+    private $data;
+
+    public function __construct()
+    {
+        $this->data = '我是数据.';
+        echo "我构造了!";
+    }
+
+    public function serialize()
+    {
+        return serialize($this->data);
+    }
+
+    public function unserialize($serialized)
+    {
+        $this->data = unserialize($serialized);
+    }
+
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    public function __destruct()
+    {
+        echo "我析构了!";
+    }
+}
+```
+
 
 
