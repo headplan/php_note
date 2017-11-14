@@ -116,7 +116,7 @@ class TestArrayAccess implements ArrayAccess
 
 如果在实现ArrayAccess的类的对象上调用array\_key\_exists\(\) , 那么ArrayAccess:: offsetExists\(\)将不会被调用 .
 
-实现 ArrayAccess 的对象不支持递增/递减运算符 :
+实现 ArrayAccess 的对象不支持递增/递减运算符 , 当然引用传递也是不支持的 :
 
 ```php
 <?php
@@ -126,10 +126,14 @@ class MyArray implements ArrayAccess
     // offsetSet, offsetGet etc implemented
 }
 
+$v = 'hi';
 $x = new MyArray() ;
 $x[0] = 0 ;
 $x[0]++ ; //error 'Indirect modification of overloaded element has no effect'
 $x[0] += 1 ; // this works OK.
+$x['a'] = $v;
+$x['b'] = &$v; //Fatal error: Cannot assign by reference to overloaded object
+$v = 'baby';
 ```
 
 **应用场景**
