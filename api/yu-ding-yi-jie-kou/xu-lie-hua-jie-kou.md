@@ -49,7 +49,18 @@ class TestSerializable implements Serializable
         echo "我析构了!";
     }
 }
+
+$testSerializable = new \InterfaceTest\TestSerializable();
+$test = serialize($testSerializable);
+$testObj = unserialize($test);
+echo $testObj->getData();
 ```
 
+上面的代码输出 : 
 
+```
+我构造了!初始化数据.我析构了!我析构了!
+```
+
+刚好解释了文档描述的内容 , 初始化时构造了 , 调用`serialize`时序列化调用对象的`serialize`方法 , 并且没有被析构 , 后面两次析构分别是第一次的`$testObj`的析构和后面`$testSerializable`的析构 . 
 
