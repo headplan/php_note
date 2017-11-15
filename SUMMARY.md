@@ -118,6 +118,7 @@
     * [SPL迭代器](api/yu-ding-yi-jie-kou/bian-li-xiang-guan-jie-kou/spldie-dai-qi.md)
   * [影响PHP行为的扩展](api/ying-xiang-php-xing-wei-de-kuo-zhan.md)
   * [其他基本扩展](api/qi-ta-ji-ben-kuo-zhan.md)
+    * [SPL](api/qi-ta-ji-ben-kuo-zhan/spl.md)
   * [其它服务](api/qi-ta-fu-wu.md)
   * [函数参考总结](函数参考.md)
     * [fastcgi\_finish\_request](fastcgifinishrequest.md)
