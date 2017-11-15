@@ -22,7 +22,9 @@
 
 ---
 
-PHP标准库SPL已经定义了两个可以帮助实现观察者模式的接口: SplObserver 和 SplSubject . 
+PHP标准库SPL已经定义了两个可以帮助实现观察者模式的接口: SplObserver 和 SplSubject .
+
+相关资料可以在SPL文档中查看 , 这里完成简单的实现 . 
 
 **应用类图**
 
