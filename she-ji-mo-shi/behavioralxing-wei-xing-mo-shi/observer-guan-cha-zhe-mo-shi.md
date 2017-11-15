@@ -18,3 +18,5 @@
 
 ![](/assets/observer.png)
 
+设计一个Subject接口和Observer接口。实例化两个Observer。两个Observer分别订阅Subject，然后在Subject实例的内容发生改变时，订阅了Subject的Observer就可以得到通知。
+
