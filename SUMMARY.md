@@ -105,7 +105,7 @@
   * PHP7源码分析
 * [设计模式](she-ji-mo-shi.md)
   * [Creational创建型模式](she-ji-mo-shi/creationalchuang-jian-mo-shi.md)
-  * Structural结构型模式
+  * [Structural结构型模式](she-ji-mo-shi/structuraljie-gou-xing-mo-shi.md)
   * [Behavioral行为型模式](she-ji-mo-shi/behavioralxing-wei-xing-mo-shi.md)
     * [Observer - 观察者模式](she-ji-mo-shi/behavioralxing-wei-xing-mo-shi/observer-guan-cha-zhe-mo-shi.md)
 * [Api](api.md)
