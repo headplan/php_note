@@ -1,6 +1,6 @@
 # 设计模式
 
-设计模式 - PHP版
+**设计模式 - PHP版**
 
 * [https://github.com/domnikl/DesignPatternsPHP](https://github.com/domnikl/DesignPatternsPHP) - 最多Star的设计模式整理 , 有描述 , 有类图 . 可以composer安装 .
 * [https://github.com/hoohack/DesignPattern](https://github.com/hoohack/DesignPattern) - PHP和Go语言实现的设计模式整理 , 有描述 , 有类图 .
@@ -11,5 +11,7 @@
 * [https://github.com/igo9go/phpDesignPattern](https://github.com/igo9go/phpDesignPattern) - 设计模式小demo , 仅参考 .
 * [https://github.com/JREAM/design-patterns](https://github.com/JREAM/design-patterns) - 仅参考 .
 
+**本地代码参考**
 
+Learning\_PHP\_Design\_Patterns
 
