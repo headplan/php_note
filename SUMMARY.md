@@ -106,7 +106,7 @@
 * [设计模式](she-ji-mo-shi.md)
   * [Creational创建型模式](she-ji-mo-shi/creationalchuang-jian-mo-shi.md)
   * Structural结构型模式
-  * Behavioral行为型模式
+  * [Behavioral行为型模式](she-ji-mo-shi/behavioralxing-wei-xing-mo-shi.md)
 * [Api](api.md)
   * [预定义接口](api/yu-ding-yi-jie-kou.md)
     * [遍历相关接口](api/yu-ding-yi-jie-kou/bian-li-xiang-guan-jie-kou.md)
