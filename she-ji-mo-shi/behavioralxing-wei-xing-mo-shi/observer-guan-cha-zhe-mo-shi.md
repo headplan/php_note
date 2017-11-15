@@ -20,3 +20,11 @@
 
 设计一个Subject接口和Observer接口。实例化两个Observer。两个Observer分别订阅Subject，然后在Subject实例的内容发生改变时，订阅了Subject的Observer就可以得到通知。
 
+---
+
+PHP标准库SPL已经定义了两个可以帮助实现观察者模式的接口: SplObserver 和 SplSubject . 
+
+**应用类图**
+
+![](/assets/Observer2.png)
+
