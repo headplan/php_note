@@ -6,8 +6,7 @@
 
 这里直接继承SPL提供的接口 , 实现抽象类 , 并对监听者操作"订阅/退订"的存储方式提供了几个选择 .
 
-* Subject.php
-* Observer.php
+* Subject.php - 这里存储观察者到一个数组\(使用spl\_object\_hash\(\)函数\)或者SplObjectStorage对象
 
 ```php
 # Subject.php
@@ -29,8 +28,16 @@ abstract class Subject implements SplSubject
 
     public function __construct()
     {
-        $this->observers = [];
+        //$this->observers = [];
         $this->observers = new SplObjectStorage();
+    }
+
+    /**
+     * @return array
+     */
+    public function getObservers()
+    {
+        return $this->observers;
     }
 
     /**
@@ -39,7 +46,7 @@ abstract class Subject implements SplSubject
      */
     public function attach(Observer $observer)
     {
-        $this->observers[spl_object_hash($observer)] = $observer;
+        //$this->observers[spl_object_hash($observer)] = $observer;
         $this->observers->attach($observer);
     }
 
@@ -49,7 +56,7 @@ abstract class Subject implements SplSubject
      */
     public function detach(Observer $observer)
     {
-        unset($this->observers[spl_object_hash($observer)]);
+        //unset($this->observers[spl_object_hash($observer)]);
         $this->observers->detach($observer);
     }
 
@@ -64,6 +71,12 @@ abstract class Subject implements SplSubject
     }
 }
 ```
+
+其他示例查看本地代码 . 
+
+---
+
+
 
 
 
