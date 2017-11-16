@@ -9,7 +9,6 @@
 * Subject.php - 这里存储观察者到一个数组\(使用spl\_object\_hash\(\)函数\)或者SplObjectStorage对象
 
 ```php
-# Subject.php
 <?php
 
 namespace Behavioral\Observer;
@@ -22,9 +21,10 @@ abstract class Subject implements SplSubject
 {
     /**
      * 存储观察者
+     *
      * @var array
      */
-    private $observers;
+    protected $observers;
 
     public function __construct()
     {
@@ -33,16 +33,17 @@ abstract class Subject implements SplSubject
     }
 
     /**
-     * 获取观察者
-     * @return array|\SplObjectStorage
+     * @param \SplObserver $observer
+     * @return bool
      */
-    protected function getObservers()
+    public function contains(Observer $observer)
     {
-        return $this->observers;
+        return $this->observers->contains($observer) ? true : false;
     }
 
     /**
      * 添加(注册)一个观察者
+     *
      * @param \SplObserver $observer
      */
     public function attach(Observer $observer)
@@ -53,6 +54,7 @@ abstract class Subject implements SplSubject
 
     /**
      * 删除一个观察者
+     *
      * @param \SplObserver $observer
      */
     public function detach(Observer $observer)
@@ -64,13 +66,8 @@ abstract class Subject implements SplSubject
     /**
      * 消息通知:当状态发生改变时,通知所有观察者
      */
-    public function notify()
-    {
-        foreach ($this->observers as $observer) {
-            $observer->update($this);
-        }
-    }
-}}
+    abstract public function notify();
+}
 ```
 
 其他示例查看本地代码 .
