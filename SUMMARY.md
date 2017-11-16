@@ -108,6 +108,7 @@
   * [Structural结构型模式](she-ji-mo-shi/structuraljie-gou-xing-mo-shi.md)
   * [Behavioral行为型模式](she-ji-mo-shi/behavioralxing-wei-xing-mo-shi.md)
     * [Observer - 观察者模式](she-ji-mo-shi/behavioralxing-wei-xing-mo-shi/observer-guan-cha-zhe-mo-shi.md)
+      * [代码示例](she-ji-mo-shi/behavioralxing-wei-xing-mo-shi/observer-guan-cha-zhe-mo-shi/dai-ma-shi-li.md)
 * [Api](api.md)
   * [预定义接口](api/yu-ding-yi-jie-kou.md)
     * [遍历相关接口](api/yu-ding-yi-jie-kou/bian-li-xiang-guan-jie-kou.md)
