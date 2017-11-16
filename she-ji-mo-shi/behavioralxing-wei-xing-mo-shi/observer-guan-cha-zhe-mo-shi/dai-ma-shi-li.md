@@ -33,9 +33,10 @@ abstract class Subject implements SplSubject
     }
 
     /**
-     * @return array
+     * 获取观察者
+     * @return array|\SplObjectStorage
      */
-    public function getObservers()
+    protected function getObservers()
     {
         return $this->observers;
     }
@@ -69,14 +70,12 @@ abstract class Subject implements SplSubject
             $observer->update($this);
         }
     }
-}
+}}
 ```
 
-其他示例查看本地代码 . 
+其他示例查看本地代码 .
 
 ---
-
-
 
 
 
