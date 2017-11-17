@@ -95,7 +95,13 @@ zend_extension_ts="/wherever/you/put/it/xdebug.so"
 
 > 注意 : 如果是自己编译PHP , 配置用了--enable-debug , 配置必须写zend\_extension\_debug .
 
-如果要将 Xdebug 和 OPCache 一起使用 , 则必须在 OPCache 后加载 Xdebug . 否则 , 它们将无法正常工作 . 
+如果要将 Xdebug 和 OPCache 一起使用 , 则必须在 OPCache 后加载 Xdebug . 否则 , 它们将无法正常工作 .
 
 总之 , 从 php 5.3 开始 , 必须使用 zend\_extension 的 php. ini 设置名称 , 而不是 zend\_extension\_ts, 也不 zend\_extension\_debug . 但是 , 编译选项 \(ZTS/normal build; debug/non-debug\) 仍然需要与 PHP 使用的内容相匹配 . 
+
+配置之后 , 重启web服务器 . 就可以在phpinfo查看有没有xdebug了 , 也可以使用php -m查看加载的模块 . 
+
+> Xdebug应该出现两次 , 一次在 "PHP 模块" 下 , 一次在 "Zend模块" 下
+
+
 
