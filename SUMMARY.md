@@ -44,6 +44,7 @@
     * [安装](xdebug/an-zhuang.md)
     * [相关配置](xdebug/bian-liang-xian-shi-gong-neng.md)
     * [相关函数](xdebug/xdebugxiang-guan-she-zhi.md)
+    * [堆栈跟踪](xdebug/dui-zhan-gen-zong.md)
 * [框架技术](chuang-jian-kuang-jia.md)
   * [HttpFoundation组件](chuang-jian-kuang-jia/httpfoundationzu-jian.md)
   * [路由组件](chuang-jian-kuang-jia/tian-jia-lu-you.md)
