@@ -26,19 +26,21 @@ void **xdebug\_debug\_zval**\( \[string varname \[, ...\]\] \)
 Returns:
 
 a: (refcount=2, is_ref=1)=array (
-	0 => (refcount=1, is_ref=0)=1, 
-	1 => (refcount=1, is_ref=0)=2, 
-	2 => (refcount=2, is_ref=1)=3)
+    0 => (refcount=1, is_ref=0)=1, 
+    1 => (refcount=1, is_ref=0)=2, 
+    2 => (refcount=2, is_ref=1)=3)
 a[2]: (refcount=2, is_ref=1)=3
 ```
 
 > 每个php变量存在一个叫"zval"的变量容器中。一个zval变量容器，除了包含变量的类型和值，还包括两个字节的额外信息。第一个是"is\_ref"，是个bool值，用来标识这个变量是否是属于引用集合\(reference set\)。通过这个字节，php引擎才能把普通变量和引用变量区分开来，由于php允许用户通过使用&来使用自定义引用，zval变量容器中还有一个内部引用计数机制，来优化内存使用。第二个额外字节是"refcount"，用以表示指向这个zval变量容器的变量\(也称符号即symbol\)个数。所有的符号存在一个符号表中，其中每个符号都有作用域\(scope\)，那些主脚本\(比如：通过浏览器请求的的脚本\)和每个函数或者方法也都有作用域。
 >
-> http://www.php.net/manual/zh/features.gc.refcounting-basics.php
+> [http://www.php.net/manual/zh/features.gc.refcounting-basics.php](http://www.php.net/manual/zh/features.gc.refcounting-basics.php)
 
 void **xdebug\_debug\_zval\_stdout**\(\[string varname \[, ...\]\] \)
 
-返回一个变量的标准输出信息 , 包括类型,值,引用次数等
+返回一个变量的标准输出信息 , 包括类型,值,引用次数等 . 
+
+> 与 xdebug\_debug\_zval \(\) 的区别在于, 信息不是通过 web 服务器 API 层显示的 , 而是直接显示在标准输出上 \(这样, 当您在单一进程模式下使用 Apache 运行它时, 它就会在控制台上完成\)。
 
 void **xdebug\_dump\_superglobals**\(\)  
 该方法用于打印出所有通过xdebug.dump.\*配置属性在php.ini文件中指定的所有全局变量信息 , 如 , 在php.ini文件中增加如下配置信息
