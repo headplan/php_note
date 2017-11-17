@@ -51,7 +51,7 @@ Xdebug 在错误情况下显示的堆栈跟踪 \(如果 display\_errors 在 php 
 
 类型: boolean（布尔型）, 默认值: 0, 在Xdebug 2.2
 
-当此设置设置为1时也就是开启状态 , 可以使用XDEBUG\_TRACE参数GET/POST或者cookie来触发跟踪文件的生成 , 也可以理解为手动生成跟踪文件 . 为了防止 Xdebug 为每个请求生成跟踪文件 , 需要将Xdebug的auto\_trace设置为0关闭 , 还可以通过配置 xdebug.trace\_enable\_trigger\_value对触发器本身的访问 , 即给GET/POST或者cookie设置个XDEBUG\_TRACE的值 . 
+当此设置设置为1时也就是开启状态 , 可以使用XDEBUG\_TRACE参数GET/POST或者cookie来触发跟踪文件的生成 , 也可以理解为手动生成跟踪文件 . 为了防止 Xdebug 为每个请求生成跟踪文件 , 需要将Xdebug的auto\_trace设置为0关闭 , 还可以通过配置 xdebug.trace\_enable\_trigger\_value对触发器本身的访问 , 即给GET/POST或者cookie设置个XDEBUG\_TRACE的值 .
 
 **xdebug.trace\_enable\_trigger\_value**
 
@@ -59,7 +59,7 @@ Xdebug 在错误情况下显示的堆栈跟踪 \(如果 display\_errors 在 php 
 
 此设置可用于限制谁可以使用 XDEBUG. trace\_enable\_trigger 中概述的 XDEBUG\_TRACE 功能 , 设置的值等于XDEBUG\_TRACE触发的值才能生成跟踪文件 . 
 
-还有两个函数可以在代码中更好的控制生成跟踪的位置 : 
+还有两个函数可以在代码中更好的控制生成跟踪的位置 :
 
 ```
 xdebug_start_trace(); // 开始记录回溯
