@@ -42,6 +42,7 @@
     * [PHPStorm例子](phpunit/phpstormli-zi.md)
   * [Xdebug](xdebug.md)
     * [安装](xdebug/an-zhuang.md)
+    * [变量显示功能](xdebug/bian-liang-xian-shi-gong-neng.md)
 * [框架技术](chuang-jian-kuang-jia.md)
   * [HttpFoundation组件](chuang-jian-kuang-jia/httpfoundationzu-jian.md)
   * [路由组件](chuang-jian-kuang-jia/tian-jia-lu-you.md)
