@@ -31,9 +31,92 @@ Xdebug 替换 PHP 的 var\_dump \(\) 函数来显示变量 . Xdebug 的版本包
 **xdebug.var\_display\_max\_depth**  
 整数类型，默认值3。用于控制通过xdebug\_var\_dump\(\), xdebug.show\_local\_vars或函数轨迹时打印数组或对象时显示的层数，即深度。可设定的最大值为1023，也可以将其设定为-1以达到设定最大值的效果。
 
-这些设置不影响通过远程调试功能发送到客户端的子级的数量 .
+上面三个设置不影响通过远程调试功能发送到客户端的子级的数量 .
 
 ---
 
+#### 运行轨迹
 
+当 Xdebug 被激活时, 它将显示一个堆栈跟踪, 每当 PHP 决定显示一个通知, 警告, 错误等。可以将堆栈跟踪显示的信息及其呈现方式进行配置, 以满足您的需要。
+
+Xdebug 在错误情况下显示的堆栈跟踪 \(如果 display\_errors 在 php 中设置为 on\) 在它们显示的信息量中相当保守。这是因为大量的信息会减慢脚本的执行速度, 并在浏览器中呈现堆栈跟踪本身。但是, 可以使堆栈跟踪显示具有不同设置的更详细的信息。
+
+**xdebug.auto\_trace**
+
+类型: boolean（布尔型）, 默认值: 0
+
+当开启这项配置时，在脚本运行之前，对函数调用的追踪就会启用.这使得开发者可以在auto\_prepend\_file文件中追踪脚本.
+
+**xdebug.trace\_output\_dir**
+
+类型:string, 默认值:/tmp
+
+轨迹输出文件所在目录 , 确保当前执行PHP脚本的用户拥有对该目录的写入权利 .
+
+**xdebug.trace\_output\_name**
+
+类型:string, 默认值:trace.%c
+
+轨迹文件的文件名。此设置使用特定的格式来命名轨迹文件，和sprintf\(\)与strftime\(\)十分类似。有若干格式可以用来命名轨迹文件，’.xt’后缀通常会自动添加。
+
+可用的格式操作符有:
+
+| 操作符 | 意义 | 示例格式 | 示例文件名 |
+| :--- | :--- | :--- | :--- |
+| %c | crc32 of the current working directory | trace.%c | trace.1258863198.xt |
+| %p | pid | trace.%p | trace.5174.xt |
+| %r | random number | trace.%r | trace.072db0.xt |
+| %s | script name 2 | cachegrind.out.%s | cachegrind.out.\_home\_httpd\_html\_test\_xdebug\_test\_php |
+| %t | timestamp \(seconds\) | trace.%t | trace.1179434742.xt |
+| %u | timestamp \(microseconds\) | trace.%u | trace.1179434749\_642382.xt |
+| %H | $\_SERVER\[‘HTTP\_HOST’\] | trace.%H | trace.kossu.xt |
+| %R | $\_SERVER\[‘REQUEST\_URI’\] | trace.%R | trace.\_test\_xdebug\_test\_php\_var=1\_var2=2.xt |
+| %U | $\_SERVER\[‘UNIQUE\_ID’\] 3 | trace.%U | trace.TRX4n38AAAEAAB9gBFkAAAAB.xt |
+| %S | session\_id \(from $\_COOKIE if set\) | trace.%S | trace.c70c1ec2375af58f74b390bbdd2a679d.xt |
+| %% | literal % | trace.%% | trace.%%.xt |
+
+**xdebug.collect\_assignments**
+
+类型: boolean（布尔型）, 默认值: 0, 在Xdebug 2.1
+
+此设置 \(默认为 0\) 控制 Xdebug 是否应将变量赋值添加到函数跟踪。
+
+**xdebug.collect\_includes**
+
+类型: boolean（布尔型）, 默认值: 1
+
+此项，默认为1, 控制Xdebug是否应该将在include\(\), include\_once\(\), require\(\)或require\_once\(\)函数中使用的文件名写入追踪文件。
+
+**xdebug.collect\_params**
+
+类型: integer（整型）, 默认值: 0
+
+此参数，默认为0，当在函数轨迹或堆栈轨迹中记录一个函数调用时，控制Xdebug是否应该搜集传递给函数的参数 . 也可以理解为跟踪级别 .
+
+默认值为0，因为对于大脚本来说，它可能消耗大量的内存而使脚本无法运行。启用该选项是安全的，但是如果脚本中含有大量函数调用或者有大数据结构作 为参数的话，可能会遇到一些问题。 Xdebug 2改进了内存使用，此问题不再存在，因为它不再将这些信息存储在内存中。相反，Xdebug会将这些信息写入硬盘，这意味着你得留意硬盘使用量。
+
+此参数用5个不同的可选值 , 每个不同的值都会对应显示不同的信息 .
+
+| 值 | 显示的信息 |
+| :--- | :--- |
+| 0 | 无 |
+| 1 | 变（常）量类型和长度（大小）\(如string\(6\), array\(8\)\)。 |
+| 2 | 变（常）量类型和长度（大小）, 含有用以显示完整信息的帮助工具1。 |
+| 3 | 完整变量内容\(包括通过xdebug.var\_display\_max\_children, xdebug.var\_display\_max\_data和xdebug.var\_display\_max\_depth参数设置的限制信息。 |
+| 4 | 完整变量内容和名称。 |
+| 5 | PHP 序列化的变量内容, 没有名称。\(新 Xdebug 2.3\) |
+
+**xdebug.collect\_return**
+
+类型:boolean（布尔型）, 默认值:0
+
+此设置，默认值为0，控制Xdebug是否应该将函数调用的返回值写入轨迹文件。
+
+> 对于计算机化的跟踪文件 \(xdebug. trace\_format = 1\), 这只适用于 xdebug 2.3 起。
+
+**xdebug.collect\_vars**
+
+类型: boolean（布尔型）, 默认值: 0
+
+这个设置告诉Xdebug来搜集在一定范围内使用的变量的信息。这一过程很慢，因为Xdebug必须对PHP的opcode数组进行反向工程。这个设置不会记录不同变量的变量值，如果需要记录变量值，可以使用xdebug.collect\_params。只有当你希望使用xdebug\_get\_declared\_vars\(\)函数时，才需要启用此设置 . 
 
