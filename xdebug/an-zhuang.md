@@ -71,3 +71,29 @@ php -i "(command-line 'phpinfo()')" > phpinfo.php
 
 将Xdebug与PHP的其余部分分开编译时 , 需要访问脚本 "phpize" 和 "php configure" , 可以去PHP的源文件中找 . 
 
+编译安装步骤 : 
+
+```
+tar -xvzf xdebug-2.5.4.tgz
+cd xdebug-2.5.4
+phpize
+./configure
+make
+make install
+cp modules/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20160303
+# 配置php.ini
+zend_extension = /path/to/xdebug.so
+```
+
+#### 配置PHP使用Xdebug
+
+前面安装之后 , 需要添加配置到php.ini . 对于PHP5.3之前的版本和PHP线程的使用 , 配置 : 
+
+```
+zend_extension_ts="/wherever/you/put/it/xdebug.so"
+```
+
+> 注意 : 如果是自己编译PHP , 配置用了--enable-debug , 配置必须写zend\_extension\_debug .
+
+如果要将 Xdebug 和 OPCache 一起使用 , 则必须在 OPCache 后加载 Xdebug . 否则 , 它们将无法正常工作 . 
+
