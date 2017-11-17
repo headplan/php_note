@@ -47,6 +47,25 @@ Xdebug 在错误情况下显示的堆栈跟踪 \(如果 display\_errors 在 php 
 
 当开启这项配置时，在脚本运行之前，对函数调用的追踪就会启用.这使得开发者可以在auto\_prepend\_file文件中追踪脚本.
 
+**xdebug.trace\_enable\_trigger**
+
+类型: boolean（布尔型）, 默认值: 0, 在Xdebug 2.2
+
+当此设置设置为1时也就是开启状态 , 可以使用XDEBUG\_TRACE参数GET/POST或者cookie来触发跟踪文件的生成 , 也可以理解为手动生成跟踪文件 . 为了防止 Xdebug 为每个请求生成跟踪文件 , 需要将Xdebug的auto\_trace设置为0关闭 , 还可以通过配置 xdebug.trace\_enable\_trigger\_value对触发器本身的访问 , 即给GET/POST或者cookie设置个XDEBUG\_TRACE的值 . 
+
+**xdebug.trace\_enable\_trigger\_value**
+
+类型:string , 默认值 : "" , 在Xdebug &gt;= 2.3支持
+
+此设置可用于限制谁可以使用 XDEBUG. trace\_enable\_trigger 中概述的 XDEBUG\_TRACE 功能 , 设置的值等于XDEBUG\_TRACE触发的值才能生成跟踪文件 . 
+
+还有两个函数可以在代码中更好的控制生成跟踪的位置 : 
+
+```
+xdebug_start_trace(); // 开始记录回溯
+xdebug_stop_trace(); // 结束记录回溯
+```
+
 **xdebug.trace\_output\_dir**
 
 类型:string, 默认值:/tmp
@@ -118,5 +137,5 @@ Xdebug 在错误情况下显示的堆栈跟踪 \(如果 display\_errors 在 php 
 
 类型: boolean（布尔型）, 默认值: 0
 
-这个设置告诉Xdebug来搜集在一定范围内使用的变量的信息。这一过程很慢，因为Xdebug必须对PHP的opcode数组进行反向工程。这个设置不会记录不同变量的变量值，如果需要记录变量值，可以使用xdebug.collect\_params。只有当你希望使用xdebug\_get\_declared\_vars\(\)函数时，才需要启用此设置 . 
+这个设置告诉Xdebug来搜集在一定范围内使用的变量的信息。这一过程很慢，因为Xdebug必须对PHP的opcode数组进行反向工程。这个设置不会记录不同变量的变量值，如果需要记录变量值，可以使用xdebug.collect\_params。只有当你希望使用xdebug\_get\_declared\_vars\(\)函数\(即返回申明的变量集合\)时，才需要启用此设置 .
 
