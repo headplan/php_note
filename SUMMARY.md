@@ -40,6 +40,8 @@
   * [TCPDF](tcpdf.md)
   * [PHPUnit](phpunit.md)
     * [PHPStorm例子](phpunit/phpstormli-zi.md)
+  * [Xdebug](xdebug.md)
+    * [安装](xdebug/an-zhuang.md)
 * [框架技术](chuang-jian-kuang-jia.md)
   * [HttpFoundation组件](chuang-jian-kuang-jia/httpfoundationzu-jian.md)
   * [路由组件](chuang-jian-kuang-jia/tian-jia-lu-you.md)
