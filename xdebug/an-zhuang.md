@@ -69,9 +69,9 @@ php -i "(command-line 'phpinfo()')" > phpinfo.php
 
 它为您提供了要下载的正确文件 , 以及要使用的路径 .
 
-将Xdebug与PHP的其余部分分开编译时 , 需要访问脚本 "phpize" 和 "php configure" , 可以去PHP的源文件中找 . 
+将Xdebug与PHP的其余部分分开编译时 , 需要访问脚本 "phpize" 和 "php configure" , 可以去PHP的源文件中找 .
 
-编译安装步骤 : 
+编译安装步骤 :
 
 ```
 tar -xvzf xdebug-2.5.4.tgz
@@ -87,7 +87,7 @@ zend_extension = /path/to/xdebug.so
 
 #### 配置PHP使用Xdebug
 
-前面安装之后 , 需要添加配置到php.ini . 对于PHP5.3之前的版本和PHP线程的使用 , 配置 : 
+前面安装之后 , 需要添加配置到php.ini . 对于PHP5.3之前的版本和PHP线程的使用 , 配置 :
 
 ```
 zend_extension_ts="/wherever/you/put/it/xdebug.so"
@@ -96,4 +96,6 @@ zend_extension_ts="/wherever/you/put/it/xdebug.so"
 > 注意 : 如果是自己编译PHP , 配置用了--enable-debug , 配置必须写zend\_extension\_debug .
 
 如果要将 Xdebug 和 OPCache 一起使用 , 则必须在 OPCache 后加载 Xdebug . 否则 , 它们将无法正常工作 . 
+
+总之 , 从 php 5.3 开始 , 必须使用 zend\_extension 的 php. ini 设置名称 , 而不是 zend\_extension\_ts, 也不 zend\_extension\_debug . 但是 , 编译选项 \(ZTS/normal build; debug/non-debug\) 仍然需要与 PHP 使用的内容相匹配 . 
 
