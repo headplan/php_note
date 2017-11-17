@@ -57,7 +57,7 @@ Xdebug 在错误情况下显示的堆栈跟踪 \(如果 display\_errors 在 php 
 
 类型:string , 默认值 : "" , 在Xdebug &gt;= 2.3支持
 
-此设置可用于限制谁可以使用 XDEBUG. trace\_enable\_trigger 中概述的 XDEBUG\_TRACE 功能 , 设置的值等于XDEBUG\_TRACE触发的值才能生成跟踪文件 . 
+此设置可用于限制谁可以使用 XDEBUG. trace\_enable\_trigger 中概述的 XDEBUG\_TRACE 功能 , 设置的值等于XDEBUG\_TRACE触发的值才能生成跟踪文件 .
 
 还有两个函数可以在代码中更好的控制生成跟踪的位置 :
 
@@ -65,6 +65,12 @@ Xdebug 在错误情况下显示的堆栈跟踪 \(如果 display\_errors 在 php 
 xdebug_start_trace(); // 开始记录回溯
 xdebug_stop_trace(); // 结束记录回溯
 ```
+
+**xdebug.trace\_options**
+
+类型:integer（整型）, 默认值:0
+
+当设置为1时，后来的请求所产生的轨迹信息将会被附加至之前轨迹信息之后，而不会覆盖原信息 . 
 
 **xdebug.trace\_output\_dir**
 
