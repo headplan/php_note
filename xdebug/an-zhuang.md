@@ -55,11 +55,11 @@ brew search xdebug # 可以搜索软件包
 git clone git://github.com/xdebug/xdebug.git
 ```
 
-还可以在[https://github.com/derickr/xdebug](https://github.com/derickr/xdebug)迁出其他版本 . 
+还可以在[https://github.com/derickr/xdebug](https://github.com/derickr/xdebug)迁出其他版本 .
 
 **编译**
 
-可以使用前面提到的向导检查phpinfo\(\)输出的所有内容 , 
+可以使用前面提到的向导检查phpinfo\(\)输出的所有内容 ,
 
 ```
 https://xdebug.org/wizard.php
@@ -67,7 +67,7 @@ php -i "(command-line 'phpinfo()')" > phpinfo.php
 # 把所有内容复制到其中执行后,即可以查看安装流程等.
 ```
 
-它为您提供了要下载的正确文件 , 以及要使用的路径 . 
+它为您提供了要下载的正确文件 , 以及要使用的路径 .
 
-
+将Xdebug与PHP的其余部分分开编译时 , 需要访问脚本 "phpize" 和 "php configure" , 可以去PHP的源文件中找 . 
 
