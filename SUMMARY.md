@@ -43,6 +43,7 @@
   * [Xdebug](xdebug.md)
     * [安装](xdebug/an-zhuang.md)
     * [相关配置](xdebug/bian-liang-xian-shi-gong-neng.md)
+      * [配置列表](xdebug/bian-liang-xian-shi-gong-neng/pei-zhi-lie-biao.md)
     * [相关函数](xdebug/xdebugxiang-guan-she-zhi.md)
     * [堆栈跟踪](xdebug/dui-zhan-gen-zong.md)
 * [框架技术](chuang-jian-kuang-jia.md)

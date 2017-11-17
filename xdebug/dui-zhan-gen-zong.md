@@ -52,5 +52,15 @@ Xdebug 在错误情况下显示的堆栈跟踪 \(如果 display\_errors 在 php 
 xdebug.dump.SERVER = REMOTE_ADDR,REQUEST_METHOD
 ```
 
+**xdebug.show\_local\_vars**
 
+类型: integer（整型）, 默认值: 0
+
+当此项设置为不等于0的值时，Xdebug在错误发生时生成的堆栈信息仍然将在最顶层显示所有变量的信息。注意，使用这个选项可能会生成很多信息，所以此参数默认是关闭的。
+
+**xdebug.collect\_includes**
+
+类型: boolean（布尔型）, 默认值: 1
+
+此项，默认为1, 控制Xdebug是否应该将在include\(\), include\_once\(\), require\(\)或require\_once\(\)函数中使用的文件名写入追踪文件。
 
