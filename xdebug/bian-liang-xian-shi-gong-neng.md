@@ -78,15 +78,15 @@ xdebug_stop_trace(); // 结束记录回溯
 
 类型:integer（整型）, 默认值:0
 
-轨迹文件的格式 . 这个属性控制了3种书写格式 : 
+轨迹文件的格式 . 这个属性控制了3种书写格式 :
 
-* 易于阅读的格式 - 这是默认的 . 同时展示内容还会受**xdebug.collect**和**xdebug.show**相关配置影响 . 
-* 机器容易解析的格式
-* HTML格式
+* \[0\] - 易于阅读的格式 - 这是默认的 . 同时展示内容还会受**xdebug.collect**和**xdebug.show**相关配置影响 . 
+* \[1\] - 机器容易解析的格式
+* \[2\] - HTML格式
 
+计算机格式化的字段 : 
 
-
-
+https://xdebug.org/docs/all\_settings\#trace\_format
 
 ---
 
