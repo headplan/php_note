@@ -8,6 +8,23 @@
 
 如果此设置为 1, 则默认情况下会在错误事件上显示堆栈轨迹跟踪。可以使用 xdebug\_disable \(\) 禁用显示堆栈轨迹跟踪的代码。由于这是 Xdebug 的基本功能之一, 因此最好将此设置设置为1。
 
+**xdebug.dump.\***
+
+类型: string（字符串）, 默认值: Empty
+
+\* = COOKIE, FILES, GET, POST, REQUEST, SERVER, SESSION。这7个参数控制当错误情况发生时，显示哪些超全局变量。在php.ini设置中，要显示的超全局变量之间用逗号隔开或用\*表示所有，但是要确保没有添加空格。如果要在错误发生时显示REMOTE\_ADDR和REQUEST\_METHOD，添加如下设置:
+
+```
+xdebug.dump.SERVER = REMOTE_ADDR,REQUEST_METHOD
+xdebug.dump.GET = *
+```
+
+**xdebug.dump\_globals**
+
+类型: boolean（布尔型）, 默认值: 1
+
+控制是否显示由xdebug.dump.\* 参数指定的超全局变量的值。
+
 ---
 
 #### 打印显示
