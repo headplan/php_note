@@ -1,5 +1,15 @@
 # 相关配置
 
+#### 错误显示
+
+**xdebug.default\_enable**
+
+类型: boolean（布尔型）, 默认值: 1
+
+如果此设置为 1, 则默认情况下会在错误事件上显示堆栈轨迹跟踪。可以使用 xdebug\_disable \(\) 禁用显示堆栈轨迹跟踪的代码。由于这是 Xdebug 的基本功能之一, 因此最好将此设置设置为1。
+
+---
+
 #### 打印显示
 
 **xdebug.cli\_color**
@@ -84,9 +94,9 @@ xdebug_stop_trace(); // 结束记录回溯
 * \[1\] - 机器容易解析的格式
 * \[2\] - HTML格式
 
-计算机格式化的字段 : 
+计算机格式化的字段 :
 
-https://xdebug.org/docs/all\_settings\#trace\_format
+[https://xdebug.org/docs/all\_settings\#trace\_format](https://xdebug.org/docs/all_settings#trace_format)
 
 ---
 
@@ -117,6 +127,8 @@ https://xdebug.org/docs/all\_settings\#trace\_format
 | %U | $\_SERVER\[‘UNIQUE\_ID’\] 3 | trace.%U | trace.TRX4n38AAAEAAB9gBFkAAAAB.xt |
 | %S | session\_id \(from $\_COOKIE if set\) | trace.%S | trace.c70c1ec2375af58f74b390bbdd2a679d.xt |
 | %% | literal % | trace.%% | trace.%%.xt |
+
+**\[收集\]**
 
 **xdebug.collect\_assignments**
 
@@ -162,4 +174,32 @@ https://xdebug.org/docs/all\_settings\#trace\_format
 类型: boolean（布尔型）, 默认值: 0
 
 这个设置告诉Xdebug来搜集在一定范围内使用的变量的信息。这一过程很慢，因为Xdebug必须对PHP的opcode数组进行反向工程。这个设置不会记录不同变量的变量值，如果需要记录变量值，可以使用xdebug.collect\_params。只有当你希望使用xdebug\_get\_declared\_vars\(\)函数\(即返回申明的变量集合\)时，才需要启用此设置 .
+
+**\[展示\]**
+
+**xdebug.show\_error\_trace**
+
+类型: integer（整型）, 默认值: 0
+
+当此设置设置为1时, Xdebug 将在引发错误时显示堆栈跟踪-即使此错误实际上已被捕获。
+
+**xdebug.show\_exception\_trace**
+
+类型: integer（整型）, 默认值: 0
+
+当此设置设置为1时, Xdebug 将在引发异常或错误时显示堆栈跟踪-即使此异常或错误已被实际捕获。
+
+PHP 7 中引入了错误 "异常"。
+
+**xdebug.show\_local\_vars**
+
+类型: integer（整型）, 默认值: 0
+
+当此项设置为不等于0的值时，Xdebug在错误发生时生成的堆栈信息仍然将在最顶层显示所有变量的信息。注意，使用这个选项可能会生成很多信息，所以此参数默认是关闭的。
+
+**xdebug.show\_mem\_delta**
+
+类型: integer（整型）, 默认值: 0
+
+当此项设置为不等于0的值时，Xdebug生成的人类可读的轨迹文件将会显示函数调用间不同的内存使用情况。如果Xdebug被设置为生成机器可读的轨迹文件，那么将始终显示此信息。
 
