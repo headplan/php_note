@@ -37,7 +37,7 @@ xdebug.dump.GET = *
 
 类型: boolean（布尔型）, 默认值: 0
 
-如果你想显示超全局变量中未定义的值，你应该将此项设置为1，否则使用默认值。设置1开启后 , 前面定义显示的全局变量会显示等于undefined . 
+如果你想显示超全局变量中未定义的值，你应该将此项设置为1，否则使用默认值。设置1开启后 , 前面定义显示的全局变量会显示等于undefined .
 
 ---
 
@@ -233,4 +233,48 @@ PHP 7 中引入了错误 "异常"。
 类型: integer（整型）, 默认值: 0
 
 当此项设置为不等于0的值时，Xdebug生成的人类可读的轨迹文件将会显示函数调用间不同的内存使用情况。如果Xdebug被设置为生成机器可读的轨迹文件，那么将始终显示此信息。
+
+---
+
+xdebug.coverage\_enable
+
+xdebug.extended\_info
+
+xdebug.file\_link\_format
+
+xdebug.force\_display\_errors
+
+xdebug.force\_error\_reporting
+
+xdebug.halt\_level
+
+xdebug.idekey
+
+xdebug.manual\_url
+
+xdebug.max\_nesting\_level
+
+xdebug.max\_stack\_frames
+
+xdebug.scream
+
+---
+
+xdebug.profiler\_aggregate
+
+xdebug.profiler\_append
+
+xdebug.profiler\_enable
+
+xdebug.profiler\_enable\_trigger
+
+xdebug.profiler\_enable\_trigger\_value
+
+xdebug.profiler\_output\_dir
+
+xdebug.profiler\_output\_name
+
+---
+
+xdebug.remote\_addr\_header
 
