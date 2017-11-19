@@ -10,7 +10,7 @@
 
 类型: integer（整型）, 默认值: 0 , Xdebug &gt;= 2.3
 
-此设置允许您配置一个掩码 , 以确定是否将NOTICE或WARNING转换为错误 . 可以配置PHP生成自己的NOTICE或WARNING , 或者用trigger\_error\(\)函数生成 , 例如 , 将不带参数的strlen\(\)的警告转换为错误 : 
+此设置允许您配置一个掩码 , 以确定是否将NOTICE或WARNING转换为错误 . 可以配置PHP生成自己的NOTICE或WARNING , 或者用trigger\_error\(\)函数生成 , 例如 , 将不带参数的strlen\(\)的警告转换为错误 :
 
 ```
 ini_set('xdebug.halt_level', E_WARNING);
@@ -18,15 +18,15 @@ strlen();
 echo "Hi!\n";
 ```
 
-该设置是一个位掩码 , 因此要将所有的通知和警告转换为所有应用程序的错误的话 , 应该设置 : 
+转换为错误后 , 显示不变 ,但脚本会停止执行 , 里面前面的例子中Hi将不会输出 .
+
+该设置是一个位掩码 , 因此要将所有的通知和警告转换为所有应用程序的错误的话 , 应该设置 :
 
 ```
 xdebug.halt_level=E_WARNING|E_NOTICE|E_USER_WARNING|E_USER_NOTICE
 ```
 
 > 位掩码只支持上面提到的四级 .
-
-转换为错误后 , 显示不变 ,但脚本会停止执行 , 里面前面的例子中Hi将不会输出 . 
 
 **xdebug.scream**
 
