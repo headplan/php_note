@@ -6,10 +6,6 @@ xdebug.extended\_info
 
 xdebug.file\_link\_format
 
-xdebug.force\_display\_errors
-
-xdebug.force\_error\_reporting
-
 xdebug.halt\_level
 
 xdebug.idekey
