@@ -12,10 +12,6 @@ xdebug.idekey
 
 xdebug.manual\_url
 
-xdebug.max\_nesting\_level
-
-xdebug.max\_stack\_frames
-
 xdebug.scream
 
 ---
