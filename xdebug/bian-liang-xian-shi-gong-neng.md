@@ -6,13 +6,9 @@ xdebug.extended\_info
 
 xdebug.file\_link\_format
 
-xdebug.halt\_level
 
-xdebug.idekey
 
 xdebug.manual\_url
-
-xdebug.scream
 
 ---
 

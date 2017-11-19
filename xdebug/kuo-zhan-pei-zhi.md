@@ -6,6 +6,34 @@
 
 控制哪些 IDE 密钥 Xdebug 应传递给 DBGp 调试器处理程序。控制哪些 IDE 密钥 Xdebug 应传递给 DBGp 调试器处理程序。默认值基于环境设置。首先环境设置 DBGP\_IDEKEY 被查询, 然后用户和作为最后用户名。默认设置为找到的第一个环境变量。如果没有找到, 则设置默认为 ""。如果设置了此设置, 它总是覆盖环境变量。
 
+**xdebug.halt\_level**
+
+类型: integer（整型）, 默认值: 0 , Xdebug &gt;= 2.3
+
+此设置允许您配置一个掩码 , 以确定是否将NOTICE或WARNING转换为错误 . 可以配置PHP生成自己的NOTICE或WARNING , 或者用trigger\_error\(\)函数生成 , 例如 , 将不带参数的strlen\(\)的警告转换为错误 : 
+
+```
+ini_set('xdebug.halt_level', E_WARNING);
+strlen();
+echo "Hi!\n";
+```
+
+该设置是一个位掩码 , 因此要将所有的通知和警告转换为所有应用程序的错误的话 , 应该设置 : 
+
+```
+xdebug.halt_level=E_WARNING|E_NOTICE|E_USER_WARNING|E_USER_NOTICE
+```
+
+> 位掩码只支持上面提到的四级 .
+
+转换为错误后 , 显示不变 ,但脚本会停止执行 , 里面前面的例子中Hi将不会输出 . 
+
+**xdebug.scream**
+
+类型: boolean（布尔型）, 默认值: 0, 在Xdebug 2.1版中引进
+
+如果此项设置为1，Xdebug将禁用@操作符，那么php的错误提示信息将无法被隐藏。
+
 **xdebug.force\_display\_errors**
 
 类型: boolean（布尔型）, 默认值: 1 , Xdebug &gt;= 2.3
