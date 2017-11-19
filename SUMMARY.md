@@ -43,6 +43,7 @@
   * [Xdebug](xdebug.md)
     * [安装](xdebug/an-zhuang.md)
     * [相关配置](xdebug/bian-liang-xian-shi-gong-neng.md)
+      * [扩展配置](xdebug/kuo-zhan-pei-zhi.md)
       * [错误显示](xdebug/cuo-wu-xian-shi.md)
       * [打印显示](xdebug/da-yin-xian-shi.md)
       * [运行轨迹](xdebug/dui-zhan-gen-zong.md)
