@@ -1,14 +1,6 @@
 # 相关配置
 
-xdebug.coverage\_enable
-
-xdebug.extended\_info
-
 xdebug.file\_link\_format
-
-
-
-xdebug.manual\_url
 
 ---
 
