@@ -1,7 +1,5 @@
 # 相关配置
 
-xdebug.file\_link\_format
-
 ---
 
 xdebug.profiler\_aggregate

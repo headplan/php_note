@@ -47,6 +47,7 @@
       * [错误显示](xdebug/cuo-wu-xian-shi.md)
       * [打印显示](xdebug/da-yin-xian-shi.md)
       * [运行轨迹](xdebug/dui-zhan-gen-zong.md)
+      * [性能分析](xdebug/xing-neng-fen-xi.md)
       * [配置总结](xdebug/bian-liang-xian-shi-gong-neng/pei-zhi-lie-biao.md)
     * [相关函数](xdebug/xdebugxiang-guan-she-zhi.md)
 * [框架技术](chuang-jian-kuang-jia.md)
