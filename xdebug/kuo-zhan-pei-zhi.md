@@ -60,3 +60,9 @@ xdebug.halt_level=E_WARNING|E_NOTICE|E_USER_WARNING|E_USER_NOTICE
 
 控制堆栈跟踪中显示的堆栈帧的数量, 在 PHP 错误堆栈跟踪期间的命令行中以及在浏览器中查看 HTML 跟踪。默认是-1不限制数据 .
 
+**xdebug.manual\_url**
+
+类型: string（字符串）, 默认值: http://www.php.net , Xdebug &lt; 2.2.1
+
+xdebug信息中有关函数和错误信息的超链接将直接链接到PHP帮助手册中的函数页面。最好将此项设置为最近的镜像。
+
