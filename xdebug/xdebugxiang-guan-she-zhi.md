@@ -1,5 +1,7 @@
 # 相关函数
 
+https://xdebug.org/docs/all\_functions
+
 #### 变量显示函数
 
 **var\_dump\(\)** : 打印 , 其实是重载xdebug\_var\_dump\(\)
@@ -38,7 +40,7 @@ a[2]: (refcount=2, is_ref=1)=3
 
 void **xdebug\_debug\_zval\_stdout**\(\[string varname \[, ...\]\] \)
 
-返回一个变量的标准输出信息 , 包括类型,值,引用次数等 . 
+返回一个变量的标准输出信息 , 包括类型,值,引用次数等 .
 
 > 与 xdebug\_debug\_zval \(\) 的区别在于, 信息不是通过 web 服务器 API 层显示的 , 而是直接显示在标准输出上 \(这样, 当您在单一进程模式下使用 Apache 运行它时, 它就会在控制台上完成\)。
 
