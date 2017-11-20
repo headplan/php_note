@@ -8,10 +8,15 @@ Closure类用于代表匿名函数的类 . 匿名函数（在 PHP 5.3 中被引�
 Closure {
     # 用于禁止实例化的构造函数
     __construct ( void )
-    # 复制一个闭包，绑定指定的$this对象和类作用域
+    public function __invoke(...$_) { }
+    # 复制一个闭包,绑定指定的$this对象和类作用域
     public static Closure bind ( Closure $closure , object $newthis [, mixed $newscope = 'static' ] )
-    # 复制当前闭包对象，绑定指定的$this对象和类作用域
+    # 复制当前闭包对象,绑定指定的$this对象和类作用域
     public Closure bindTo ( object $newthis [, mixed $newscope = 'static' ] )
+    # 暂时将闭包绑定到newthis,并使用任何给定的参数调用它(PHP7.0)
+    function call ($newThis, ...$parameters) {}
+    # 新的fromCallable方法提供一个高效和简洁的方式来创建闭包
+    public static function fromCallable (callable $callable) {}
 }
 ```
 
@@ -19,5 +24,5 @@ Closure {
 
 **代码示例**
 
-这里的几个匿名函数的示例查看本地代码部分 . 
+这里的几个匿名函数的示例查看本地代码部分 .
 
