@@ -22,7 +22,25 @@ Closure {
 
 除了此处列出的方法，还有一个\_invoke方法。这是为了与其他实现了\_\_invoke\(\)魔术方法的对象保持一致性，但调用匿名函数的过程与它无关。
 
+#### **Closure::bind和Closure::bindTo**
+
+Closure::bind是Closure::bindTo的静态版本 : 
+
+```php
+public static Closure bind (Closure $closure , object $newthis [, mixed $newscope = 'static' ])
+```
+
+* closure - 表示需要绑定的闭包对象\(匿名函数\)。
+* newthis - 表示需要绑定到闭包对象\(匿名函数\)的对象，或者NULL创建未绑定的闭包。
+* newscope - 表示想要绑定给闭包的类作用域，可以传入类名或类的实例，默认值是 'static'， 表示不改变。类作用域用来决定在闭包中 $this 对象的 私有、保护方法 的可见性。
+
+该方法成功时返回一个新的 Closure 对象，失败时返回FALSE。
+
+```
+
+```
+
 **代码示例**
 
-这里的几个匿名函数的示例查看本地代码部分 .
+这里关于闭包的示例查看本地代码部分 .
 
