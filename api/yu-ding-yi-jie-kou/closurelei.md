@@ -46,7 +46,7 @@ public static Closure bind (Closure $closure , object $newthis [, mixed $newscop
 public Closure Closure::bindTo ( object $newthis [, mixed $newscope = 'static' ] )
 ```
 
-* newthis - 绑定给匿名函数的一个对象，或者**`NULL`**来取消绑定。
+* newthis - 绑定给匿名函数的一个对象，或者`NULL`来取消绑定。
 * newscope - 关联到匿名函数的类作用域，或者 'static' 保持当前状态。如果是一个对象，则使用这个对象的类型为心得类作用域。 这会决定绑定的对象的 保护、私有成员 方法的可见性。
 
 该方法成功时返回一个新的 Closure 对象，失败时返回FALSE。
@@ -70,7 +70,19 @@ public mixed Closure::call ( object $newthis [, mixed $... ] )
 
 返回闭包的值 . 
 
+**Closure::fromCallable \(7.1\)**
 
+将回调函数转为闭包 . 
+
+```php
+public static Closure Closure::fromCallable ( callable $callable )
+```
+
+使用当前作用域创建并返回一个新的匿名函数。此方法检查函数\(回调函数\)在当前作用域中是否可调用 , 如果不是 , 则抛出 TypeError . 
+
+* callable - 要转换的回调函数
+
+返回新创建的闭包, 如果在当前作用域中不可调用, 则会引发 TypeError。
 
 **代码示例**
 
