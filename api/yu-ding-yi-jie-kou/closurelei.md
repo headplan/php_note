@@ -24,7 +24,9 @@ Closure {
 
 #### **Closure::bind和Closure::bindTo**
 
-Closure::bind是Closure::bindTo的静态版本 : 
+**Closure::bind**
+
+复制一个闭包，绑定指定的$this对象和类作用域。Closure::bind是Closure::bindTo的静态版本 :
 
 ```php
 public static Closure bind (Closure $closure , object $newthis [, mixed $newscope = 'static' ])
@@ -36,9 +38,21 @@ public static Closure bind (Closure $closure , object $newthis [, mixed $newscop
 
 该方法成功时返回一个新的 Closure 对象，失败时返回FALSE。
 
+**Closure::bindTo**
+
+复制当前闭包对象，绑定指定的$this对象和类作用域。
+
+```php
+public Closure Closure::bindTo ( object $newthis [, mixed $newscope = 'static' ] )
 ```
 
-```
+创建并返回一个匿名函数 , 它与当前对象的函数体相同、绑定了同样变量，但可以绑定不同的对象，也可以绑定新的类作用域。
+
+“绑定的对象”决定了函数体中的_$this_的取值，“类作用域”代表一个类型、决定在这个匿名函数中能够调用哪些 私有 和 保护 的方法。 也就是说，此时 $this 可以调用的方法，与`newscope`类的成员函数是相同的。
+
+静态闭包不能有绑定的对象（`newthis`参数的值应该设为**`NULL`**）不过仍然可以改变它们的类作用域。
+
+
 
 **代码示例**
 
