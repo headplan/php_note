@@ -68,21 +68,23 @@ public mixed Closure::call ( object $newthis [, mixed $... ] )
 * newthis - 要将闭包绑定到调用期间的对象。
 * ... - 零个或多个参数, 将作为闭包的参数提供。
 
-返回闭包的值 . 
+返回闭包的值 .
 
 **Closure::fromCallable \(7.1\)**
 
-将回调函数转为闭包 . 
+将回调函数转为闭包 .
 
 ```php
 public static Closure Closure::fromCallable ( callable $callable )
 ```
 
-使用当前作用域创建并返回一个新的匿名函数。此方法检查函数\(回调函数\)在当前作用域中是否可调用 , 如果不是 , 则抛出 TypeError . 
+使用当前作用域创建并返回一个新的匿名函数。此方法检查函数\(回调函数\)在当前作用域中是否可调用 , 如果不是 , 则抛出 TypeError .
 
 * callable - 要转换的回调函数
 
 返回新创建的闭包, 如果在当前作用域中不可调用, 则会引发 TypeError。
+
+可以当做Observer的闭包模板 . 查看代码示例 . 
 
 **代码示例**
 
