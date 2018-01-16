@@ -125,7 +125,7 @@ yield 和 return 的区别 , 前者是暂停当前过程的执行并返回值 , 
 $data = (yield $value);
 ```
 
-> 注意 : php7中不支持这样用 .
+> 注意 : php7中没有括号限制 .
 
 **指定键名来生成值**
 
@@ -162,7 +162,7 @@ foreach (input_parser($input) as $id => $fields) {
 
 **生成null值**
 
-Yield可以在没有参数传入的情况下被调用来生成一个**`NULL`**值并配对一个自动的键名 . 
+Yield可以在没有参数传入的情况下被调用来生成一个`NULL`值并配对一个自动的键名 .
 
 ```php
 function gen_three_nulls() {
