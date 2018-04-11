@@ -52,6 +52,7 @@
       * [远程调试](xdebug/yuan-cheng-lian-jie.md)
       * [配置总结](xdebug/bian-liang-xian-shi-gong-neng/pei-zhi-lie-biao.md)
     * [相关函数](xdebug/xdebugxiang-guan-she-zhi.md)
+  * [Faker假数据](fakerjia-shu-ju.md)
 * [框架技术](chuang-jian-kuang-jia.md)
   * [HttpFoundation组件](chuang-jian-kuang-jia/httpfoundationzu-jian.md)
   * [路由组件](chuang-jian-kuang-jia/tian-jia-lu-you.md)
