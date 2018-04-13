@@ -1,7 +1,8 @@
 # Summary
 
 * [关于](README.md)
-* [版本特性](php-version.md)
+* [版本关注](php-version.md)
+  * [版本特性](php-version/ban-ben-te-xing.md)
 * [部署调优](xing_neng_diao_you.md)
   * [主机](xing_neng_diao_you/zhu-ji.md)
   * [配置与调优](xing_neng_diao_you/pei-zhi.md)
