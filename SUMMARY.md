@@ -1,7 +1,7 @@
 # Summary
 
 * [关于](README.md)
-* [版本特性](phpte-xing-zheng-he.md)
+* [版本特性](php-version.md)
 * [部署调优](xing_neng_diao_you.md)
   * [主机](xing_neng_diao_you/zhu-ji.md)
   * [配置与调优](xing_neng_diao_you/pei-zhi.md)
