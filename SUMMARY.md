@@ -24,7 +24,7 @@
   * [配置与调优](deployment/pei-zhi.md)
     * [PHP-FPM配置](deployment/pei-zhi/php-fpmpei-zhi.md)
     * [Nginx配置](deployment/pei-zhi/nginxpei-zhi.md)
-    * [PHP配置](deployment/diao-you.md)
+    * [PHP配置](deployment/pei-zhi/php-config.md)
   * [PHP详细安装](deployment/phpxiang-xi-an-zhuang.md)
     * [构建PHP扩展](deployment/phpxiang-xi-an-zhuang/gou-jian-php-kuo-zhan.md)
     * [PHP编译配置](deployment/phpxiang-xi-an-zhuang/phpbian-yi-pei-zhi.md)
@@ -44,7 +44,7 @@
     * [源码结构](di-ceng-fen-xi/yuan-ma-jie-gou.md)
     * [PHP编译特点](di-ceng-fen-xi/phpbian-yi-te-dian.md)
     * [变量的底层实现](di-ceng-fen-xi/bian-liang-de-di-ceng-shi-xian.md)
-    * 变量类型的实现
+    * [变量类型的实现](di-ceng-fen-xi/bian-liang-lei-xing-de-shi-xian.md)
   * PHP7源码分析
 * [包管理器](bao.md)
   * [Composer](composer.md)
