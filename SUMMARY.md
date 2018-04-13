@@ -1,6 +1,6 @@
 # Summary
 
-* [简介](README.md)
+* [关于](README.md)
 * [版本特性](phpte-xing-zheng-he.md)
 * [部署调优](xing_neng_diao_you.md)
   * [主机](xing_neng_diao_you/zhu-ji.md)
