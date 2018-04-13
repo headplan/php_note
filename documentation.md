@@ -8,7 +8,7 @@
 
 贡献文档 : [http://doc.php.net/tutorial/](http://doc.php.net/tutorial/)
 
-PHP-GTK : http://gtk.php.net/
+PHP-GTK : [http://gtk.php.net/](http://gtk.php.net/)
 
-
+Pear文档 : http://pear.php.net/manual/
 
