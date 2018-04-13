@@ -2,9 +2,11 @@
 
 #### 下载地址
 
-http://php.net/downloads.php - 最新版本下载
+[http://php.net/downloads.php](http://php.net/downloads.php) - 最新版本下载
 
-http://php.net/releases/ - 老版本列表
+[http://php.net/releases/](http://php.net/releases/) - 老版本列表
+
+https://github.com/php/php-src.git - Git源码
 
 #### Changelog
 
@@ -15,7 +17,5 @@ http://php.net/releases/ - 老版本列表
 
 #### 稳定发行版支持时限
 
-http://php.net/supported-versions.php
-
-
+[http://php.net/supported-versions.php](http://php.net/supported-versions.php)
 
