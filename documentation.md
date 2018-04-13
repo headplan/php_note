@@ -1,4 +1,10 @@
 # 文档手册
 
-PHP文档已经完善到如此地步...
+#### 官方文档
+
+英文版 : http://php.net/manual/en/
+
+中文版 : http://php.net/manual/zh/
+
+贡献文档 : http://doc.php.net/tutorial/
 
