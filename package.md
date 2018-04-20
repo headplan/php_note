@@ -1,5 +1,11 @@
 # 包管理器
 
+https://packagist.org/
+
+https://pear.php.net/
+
+https://pecl.php.net/
+
 利用包和库管理工具,更好的管理代码中使用的包.
 
 Composer是一个依赖管理器,可以用来安装所使用的库需要的代码,包括外部包.利用Composer,在项目中加入适当版本的代码会很容易,不论是项目开始时还是决定将一个包升级到更新版本时,都可以使用Composer安装所需的代码.Packagist是寻找Composer包的主要基地,它提供了数以万计的PHP包.

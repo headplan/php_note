@@ -46,7 +46,7 @@
     * [变量的底层实现](core-code/php5-core-code/bian-liang-de-di-ceng-shi-xian.md)
     * [变量类型的实现](core-code/php5-core-code/bian-liang-lei-xing-de-shi-xian.md)
   * [PHP7源码分析](core-code/php7-core-code.md)
-* [包管理器](bao.md)
+* [包管理器](package.md)
   * [Composer](composer.md)
     * [安装与应用](安装与应用.md)
     * [库与资源包](库与资源包.md)
@@ -135,5 +135,5 @@
     * [Applicative functors](han-shu-shi-bian-cheng/functorsapplicativesmonads/applicative-functors.md)
 * [Awesome PHP](awesome-php.md)
   * [PHP School](awesome-php/php-school.md)
-* [相关文章](xiang-guan-wen-zhang.md)
+* [相关文章](articles.md)
 
