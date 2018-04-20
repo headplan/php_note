@@ -52,7 +52,7 @@
   * [PEAR](package/pear.md)
   * [PECL](package/pecl.md)
 * [扩展类库](extended-library.md)
-  * [命令行工具](extended-library/php-cli.md)
+  * [PHPCLI](extended-library/php-cli.md)
   * [phpredis](phpredis.md)
   * [ezSQL](ezsql.md)
   * [php-enum](php-enum.md)
