@@ -56,7 +56,7 @@
   * [phpredis](extended-library/phpredis.md)
   * [ezSQL](extended-library/ezsql.md)
   * [php-enum](extended-library/php-enum.md)
-  * [验证服务](验证服务.md)
+  * [验证码](extended-library/captcha.md)
   * [定时任务](定时任务.md)
   * [Queue队列](queue队列.md)
   * [TCPDF](tcpdf.md)
