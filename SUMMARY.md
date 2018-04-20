@@ -90,6 +90,7 @@
   * [依赖注入组件](framework/yi-lai-zhu-ru-zu-jian.md)
   * [Headplan框架相关](framework/headplankuang-jia-xiang-guan.md)
   * [微框架](framework/wei-kuang-jia.md)
+* 设计模式
 * [函数式编程](functional.md)
   * [函数](functional/function.md)
     * [声明函数和方法](functional/function/sheng-ming-han-shu-he-fang-fa.md)
@@ -132,5 +133,6 @@
     * [Applicative functors](functional/functorsapplicativesmonads/applicative-functors.md)
 * [Awesome PHP](awesome-php.md)
   * [PHP School](awesome-php/php-school.md)
-* [相关文章](articles.md)
+
+
 
