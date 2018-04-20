@@ -1,4 +1,4 @@
-# 验证服务
+# Captcha
 
 * 验证码验证 - gregwar\/captcha
 
@@ -7,5 +7,6 @@
 * 滑块验证 - geetest
 
 * 手机验证 - laravel-sms : https:\/\/github.com\/toplan\/laravel-sms
+
 
 
