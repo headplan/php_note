@@ -93,6 +93,8 @@
 * [设计模式](design-pattern.md)
   * [Creational - 创建型模式](design-pattern/creational.md)
     * [简单工厂模式 - Simple Factory](design-pattern/creational/simple-factory.md)
+    * [静态工厂模式 - Static Factory](design-pattern/creational/static-factory.md)
+    * [工厂方法模式 - Factory Method](design-pattern/creational/gong-chang-fang-fa-mo-shi-factory-method.md)
     * [抽象工厂模式 - Abstract Factory](design-pattern/creational/abstract-factory.md)
   * [Structural - 结构型模式](design-pattern/structural.md)
   * [Behavioral - 行为型模式](design-pattern/behavioral.md)
