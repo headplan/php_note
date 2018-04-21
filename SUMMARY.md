@@ -92,6 +92,7 @@
   * [微框架](framework/wei-kuang-jia.md)
 * [设计模式](design-pattern.md)
   * [Creational - 创建型模式](design-pattern/creational.md)
+    * [简单工厂模式 - Simple Factory](design-pattern/creational/simple-factory.md)
     * [抽象工厂模式 - Abstract Factory](design-pattern/creational/abstract-factory.md)
   * [Structural - 结构型模式](design-pattern/structural.md)
   * [Behavioral - 行为型模式](design-pattern/behavioral.md)
