@@ -50,6 +50,8 @@
 * [包管理器](package.md)
   * [Composer](package/composer.md)
     * [架构](package/composer/jiagou.md)
+    * [使用](package/composer/shi-yong.md)
+      * [解决Composer运行时与Xdebug的冲突](package/composer/shi-yong/jie-jue-composer-yun-xing-shi-yu-xdebug-de-chong-tu.md)
   * [PEAR](package/pear.md)
   * [PECL](package/pecl.md)
 * [扩展类库](extended-library.md)
