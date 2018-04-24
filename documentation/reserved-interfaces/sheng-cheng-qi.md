@@ -176,7 +176,7 @@ var_dump(iterator_to_array(gen_three_nulls()));
 
 **使用引用来生成值**
 
-生成函数可以像使用值一样来使用引用生成。这个和[returning references from functions](http://php.net/manual/zh/functions.returning-values.php)\(从函数返回一个引用\)一样 , 通过在函数名前面加一个引用符号 . 
+生成函数可以像使用值一样来使用引用生成。这个和[returning references from functions](http://php.net/manual/zh/functions.returning-values.php)\(从函数返回一个引用\)一样 , 通过在函数名前面加一个引用符号 .
 
 ```php
 function &gen_reference() {
@@ -199,7 +199,7 @@ foreach (gen_reference() as &$number) {
 
 **生成器委派**
 
-在PHP7中 , 生成器允许通过使用`yield from`关键字委派另一个生成器generator, 遍历对象Traversable object, 或数组来生成值 . 外部生成器将从内部生成器、对象或数组中 "生成" 所有值 , 然后在外部生成器中继续执行 , 直到不再有效 . 如果使用`yield from`的生成器, 则`yield from`表达式也将返回由内部生成器返回的任何值 . 例子很明了 : 
+在PHP7中 , 生成器允许通过使用`yield from`关键字委派另一个生成器generator, 遍历对象Traversable object, 或数组来生成值 . 外部生成器将从内部生成器、对象或数组中 "生成" 所有值 , 然后在外部生成器中继续执行 , 直到不再有效 . 如果使用`yield from`的生成器, 则`yield from`表达式也将返回由内部生成器返回的任何值 . 例子很明了 :
 
 ```php
 function count_to_ten() {
