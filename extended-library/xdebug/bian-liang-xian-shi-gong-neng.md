@@ -2,7 +2,7 @@
 
 [https://xdebug.org/docs/all\_settings](https://xdebug.org/docs/all_settings)
 
-```markdown
+```
 [xdebug]
 zend_extension="/usr/local/opt/php71-xdebug/xdebug.so"
 ;[扩展配置]==========
