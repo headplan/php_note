@@ -105,11 +105,11 @@ zend_extension_ts="/wherever/you/put/it/xdebug.so"
 
 #### 兼容性
 
-Xdebug不兼容Zend Optimizer和任何其他扩展\(DBG, APD, ioncube 等\) , 这是由于这些模块的兼容性问题 . 
+Xdebug不兼容Zend Optimizer和任何其他扩展\(DBG, APD, ioncube 等\) , 这是由于这些模块的兼容性问题 .
 
 #### Debugclient 安装
 
-解压Xdebug源码 : 
+解压Xdebug源码 :
 
 ```
 $ cd debugclient
@@ -118,13 +118,13 @@ $ make
 # make install
 ```
 
-注意 : 安装需要依赖libedit , 例如Debian安装 : 
+注意 : 安装需要依赖libedit , 例如Debian安装 :
 
 ```
 apt-get install libedit-dev libedit2
 ```
 
-如果configure脚本找不到libedit , 如果configure.log错误日志内容如下 : 
+如果configure脚本找不到libedit , 如果configure.log错误日志内容如下 :
 
     /usr/lib64/libedit.so: undefined reference to `tgetnum'
     /usr/lib64/libedit.so: undefined reference to `tgoto'
@@ -134,7 +134,7 @@ apt-get install libedit-dev libedit2
     /usr/lib64/libedit.so: undefined reference to `tgetstr'
     collect2: ld returned 1 exit status
 
-可以修改configure命令 : 
+可以修改configure命令 :
 
 ```
 $ LDFLAGS=-lncurses ./configure --with-libedit
