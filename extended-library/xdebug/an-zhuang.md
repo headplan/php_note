@@ -140,5 +140,38 @@ apt-get install libedit-dev libedit2
 $ LDFLAGS=-lncurses ./configure --with-libedit
 ```
 
+#### Homestead安装
 
+根据前面的pecl安装总是会报`Cannot load Xdebug - it was already loaded`错误 , 这里选择了编译安装 , 一切正常 , 简单记录流程 : 
+
+```
+cd ~
+wget https://xdebug.org/files/xdebug-2.6.0.tgz
+tar xvzf xdebug-2.6.0.tgz
+
+cd xdebug-2.6.0
+phpize
+./configure --enable-xdebug
+make
+sudo make install
+
+mkdir -p /usr/local/php/xdebug
+sudo cp ~/xdebug-2.4.0/modules/xdebug.so /usr/local/php/xdebug/xdebug.so
+
+cat>>xdebug.ini<<EOF
+zend_extension="/usr/local/php/xdebug/xdebug.so"
+xdebug.remote_enable = 1
+xdebug.remote_connect_back = 1
+xdebug.remote_port = 9000
+xdebug.max_nesting_level = 500
+EOF
+
+sudo cp xdebug.ini /etc/php/mods-available/xdebug.ini
+sudo ln -snf /etc/php/mods-available/xdebug.ini /etc/php/7.0/cli/conf.d/20-xdebug.ini
+sudo ln -snf /etc/php/mods-available/xdebug.ini /etc/php/7.0/fpm/conf.d/20-xdebug.ini
+
+service php7.0-fpm restart
+```
+
+路径有所修改 , 根据实际情况修改具体路径 . 
 
