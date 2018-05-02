@@ -104,10 +104,41 @@ echo strtr($subject, ['hello' => 'world', 'world' => 'hello']), PHP_EOL;
 echo str_replace(['hello', 'world'], ['world', 'hello'], $subject), PHP_EOL;
 ```
 
-* 使用PHP协程yield , 与迭代有关的都可以用协程优化 . 
+* 使用PHP协程yield , 与迭代有关的都可能可以用协程优化 , 节省内存 . 
+
+```php
+<?php
+
+function getLines($fileName)
+{
+    $f = fopen($fileName, 'r');
+    try {
+        while ($line = fgets($f)) {
+            yield $line;
+        }
+    } finally {
+        fclose($f);
+    }
+}
+
+foreach (getLines('file.txt') as $n => $line) {
+    if ($n > 10) break;
+    echo $line;
+}
+
+function xrange($start, $end, $step = 1)
+{
+    for ($i = $start; $i <= $end; $i += $step) {
+        yield $i;
+    }
+}
+
+foreach (xrange(1, 1000000) as $num) {
+    echo $num;
+}
+```
+
 * 用"\[\]"定义数组 . 
-
-
 
 PHP代码优化
 
