@@ -40,6 +40,7 @@
         * [Zend Signal](deployment/phpxiang-xi-an-zhuang/phpbian-yi-pei-zhi/qi-ta-pei-zhi/zend-signal.md)
     * [配置总结](deployment/phpxiang-xi-an-zhuang/pei-zhi-zong-jie.md)
 * [底层分析](core-code.md)
+  * [PHP编码](core-code/phpbian-ma.md)
   * [PHP5与PHP7内部功能的测试](core-code/php5yu-php7-nei-bu-gong-neng-de-ce-shi.md)
   * [PHP5源码分析](core-code/php5-core-code.md)
     * [搭建环境](core-code/php5-core-code/da-jian-huan-jing.md)
