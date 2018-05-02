@@ -46,7 +46,7 @@ if (0 = $uid) {} # 反之不会语法报错.
 * levenshtein - 计算两个字符串之间的编辑距离
 * uniqid - 生成一个唯一ID
 * get\_browser - 获取浏览器具有的功能
-* get\__defined\__vars - 返回由所有已定义变量所组成的数组
+* get\_\_defined\_\_vars - 返回由所有已定义变量所组成的数组
 * str\_word\_count - 返回字符串中单词的使用情况
 
 ```
@@ -79,7 +79,7 @@ if (!isset($subject[12])) echo '123';
 # 因为isset是PHP的语言结构
 ```
 
-常见的PHP语言结构和函数
+常见的PHP语言结构
 
 * echo\(\)
 * print\(\)
@@ -92,6 +92,8 @@ if (!isset($subject[12])) echo '123';
 * list\(\)
 * empty\(\)
 * eval\(\)
+
+更好的区分方式是 , 语言结构不能当可变函数使用 . 语言结构的执行效率比普通函数要高 . 
 
 PHP代码优化
 
