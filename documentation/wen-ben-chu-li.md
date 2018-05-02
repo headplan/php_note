@@ -59,11 +59,26 @@ echo $str;
 
 #### 字符串的串行化
 
-串行化的目的就是把其他不方便存储的类型保存在文件,数据库中 , 如数组 , 对象等 . 
+串行化的目的就是把其他不方便存储的类型保存在文件,数据库中 , 如数组 , 对象等 .
 
 * 函数serialize\(\) - 侧重转换对象 , 在unserialize\(\)时候会直接转换为对象 , 使用其中的方法 , 不用实例化 . 
 * 函数json\_encode\(\) - 虽然返回的也可以是一个对象 , 但它是一个json对象 . 而反序列化返回的是一个存储时类的新对象 . 
-* 函数var\_export\($items, true\)
+* 函数var\_export\($items, true\) - 输出一个PHP格式的数组字符串 , 第二个参数为true返回 , 可以赋值给变量 , 不写则打印 . 
+
+var\_export应用实例
+
+```php
+<?php
+
+$arr = [1,2,3,4,5,6];
+$str = var_export($arr, true);
+$str = '<?php return ' . $str . ';';
+file_put_contents('xxx', $str);
+
+# 其他文件
+$var = include 'xxx';
+var_dump($var);
+```
 
 
 
