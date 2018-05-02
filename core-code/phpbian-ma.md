@@ -93,7 +93,16 @@ if (!isset($subject[12])) echo '123';
 * empty\(\)
 * eval\(\)
 
-更好的区分方式是 , 语言结构不能当可变函数使用 . 语言结构的执行效率比普通函数要高 . 
+更好的区分方式是 , 语言结构不能当可变函数使用 . 语言结构的执行效率比普通函数要高 .
+
+* strtr代替str\_replace去查找替换字符串 . 
+
+```php
+<?php
+$subject = 'hello,world';
+echo strtr($subject, ['hello' => 'world', 'world' => 'hello']), PHP_EOL;
+echo str_replace(['hello', 'world'], ['world', 'hello'], $subject), PHP_EOL;
+```
 
 PHP代码优化
 
