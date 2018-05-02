@@ -20,6 +20,7 @@
     * [fastcgi\_finish\_request](documentation/function/fastcgifinishrequest.md)
     * [register\_shutdown\_function](documentation/function/registershutdownfunction.md)
     * [ignore\_user\_abort](documentation/function/ignoreuserabort.md)
+  * [文本处理](documentation/wen-ben-chu-li.md)
 * [部署配置](deployment.md)
   * [主机](deployment/zhu-ji.md)
   * [配置与调优](deployment/pei-zhi.md)
