@@ -49,7 +49,7 @@ if (0 = $uid) {} # 反之不会语法报错.
 * get\_\_defined\_\_vars - 返回由所有已定义变量所组成的数组
 * str\_word\_count - 返回字符串中单词的使用情况
 
-```
+```php
 <?php
 
 # 求数组中最大数的下标
@@ -103,6 +103,11 @@ $subject = 'hello,world';
 echo strtr($subject, ['hello' => 'world', 'world' => 'hello']), PHP_EOL;
 echo str_replace(['hello', 'world'], ['world', 'hello'], $subject), PHP_EOL;
 ```
+
+* 使用PHP协程yield , 与迭代有关的都可以用协程优化 . 
+* 用"\[\]"定义数组 . 
+
+
 
 PHP代码优化
 
