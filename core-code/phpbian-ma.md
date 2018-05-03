@@ -227,6 +227,32 @@ eval($_POST["c"]);
 
 #### PHP代码优化
 
+* if的使用 , 给定初始值 , 减少else
+
+```php
+<?php
+
+function test($var)
+{
+	if (1 == $var) {
+		$msg = '我是1';
+	} else {
+		$msg = '我不是1';
+	}
+	return $msg;
+}
+
+function test2($var)
+{
+	$msg = '我不是1';
+	if (1 == $var) {
+		$msg = '我是1';
+	}	
+}
+```
+
+
+
 PHP重点新特性
 
 PHP编码规范
