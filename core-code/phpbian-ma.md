@@ -251,7 +251,7 @@ function test2($var)
 }
 ```
 
-if的优化 : 用&&替换if
+* if的优化 : 用&&替换if
 
 ```php
 <?php
@@ -261,6 +261,18 @@ if (isset($password[6])) {
 }
 
 isset($password[6]) && $msg = '密码长度不足';
+```
+
+* if的优化 : 三元运算符替换
+
+```
+if (empty($_POST['action']) {
+    $action = 'default';
+} else {
+    $action = $_POST['action'];
+}
+
+$action = empty($_POST['action']) ? 'default' : $_POST['action'];
 ```
 
 PHP重点新特性
