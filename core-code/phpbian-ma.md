@@ -278,6 +278,10 @@ $action = $_POST['action'] ?: 'default';
 $action = $_POST['action'] ?? 'default';
 ```
 
+if的优化 : 去掉多余的if
+
+
+
 PHP重点新特性
 
 PHP编码规范
