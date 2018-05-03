@@ -139,6 +139,28 @@ foreach (xrange(1, 1000000) as $num) {
 ```
 
 * 用"\[\]"定义数组 . 
+* 使用两个星号进行幂运算
+
+```php
+<?php
+
+echo 2**3, PHP_EOL;
+echo pow(2,3), PHP_EOL;
+echo 2<<2, PHP_EOL; # 只有2才能这样用
+```
+
+* 使用...定义变长参数函数 . 不依赖func\__get_\_args\(\) , 允许声明传入的参数是数组 , 并且参数拆包允许传递一个数组到一个函数 , 在函数内自动解包 . 
+
+```php
+<?php
+	
+function sumAll(...$nums)
+{
+	return array_sum($nums);
+}
+
+echo sumAll(1,2,3,4,5);
+```
 
 PHP代码优化
 
