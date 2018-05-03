@@ -153,13 +153,32 @@ echo 2<<2, PHP_EOL; # 只有2才能这样用
 
 ```php
 <?php
-	
+
 function sumAll(...$nums)
 {
-	return array_sum($nums);
+    return array_sum($nums);
 }
 
 echo sumAll(1,2,3,4,5);
+```
+
+* 函数赋值默认参数 : + 运算符 . 特别适合给函数赋值默认参数 . 
+
+```php
+<?php
+function getHtml($parms)
+{
+	$parms += [
+		'height' => '200px',
+		'width' => '300px',
+		'skinType' => 'default',
+		'urlType' => 'absolute',
+	];
+	
+	print_r($parms);
+}
+
+getHtml(['test'=>'test','urlType'=>'a']);
 ```
 
 PHP代码优化
