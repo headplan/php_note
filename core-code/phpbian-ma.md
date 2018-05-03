@@ -181,6 +181,12 @@ function getHtml($parms)
 getHtml(['test'=>'test','skinType'=>'test']);
 ```
 
+* 使用??运算符 , 左边条件为真直接返回 , 如果是一个值不存在也不会notice , 如果左边为假返回右边的值 . 
+
+```php
+$name = $_GET['name'] ?? 'nobody';
+```
+
 PHP代码优化
 
 PHP重点新特性
