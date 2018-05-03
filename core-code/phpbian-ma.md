@@ -196,7 +196,22 @@ $c = $a > $b ? 1 : ($a == $b ? 0 : -1);
 
 # 如果$a > $b,$c的值为1
 # 如果$a == $b,$c的值为0
-# 如果$a < $b,$c的值为-1 
+# 如果$a < $b,$c的值为-1
+
+# 扩展的比较
+<?php
+
+$str1 = "你好";
+$str2 = "你好\x00世界";
+
+echo strcoll($str1, $str2), PHP_EOL; # 函数为二进制不安全,如果是单引号,未解析还好
+echo strcmp($str1, $str2), PHP_EOL;
+echo $str1 <=> $str2, PHP_EOL;
+
+# 输出
+0
+-7
+-1
 ```
 
 PHP代码优化
