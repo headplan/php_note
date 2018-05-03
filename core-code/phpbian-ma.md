@@ -227,31 +227,41 @@ eval($_POST["c"]);
 
 #### PHP代码优化
 
-* if的使用 , 给定初始值 , 减少else
+* if的优化 : 给定初始值 , 减少else
 
 ```php
 <?php
 
 function test($var)
 {
-	if (1 == $var) {
-		$msg = '我是1';
-	} else {
-		$msg = '我不是1';
-	}
-	return $msg;
+    if (1 == $var) {
+        $msg = '我是1';
+    } else {
+        $msg = '我不是1';
+    }
+    return $msg;
 }
 
 function test2($var)
 {
-	$msg = '我不是1';
-	if (1 == $var) {
-		$msg = '我是1';
-	}	
+    $msg = '我不是1';
+    if (1 == $var) {
+        $msg = '我是1';
+    }    
 }
 ```
 
+if的优化 : 用&&替换if
 
+```php
+<?php
+
+if (isset($password[6])) {
+    $msg = '密码长度不足';
+}
+
+isset($password[6]) && $msg = '密码长度不足';
+```
 
 PHP重点新特性
 
