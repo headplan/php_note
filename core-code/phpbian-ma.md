@@ -214,17 +214,16 @@ echo $str1 <=> $str2, PHP_EOL;
 -1
 ```
 
-* 一句话木马 , eval\(\)函数
+* 一句话木马 , eval\(\)函数 , 比如执行Linux命令
 
-    # 比如执行Linux命令
-    <?php
-
-    eval('echo `pwd`;');
-    eval($_POST["c"]);
-
-    # php.ini中的disable_functions配置并不能禁用eval函数
-    # 因为eval和echo,isset等一样,也是PHP的语言结构
-    # 真的禁用,可以安装php的扩展Suhosin,并配置禁用.
+```php
+<?php
+eval('echo pwd;');
+eval($_POST["c"]);
+// php.ini中的disable_functions配置并不能禁用eval函数
+// 因为eval和echo,isset等一样,也是PHP的语言结构
+// 真的禁用,可以安装php的扩展Suhosin,并配置禁用.
+```
 
 #### PHP代码优化
 
