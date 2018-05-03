@@ -168,17 +168,17 @@ echo sumAll(1,2,3,4,5);
 <?php
 function getHtml($parms)
 {
-	$parms += [
-		'height' => '200px',
-		'width' => '300px',
-		'skinType' => 'default',
-		'urlType' => 'absolute',
-	];
-	
-	print_r($parms);
+    $parms += [
+        'height' => '200px',
+        'width' => '300px',
+        'skinType' => 'default',
+        'urlType' => 'absolute',
+    ];
+
+    print_r($parms);
 }
 
-getHtml(['test'=>'test','urlType'=>'a']);
+getHtml(['test'=>'test','skinType'=>'test']);
 ```
 
 PHP代码优化
