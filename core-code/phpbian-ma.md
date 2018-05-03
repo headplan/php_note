@@ -265,7 +265,7 @@ isset($password[6]) && $msg = '密码长度不足';
 
 * if的优化 : 三元运算符替换
 
-```
+```php
 if (empty($_POST['action']) {
     $action = 'default';
 } else {
