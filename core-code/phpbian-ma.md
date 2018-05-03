@@ -273,6 +273,9 @@ if (empty($_POST['action']) {
 }
 
 $action = empty($_POST['action']) ? 'default' : $_POST['action'];
+$action = $_POST['action'] ?: 'default';
+// 这里$_POST['action']如果不存在会报错.而??的不会
+$action = $_POST['action'] ?? 'default';
 ```
 
 PHP重点新特性
