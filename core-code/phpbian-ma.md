@@ -278,9 +278,94 @@ $action = $_POST['action'] ?: 'default';
 $action = $_POST['action'] ?? 'default';
 ```
 
-if的优化 : 去掉多余的if
+* if的优化 : 去掉多余的if
 
+```php
+<?php
 
+function isLeapYear($year)
+{
+    if (($year % 4 == 0 && $year % 100 != 0) || ($year % 400 == 0)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function isLeapYear2($year)
+{
+    return ($year % 4 == 0 && $year % 100 != 0) || ($year % 400 == 0);
+}
+
+# 函数或方法返回bool值时,可以直接返回其判断条件
+```
+
+* 改进"else if" , 使用表驱动方法替换 , 空间换时间
+
+```php
+<?php
+
+if ('a' == $var) {
+    $n = 1;
+} else if ('b' == $var) {
+    $n = 2;
+} else if ('c' == $var) {
+    $n = 3
+}
+
+switch ($var) {
+    case 'a':
+        $n = 1;
+        break;
+    case 'b':
+        $n = 2;
+        break;
+    case 'c':
+        $n = 3;
+        break;
+    default:
+        break;
+}
+
+$arr = [
+    'a' => 1, 
+    'b' => 2,
+    'c' => 3
+];
+
+$n = $arr[$var];
+```
+
+* 循环语句的几个要点
+  * 用while\(true\)表示无限循环 , 别用for
+  * 特定情况下\[发邮件,采集网页\] , 要加延时sleep
+  * 循环体能尽可能不用函数或更耗费资源的调用
+  * foreach代替while和for循环
+  * 避免空循环
+  * 做一件事 , 尽可能短 , 控制在50行以内
+  * 循环嵌套限制在3层以内
+
+```php
+# 避免空循环
+<?php
+	
+$handle = fopen("test.txt", "r");
+
+while (($line = fgets($handle, 4096) !== false)) {
+	;
+}
+
+do {
+	$line = fgets($handle, 4096);
+} while ($line != false);
+```
+
+* 使用更精悍短小的代码
+  * 函数的最佳最大长度是50-150行代码
+  * 函数参数不超过7个
+  * 短小函数更容易理解也方便修改
+  * 只做一件事情的函数更容易复用
+  * 短小的函数测试更方便
 
 PHP重点新特性
 
