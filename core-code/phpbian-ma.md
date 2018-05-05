@@ -348,15 +348,15 @@ $n = $arr[$var];
 ```php
 # 避免空循环
 <?php
-	
+
 $handle = fopen("test.txt", "r");
 
 while (($line = fgets($handle, 4096) !== false)) {
-	;
+    ;
 }
 
 do {
-	$line = fgets($handle, 4096);
+    $line = fgets($handle, 4096);
 } while ($line != false);
 ```
 
@@ -366,6 +366,22 @@ do {
   * 短小函数更容易理解也方便修改
   * 只做一件事情的函数更容易复用
   * 短小的函数测试更方便
+* 中间结果赋值给变量
+
+```php
+<?php
+	
+$str = 'this_is_a_test';
+$hump_str = implode('', array_map('ucfirst', explode('_', $str)));
+
+$words = explode('_', $str);
+$uWords = array_map('ucfirst', $words);
+$hump_str = implode('', $uWords);
+
+echo $hump_str;
+```
+
+* 复杂的逻辑表达做成布尔函数
 
 PHP重点新特性
 
