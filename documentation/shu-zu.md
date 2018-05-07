@@ -114,13 +114,13 @@ Array
 
 #### php数组类型与其他类型的转换
 
-在PHP中 , 存在8种变量类型 , 分为三类 : 
+在PHP中 , 存在8种变量类型 , 分为三类 :
 
 * 标量类型 :  boolean、integer、float\(double\)、string
 * 复合类型 : **array**、object
 * 特殊类型 : resource、NULL
 
-两个问题 : 
+两个问题 :
 
 如何将一个int、float、string、boolean 类型转换为数组?
 
@@ -153,13 +153,20 @@ array (
 
 class User
 {
-	public $name = 'jony';
-	public $age = 22;
-	protected $phone = '138xxxxxxx';
-	private $sex = 'man';
+    public $name = 'jony';
+    public $age = 22;
+    protected $phone = '138xxxxxxx';
+    private $sex = 'man';
 }
 $obj = (array) new User;
 var_export($obj);
+// 结果
+array (
+  'name' => 'jony',
+  'age' => 22,
+  '' . "\0" . '*' . "\0" . 'phone' => '138xxxxxxx',
+  '' . "\0" . 'User' . "\0" . 'sex' => 'man',
+)
 ```
 
 
