@@ -169,5 +169,47 @@ array (
 )
 ```
 
-常用的对象转数组 , 还是借助ArrayAccess接口实现 . 
+常用的对象转数组 , 还是借助ArrayAccess接口实现 .
+
+#### 数组的遍历
+
+* for : 语句循环遍历 
+* foreach : 循环遍历 
+* while : \(list\($key, $val\) = each\($fruit\)\) 
+* array\_walk、array\_map : 回调遍历
+* current和next : 内部指针遍历
+
+array\_walk 引用的方式对数组进行遍历 , 返回值不重要 , 目的是直接改变掉数组 . 
+
+```
+array_walk(array &$array, callable $callback [, mixed $userdata = NULL ])
+```
+
+array\_map 为了改变数组的数据 , 支持多个数组数据合并 , 目的是返回新的数组 . 
+
+```
+array_map(callable $callback, array $array1 [, array $... ])
+```
+
+walk和map的回调函数位置也不一样 . 
+
+**foreach 和 for 性能对比**
+
+通过运行示例来体验性能的不同 , 一般php推荐使用foreach来遍历数组 . 
+
+**foreach遍历中的顺序**
+
+```
+$a = array();
+$a[2] = 3;
+$a[1] = 2;
+$a[0] = 1;
+foreach ($a as $v) {
+    echo $v;
+}
+
+# 输出的不是按照数组key顺序遍历的,而是2,1,0输出的.
+```
+
+
 
