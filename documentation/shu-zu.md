@@ -68,14 +68,14 @@ array(4) {
 
 #### 数组的访问
 
-获取数组元素的值有哪些方法 ? 
+获取数组元素的值有哪些方法 ?
 
 * 方括号 , 数组单元可以通过 array\[key\] 语法来访问
 * 花括号也可以 , 例如 $array\[42\] 和 $array{42} 效果相同
 * 方括号可以包括“表达式” , 例如 : $arr\[somefunc\($bar\)\];
 * 自 PHP 5.4 起可以用数组间接引用函数或方法调用的结果
 
-看一下数组的间接引用 : 
+看一下数组的间接引用 :
 
 ```php
 <?php
@@ -90,7 +90,7 @@ echo getArr()[1];
 
 #### 数组元素的删除
 
-unset\(\) 函数允许删除数组中的某个键 . 
+unset\(\) 函数允许删除数组中的某个键 .
 
 ```
 <?php
@@ -98,7 +98,7 @@ unset\(\) 函数允许删除数组中的某个键 .
 $arr = [1,2,3,4,5,6];
 
 foreach ($arr as $key => $value) {
-	unset($arr[$key]);
+    unset($arr[$key]);
 }
 
 $arr[] = 6;
@@ -110,7 +110,57 @@ Array
 )
 ```
 
-这里的索引是6 , 数组unset后 , 不会重建索引 . 
+这里的索引是6 , 数组unset后 , 不会重建索引 .
+
+#### php数组类型与其他类型的转换
+
+在PHP中 , 存在8种变量类型 , 分为三类 : 
+
+* 标量类型 :  boolean、integer、float\(double\)、string
+* 复合类型 : **array**、object
+* 特殊类型 : resource、NULL
+
+两个问题 : 
+
+如何将一个int、float、string、boolean 类型转换为数组?
+
+var\_dump\(\(array\)false\)和var\_dump\(\(array\)null\)的输出结果是?
+
+* **int，float，string，boolean 和 resource 类型 \(array\)$scalarValue 等同 array\($scalarValue\)**
+* **object 转换为 array , 结果为一个数组 , 其单元为该对象的属性 , 键名将为成员变量名 . **
+* **将 NULL 转换为 array 会得到一个空的数组 . **
+
+```php
+<?php
+
+var_export(array(false));
+var_export((array)false);
+var_export(array(null));
+var_export((array)null);
+// 结果
+array (
+  0 => false,
+)array (
+  0 => false,
+)array (
+  0 => NULL,
+)array (
+)
+```
+
+```php
+<?php
+
+class User
+{
+	public $name = 'jony';
+	public $age = 22;
+	protected $phone = '138xxxxxxx';
+	private $sex = 'man';
+}
+$obj = (array) new User;
+var_export($obj);
+```
 
 
 
