@@ -43,7 +43,7 @@ typedef struct bucket {
     // 因为PHP的变量都是写时复制    
     void *pData;        // 指向value,一般是用户数据的副本,如果是指针数据,则指向pDataPtr
     void *pDataPtr;     // 如果是指针数据,此值会指向真正的value,同时上面pData会指向此值
-   
+
     struct bucket *pListNext;   // 整个hash表的下一元素
     struct bucket *pListLast;   // 整个hash表该元素的上一个元素
     // 多个元素会添加内部指针,防止哈希碰撞,也就是两个不同的key,哈希成了相同的值,就有了下面的区分的指针
@@ -54,7 +54,7 @@ typedef struct bucket {
 } Bucket;
 ```
 
-key值如何通过哈希函数的计算 , 映射到Bucket上的 : 
+key值如何通过哈希函数的计算 , 映射到Bucket上的 :
 
 ```
 typedef struct _zend_hash_key {
@@ -75,7 +75,7 @@ typedef struct _zend_hash_key {
 * arKey保存字符串key, 
 * nKeyLength保存该key的长度，
 
-> 在PHP数组中如果索引字符串可以被转换成数字也会被转换成数字索引 . 
+> 在PHP数组中如果索引字符串可以被转换成数字也会被转换成数字索引 .
 >
 > 所以在PHP中例如'10' , '11'这类的字符索引和数字索引10 , 11没有区别 .
 
@@ -83,5 +83,5 @@ typedef struct _zend_hash_key {
 
 ![](/assets/shuzijiegouti.png)
 
-
+![](/assets/shuzijiegouti2.png)
 
