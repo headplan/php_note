@@ -28,7 +28,7 @@
     * [数组操作](documentation/shu-zu/shu-zu-cao-zuo.md)
     * [数组排序及原理](documentation/shu-zu/shu-zu-pai-xu-ji-yuan-li.md)
     * PHP预定义变量及输入流
-    * 数组与数据结构
+    * [数组与数据结构](documentation/shu-zu/shu-zu-yu-shu-ju-jie-gou.md)
   * [位运算符](documentation/wei-yun-suan-fu.md)
 * [部署配置](deployment.md)
   * [主机](deployment/zhu-ji.md)
