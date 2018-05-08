@@ -24,6 +24,8 @@
   * [数组](documentation/shu-zu.md)
     * [数组的遍历](documentation/shu-zu/shu-zu-de-bian-li.md)
     * [PHP数组的内部实现](documentation/shu-zu/phpshu-zu-de-nei-bu-shi-xian.md)
+    * [数组操作](documentation/shu-zu/shu-zu-cao-zuo.md)
+  * [位运算符](documentation/wei-yun-suan-fu.md)
 * [部署配置](deployment.md)
   * [主机](deployment/zhu-ji.md)
   * [配置与调优](deployment/pei-zhi.md)
