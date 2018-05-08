@@ -23,6 +23,7 @@
   * [文本处理](documentation/wen-ben-chu-li.md)
   * [数组](documentation/shu-zu.md)
     * [数组的遍历](documentation/shu-zu/shu-zu-de-bian-li.md)
+    * [PHP数组的内部实现](documentation/shu-zu/phpshu-zu-de-nei-bu-shi-xian.md)
 * [部署配置](deployment.md)
   * [主机](deployment/zhu-ji.md)
   * [配置与调优](deployment/pei-zhi.md)
