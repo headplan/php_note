@@ -155,6 +155,7 @@
     * [Functors](functional/functorsapplicativesmonads/functors.md)
     * [Applicative functors](functional/functorsapplicativesmonads/applicative-functors.md)
 * [Swoole](swoole.md)
+  * [入门知识](swoole/ru-men-zhi-shi.md)
 * [Awesome PHP](awesome-php.md)
   * [PHP School](awesome-php/php-school.md)
 
