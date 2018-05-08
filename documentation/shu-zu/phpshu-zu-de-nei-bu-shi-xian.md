@@ -85,3 +85,40 @@ typedef struct _zend_hash_key {
 
 ![](/assets/shuzijiegouti2.png)
 
+#### HashTable扩容
+
+前面提到nTableSize初始化时是一个固定的值 , 但HashTable的大小并不是固定不变的 , 当nNumOfElements &gt; nTableSize时 , 会对HashTable进行扩容 , 以便于容纳更多的元素 . 前面也讲了 , 增长是2x的 . 扩容也即是对nTableSize这个值的应用 .
+
+```
+<?php
+$a = array();
+$p = (1 << 14) - 1; //每一次移动都表示"乘以 2",也就是2的14次方-1
+$b = 1;
+for ($i = 0; $i < $p; $i++) {
+    $a[] = $b;
+}
+// 添加元素,打印内存
+echo memory_get_usage(true) . "\n";
+$a['as1'] = 1; // 此时是2的14次方
+echo memory_get_usage(true) . "\n";
+$a['as2'] = 1; // 此时是2的14次方+1
+echo memory_get_usage(true) . "\n";
+
+// 结果
+2097152
+2097152
+4194304
+```
+
+从打印结果上看 , 前两次相同 , 第三次是2x增长 , 刚好符合了前面提到的2x扩容 . \(这里2的14次方是在我的电脑上nTableSize初始化申请的值 . 
+
+**再举个例子 : prev\(\) 的指针实现**
+
+HashTable结构体中 , 有一个成员pInternalPointer , 这个成员便是控制数组的访问指针的 . 
+
+* 先找到数组的当前位置或指针
+* 然后访问这个指针的pListLast找到上一个元素
+* 由于访问指针已经移动到了适当的位置 , 则直接获取当前指针指向的元素 . 
+
+
+
