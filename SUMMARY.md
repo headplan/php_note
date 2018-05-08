@@ -15,6 +15,7 @@
   * [影响PHP行为的扩展](documentation/ying-xiang-php-xing-wei-de-kuo-zhan.md)
   * [其他基本扩展](documentation/qi-ta-ji-ben-kuo-zhan.md)
     * [SPL](documentation/qi-ta-ji-ben-kuo-zhan/spl.md)
+      * [数据结构](documentation/qi-ta-ji-ben-kuo-zhan/spl/shu-ju-jie-gou.md)
   * [其它服务](documentation/qi-ta-fu-wu.md)
   * [函数参考](documentation/function.md)
     * [fastcgi\_finish\_request](documentation/function/fastcgifinishrequest.md)
@@ -25,6 +26,9 @@
     * [数组的遍历](documentation/shu-zu/shu-zu-de-bian-li.md)
     * [PHP数组的内部实现](documentation/shu-zu/phpshu-zu-de-nei-bu-shi-xian.md)
     * [数组操作](documentation/shu-zu/shu-zu-cao-zuo.md)
+    * [数组排序及原理](documentation/shu-zu/shu-zu-pai-xu-ji-yuan-li.md)
+    * PHP预定义变量及输入流
+    * 数组与数据结构
   * [位运算符](documentation/wei-yun-suan-fu.md)
 * [部署配置](deployment.md)
   * [主机](deployment/zhu-ji.md)

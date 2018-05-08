@@ -103,5 +103,27 @@ Array
 * array\_merge : 覆盖 , 相同索引键覆盖 , 相同数字键追加 . 
 * +运算符 : 补充 , 相同数字键索引建都忽略 . 
 
+#### 数组运算符
+
+![](/assets/shuzuyunsuanfu.png)
+
+#### 数组元素查找
+
+* 判断key是否存在 : array\_key\_exists\(\) 和 isset\(\)
+* 判断值是否存在 : in\_array\(\) 和 array\_search\(\)
+* 依据键返回值 :  $items\[$key\];
+* 依据值返回键 : array\_keys \($items,$value\);
+* 依据给定值进行模糊查找 : preg\_grep\(\);
+
+```
+
+```
+
+#### 数组元素过滤和移除
+
+#### 数组相关其他函数
+
+#### 数组函数基本分类
+
 
 
