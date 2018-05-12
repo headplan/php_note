@@ -30,6 +30,7 @@
     * PHP预定义变量及输入流
     * [数组与数据结构](documentation/shu-zu/shu-zu-yu-shu-ju-jie-gou.md)
   * [位运算符](documentation/wei-yun-suan-fu.md)
+  * [异常处理](documentation/yi-chang-chu-li.md)
 * [部署配置](deployment.md)
   * [主机](deployment/zhu-ji.md)
   * [配置与调优](deployment/pei-zhi.md)
