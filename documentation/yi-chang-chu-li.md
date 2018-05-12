@@ -33,17 +33,17 @@ try {
 if(php_sapi_name() != 'cli') ob_start('nl2br');
 
 function trytest() {
-	try {
-		echo "try\n";
-		//throw new Exception("I'm dying, Help!!");
-		//die; 
-		return false;
-	} catch ( Exception $e ) {
-		echo $e->getMessage()."\n";
-	} finally {
-		echo "finally\n";
-		return true;
-	}
+    try {
+        echo "try\n";
+        //throw new Exception("I'm dying, Help!!");
+        //die; 
+        return false;
+    } catch ( Exception $e ) {
+        echo $e->getMessage()."\n";
+    } finally {
+        echo "finally\n";
+        return true;
+    }
 }
 
 var_dump(trytest());
@@ -61,7 +61,7 @@ var_dump(trytest());
 set_error_handler(callable $handler[, int $error_types ]);
 ```
 
-可以设置自定义的错误处理函数 . 
+可以设置自定义的错误处理函数 .
 
 * 默认的PHP错误处理流程会绕过 $error\_types 中指定的错误类型 , 除非 $handler 中返回false
 * error\_reporting\(\) 不再有效 , 除非自己在 $handler 中按当前的 error\_reporting 作出判断
@@ -69,27 +69,58 @@ set_error_handler(callable $handler[, int $error_types ]);
 
 ```php
 <?php
-// 可通过 set_error_handler + ErrorException 拦截php默认报错，转为异常
+# 可通过 set_error_handler + ErrorException 拦截php默认报错,转为异常
 
 function trytest() {
-	try {
-		file_get_contents(); // parameter missing. w
-	} catch ( Exception $e ) {
-		echo $e->getMessage()."\n";
-	} finally {
-		return true;
-	}
+    try {
+        file_get_contents(); // parameter missing. w
+    } catch ( Exception $e ) {
+        echo $e->getMessage()."\n";
+    } finally {
+        return true;
+    }
 }
-
 
 function myErrorHandler($errno, $errstr, $errfile, $errline){
-	throw new ErrorException("Exception: ".$errstr, 0, $errno, $errfile, $errline);
+    throw new ErrorException("Exception: ".$errstr, 0, $errno, $errfile, $errline);
 }
-
 
 set_error_handler("myErrorHandler");
 
 trytest();
+```
+
+如果是致命错误 , 比如调用一个没有定义的函数 , 依然是会报错的 : 
+
+```
+Fatal error: Call to undefined function asdfwe() 
+```
+
+set\_error\_handler 只能拦截部分错误 , 对于如下拦截不了的怎么办? 比如 : 
+
+```
+E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING, E_COMPILE_ERROR, E_COMPILE_WARNING
+```
+
+答案是使用register\_shutdown\_function\(\)函数 , 在代码执行完毕之前要做的事 , 拦截方式 : 
+
+```php
+<?php
+
+error_reporting(0);
+
+register_shutdown_function(function() {
+    if ($error = error_get_last()) {
+        print_r($error);
+    }
+});
+
+// Fatal error: Call to undefined function asdfwe()
+try {
+    asdfwe();
+} finally {
+    echo 123;
+}
 ```
 
 
