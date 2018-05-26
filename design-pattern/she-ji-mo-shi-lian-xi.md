@@ -150,7 +150,7 @@ GoodsFactory::getGoods('Fruits');
 var_export(GoodsDataCenter::getList());
 ```
 
-这里再简单的修改一下工厂方法 , 让其可以使用可变参数 : 
+这里再简单的修改一下工厂方法 , 让其可以使用可变参数 :
 
 ```php
 public static function getGoods($type)
@@ -167,6 +167,12 @@ public static function getGoods($type)
         }
     }
 }
+```
+
+```php
+GoodsFactory::getGoods(['Books', 'Fruits']);
+
+var_export(GoodsDataCenter::getList());
 ```
 
 
