@@ -119,6 +119,7 @@
   * [Behavioral - 行为型模式](design-pattern/behavioral.md)
     * [Observer - 观察者模式](design-pattern/behavioral/observer.md)
       * [代码示例](design-pattern/behavioral/observer/code-example.md)
+  * [设计模式练习](design-pattern/she-ji-mo-shi-lian-xi.md)
 * [函数式编程](functional.md)
   * [函数](functional/function.md)
     * [声明函数和方法](functional/function/sheng-ming-han-shu-he-fang-fa.md)
