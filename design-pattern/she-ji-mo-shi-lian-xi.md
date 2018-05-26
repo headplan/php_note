@@ -72,7 +72,7 @@ $result_fruits = $object2->getList();
 $result_wines = $object3->getList();
 ```
 
-可以发现 , 前面我们没有约束的接口或者抽象类 , 但获取数据都调用了getList\(\)方法 , 现在 ,我们先定义个接口 , 规定getList是必须存在的 , 并在工厂中约束 . 
+可以发现 , 前面我们没有约束的接口或者抽象类 , 但获取数据都调用了getList\(\)方法 , 现在 ,我们先定义个接口 , 规定getList是必须存在的 , 并在工厂中约束 .
 
 ```php
 <?php
@@ -83,6 +83,71 @@ interface GInerface
 {
     public function getList();
 }
+```
+
+接下来就可以创建中心了 : 
+
+```php
+<?php
+
+namespace Practice;
+
+class GoodsDataCenter
+{
+    public static $object = [];
+
+    public static function set($key, $value)
+    {
+        self::$object[$key] = $value;
+    }
+
+    // 这里可以写一个get方法来获取,但是还是没有解决要写很多tpye,然后获取对象的问题
+    public static function get($key)
+    {
+        return self::$objects[$key];
+    }
+
+    // 还可以不冲一个unset方法
+    public static function unset($key)
+    {
+        self::unset(self::$objects[$key]);
+    }
+
+    // 使用魔术方法__callStatic去调用getList方法
+    public static function __callStatic($methodName, $methodArgs)
+    {
+        $result = [];
+
+        foreach (self::$objects as $object) {
+            if (method_exists($object, $methodName)) {
+                $r = $object->$methodName($methodArgs);
+                if ($r) {
+                    $result[] = $r;
+                }
+            }
+        }
+
+        return $result;
+    }  
+
+}
+```
+
+然后把工厂中最后返回的数据 , 塞入到GoodsDataCenter中 : 
+
+```php
+if ($object instanceof GInerface) {
+    GoodsDataCenter::set($tpye, $object);
+}
+```
+
+改造的差不多了 , 现在可以直接在GoodsFactory中注册 , 然后调用数据中心 , 直接获取要所有注册的数据 . 
+
+```php
+GoodsFactory::getGoods('Books');
+GoodsFactory::getGoods('Fruits');
+
+var_export(GoodsDataCenter::getList());
 ```
 
 
