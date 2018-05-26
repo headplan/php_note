@@ -58,7 +58,7 @@ class GoodsFactory
 
 #### 实现注册树 , 也可以叫数据中心
 
-现在 , 要在图书的分类中 , 还要取出水果和酒的数据 , 根据上面的工厂 , 我们需要这样写 : 
+现在 , 要在图书的分类中 , 还要取出水果和酒的数据 , 根据上面的工厂 , 我们需要这样写 :
 
 ```
 use Practice\GoodsFactory;
@@ -70,7 +70,19 @@ $object3 = GoodsFactory::getGoods('Wines');
 $result_books = $object->getList();
 $result_fruits = $object2->getList();
 $result_wines = $object3->getList();
+```
 
+可以发现 , 前面我们没有约束的接口或者抽象类 , 但获取数据都调用了getList\(\)方法 , 现在 ,我们先定义个接口 , 规定getList是必须存在的 , 并在工厂中约束 . 
+
+```php
+<?php
+
+namespace Practice;
+
+interface GInerface
+{
+    public function getList();
+}
 ```
 
 
