@@ -85,7 +85,7 @@ interface GInerface
 }
 ```
 
-接下来就可以创建中心了 : 
+接下来就可以创建中心了 :
 
 ```php
 <?php
@@ -133,7 +133,7 @@ class GoodsDataCenter
 }
 ```
 
-然后把工厂中最后返回的数据 , 塞入到GoodsDataCenter中 : 
+然后把工厂中最后返回的数据 , 塞入到GoodsDataCenter中 :
 
 ```php
 if ($object instanceof GInerface) {
@@ -141,13 +141,32 @@ if ($object instanceof GInerface) {
 }
 ```
 
-改造的差不多了 , 现在可以直接在GoodsFactory中注册 , 然后调用数据中心 , 直接获取要所有注册的数据 . 
+改造的差不多了 , 现在可以直接在GoodsFactory中注册 , 然后调用数据中心 , 直接获取要所有注册的数据 .
 
 ```php
 GoodsFactory::getGoods('Books');
 GoodsFactory::getGoods('Fruits');
 
 var_export(GoodsDataCenter::getList());
+```
+
+这里再简单的修改一下工厂方法 , 让其可以使用可变参数 : 
+
+```php
+public static function getGoods($type)
+{
+    $argc = func_num_args();
+    if ($argc > 1) {
+        $type = func_get_args();
+    }
+    if (is_string($type)) {
+        self::getGoodsType($type);
+    } elseif (is_array($type)) {
+        foreach ($type as $value) {
+            self::getGoodsType($value);
+        }
+    }
+}
 ```
 
 
