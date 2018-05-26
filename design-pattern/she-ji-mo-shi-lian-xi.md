@@ -27,5 +27,34 @@ public function getList()
 }
 ```
 
+接下来创建工厂 , 让前面的所有商品类的取出实例化 , 都交给工厂来解决 : 
+
+```php
+<?php
+
+namespace Practice;
+
+class GoodsFactory
+{
+    public static function getGoods($tpye)
+    {
+        $object = false;
+        switch ($tpye)
+        {
+            case 'Books':
+                $object = new Books();
+                break;
+            case 'Fruits':
+                $object = new Fruits();
+                break;
+            case 'Wines':
+                $object = new Wines();
+                break;
+        }
+        return $object;
+    }
+}
+```
+
 
 
