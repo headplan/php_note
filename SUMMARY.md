@@ -161,6 +161,7 @@
     * [Functors](functional/functorsapplicativesmonads/functors.md)
     * [Applicative functors](functional/functorsapplicativesmonads/applicative-functors.md)
 * [PHP Socket](php-socket.md)
+  * [UNIX Socket FAQ](php-socket/unix-socket-faq.md)
 * [Swoole](swoole.md)
   * [入门知识](swoole/ru-men-zhi-shi.md)
 * [Awesome PHP](awesome-php.md)
