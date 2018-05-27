@@ -177,7 +177,7 @@ var_export(GoodsDataCenter::getList());
 
 #### 模板化对象 , 抽象管理
 
-现在 , 我们想获取一个实体 , 也就是前面Books,Fruits等的详情页面的信息 , 即一条数据的详细信息 , 首先想到的 , 就是在Books等类中新建一个方法 , 来获取数据 . 参数是商品的ID , 其实就是$methodName\($methodArgs\);的参数值 , 因为使用的是\_\_callStatic\(\)方法 , 这里的$methodArgs参数默认是一个数组 , 如果只是单条数据 , 那参数就是$methodArgs\[0\] . 
+现在 , 我们想获取一个实体 , 也就是前面Books,Fruits等的详情页面的信息 , 即一条数据的详细信息 , 首先想到的 , 就是在Books等类中新建一个方法 , 来获取数据 . 参数是商品的ID , 其实就是$methodName\($methodArgs\);的参数值 , 因为使用的是\_\_callStatic\(\)方法 , 这里的$methodArgs参数默认是一个数组 , 如果只是单条数据 , 那参数就是$methodArgs\[0\] .
 
 ```php
 public function getDetails($goods_id)
@@ -188,7 +188,27 @@ public function getDetails($goods_id)
 }
 ```
 
-这里 , 我们想要的不仅仅是一条数据 , 或许还有一些其他简单的操作 , 比如获取统计数,获取点击量,再打一个log等 , 当然没有太过复杂的逻辑 , 但如果这些操作都是分开的 , 我们就需要一个实际的对象来管理这些操作 , 这里使用PHP7的匿名类来实现 : 
+这里 , 我们想要的不仅仅是一条数据 , 或许还有一些其他简单的操作 , 比如获取统计数,获取点击量,再打一个log等 , 当然没有太过复杂的逻辑 , 但如果这些操作都是分开的 , 我们就需要一个实际的对象来管理这些操作 , 这里使用PHP7的匿名类来实现 :
+
+```php
+public function getDetails($goods_id)
+{
+    return new class($goods_id[0])
+    {
+        public function __construct($goods_id)
+        {
+            if ($goods_id == 104) {
+                $data = ["goods_id"=>104, "goods_name"=>"python不学即会"];
+            }
+            foreach ($data as $k => $v) {
+                $this->$k = $v;
+            }
+        }
+    };
+}
+```
+
+基本的获取对象已经完成 , 现在要添加打日志 , 获取点击量等操作 , 对这些同时获取的操作进行管理 , 我们就需要抽象出一个管理这些操作的加载骨架 , 这里新建一个公共类 , 而且是抽象的 : 
 
 ```php
 public function getDetails($goods_id)
