@@ -58,9 +58,27 @@ resource socket_create ( int $domain , int $type , int $protocol )
 | udp | User Datagram Protocol 是一个无连接的、不可靠的、具有固定最大长度的报文协议。由于这些特性，UDP 协议拥有最小的协议开销。 |
 | tcp | Transmission Control Protocol 是一个可靠的、基于连接的、面向数据流的全双工协议。TCP 能够保障所有的数据包是按照其发送顺序而接收的。如果任意数据包在通讯时丢失，TCP 将自动重发数据包直到目标主机应答已接收。因为可靠性和性能的原因，TCP 在数据传输层使用 8bit 字节边界。因此，TCP 应用程序必须允许传送部分报文的可能。 |
 
-socket\_create\(\) 正确时返回一个套接字 , 失败时返回 FALSE . 要读取错误代码 , 可以调用 socket\_last\_error\(\) . 这个错误代码可以通过 socket\_strerror\(\) 读取文字的错误说明 . 
+socket\_create\(\) 正确时返回一个套接字 , 失败时返回 FALSE . 要读取错误代码 , 可以调用 socket\_last\_error\(\) . 这个错误代码可以通过 socket\_strerror\(\) 读取文字的错误说明 .
 
 > 需要注意的是 , 上面的参数并不是可以随意组合的 . 如果使用一个无效的 domain 或 type , socket\_create\(\) 会使用 AF\_INET 和 SOCK\_STREAM 替代无效参数 , 同时会发出 E\_WARNING 警告信息 .
 
+当我们成功创建一个socket时 , 返回一个PHP的资源ID , 其实它是一个socket描述字 , 描述它存在于协议族\(address family , AFXXX\)空间中 , 但没有一个具体的地址 . 如果想要给它赋值一个地址 , 就必须调用socket\_bind\(\)函数 . 
 
+**socket\_bind**
+
+给套接字绑定名字 . 
+
+```php
+bool socket_bind ( resource $socket , string $address [, int $port = 0 ] )
+```
+
+绑定 address 到 socket . 当然 , 该操作必须是在使用 socket\_connect\(\) 或者 socket\_listen\(\) 建立一个连接之前 . 
+
+* **socket** - 用socket\_create\(\)创建的一个有效的套接字资源 , 就是前面的提到的 .
+* **address** 
+  * 如果套接字是 AF\_INET 族 , 那么 address 必须是一个四点分法的 IP 地址\(例如 127.0.0.1\)
+  * 如果套接字是 AF\_UNIX 族 , 那么 address 是 Unix 套接字一部分\(例如 /tmp/my.sock\)
+* **port** - 可选参数 , 参数`port`仅仅用于**`AF_INET`**套接字连接的时候 , 并且指定连接中需要监听的端口号
+
+返回值是bool , 有错误时和前面一样 , 用socket\_last\_error\(\)和socket\_strerror\(\)接错误 . 
 
