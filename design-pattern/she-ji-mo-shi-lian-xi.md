@@ -208,25 +208,38 @@ public function getDetails($goods_id)
 }
 ```
 
-基本的获取对象已经完成 , 现在要添加打日志 , 获取点击量等操作 , 对这些同时获取的操作进行管理 , 我们就需要抽象出一个管理这些操作的加载骨架 , 这里新建一个公共类 , 而且是抽象的 : 
+基本的获取对象已经完成 , 现在要添加打日志 , 获取点击量等操作 , 对这些同时获取的操作进行管理 , 我们就需要抽象出一个管理这些操作的加载骨架 , 这里新建一个公共类 , 而且是抽象的 :
 
 ```php
-public function getDetails($goods_id)
+<?php
+
+namespace Practice;
+
+abstract class GoodsDetailsLoad
 {
-    return new class($goods_id[0])
+    public function loadData($goods_id, $type)
     {
-        public function __construct($goods_id)
+        $this->setClick($goods_id);
+        $this->setLog($goods_id);
+        
+        return new class($goods_id, $type)
         {
-            if ($goods_id == 104) {
-                $data = ["goods_id"=>104, "goods_name"=>"python不学即会"];
+            public function __construct($goods_id, $type)
+            {
+                if ($goods_id == 104) {
+                    $data = ["goods_id"=>104, "goods_name"=>"python不学即会"];
+                }
+                foreach ($data as $k => $v) {
+                    $this->$k = $v;
+                }
             }
-            foreach ($data as $k => $v) {
-                $this->$k = $v;
-            }
-        }
-    };
+        };
+    }
+
+    abstract public function setClick($id);
+    abstract public function setLog($id);
 }
 ```
 
-
+这里抽象了点击数和日志的抽象 , 并在loadData中加载 . 现在就可以在Books中继承 , 然后完成各自的内容 . 同时进行了加载 . 也方便管理通用以及自定义的方法 . 
 
