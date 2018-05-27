@@ -111,19 +111,19 @@ socket\_listen \(\) 仅适用于类型 SOCK\_STREAM 或 SOCK\_SEQPACKET 的套�
 >
 > 当然 , 对于一个经常处理新连接的高负载 web服务环境来说 , 128有点太小了 . 而且这个监听队列大一些的话 , 对防止拒绝服务 DoS 攻击也会有所帮助 .
 >
-> 不过现在这个参数可以由SYN Cookie部分接管了 , 开启 : 
+> 不过现在这个参数可以由SYN Cookie部分接管了 , 开启 :
 >
 > ```
 > echo 1 > /proc/sys/net/ipv4/tcp_syncookies
 > ```
 >
-> 注意 , 即使开启该机制并不意味着所有的连接都是用SYN cookies机制来完成连接的建立 , 只有在半连接队列已满的情况下才会触发SYN cookies机制 . 由于SYN cookies机制严重违背TCP协议 , 不允许使用TCP扩展 , 可能对某些服务造成严重的性能影响\(如SMTP转发\) . 
+> 注意 , 即使开启该机制并不意味着所有的连接都是用SYN cookies机制来完成连接的建立 , 只有在半连接队列已满的情况下才会触发SYN cookies机制 . 由于SYN cookies机制严重违背TCP协议 , 不允许使用TCP扩展 , 可能对某些服务造成严重的性能影响\(如SMTP转发\) .
 >
 > 对于没有收到攻击的高负载服务器 , 不用开启也可以 , 可以通过修改tcp\_max\_syn\_backlog、tcp\_synack\_retries和tcp\_abort\_on\_overflow系统参数来调节 .
 
-函数的成功时返回 TRUE , 或者在失败时返回 FALSE . 错误还用前面提到的函数接 . 
+函数的成功时返回 TRUE , 或者在失败时返回 FALSE . 错误还用前面提到的函数接 .
 
-**socket\_connect** - 开启一个socket连接 . 
+**socket\_connect** - 开启一个socket连接 .
 
 ```php
 bool socket_connect ( resource $socket , string $address [, int $port = 0 ] )
@@ -133,17 +133,19 @@ bool socket_connect ( resource $socket , string $address [, int $port = 0 ] )
 * **address** - 如果参数 socket 是 AF\_INET ， 那么参数 address 则可以是一个点分四组表示法（例如 127.0.0.1 ） 的 IPv4 地址； 如果支持 IPv6 并且 socket 是 AF\_INET6，那么 address 也可以是有效的 IPv6 地址（例如 ::1）；如果套接字类型为 AF\_UNIX ，那么 address 也可以是一个Unix 套接字。
 * **port** - 参数 port 仅仅用于 AF\_INET 和 AF\_INET6 套接字连接的时候，并且是在此情况下是需要强制说明连接对应的远程服务器上的端口号。
 
-函数的成功时返回 TRUE , 或者在失败时返回 FALSE . 错误还用前面提到的函数接 . 
+函数的成功时返回 TRUE , 或者在失败时返回 FALSE . 错误还用前面提到的函数接 .
 
 ---
 
-**socket\_accept** - 接受套接字上的连接 . 
+**socket\_accept** - 接受套接字上的连接 .
 
-TCP服务器端依次调用socket\_create\(\)、socket\_bind\(\)、socket\_listen\(\)之后 , 就会监听指定的socket地址了 . TCP客户端依次调用socket\_create\(\)、socket\_connect\(\)之后会向TCP服务器发送了一个连接请求 . TCP服务器监听到这个请求之后 , 就会调用accept\(\)函数取接收请求 , 这样连接就建立好了 . 之后就可以开始网络I/O操作了 , 即类同于普通文件的读写I/O操作 . 
+TCP服务器端依次调用socket\_create\(\)、socket\_bind\(\)、socket\_listen\(\)之后 , 就会监听指定的socket地址了 . TCP客户端依次调用socket\_create\(\)、socket\_connect\(\)之后会向TCP服务器发送了一个连接请求 . TCP服务器监听到这个请求之后 , 就会调用socket\_accept\(\)函数去接收请求 , 这样连接就建立好了 . 之后就可以开始网络I/O操作了 , 即类同于普通文件的读写I/O操作 . 
+
+这里如果套接字上有多个连接排队 , 则会使用第一个连接 .  如果没有挂起的连接 , 则socket\_accept将阻塞 , 直到出现连接 . 如果使用socket\_set\_blocking或socket\_set\_nonblock将套接字设为非阻塞 , 则将返回FALSE . 
 
 ```php
 resource socket_accept ( resource $socket )
 ```
 
-
+我们看到socket\_accept也是返回一个资源 , 但它一般不会用于接收新来的连接请求 , 它表示一个已连接的资源 .  而是使用原始监听的socket去保持打开并重新使用 .  也就是说一个服务器通常通常仅仅只创建一个监听socket描述字，它在该服务器的生命周期内一直存在 . 内核为每个由服务器进程接受的客户连接创建了一个已连接socket描述字 , 当服务器完成了对某个客户的服务 , 相应的已连接socket描述字就被关闭 . 
 
