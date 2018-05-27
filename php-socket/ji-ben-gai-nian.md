@@ -51,12 +51,16 @@ resource socket_create ( int $domain , int $type , int $protocol )
 | `SOCK_RAW` | 提供读取原始的网络协议。这种特殊的套接字可用于手工构建任意类型的协议。一般使用这个套接字来实现 ICMP 请求（例如 ping）。 |
 | `SOCK_RDM` | 提供一个可靠的数据层，但不保证到达顺序。一般的操作系统都未实现此功能。 |
 
-**protocol** : 故名思意 , 就是指定协议 , 当然是设置指定`domain`套接字下的具体协议 . 在PHP中可以使用getprotobynumber\(\)函数获取与协议名称关联的协议编号 , 即获取系统中/etc/protocol中的信息 , 相关的还有一个getprotobyname\(\) , 获取名字 , 如果你有自定义的协议名 , 也可以写在/etc/protocol里 . 如果协议是TCP或UDP , 可以直接用常量**`SOL_TCP`**和**`SOL_UDP`**
+* **protocol** : 故名思意 , 就是指定协议 , 当然是设置指定`domain`套接字下的具体协议 . 在PHP中可以使用getprotobynumber\(\)函数获取与协议名称关联的协议编号 , 即获取系统中/etc/protocol中的信息 , 相关的还有一个getprotobyname\(\) , 获取名字 , 如果你有自定义的协议名 , 也可以写在/etc/protocol里 . 如果协议是TCP或UDP , 可以直接用常量`SOL_TCP`和`SOL_UDP`
 
 | icmp | Internet Control Message Protocol 主要用于网关和主机报告错误的数据通信。例如“ping”命令（在目前大部分的操作系统中）就是使用 ICMP 协议实现的。 |
 | :--- | :--- |
 | udp | User Datagram Protocol 是一个无连接的、不可靠的、具有固定最大长度的报文协议。由于这些特性，UDP 协议拥有最小的协议开销。 |
 | tcp | Transmission Control Protocol 是一个可靠的、基于连接的、面向数据流的全双工协议。TCP 能够保障所有的数据包是按照其发送顺序而接收的。如果任意数据包在通讯时丢失，TCP 将自动重发数据包直到目标主机应答已接收。因为可靠性和性能的原因，TCP 在数据传输层使用 8bit 字节边界。因此，TCP 应用程序必须允许传送部分报文的可能。 |
+
+socket\_create\(\) 正确时返回一个套接字 , 失败时返回 FALSE . 要读取错误代码 , 可以调用 socket\_last\_error\(\) . 这个错误代码可以通过 socket\_strerror\(\) 读取文字的错误说明 . 
+
+> 需要注意的是 , 上面的参数并不是可以随意组合的 . 如果使用一个无效的 domain 或 type , socket\_create\(\) 会使用 AF\_INET 和 SOCK\_STREAM 替代无效参数 , 同时会发出 E\_WARNING 警告信息 .
 
 
 
