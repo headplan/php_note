@@ -82,37 +82,68 @@ bool socket_bind ( resource $socket , string $address [, int $port = 0 ] )
 
 返回值是bool , 有错误时和前面一样 , 用socket\_last\_error\(\)和socket\_strerror\(\)接错误 .
 
-正如上面所说**socket\_bind\(\)**函数就是把一个地址族中的特定地址赋给socket . 例如对应AF\_INET、AF\_INET6就是把一个ipv4或ipv6地址和端口号组合赋给socket . 
+正如上面所说**socket\_bind\(\)**函数就是把一个地址族中的特定地址赋给socket . 例如对应AF\_INET、AF\_INET6就是把一个ipv4或ipv6地址和端口号组合赋给socket .
 
-通常服务器在启动的时候都会绑定一个众所周知的地址\(如ip地址+端口号\) , 用于提供服务 , 客户就可以通过它来接连服务器 ; 而客户端就不用指定 , 有系统自动分配一个端口号和自身的ip地址组合 . 这就是为什么通常服务器端在listen之前会调用bind\(\) , 而客户端就不会调用 , 而是在connect\(\)时由系统随机生成一个 . 
+通常服务器在启动的时候都会绑定一个众所周知的地址\(如ip地址+端口号\) , 用于提供服务 , 客户就可以通过它来接连服务器 ; 而客户端就不用指定 , 有系统自动分配一个端口号和自身的ip地址组合 . 这就是为什么通常服务器端在listen之前会调用bind\(\) , 而客户端就不会调用 , 而是在connect\(\)时由系统随机生成一个 .
 
 **listen和connect**
 
-如果作为一个服务器 , 在调用`socket_create()`、`socket_bind()`之后就会调用`socket_listen()`来监听这个socket , 如果客户端这时调用`socket_connect()`发出连接请求 , 服务器端就会接收到这个请求 . 
+如果作为一个服务器 , 在调用`socket_create()`、`socket_bind()`之后就会调用`socket_listen()`来监听这个socket , 如果客户端这时调用`socket_connect()`发出连接请求 , 服务器端就会接收到这个请求 .
 
-**socket\_listen** - 监听套接字上的连接 . 
+**socket\_listen** - 监听套接字上的连接 .
 
 ```php
 bool socket_listen ( resource $socket [, int $backlog = 0 ] )
 ```
 
-使用 socket\_create \(\) 创建套接字插座并绑定到带有 socket\_bind \(\) 的名称后 , 然后就需要监听了 . socket\_create\(\)函数创建的socket默认是一个主动类型的 , listen函数将socket变为被动类型的 , 即等待客户的连接请求 . 
+使用 socket\_create \(\) 创建套接字插座并绑定到带有 socket\_bind \(\) 的名称后 , 然后就需要监听了 . socket\_create\(\)函数创建的socket默认是一个主动类型的 , listen函数将socket变为被动类型的 , 即等待客户的连接请求 .
 
-socket\_listen \(\) 仅适用于类型 SOCK\_STREAM 或 SOCK\_SEQPACKET 的套接字 . 
+socket\_listen \(\) 仅适用于类型 SOCK\_STREAM 或 SOCK\_SEQPACKET 的套接字 .
 
-**socket** - 用socket\_create\(\)创建的一个有效的套接字资源 , 就是前面的提到的 . 
+* **socket** - 用socket\_create\(\)创建的一个有效的套接字资源 , 就是前面的提到的 .
+* **backlog** - 可选参数 , 相应socket可以排队的最大连接个数 . 如果连接请求到满队时 , 客户端可能会收到ECONNREFUSED错误提示 , 或者 , 如果基础协议支持重新传输 , 则请求可能会被忽略 , 以便重试 . 这里第二个参数其实就是设置一下队列的长度 , 如果是tcp协议 , 当队列满了的时候 , 不会发送rst给客户端 , 客户端会重新发送SYN , 以便能进入这个队列 . 如果三次握手完成了 , 就会将完成三次握手的请求取出来 , 放入另一个队列中 , 这样队列就空出一个位置 , 其他重发SYN的请求就可以进入队列中 .
 
-**backlog** - 可选参数 , 相应socket可以排队的最大连接个数 . 如果连接请求到满队时 , 客户端可能会收到ECONNREFUSED错误提示 , 或者 , 如果基础协议支持重新传输 , 则请求可能会被忽略 , 以便重试 . 这里第二个参数其实就是设置一下队列的长度 , 如果是tcp协议 , 当队列满了的时候 , 不会发送rst给客户端 , 客户端会重新发送SYN , 以便能进入这个队列 . 如果三次握手完成了 , 就会将完成三次握手的请求取出来 , 放入另一个队列中 , 这样队列就空出一个位置 , 其他重发SYN的请求就可以进入队列中 . 
-
-> 这个最大值 , 其实取决于底层平台 , Linux上默认设置为SOMAXCONN参数的值 , 默认为128  : 
+> 这个最大值 , 其实取决于底层平台 , Linux上默认设置为SOMAXCONN参数的值 , 默认为128  :
 >
 > ```
 > cat /proc/sys/net/core/somaxconn
 > ```
 >
 > 当然 , 对于一个经常处理新连接的高负载 web服务环境来说 , 128有点太小了 . 而且这个监听队列大一些的话 , 对防止拒绝服务 DoS 攻击也会有所帮助 .
+>
+> 不过现在这个参数可以由SYN Cookie部分接管了 , 开启 : 
+>
+> ```
+> echo 1 > /proc/sys/net/ipv4/tcp_syncookies
+> ```
+>
+> 注意 , 即使开启该机制并不意味着所有的连接都是用SYN cookies机制来完成连接的建立 , 只有在半连接队列已满的情况下才会触发SYN cookies机制 . 由于SYN cookies机制严重违背TCP协议 , 不允许使用TCP扩展 , 可能对某些服务造成严重的性能影响\(如SMTP转发\) . 
+>
+> 对于没有收到攻击的高负载服务器 , 不用开启也可以 , 可以通过修改tcp\_max\_syn\_backlog、tcp\_synack\_retries和tcp\_abort\_on\_overflow系统参数来调节 .
 
+函数的成功时返回 TRUE , 或者在失败时返回 FALSE . 错误还用前面提到的函数接 . 
 
+**socket\_connect** - 开启一个socket连接 . 
+
+```php
+bool socket_connect ( resource $socket , string $address [, int $port = 0 ] )
+```
+
+* **socket** - 创建的soket套接字
+* **address** - 如果参数 socket 是 AF\_INET ， 那么参数 address 则可以是一个点分四组表示法（例如 127.0.0.1 ） 的 IPv4 地址； 如果支持 IPv6 并且 socket 是 AF\_INET6，那么 address 也可以是有效的 IPv6 地址（例如 ::1）；如果套接字类型为 AF\_UNIX ，那么 address 也可以是一个Unix 套接字。
+* **port** - 参数 port 仅仅用于 AF\_INET 和 AF\_INET6 套接字连接的时候，并且是在此情况下是需要强制说明连接对应的远程服务器上的端口号。
+
+函数的成功时返回 TRUE , 或者在失败时返回 FALSE . 错误还用前面提到的函数接 . 
+
+---
+
+**socket\_accept** - 接受套接字上的连接 . 
+
+TCP服务器端依次调用socket\_create\(\)、socket\_bind\(\)、socket\_listen\(\)之后 , 就会监听指定的socket地址了 . TCP客户端依次调用socket\_create\(\)、socket\_connect\(\)之后会向TCP服务器发送了一个连接请求 . TCP服务器监听到这个请求之后 , 就会调用accept\(\)函数取接收请求 , 这样连接就建立好了 . 之后就可以开始网络I/O操作了 , 即类同于普通文件的读写I/O操作 . 
+
+```php
+resource socket_accept ( resource $socket )
+```
 
 
 
