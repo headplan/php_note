@@ -221,12 +221,14 @@ abstract class GoodsDetailsLoad
     {
         $this->setClick($goods_id);
         $this->setLog($goods_id);
-        
+        $this->setCom();
+
         return new class($goods_id, $type)
         {
             public function __construct($goods_id, $type)
             {
-                if ($goods_id == 104) {
+                $data = [];
+                if ($goods_id == 104 && $type == 'Books') {
                     $data = ["goods_id"=>104, "goods_name"=>"python不学即会"];
                 }
                 foreach ($data as $k => $v) {
@@ -238,8 +240,22 @@ abstract class GoodsDetailsLoad
 
     abstract public function setClick($id);
     abstract public function setLog($id);
+
+    public function setCom()
+    {
+        echo '公共方法';
+    }
 }
 ```
 
 这里抽象了点击数和日志的抽象 , 并在loadData中加载 . 现在就可以在Books中继承 , 然后完成各自的内容 . 同时进行了加载 . 也方便管理通用以及自定义的方法 . 
+
+```
+public function getDetails($goods_id)
+{
+    return parent::loadData($goods_id[0], 'Books');
+}
+```
+
+这里数据部分都写死了 , 没有判断多余部分是否存在 , 这里只考虑抽象管理的应用 . 其他略...
 
