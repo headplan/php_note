@@ -137,7 +137,7 @@ ws.onmessage = function(evt) {
 
 **接收客户端发来的消息**
 
-同样 , 消息也需要解析 : 
+同样 , 消息也需要解析 :
 
 ```php
 function getMsg($buffer)
@@ -161,7 +161,7 @@ function getMsg($buffer)
 }
 ```
 
-在客户端添加一个按钮 , 来触发消息的发送 : 
+在客户端添加一个按钮 , 来触发消息的发送 :
 
 ```js
 <button onclick="send()">发送消息</button>
@@ -171,5 +171,5 @@ function send()
 }
 ```
 
-
+j
 
