@@ -126,13 +126,49 @@ function buildMsg($msg)
 }
 ```
 
-现在 , 客户端的 , 也就是ws , 已经可以获取到信息了 : 
+现在 , 客户端的 , 也就是ws , 已经可以获取到信息了 :
 
 ```js
 ws.onmessage = function(evt) {
     console.log( "Received Message: " + evt.data);
     ws.close();
 };
+```
+
+**接收客户端发来的消息**
+
+同样 , 消息也需要解析 : 
+
+```php
+function getMsg($buffer)
+{
+    $res = '';
+    $len = ord($buffer[1]) & 127;
+    if ($len === 126) {
+        $masks = substr($buffer, 4, 4);
+        $data = substr($buffer, 8);
+    } else if ($len === 127) {
+        $masks = substr($buffer, 10, 4);
+        $data = substr($buffer, 14);
+    } else {
+        $masks = substr($buffer, 2, 4);
+        $data = substr($buffer, 6);
+    }
+    for ($index = 0; $index < strlen($data); $index++) {
+        $res .= $data[$index] ^ $masks[$index % 4];
+    }
+    return $res;
+}
+```
+
+在客户端添加一个按钮 , 来触发消息的发送 : 
+
+```js
+<button onclick="send()">发送消息</button>
+function send()
+{
+    ws.send('Hi,Server!');
+}
 ```
 
 
