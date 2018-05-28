@@ -191,11 +191,13 @@ int socket_write ( resource $socket , string $buffer [, int $length = 0 ] )
 
 ---
 
-**socket\_close** - 关闭套接字资源 . 
+**socket\_close** - 关闭套接字资源 .
 
 ```php
 void socket_close ( resource $socket )
 ```
+
+socket\_close\(\) 会关闭掉给定的 socket 资源 . 这个函数只针对套接字资源有效 , 不能用在其他类型的资源类型上 . 
 
 > 查看本地代码 , 模拟简单的服务器与客户端的交互 .
 
