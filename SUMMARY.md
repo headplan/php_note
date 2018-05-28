@@ -164,6 +164,7 @@
   * [UNIX Socket FAQ](php-socket/unix-socket-faq.md)
   * [基本概念](php-socket/ji-ben-gai-nian.md)
     * [理解HTTP协议](php-socket/ji-ben-gai-nian/li-jie-http-xie-yi.md)
+    * [理解TCP协议](php-socket/ji-ben-gai-nian/li-jie-tcp-xie-yi.md)
 * [Swoole](swoole.md)
   * [入门知识](swoole/ru-men-zhi-shi.md)
 * [Awesome PHP](awesome-php.md)
