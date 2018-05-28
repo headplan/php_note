@@ -26,5 +26,41 @@ ws://example.com:80/some/path
 
 ![](/assets/wws.png)
 
+---
+
+#### 客户端
+
+可以把Websocket理解为浏览器内嵌的Socket客户端 . 
+
+```js
+# 尝试连接服务端
+let ws = new WebSocket("ws://localhost:9933");
+
+# 其他API
+ws.onopen = function(evt) {
+    console.log("Connection open ...");
+    ws.send("Hello WebSockets!");
+};
+
+ws.onmessage = function(evt) {
+    console.log( "Received Message: " + evt.data);
+    ws.close();
+};
+
+ws.onclose = function(evt) {
+    console.log("Connection closed.");
+};
+```
+
+#### 服务端握手
+
+客户端指定服务器发送一个握手请求 , 如果服务器返回合法的http头 , 则握手成功 . 也就是前面的`new WebSocket`
+
+* 客户端会发送一个字段“Sec-WebSocket-Key:XXXX”
+* 服务端需要截取此值 . 把该值累加字符串258EAFA5-E914-47DA-95CA-C5AB0DC85B11
+* 然后进行sha1
+* 最后再base64\_encode
+* 再拼写正确的协议 , 响应给客户端 . 
+
 
 
