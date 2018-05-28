@@ -6,7 +6,7 @@
 
 ![](/assets/wucengmxing.png)
 
-TCP（Transmission Control Protocol 传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议 . 
+TCP（Transmission Control Protocol 传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议 .
 
 Socket可以理解为应用层与传输层沟通的API .
 
@@ -20,5 +20,13 @@ Socket可以理解为应用层与传输层沟通的API .
 
 **使用抓包工具 , 看一下握手的具体流程 . **
 
-抓包工具可以使用图形界面的Wireshark , 或者是tcpdump . 
+抓包工具可以使用图形界面的Wireshark , 或者是tcpdump .
+
+使用Wireshark , 选择捕获的网口卡 , 也就是抓本地的包 , 本地应该监听lo0 , 即链路层头是BSD loopback . 
+
+也可以上传到服务器上查看 . 
+
+![](/assets/sanciwoshouzhuabao.png)
+
+
 
