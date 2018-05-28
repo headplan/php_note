@@ -197,9 +197,21 @@ int socket_write ( resource $socket , string $buffer [, int $length = 0 ] )
 void socket_close ( resource $socket )
 ```
 
-socket\_close\(\) 会关闭掉给定的 socket 资源 . 这个函数只针对套接字资源有效 , 不能用在其他类型的资源类型上 . 
+socket\_close\(\) 会关闭掉给定的 socket 资源 . 这个函数只针对套接字资源有效 , 不能用在其他类型的资源类型上 .
 
 > 查看本地代码 , 模拟简单的服务器与客户端的交互 .
+
+---
+
+#### Socket中TCP的三次握手建立连接
+
+tcp建立连接要进行“三次握手” , 即交换三个分组 . 大致流程如下 : 
+
+* 客户端向服务器发送一个SYN J
+* 服务器向客户端响应一个SYN K , 并对SYN J进行确认ACK J+1
+* 客户端再向服务器发一个确认ACK K+1
+
+![](/assets/socket三次握手.png)
 
 
 
