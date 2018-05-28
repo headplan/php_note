@@ -68,7 +68,7 @@ if (preg_match("/Sec-WebSocket-Key: (.*)\r\n/i",$buf,$match)) {
 }
 ```
 
-最后拼好的协议内容 : 
+最后拼好的协议内容 :
 
 ```php
 $res= "HTTP/1.1 101 Switching Protocol".PHP_EOL
@@ -78,5 +78,5 @@ $res= "HTTP/1.1 101 Switching Protocol".PHP_EOL
     . "Sec-WebSocket-Accept: " . $key . PHP_EOL . PHP_EOL; // 注意这里是两个换行
 ```
 
-
+这里注释掉socket\_close , 在websocket中 , 服务端不主动关闭连接. 
 
