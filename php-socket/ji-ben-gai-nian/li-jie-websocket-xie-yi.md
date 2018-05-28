@@ -78,7 +78,55 @@ $res= "HTTP/1.1 101 Switching Protocol".PHP_EOL
     . "Sec-WebSocket-Accept: " . $key . PHP_EOL . PHP_EOL; // 注意这里是两个换行
 ```
 
-然后注释掉socket\_close\(\) , 在websocket中 , 服务端一般不主动关闭连接 . 
+然后注释掉socket\_close\(\) , 在websocket中 , 服务端一般不主动关闭连接 .
 
-再次重启服务 , 刷新客户端 , 握手成功 . 
+再次重启服务 , 刷新客户端 , 握手成功 .
+
+#### 交互过程
+
+握手成功后的交互 , 就稍微复杂一些了 : 
+
+![](/assets/websockjaohu.png)
+
+**第一个字节**
+
+最高位用于描述消息是否结束,如果为1则该消息为消息尾部,如果为零则还有后续数据包;后面3位是用于扩展定义的,如果没有扩展约定的情况则必须为0
+
+**第二个字节**
+
+消息的第二个字节主要用一描述掩码和消息长度,最高位用0或1来描述是否有掩码处理 . 
+
+服务端的信息处理
+
+```php
+socket_write($client, buildMsg("Hi,WebSocket!"));
+
+function buildMsg($msg)
+{
+    $frame = [];
+    $frame[0] = '81';
+    $len = strlen($msg);
+    if ($len < 126) {
+        $frame[1] = $len < 16 ? '0' . dechex($len) : dechex($len);
+    } else if ($len < 65025) {
+        $s = dechex($len);
+        $frame[1] = '7e' . str_repeat('0', 4 - strlen($s)) . $s;
+    } else {
+        $s = dechex($len);
+        $frame[1] = '7f' . str_repeat('0', 16 - strlen($s)) . $s;
+    }
+    $data = '';
+    $l = strlen($msg);
+    for ($i = 0; $i < $l; $i++) {
+        $data .= dechex(ord($msg{$i}));
+    }
+    $frame[2] = $data;
+    $data = implode('', $frame);
+    return pack("H*", $data);
+}
+```
+
+
+
+
 
