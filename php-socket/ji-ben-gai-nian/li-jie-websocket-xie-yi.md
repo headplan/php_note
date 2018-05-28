@@ -30,7 +30,7 @@ ws://example.com:80/some/path
 
 #### 客户端
 
-可以把Websocket理解为浏览器内嵌的Socket客户端 . 
+可以把Websocket理解为浏览器内嵌的Socket客户端 .
 
 ```js
 # 尝试连接服务端
@@ -61,6 +61,12 @@ ws.onclose = function(evt) {
 * 然后进行sha1
 * 最后再base64\_encode
 * 再拼写正确的协议 , 响应给客户端 . 
+
+```php
+if (preg_match("/Sec-WebSocket-Key: (.*)\r\n/i",$buf,$match)) {
+    $key = base64_encode(sha1($match[1] . '258EAFA5-E914-47DA-95CA-C5AB0DC85B11',true));
+}
+```
 
 
 
