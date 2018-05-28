@@ -139,13 +139,33 @@ bool socket_connect ( resource $socket , string $address [, int $port = 0 ] )
 
 **socket\_accept** - 接受套接字上的连接 .
 
-TCP服务器端依次调用socket\_create\(\)、socket\_bind\(\)、socket\_listen\(\)之后 , 就会监听指定的socket地址了 . TCP客户端依次调用socket\_create\(\)、socket\_connect\(\)之后会向TCP服务器发送了一个连接请求 . TCP服务器监听到这个请求之后 , 就会调用socket\_accept\(\)函数去接收请求 , 这样连接就建立好了 . 之后就可以开始网络I/O操作了 , 即类同于普通文件的读写I/O操作 . 
+TCP服务器端依次调用socket\_create\(\)、socket\_bind\(\)、socket\_listen\(\)之后 , 就会监听指定的socket地址了 . TCP客户端依次调用socket\_create\(\)、socket\_connect\(\)之后会向TCP服务器发送了一个连接请求 . TCP服务器监听到这个请求之后 , 就会调用socket\_accept\(\)函数去接收请求 , 这样连接就建立好了 . 之后就可以开始网络I/O操作了 , 即类同于普通文件的读写I/O操作 .
 
-这里如果套接字上有多个连接排队 , 则会使用第一个连接 .  如果没有挂起的连接 , 则socket\_accept将阻塞 , 直到出现连接 . 如果使用socket\_set\_blocking或socket\_set\_nonblock将套接字设为非阻塞 , 则将返回FALSE . 
+这里如果套接字上有多个连接排队 , 则会使用第一个连接 .  如果没有挂起的连接 , 则socket\_accept将阻塞 , 直到出现连接 . 如果使用socket\_set\_blocking或socket\_set\_nonblock将套接字设为非阻塞 , 则将返回FALSE .
 
 ```php
 resource socket_accept ( resource $socket )
 ```
 
 我们看到socket\_accept也是返回一个资源 , 但它一般不会用于接收新来的连接请求 , 它表示一个已连接的资源 .  而是使用原始监听的socket去保持打开并重新使用 .  也就是说一个服务器通常通常仅仅只创建一个监听socket描述字，它在该服务器的生命周期内一直存在 . 内核为每个由服务器进程接受的客户连接创建了一个已连接socket描述字 , 当服务器完成了对某个客户的服务 , 相应的已连接socket描述字就被关闭 . 
+
+当服务端和客户端建立好连接以后 , 就可以调用网络I/O进行读写操作了 , 即实现了网咯中不同进程之间的通信 . 
+
+**read和write**
+
+这里只简单的看一下read和write
+
+**socket\_read** - 从套接字读取最大长度字节数 .
+
+```php
+string socket_read ( resource $socket , int $length [, int $type = PHP_BINARY_READ ] )
+```
+
+* **socket** - socket\_create \(\) 或 socket\_accept \(\) 创建的有效套接字资源
+* **length** - 读取的最大字节数由长度参数指定 . 还可以使用\r , \n或\0表示结束读取 , 取决于后面的type参数 . 
+* **type**
+  * PHP\_BINARY\_READ - 默认使用系统recv\(\)函数 . 读取二进制安全数据 . 
+  * PHP\_NORMAL\_READ - 读取停止在\n或\r转义字符 . 
+
+
 
