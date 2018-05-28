@@ -189,6 +189,14 @@ int socket_write ( resource $socket , string $buffer [, int $length = 0 ] )
 
 还要注意的是 , socket\_write函数不一定会写入给定缓冲区中的所有字节 , 因为这取决于network buffers等等 , 也就是说虽然缓冲区够用 , 但还是有数量限制 , 所以要注意下 , 以免无意中忘记传输其余数据 .
 
+---
+
+**socket\_close** - 关闭套接字资源 . 
+
+```php
+void socket_close ( resource $socket )
+```
+
 > 查看本地代码 , 模拟简单的服务器与客户端的交互 .
 
 
