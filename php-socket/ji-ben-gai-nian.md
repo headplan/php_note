@@ -169,19 +169,23 @@ string socket_read ( resource $socket , int $length [, int $type = PHP_BINARY_RE
 
 返回成功读取的数据 , 否则返回false , 远程连接关闭了也会false . 没有可以读的数据 , 返回空字符串 .
 
-socket\_write - 向Socket写入 . 
+**socket\_write** - 向Socket写入 .
 
 ```php
 int socket_write ( resource $socket , string $buffer [, int $length = 0 ] )
 ```
 
-从给定的$buffer缓冲区写入socket . 
+从给定的$buffer缓冲区写入socket .
 
 **socket** - 同上
 
 **buffer** - 要写入的缓冲区
 
-**length** - 可选参数 , 可以指定写入套接字的可选字节长度 . 如果此长度大于缓冲区长度 , 则会将其无提示地截断为缓冲区的长度 . 
+**length** - 可选参数 , 可以指定写入套接字的可选字节长度 . 如果此长度大于缓冲区长度 , 则会将其无提示地截断为缓冲区的长度 .
 
+成功则写入还返回数据 , 失败返回false , 错误用前面的两个函数获取 . 
 
+这里要注意的是 , 返回0意味着没有写入字节 , 但也是完全有效的 . 所以判断是否false时 , 要用全等号去判断 , "===" . 
+
+还要注意的是 , socket\_write函数不一定会写入给定缓冲区中的所有字节 , 因为这取决于network buffers等等 , 也就是说虽然缓冲区够用 , 但还是有数量限制 , 所以要注意下 , 以免无意中忘记传输其余数据 . 
 
