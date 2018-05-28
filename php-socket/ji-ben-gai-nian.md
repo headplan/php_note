@@ -167,5 +167,21 @@ string socket_read ( resource $socket , int $length [, int $type = PHP_BINARY_RE
   * PHP\_BINARY\_READ - 默认使用系统recv\(\)函数 . 读取二进制安全数据 . 
   * PHP\_NORMAL\_READ - 读取停止在\n或\r转义字符 . 
 
-返回成功读取的数据 , 否则返回false , 远程连接关闭了也会false . 没有可以读的数据 , 返回空字符串 . 
+返回成功读取的数据 , 否则返回false , 远程连接关闭了也会false . 没有可以读的数据 , 返回空字符串 .
+
+socket\_write - 向Socket写入 . 
+
+```php
+int socket_write ( resource $socket , string $buffer [, int $length = 0 ] )
+```
+
+从给定的$buffer缓冲区写入socket . 
+
+**socket** - 同上
+
+**buffer** - 要写入的缓冲区
+
+**length** - 可选参数 , 可以指定写入套接字的可选字节长度 . 如果此长度大于缓冲区长度 , 则会将其无提示地截断为缓冲区的长度 . 
+
+
 
