@@ -84,7 +84,7 @@ $res= "HTTP/1.1 101 Switching Protocol".PHP_EOL
 
 #### 交互过程
 
-握手成功后的交互 , 就稍微复杂一些了 : 
+握手成功后的交互 , 就稍微复杂一些了 :
 
 ![](/assets/websockjaohu.png)
 
@@ -94,9 +94,9 @@ $res= "HTTP/1.1 101 Switching Protocol".PHP_EOL
 
 **第二个字节**
 
-消息的第二个字节主要用一描述掩码和消息长度,最高位用0或1来描述是否有掩码处理 . 
+消息的第二个字节主要用一描述掩码和消息长度,最高位用0或1来描述是否有掩码处理 .
 
-服务端的信息处理
+**服务端的信息处理**
 
 ```php
 socket_write($client, buildMsg("Hi,WebSocket!"));
@@ -126,7 +126,14 @@ function buildMsg($msg)
 }
 ```
 
+现在 , 客户端的 , 也就是ws , 已经可以获取到信息了 : 
 
+```js
+ws.onmessage = function(evt) {
+    console.log( "Received Message: " + evt.data);
+    ws.close();
+};
+```
 
 
 
