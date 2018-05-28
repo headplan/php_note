@@ -68,5 +68,15 @@ if (preg_match("/Sec-WebSocket-Key: (.*)\r\n/i",$buf,$match)) {
 }
 ```
 
+最后拼好的协议内容 : 
+
+```php
+$res= "HTTP/1.1 101 Switching Protocol".PHP_EOL
+    . "Upgrade: WebSocket" . PHP_EOL
+    . "Connection: Upgrade" . PHP_EOL
+    . "WebSocket-Location: ws://127.0.0.1:9090" . PHP_EOL
+    . "Sec-WebSocket-Accept: " . $key . PHP_EOL . PHP_EOL; // 注意这里是两个换行
+```
+
 
 
