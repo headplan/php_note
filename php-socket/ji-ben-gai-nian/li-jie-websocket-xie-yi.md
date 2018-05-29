@@ -230,3 +230,71 @@ socket_select($r, $w, $e, 0);
 
 2.客户端的数据要读取一次\(不管是否发送\) . 否则socket\_select依然会认为该客户端是活动的 .
 
+```php
+$clients = [$socket];
+
+while (true) {
+    # 创建一个副本,以免$clients被改变
+    $read = $clients;
+    $write = null;
+    $except = null;
+    # 获取要从中读取数据的所有客户端的列表
+    # 如果没有具有数据的客户端,请转到下一个迭代
+    if (false === socket_select($read,$write, $except, 0)) {
+        continue;
+    }
+
+    # 检查是否有客户端试图连接
+    if (in_array($socket, $read)) {
+        # 接受客户端,并将其添加到$clients中
+        $clients[] = $new_client = socket_accept($socket);
+
+        $buffer = socket_read($new_client, 9999);
+        # log
+        echo $buffer . PHP_EOL;
+        socket_getpeername($new_client, $ip);
+        echo "New client connected: {$ip}" . PHP_EOL;
+
+        if (preg_match("/Sec-WebSocket-Key: (.*)\r\n/i",$buffer,$match)) {
+            $key = base64_encode(sha1($match[1] . '258EAFA5-E914-47DA-95CA-C5AB0DC85B11',true));
+            $result = "HTTP/1.1 101 Switching Protocol".PHP_EOL
+                . "Upgrade: WebSocket" . PHP_EOL
+                . "Connection: Upgrade" . PHP_EOL
+                . "WebSocket-Location: ws://127.0.0.1:9933" . PHP_EOL
+                . "Sec-WebSocket-Accept: " . $key . PHP_EOL . PHP_EOL;
+
+            # 这里已经握手成功
+            socket_write($new_client, $result, strlen($result));
+            socket_write($new_client, buildMsg("Hi,WebSocket!牛逼~"));
+        }
+
+        # 从客户端数据数组中删除侦听的套接字
+        $key = array_search($socket, $read);
+        unset($read[$key]);
+    }
+
+    foreach($read as $read_socket)
+    {
+        $buffer = socket_read($read_socket,8024);
+        # 客户端主动关闭会发来一个9个字节数据
+        if(strlen($buffer) < 9) {
+            $key = array_search($read_socket, $clients);
+            # 在数组中删除 该socket
+            unset($clients[$key]);
+            # 客户端关了,这里也就关闭服务端
+            socket_close($read_socket);
+            continue;
+        }
+
+        # 获取客户端发送消息,并转码
+        echo getMsg($buffer);
+        echo PHP_EOL;
+    }
+
+
+    //socket_close($client);
+}
+```
+
+
+
