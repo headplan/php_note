@@ -184,7 +184,7 @@ $buffer = socket_read($client, 9999);
 //socket_close($client);
 ```
 
-所以 , 我们一直都在连接同一个socket\_accept . 先来看一个Socket函数 .
+所以 , 我们一直都在连接同一个socket\_accept . 这是就需要管理所有连入的socket客户端的状态 .先来看一个Socket函数 .
 
 #### socket\_select
 
@@ -222,17 +222,11 @@ $e = NULL;
 socket_select($r, $w, $e, 0);
 ```
 
-接下来 , 继续改造服务端 , 读取ws过来的消息 . 
+接下来 , 继续改造服务端 , 读取ws过来的消息 .
 
-根据上面的socket\_select函数 , 我们有两点要注意 : 
+根据上面的socket\_select函数 , 我们有两点要注意 :
 
-1.如果客户端先关闭\(譬如刷新页面 , 或者代码中关闭\) , 则服务端程序必须手动关闭相对应的客户端socket\(使用socket\_close函数\) , 否则socket\_select会认为该客户端是活动的\(哪怕它关闭了\) . 
+1.如果客户端先关闭\(譬如刷新页面 , 或者代码中关闭\) , 则服务端程序必须手动关闭相对应的客户端socket\(使用socket\_close函数\) , 否则socket\_select会认为该客户端是活动的\(哪怕它关闭了\) .
 
-2.客户端的数据要读取一次\(不管是否发送\) . 否则socket\_select依然会认为该客户端是活动的 . 
-
-
-
-
-
-
+2.客户端的数据要读取一次\(不管是否发送\) . 否则socket\_select依然会认为该客户端是活动的 .
 
