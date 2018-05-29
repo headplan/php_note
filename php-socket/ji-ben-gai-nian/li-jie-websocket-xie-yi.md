@@ -214,13 +214,25 @@ PHP的socket\_select函数也是调用系统的select函数实现的 . PHP中soc
 
 tv\_sec 和 tv\_usec 一起形成超时参数 . 超时是 socket\_select\(\) 返回之前经过的时间量的上界 . tv\_sec 可能为零 , 导致 socket\_select\(\) 立即返回 . 这对轮询很有用 . 如果 tv\_sec 为 NULL \(无超时\) , socket\_select\(\) 可以无限期地阻塞 .
 
-不需要将每个数组传递给 socket\_select\(\) . 可以将其留空 , 然后使用空数组或NULL . 但不要忘了 , 这些数组是通过引用传递的 , 将在 socket\_select\(\)返回后进行修改 . 由于现在Zend Engine的限制 , 这里不能直接在函数中写null这样的常量 . 得写个临时变量 , 像这样 : 
+不需要将每个数组传递给 socket\_select\(\) . 可以将其留空 , 然后使用空数组或NULL . 但不要忘了 , 这些数组是通过引用传递的 , 将在 socket\_select\(\)返回后进行修改 . 由于现在Zend Engine的限制 , 这里不能直接在函数中写null这样的常量 . 得写个临时变量 , 像这样 :
 
 ```php
 <?php
 $e = NULL;
 socket_select($r, $w, $e, 0);
 ```
+
+接下来 , 继续改造服务端 , 读取ws过来的消息 . 
+
+根据上面的socket\_select函数 , 我们有两点要注意 : 
+
+1.如果客户端先关闭\(譬如刷新页面 , 或者代码中关闭\) , 则服务端程序必须手动关闭相对应的客户端socket\(使用socket\_close函数\) , 否则socket\_select会认为该客户端是活动的\(哪怕它关闭了\) . 
+
+2.客户端的数据要读取一次\(不管是否发送\) . 否则socket\_select依然会认为该客户端是活动的 . 
+
+
+
+
 
 
 
