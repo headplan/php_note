@@ -171,5 +171,34 @@ function send()
 }
 ```
 
-j
+但是 , 现在是收不到消息的 . 而且 , 刷新客户端页面 , 可以在控制台中看到 , 连接被中断 , 这个 , 也需要在服务端进行处理 . 看一下服务端代码 : 
+
+```
+$client = socket_accept($socket);
+$buffer = socket_read($client, 9999);
+```
+
+ 首先 , 我们连入了ws客户端 , 并且读取了它 , 之后 , 我们并没有关闭 : 
+
+```
+//socket_close($client);
+```
+
+所以 , 我们一直都在连接同一个socket\_accept . 先来看一个Socket函数 . 
+
+#### socket\_select
+
+在超时范围内 , 在给定的socket数组上运行select\(\)系统调用 . 
+
+```php
+int socket_select ( array &$read , array &$write , array &$except , int $tv_sec [, int $tv_usec = 0 ] )
+```
+
+socket\_select\(\)接收连入的socket数组并等待它们更改状态 . 这些socket资源数组实际上是所谓的文件描述符集 , 可以理解为$read,$write,$except . 监视他们的状态 . 
+
+PHP的socket\_select函数也是调用系统的select函数实现的 . PHP中socket\_select\(\)函数传入的read和write数组是引用传入的 , 所以每次调用socket\_select\(\)后read和write或者except数组中会包含最新的可以使用的资源数组 . 传入的是要监视的 , 而调用socket\_select后得到的是可以用的 . 
+
+
+
+
 
