@@ -171,34 +171,46 @@ function send()
 }
 ```
 
-但是 , 现在是收不到消息的 . 而且 , 刷新客户端页面 , 可以在控制台中看到 , 连接被中断 , 这个 , 也需要在服务端进行处理 . 看一下服务端代码 : 
+但是 , 现在是收不到消息的 . 而且 , 刷新客户端页面 , 可以在控制台中看到 , 连接被中断 , 这个 , 也需要在服务端进行处理 . 看一下服务端代码 :
 
 ```
 $client = socket_accept($socket);
 $buffer = socket_read($client, 9999);
 ```
 
- 首先 , 我们连入了ws客户端 , 并且读取了它 , 之后 , 我们并没有关闭 : 
+首先 , 我们连入了ws客户端 , 并且读取了它 , 之后 , 我们并没有关闭 :
 
 ```
 //socket_close($client);
 ```
 
-所以 , 我们一直都在连接同一个socket\_accept . 先来看一个Socket函数 . 
+所以 , 我们一直都在连接同一个socket\_accept . 先来看一个Socket函数 .
 
 #### socket\_select
 
-在超时范围内 , 在给定的socket数组上运行select\(\)系统调用 . 
+在超时范围内 , 在给定的socket数组上运行select\(\)系统调用 .
 
 ```php
 int socket_select ( array &$read , array &$write , array &$except , int $tv_sec [, int $tv_usec = 0 ] )
 ```
 
-socket\_select\(\)接收连入的socket数组并等待它们更改状态 . 这些socket资源数组实际上是所谓的文件描述符集 , 可以理解为$read,$write,$except . 监视他们的状态 . 
+socket\_select\(\)接收连入的socket数组并等待它们更改状态 . 这些socket资源数组实际上是所谓的文件描述符集 , 可以理解为$read,$write,$except . 监视他们的状态 .
 
-PHP的socket\_select函数也是调用系统的select函数实现的 . PHP中socket\_select\(\)函数传入的read和write数组是引用传入的 , 所以每次调用socket\_select\(\)后read和write或者except数组中会包含最新的可以使用的资源数组 . 传入的是要监视的 , 而调用socket\_select后得到的是可以用的 . 
+PHP的socket\_select函数也是调用系统的select函数实现的 . PHP中socket\_select\(\)函数传入的read和write数组是引用传入的 , 所以每次调用socket\_select\(\)后read和write或者except数组中会包含最新的可以使用的资源数组 . 传入的是要监视的 , 而调用socket\_select后得到的是可以用的 .
 
+**read**
 
+在读取数组中列出的socket将被监视 , 以查看字符是否可用于读取\(更确切地说 , 查看读取是否不会阻塞\) . 特别是 , 在文件末尾还可以使用套接字资源 . 在这种情况下 , socket\_read \(\) 将返回一个 "零"长度字符串 . 
 
+**write**
 
+将监视写入数组中列出的套接字 , 以查看写入是否不会阻塞 . 
+
+**except**
+
+除了数组中列出的套接字其他的都将被监视异常 . 
+
+**tv\_sec**
+
+tv\_sec 和 tv\_usec 一起形成超时参数 . 超时是 socket\_select\(\) 返回之前经过的时间量的上界 . tv\_sec 可能为零 , 导致 socket\_select\(\) 立即返回 . 这对轮询很有用 . 如果 tv\_sec 为 NULL \(无超时\) , socket\_select\(\) 可以无限期地阻塞 . 
 
