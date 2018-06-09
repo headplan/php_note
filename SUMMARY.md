@@ -27,7 +27,7 @@
     * [PHP数组的内部实现](documentation/shu-zu/phpshu-zu-de-nei-bu-shi-xian.md)
     * [数组操作](documentation/shu-zu/shu-zu-cao-zuo.md)
     * [数组排序及原理](documentation/shu-zu/shu-zu-pai-xu-ji-yuan-li.md)
-    * PHP预定义变量及输入流
+    * [PHP预定义变量及输入流](documentation/shu-zu/phpyu-ding-yi-bian-liang-ji-shu-ru-liu.md)
     * [数组与数据结构](documentation/shu-zu/shu-zu-yu-shu-ju-jie-gou.md)
   * [位运算符](documentation/wei-yun-suan-fu.md)
   * [异常处理](documentation/yi-chang-chu-li.md)
