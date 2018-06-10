@@ -168,6 +168,7 @@
     * [理解WebSocket协议](php-socket/ji-ben-gai-nian/li-jie-websocket-xie-yi.md)
     * [理解RPC远程调用](php-socket/ji-ben-gai-nian/li-jie-rpc-yuan-cheng-diao-yong.md)
   * [多进程处理](php-socket/duo-jin-cheng-chu-li.md)
+    * [相关函数](php-socket/duo-jin-cheng-chu-li/xiang-guan-han-shu.md)
 * [Swoole](swoole.md)
   * [入门知识](swoole/ru-men-zhi-shi.md)
 * [Awesome PHP](awesome-php.md)
