@@ -1,22 +1,22 @@
 # 理解RPC远程调用
 
-远程调用 , 即Remote Procedure Call . 也就是RPC调用 . 
+远程调用 , 即Remote Procedure Call . 也就是RPC调用 .
 
-简单理解 : 
+简单理解 :
 
-1.本地调用 , 远程机器执行 . 
+1.本地调用 , 远程机器执行 .
 
-2.某些调用形式 , 用浏览器访问可以看到xml描述 . 
+2.某些调用形式 , 用浏览器访问可以看到xml描述 .
 
-3.某些语言中调用形式 , 需要在本地生成一个伪调用类 . 
+3.某些语言中调用形式 , 需要在本地生成一个伪调用类 .
 
-4.如果PHP做服务端 , java等其他语言也可以调用 . 
+4.如果PHP做服务端 , java等其他语言也可以调用 .
 
 #### 相关代码
 
 > 代码查看本地rpc\_server.php等 .
 
-通过浏览器访问rpc服务 , 其中判断浏览器过来的url , 然后判断指定文件是否存在 , 这个文件就是我们提供的远程调用的服务 . 比如 , 新建service文件夹 , 创建一个news.php文件 , 创建NewsService类作为被调用的服务 . 
+通过浏览器访问rpc服务 , 其中判断浏览器过来的url , 然后判断指定文件是否存在 , 这个文件就是我们提供的远程调用的服务 . 比如 , 新建service文件夹 , 创建一个news.php文件 , 创建NewsService类作为被调用的服务 .
 
 ```php
 <?php
@@ -32,6 +32,38 @@ class NewsService
     {
         return 'Github被微软收购.';
     }
+}
+```
+
+服务端为了方便测试 , 判断如果是通过浏览器过来的 , 或者是带有get的请求就返回上面的News服务中的内容 : 
+
+```php
+# 判断一下浏览器访问,也就是HTTP协议
+if (preg_match("/GET\s\/(.*?)\sHTTP\/1.1/i", $buffer,$matches)) {
+    $path = $matches[1];
+    if (file_exists($path)) {
+        require_once $path;
+        # 获取当前已经被定义的所有类,这里也包含了PHP内部定义的类
+        $class = get_declared_classes();
+        # 指针指到最后,也就是我们require_once进来的类
+        $obj_class = end($class);
+
+        $obj = new $obj_class();
+
+        $result = '';
+        # 遍历前面实例化对象中的方法,拼接个json串
+        foreach (get_class_methods($obj) as $method) {
+            if ($result != '') $result .= ',';
+            $result .= '"method":"' . $method . '"';
+        }
+
+        $result = '{' . $result . '}';
+        socket_write($client, $html.$result);
+    } else {
+        socket_write($client, $html.'Not Find Service!');
+    }
+} else {
+    socket_write($client, $html.'404');
 }
 ```
 
