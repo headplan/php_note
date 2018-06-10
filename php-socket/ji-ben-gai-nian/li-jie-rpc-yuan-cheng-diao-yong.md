@@ -117,7 +117,50 @@ if (preg_match("/GET\s(.*?)\sHEADPLAN\/0.1/i", $buffer, $matches)) {
 }
 ```
 
-现在 , 在远程运行客户端 , 就能接受到服务端中news类里的方法发来的信息了 . 
+现在 , 在远程运行客户端 , 就能接受到服务端中news类里的方法发来的信息了 .
+
+**简单改造客户端**
+
+通过服务端提供的接口 , 或者说服务端地址 , 直接调用NewsService类中的方法 . 
+
+```php
+<?php
+
+class RpcClient
+{
+    public $service = [];
+    public $request = '';
+
+    public function __construct($service)
+    {
+        # 解析服务端地址
+        $this->service = parse_url($service);
+        # 拼接http协议
+        $this->request = 'GET '. $this->service['path'] .' HTTP/1.1' . PHP_EOL;
+    }
+
+    public function __call($method, $args)
+    {
+        $socket = @socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+        # 这里直接用了host地址,也就是IP地址,因为没绑域名
+        socket_connect($socket, $this->service['host'], $this->service['port']);
+
+        # 添加自定义协议
+        $this->request .= 'GET ' . $method . ' HEADPLAN/0.1' . PHP_EOL;
+
+        socket_write($socket, $this->request);
+
+        $buffer = socket_read($socket, 8024);
+
+        socket_close($socket);
+
+        return $buffer;
+    }
+}
+
+$client = new RpcClient('http://127.0.0.1:9933/service/news.php');
+echo $client->display();
+```
 
 
 
