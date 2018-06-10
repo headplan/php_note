@@ -67,7 +67,7 @@ if (preg_match("/GET\s\/(.*?)\sHTTP\/1.1/i", $buffer,$matches)) {
 }
 ```
 
-现在 , 通过浏览器测试 , 就能访问到一个拼接的串 , 格式可能有错误 , 只测试 : 
+现在 , 通过浏览器测试 , 就能访问到一个拼接的串 , 格式可能有错误 , 只测试 :
 
 ```js
 {"method":"display","method":"show"}
@@ -86,13 +86,35 @@ socket_connect($socket, $ip, 9933);
 # 前面判断了http协议,这里添加过判断的内容
 $http = 'GET /service/news.php HTTP/1.1' . PHP_EOL;
 # 在添加一个自定义的协议,在服务端也添加判断是来自自定义的客户端
-$http .= 'HEADPLAN display' . PHP_EOL;
+$http .= 'GET display HEADPLAN/0.1' . PHP_EOL;
 
 socket_write($socket, $http);
 $buffer = socket_read($socket, 8024);
 echo $buffer;
 
 socket_close($socket);
+```
+
+**修改服务端**
+
+添加对自定义协议的判断 , 然后直接把$result结果发给客户端 : 
+
+```php
+# 判断是否为自定义客户端的请求
+if (preg_match("/GET\s(.*?)\sHEADPLAN\/0.1/i", $buffer, $matches)) {
+    $method = $matches[1];
+    $result = $obj->$method();
+    socket_write($client, $result);
+} else {
+    # 遍历前面实例化对象中的方法,拼接个json串
+    foreach (get_class_methods($obj) as $method) {
+        if ($result != '') $result .= ',';
+        $result .= '"method":"' . $method . '"';
+    }
+
+    $result = '{' . $result . '}';
+    socket_write($client, $html.$result);
+}
 ```
 
 
