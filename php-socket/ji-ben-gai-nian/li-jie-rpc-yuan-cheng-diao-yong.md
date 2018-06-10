@@ -35,7 +35,7 @@ class NewsService
 }
 ```
 
-服务端为了方便测试 , 判断如果是通过浏览器过来的 , 或者是带有get的请求就返回上面的News服务中的内容 : 
+服务端为了方便测试 , 判断如果是通过浏览器过来的 , 或者是带有get的请求就返回上面的News服务中的内容 :
 
 ```php
 # 判断一下浏览器访问,也就是HTTP协议
@@ -65,6 +65,34 @@ if (preg_match("/GET\s\/(.*?)\sHTTP\/1.1/i", $buffer,$matches)) {
 } else {
     socket_write($client, $html.'404');
 }
+```
+
+现在 , 通过浏览器测试 , 就能访问到一个拼接的串 , 格式可能有错误 , 只测试 : 
+
+```js
+{"method":"display","method":"show"}
+```
+
+**创建自定义客户端**
+
+```php
+<?php
+
+$socket = @socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+
+$ip = '127.0.0.1';
+socket_connect($socket, $ip, 9933);
+
+# 前面判断了http协议,这里添加过判断的内容
+$http = 'GET /service/news.php HTTP/1.1' . PHP_EOL;
+# 在添加一个自定义的协议,在服务端也添加判断是来自自定义的客户端
+$http .= 'HEADPLAN display' . PHP_EOL;
+
+socket_write($socket, $http);
+$buffer = socket_read($socket, 8024);
+echo $buffer;
+
+socket_close($socket);
 ```
 
 
