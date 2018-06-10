@@ -97,7 +97,7 @@ socket_close($socket);
 
 **修改服务端**
 
-添加对自定义协议的判断 , 然后直接把$result结果发给客户端 : 
+添加对自定义协议的判断 , 然后直接把$result结果发给客户端 :
 
 ```php
 # 判断是否为自定义客户端的请求
@@ -116,6 +116,8 @@ if (preg_match("/GET\s(.*?)\sHEADPLAN\/0.1/i", $buffer, $matches)) {
     socket_write($client, $html.$result);
 }
 ```
+
+现在 , 在远程运行客户端 , 就能接受到服务端中news类里的方法发来的信息了 . 
 
 
 
