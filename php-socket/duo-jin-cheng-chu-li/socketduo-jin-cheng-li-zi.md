@@ -121,10 +121,83 @@ netstat -anp | grep 9933
 
 pcntl\_wait会等待子进程中断 , 才会继续 , 这就让服务和单进程没了区别 . 中断或关闭子进程其实在程序最后exit也可 , 不会影响父进程 , 也不会像刚才一样出现那么多的僵尸进程了 .
 
-那pcntl\_wait的作用是什么呢 ? 假如 , 我们的每个进程都需要有一定的耗时 , 当然进程也是需要不断的创建 , 但是创建到一定程度 , 也就类似前面提到的最大进程数 , 这时候 , pcntl\_wait就有用了 : 
+那pcntl\_wait的作用是什么呢 ? 假如 , 我们的每个进程都需要有一定的耗时 , 当然进程也是需要不断的创建 , 但是创建到一定程度 , 也就类似前面提到的最大进程数 , 这时候 , pcntl\_wait就有用了 , 如果进程大于了最大进程数 , 就进行阻塞 :
 
-```
+```php
+<?php
 
+if (! extension_loaded('sockets')) {
+    die('没扩展哦?');
+}
+
+# 最大进程数
+define('MAX_PROC', 5);
+
+function check_socket($socket)
+{
+    if ($socket === false) {
+        $errorcode = socket_last_error();
+        $errormsg = socket_strerror($errorcode);
+
+        return "Socket error with: [$errorcode] $errormsg" . PHP_EOL;
+    }
+    return 'OK' . PHP_EOL;
+}
+
+# 正确的创建
+$socket = @socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+echo check_socket($socket);
+
+# 绑定名字
+$ip = '127.0.0.1';
+$bind = @socket_bind($socket, $ip, 9933);
+echo check_socket($bind);
+
+socket_listen($socket, 10);
+
+$proc = 0;
+while (true) {
+    $client = socket_accept($socket);
+
+    # 创建子进程
+    $pid = pcntl_fork();
+
+    # 父进程和子进程都会执行下面代码
+    if ($pid == -1) {
+        # 错误处理:创建子进程失败时返回-1.
+        exit('创建子进程失败');
+    } elseif ($pid) {
+        # 父进程会得到子进程号,所以这里是父进程执行的逻辑,但PID是子进程的ID号
+        # 等待子进程中断,防止子进程成为僵尸进程
+        $proc++;
+        if ($proc >= MAX_PROC) {
+            pcntl_wait($status);
+            $proc--; # 因为没执行,这里再给减掉
+        }
+        socket_close($client);
+    } else {
+        # 子进程得到的$pid为0,所以这里是子进程执行的逻辑
+        $buffer = socket_read($client, 1024);
+        echo $buffer;
+
+        $html = "HTTP/1.1 200 OK" . PHP_EOL
+            . "Content-Type: text/html; charset=utf-8" . PHP_EOL
+            . PHP_EOL;
+
+        if (preg_match("/sleep/i", $buffer, $matches)) {
+            sleep(10);
+            $html .= "繁忙等待";
+            socket_write($client, $html);
+        } else {
+            $html .= "this is server";
+            socket_write($client, $html);
+        }
+        socket_close($client);
+        exit;
+    }
+}
+
+socket_close($socket);
 ```
 
 
