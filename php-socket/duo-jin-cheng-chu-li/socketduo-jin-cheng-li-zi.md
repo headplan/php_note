@@ -59,20 +59,55 @@ while (true) {
 socket_close($socket);
 ```
 
-运行服务端 , 访问 : 
+运行服务端 , 访问 :
 
 ```
 http://127.0.0.1:9933/?sleep
 http://127.0.0.1:9933/
 ```
 
-就会发现 , 第一个链接一直在等待 , 第二个也同样在等待 , 因为是单进程 . 现在来改造成多进程 , 根据官方给的简单示例改造一下代码 : 
+就会发现 , 第一个链接一直在等待 , 第二个也同样在等待 , 因为是单进程 . 现在来改造成多进程 , 根据官方给的简单示例改造一下代码 :
 
+```php
+while (true) {
+    $client = socket_accept($socket);
+
+    # 创建子进程
+    $pid = pcntl_fork();
+
+    # 父进程和子进程都会执行下面代码
+    if ($pid == -1) {
+        # 错误处理:创建子进程失败时返回-1.
+        exit('创建子进程失败');
+    } elseif ($pid) {
+        # 父进程会得到子进程号,所以这里是父进程执行的逻辑
+        # 等待子进程中断,防止子进程成为僵尸进程
+        # pcntl_wait($status);
+
+        socket_close($client);
+    } else {
+        # 子进程得到的$pid为0,所以这里是子进程执行的逻辑
+        $buffer = socket_read($client, 1024);
+        echo $buffer;
+
+        $html = "HTTP/1.1 200 OK" . PHP_EOL
+            . "Content-Type: text/html; charset=utf-8" . PHP_EOL
+            . PHP_EOL;
+
+        if (preg_match("/sleep/i", $buffer, $matches)) {
+            sleep(10);
+            $html .= "繁忙等待";
+            socket_write($client, $html);
+        } else {
+            $html .= "this is server";
+            socket_write($client, $html);
+        }
+        socket_close($client);
+    }
+}
 ```
 
-```
-
-两个查看进程的命令 : 
+两个查看进程的命令 :
 
 ```
 # 根据名称查询进程
