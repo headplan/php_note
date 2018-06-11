@@ -42,7 +42,35 @@ tar -zxvf php-5.100.100.tar.gz
 
 **debian/ubuntu/mac os系统**
 
-编译安装 , 同上 . 
+编译安装 , 同上 .
+
+#### 安装event或libevent扩展
+
+为了能支持更大的并发连接数 , 建议安装event扩展或者libevent扩展\(二者作用相同 , 二选一即可\) . 这里以Event为例 , 因为支持PHP7 . 
+
+**Centos系统**
+
+安装event扩展依赖的libevent-devel包 : 
+
+```
+yum install libevent-devel -y
+```
+
+安装event扩展
+
+```
+pecl install event
+```
+
+注意提示 : `Include libevent OpenSSL support [yes]:` 时输入no回车 , 其它直接敲回车就行 . 
+
+添加配置
+
+```
+echo extension=event.so > /etc/php.d/30-event.ini
+```
 
 ---
+
+
 
