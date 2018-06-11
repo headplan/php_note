@@ -117,5 +117,11 @@ ps -ef | grep pcntl_server.php | grep -v grep
 netstat -anp | grep 9933
 ```
 
+查看进程可以看到 , 刷新浏览器就会增加 , 前面的sleep\(10\)也解决了 . 这就和apache还有nginx的多进程一样了 , 还有个问题就是僵尸进程的问题 , 一般apache或者nginx都会有设置最大进程数的配置 , 这里可以使用多进程函数pcntl\_wait简单模拟一下 : 
+
+```
+
+```
+
 
 
