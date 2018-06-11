@@ -169,6 +169,7 @@
     * [理解RPC远程调用](php-socket/ji-ben-gai-nian/li-jie-rpc-yuan-cheng-diao-yong.md)
   * [多进程处理](php-socket/duo-jin-cheng-chu-li.md)
     * [相关函数](php-socket/duo-jin-cheng-chu-li/xiang-guan-han-shu.md)
+    * [Socket多进程例子](php-socket/duo-jin-cheng-chu-li/socketduo-jin-cheng-li-zi.md)
 * [Swoole](swoole.md)
   * [入门知识](swoole/ru-men-zhi-shi.md)
 * [Awesome PHP](awesome-php.md)
