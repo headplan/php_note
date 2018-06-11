@@ -171,6 +171,7 @@
     * [相关函数](php-socket/duo-jin-cheng-chu-li/xiang-guan-han-shu.md)
     * [Socket多进程例子](php-socket/duo-jin-cheng-chu-li/socketduo-jin-cheng-li-zi.md)
 * [Workerman](workerman.md)
+  * [安装](workerman/an-zhuang.md)
 * [Swoole](swoole.md)
   * [入门知识](swoole/ru-men-zhi-shi.md)
 * [Awesome PHP](awesome-php.md)
