@@ -111,7 +111,7 @@ Hello Tom
 
 #### 相关命令
 
-通过前面的例子已经知道了启动命令是什么 , 下面整理一下相关的命令 : 
+通过前面的例子已经知道了启动命令是什么 , 下面整理一下相关的命令 :
 
 以Debug方式启动
 
@@ -136,6 +136,31 @@ php start.php stop
 ```
 php start.php restart
 ```
+
+平滑重启
+
+```
+php start.php reload
+```
+
+查看状态
+
+```
+php start.php status
+```
+
+查看连接状态\(需要Workerman版本&gt;=3.5.0\)
+
+```
+php start.php connections
+```
+
+#### debug和daemon方式区别
+
+* 以debug方式启动 , 代码中echo、var\_dump、print等打印函数会直接输出
+* 以daemon方式启动 , 代码中echo、var\_dump、print等打印会默认重定向到/dev/null文件 , 可以通过设置`Worker::$stdoutFile = '/your/path/file';`来设置这个文件路径
+* 以debug方式启动 , 终端关闭后workerman会随之关闭并退出
+* 以daemon方式启动 , 终端关闭后workerman继续后台正常运行
 
 
 
