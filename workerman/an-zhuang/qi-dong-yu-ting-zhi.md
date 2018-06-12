@@ -79,8 +79,21 @@ ws.onmessage = function(e) {
 
 **创建tcp\_test.php**
 
-```
+```php
+<?php
 
+use Workerman\Worker;
+require_once __DIR__ . '/Workerman/Autoloader.php';
+
+$http_worker = new Worker('tcp://0.0.0.0:9933');
+
+$http_worker->count = 4;
+
+$http_worker->onMessage = function ($connection, $data) {
+    $connection->send('Hello ' . $data);
+};
+
+Worker::runAll();
 ```
 
 **使用telnet测试**
@@ -94,5 +107,5 @@ Tom
 Hello Tom
 ```
 
-输入Tom , 服务端就会说Hello Tom . 
+输入Tom , 服务端就会说Hello Tom .
 
