@@ -122,13 +122,26 @@ echo extension=event.so > /etc/php.d/30-event.ini
 git clone https://github.com/walkor/Workerman
 ```
 
-#### debian/ubuntu系统安装教程
+#### debian/ubuntu系统安装
 
-命令行运行 , 安装PHP命令行以及相应扩展 : 
+命令行运行 , 安装PHP命令行以及相应扩展 :
 
 ```
 apt-get install php5-cli git gcc php-pear php5-dev libevent-dev -y
 ```
 
-其他同上 . 
+其他同上 .
+
+#### MacOS系统安装
+
+Mac系统自带PHP Cli , 但是可能缺少`pcntl`扩展 . 可以按照前面的编译安装 . event扩展也是 , 这里省略步骤 . 
+
+也可以使用Mac系统的brew安装 . 
+
+```
+brew install php70
+brew install php70-event
+```
+
+
 
