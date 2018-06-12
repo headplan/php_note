@@ -72,23 +72,27 @@ echo extension=event.so > /etc/php.d/30-event.ini
 
 **debian/ubuntu系统安装**
 
-安装event扩展依赖的libevent-dev包 : 
+安装event扩展依赖的libevent-dev包 :
 
 ```
 apt-get install libevent-dev -y
 ```
 
-安装event扩展 : 
+安装event扩展 :
 
 ```
 pecl install event
 ```
 
-其他同上 . 
+其他同上 .
 
 **mac os 系统安装一般作为开发机 , 不用安装event扩展 . **
 
 ---
+
+### 全新系统安装\(全新安装PHP+扩展\)
+
+
 
 
 
