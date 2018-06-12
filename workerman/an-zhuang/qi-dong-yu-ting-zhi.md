@@ -60,7 +60,7 @@ $http_worker->onMessage = function ($connection, $data) {
 Worker::runAll();
 ```
 
-在浏览器的控制台测试 : 
+在浏览器的控制台测试 :
 
 ```js
 # 假设服务端ip为127.0.0.1
@@ -68,7 +68,7 @@ ws = new WebSocket("ws://127.0.0.1:9933");
 ws.onopen = function() {
     alert("连接成功");
     ws.send('Tom');
-    alert("给服务端发送一个字符串：Tom");
+    alert("给服务端发送一个字符串:Tom");
 };
 ws.onmessage = function(e) {
     alert("收到服务端的消息：" + e.data);
