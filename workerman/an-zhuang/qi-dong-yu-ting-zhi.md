@@ -21,7 +21,7 @@ use Workerman\Worker;
 require_once __DIR__ . '/Workerman/Autoloader.php';
 
 # 创建一个监听9933端口的http协议
-$http_worker = new Worker('http://127.0.0.1:9933');
+$http_worker = new Worker('http://0.0.0.0:9933');
 
 # 启动4个进程对外服务
 $http_worker->count = 4;
@@ -34,7 +34,30 @@ $http_worker->onMessage = function ($connection, $data) {
 
 # 运行Worker
 Worker::runAll();
+```
 
+**命令行启动**
+
+```
+php http_test.php start
+```
+
+#### 使用WebSocket协议对外提供服务
+
+```php
+<?php
+
+use Workerman\Worker;
+require_once __DIR__ . '/Workerman/Autoloader.php';
+
+# 和上一个例子的内容基本相同,除了协议不同.
+$http_worker->count = 4;
+
+$http_worker->onMessage = function ($connection, $data) {
+    $connection->send('Hello Client', $data);
+};
+
+Worker::runAll();
 ```
 
 
