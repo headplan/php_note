@@ -173,6 +173,7 @@
 * [Workerman](workerman.md)
   * [安装](workerman/an-zhuang.md)
     * [扩展安装](workerman/an-zhuang/kuo-zhan-an-zhuang.md)
+    * [启动与停止](workerman/an-zhuang/qi-dong-yu-ting-zhi.md)
 * [Swoole](swoole.md)
   * [入门知识](swoole/ru-men-zhi-shi.md)
 * [Awesome PHP](awesome-php.md)
