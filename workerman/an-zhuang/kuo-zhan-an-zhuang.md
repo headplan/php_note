@@ -92,7 +92,35 @@ pecl install event
 
 ### 全新系统安装\(全新安装PHP+扩展\)
 
+#### Centos系统安装
 
+命令行运行 , 安装PHP命令行以及相应扩展 : 
+
+```php
+yum install php-cli php-process git gcc php-devel php-pear libevent-devel -y
+```
+
+安装event扩展 , 命令行运行
+
+```php
+pecl install event
+```
+
+> **注意 : **
+>
+> 提示`Include libevent OpenSSL support [yes] :`时输入`no`回车 , 其它直接敲回车就行 .
+
+配置php.ini
+
+```
+echo extension=event.so > /etc/php.d/30-event.ini 
+```
+
+然后clone代码 : 
+
+```php
+git clone https://github.com/walkor/Workerman
+```
 
 
 
