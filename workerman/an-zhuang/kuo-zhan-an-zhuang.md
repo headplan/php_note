@@ -94,7 +94,7 @@ pecl install event
 
 #### Centos系统安装
 
-命令行运行 , 安装PHP命令行以及相应扩展 : 
+命令行运行 , 安装PHP命令行以及相应扩展 :
 
 ```php
 yum install php-cli php-process git gcc php-devel php-pear libevent-devel -y
@@ -113,14 +113,22 @@ pecl install event
 配置php.ini
 
 ```
-echo extension=event.so > /etc/php.d/30-event.ini 
+echo extension=event.so > /etc/php.d/30-event.ini
 ```
 
-然后clone代码 : 
+然后clone代码 :
 
 ```php
 git clone https://github.com/walkor/Workerman
 ```
 
+#### debian/ubuntu系统安装教程
 
+命令行运行 , 安装PHP命令行以及相应扩展 : 
+
+```
+apt-get install php5-cli git gcc php-pear php5-dev libevent-dev -y
+```
+
+其他同上 . 
 
