@@ -174,6 +174,8 @@
   * [安装](workerman/an-zhuang.md)
     * [扩展安装](workerman/an-zhuang/kuo-zhan-an-zhuang.md)
     * [启动与停止](workerman/an-zhuang/qi-dong-yu-ting-zhi.md)
+  * [开发流程](workerman/kai-fa-liu-cheng.md)
+    * [目录结构](workerman/kai-fa-liu-cheng/mu-lu-jie-gou.md)
 * [Swoole](swoole.md)
   * [入门知识](swoole/ru-men-zhi-shi.md)
 * [Awesome PHP](awesome-php.md)
