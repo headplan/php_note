@@ -109,3 +109,33 @@ Hello Tom
 
 输入Tom , 服务端就会说Hello Tom .
 
+#### 相关命令
+
+通过前面的例子已经知道了启动命令是什么 , 下面整理一下相关的命令 : 
+
+以Debug方式启动
+
+```
+php start.php start
+```
+
+以守护进程方式启动
+
+```
+php start.php start -d
+```
+
+停止
+
+```
+php start.php stop
+```
+
+重启
+
+```
+php start.php restart
+```
+
+
+
