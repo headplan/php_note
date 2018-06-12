@@ -147,21 +147,21 @@ brew install php70-event
 
 ### Event扩展说明
 
-Event扩展不是必须的 , 当业务需要支撑大于1000的并发连接时 , 推荐安装Event , 能够支持巨大的并发连接 . 如果业务并发连接比较低 , 例如1000以下并发连接 , 则可以不用安装 . 
+Event扩展不是必须的 , 当业务需要支撑大于1000的并发连接时 , 推荐安装Event , 能够支持巨大的并发连接 . 如果业务并发连接比较低 , 例如1000以下并发连接 , 则可以不用安装 .
 
-> Event是libevent的OOP封装 , 比libevent扩展提供了更完善的OOP结构和大量的内置可重用组件 , libevent不支持php 7及后续版本 , 已经逐步被pecl舍弃 , 其最新版本只维护到2013年且长期处于beta状态 . 
+> Event是libevent的OOP封装 , 比libevent扩展提供了更完善的OOP结构和大量的内置可重用组件 , libevent不支持php 7及后续版本 , 已经逐步被pecl舍弃 , 其最新版本只维护到2013年且长期处于beta状态 .
 >
 > 所以 , 建议优先使用event而不是libevent扩展 . 广义上的libevent是指libevent这个事件库 , 但PHP中的一个扩展也称为libevent , 实际使用时要注意加以区分 .
 
-Event扩展依赖libevent2库 , 安装event时可能遇到缺少依赖库的错误 . 安装库 : 
+Event扩展依赖libevent2库 , 安装event时可能遇到缺少依赖库的错误 . 安装库 :
 
 ```
 yum install libevent2
 ```
 
-如果有旧版就删除旧版再安装 , `yum remove libevent` . 
+如果有旧版就删除旧版再安装 , `yum remove libevent` .
 
-然后再使用`pecl install event`安装即可 . 
+然后再使用`pecl install event`安装即可 .
 
 > 注意 : 一些php安装中可能没有pecl命令 , 这个命令集成在pear包中 , 编译php时需要启用pear包 . 别忘记 , 不要在confiure参数中添加`--without-pear`了
 
