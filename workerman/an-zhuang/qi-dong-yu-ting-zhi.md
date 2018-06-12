@@ -75,5 +75,24 @@ ws.onmessage = function(e) {
 };
 ```
 
+#### 直接使用TCP传输数据
 
+**创建tcp\_test.php**
+
+```
+
+```
+
+**使用telnet测试**
+
+```
+telnet 127.0.0.1 2347
+Trying 127.0.0.1...
+Connected to 127.0.0.1.
+Escape character is '^]'.
+Tom
+Hello Tom
+```
+
+输入Tom , 服务端就会说Hello Tom . 
 
