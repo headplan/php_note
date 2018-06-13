@@ -176,7 +176,7 @@
     * [启动与停止](workerman/an-zhuang/qi-dong-yu-ting-zhi.md)
   * [开发流程](workerman/kai-fa-liu-cheng.md)
     * [目录结构](workerman/kai-fa-liu-cheng/mu-lu-jie-gou.md)
-    * 开发规范
+    * [开发规范](workerman/kai-fa-liu-cheng/kai-fa-gui-fan.md)
     * 基本流程
   * [通讯协议](workerman/tong-xun-xie-yi.md)
   * [源码解析](workerman/yuan-ma-jie-xi.md)
