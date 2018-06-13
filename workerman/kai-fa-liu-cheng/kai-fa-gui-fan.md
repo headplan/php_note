@@ -42,11 +42,26 @@ class UserInfo
 
 * 使用命名空间 , 命名空间名字与目录路径对应 , 并以开发者的项目根目录为基准 . 例如项目MyApp/ , 类文件MyApp/MyClass.php因为在项目根目录 , 所以命名空间省略 . 如果类文件MyApp/Protocols/MyProtocol.php因为MyProtocol.php在MyApp项目的Protocols目录下 , 所以要加上命名空间`namespace Protocols;`
 
-普通函数及变量名采用小写加下划线方式 : 
+普通函数及变量名采用小写加下划线方式 :
 
 ```php
 $connection_list = array();
 function get_connection_list()
+{
+....
+```
+
+类成员及类的方法采用首字母小写的驼峰形式 : 
+
+```php
+public $connectionList;
+public function getConnectionList();
+```
+
+函数及类的参数采用小写加下划线方式 : 
+
+```php
+function get_connection_list($one_param, $tow_param)
 {
 ....
 ```
