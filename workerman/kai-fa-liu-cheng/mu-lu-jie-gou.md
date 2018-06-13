@@ -19,24 +19,24 @@
 │   │   ├── ExtEventLoop.php          # 异步Redis客户端  
 │   │   ├── ExtLibEventLoop.php       # 异步HTTP,异步文件,异步RabbitMQ等等.
 │   │   └── StreamSelectLoop.php
-│   ├── Select.php                      # Select网络事件库
-│   └── Swoole.php                      # Swoole网络事件库,支持Swoole的事件轮询   
-├── Lib/                               /# 常用类库
-│   ├── Constants.php                   # 常量定义
-│   └── Timer.php                       # 定时器
+│   ├── Select.php                    # Select网络事件库
+│   └── Swoole.php                    # Swoole网络事件库,支持Swoole的事件轮询   
+├── Lib/                             /# 常用类库
+│   ├── Constants.php                 # 常量定义
+│   └── Timer.php                     # 定时器
 ├── MIT-LICENSE.txt
-├── Protocols/                         /# 相关协议
-│   ├── Frame.php                       # Frame协议实现
-│   ├── Http/                          /# HTTP协议相关 
-│   │   └── mime.types                  # MIME类型
-│   ├── Http.php                        # HTTP协议实现
-│   ├── ProtocolInterface.php           # 协议接口类
-│   ├── Text.php                        # TEXT协议实现
-│   ├── Websocket.php                   # WebSocket协议实现 
-│   └── Ws.php                          # Ws协议,Workerman作为客户端通过ws协议发起websocket连接
+├── Protocols/                       /# 相关协议
+│   ├── Frame.php                     # Frame协议实现
+│   ├── Http/                        /# HTTP协议相关 
+│   │   └── mime.types                # MIME类型
+│   ├── Http.php                      # HTTP协议实现
+│   ├── ProtocolInterface.php         # 协议接口类
+│   ├── Text.php                      # TEXT协议实现
+│   ├── Websocket.php                 # WebSocket协议实现 
+│   └── Ws.php                        # Ws协议,Workerman作为客户端通过ws协议发起websocket连接
 ├── README.md
-├── WebServer.php                       # WebServer
-├── Worker.php                          # Worker
+├── WebServer.php                     # WebServer
+├── Worker.php                        # Worker
 └── composer.json
 ```
 
