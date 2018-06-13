@@ -32,7 +32,7 @@ Worker::runAll();
 
 #### WorkerMan中的代码规范
 
-类采用首字母大写的驼峰式命名 , 类文件名称必须与文件内部类名相同 , 以便自动加载 :
+* 类采用首字母大写的驼峰式命名 , 类文件名称必须与文件内部类名相同 , 以便自动加载 :
 
 ```php
 class UserInfo
@@ -40,7 +40,16 @@ class UserInfo
 ...
 ```
 
-使用命名空间 , 命名空间名字与目录路径对应 , 并以开发者的项目根目录为基准 . 例如项目MyApp/ , 类文件MyApp/MyClass.php因为在项目根目录 , 所以命名空间省略 . 如果类文件MyApp/Protocols/MyProtocol.php因为MyProtocol.php在MyApp项目的Protocols目录下 , 所以要加上命名空间`namespace Protocols;`
+* 使用命名空间 , 命名空间名字与目录路径对应 , 并以开发者的项目根目录为基准 . 例如项目MyApp/ , 类文件MyApp/MyClass.php因为在项目根目录 , 所以命名空间省略 . 如果类文件MyApp/Protocols/MyProtocol.php因为MyProtocol.php在MyApp项目的Protocols目录下 , 所以要加上命名空间`namespace Protocols;`
+
+普通函数及变量名采用小写加下划线方式 : 
+
+```php
+$connection_list = array();
+function get_connection_list()
+{
+....
+```
 
 
 
