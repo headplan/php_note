@@ -15,9 +15,9 @@
 │   ├── EventInterface.php            # 网络事件库接口
 │   ├── Libevent.php                  # Libevent网络事件库
 │   ├── React/                       /# Workerman3.3.6增加的一个react-event-loop的适配,也就是说ReatPHP支持的组件.意味着支持
-│   │   ├── Base.php                  # 异步Mysql客户端
-│   │   ├── ExtEventLoop.php          # 异步Redis客户端  
-│   │   ├── ExtLibEventLoop.php       # 异步HTTP,异步文件,异步RabbitMQ等等.
+│   │   ├── Base.php                    # 异步Mysql客户端
+│   │   ├── ExtEventLoop.php            # 异步Redis客户端  
+│   │   ├── ExtLibEventLoop.php         # 异步HTTP,异步文件,异步RabbitMQ等等.
 │   │   └── StreamSelectLoop.php
 │   ├── Select.php                    # Select网络事件库
 │   └── Swoole.php                    # Swoole网络事件库,支持Swoole的事件轮询   
