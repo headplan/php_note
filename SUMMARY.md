@@ -179,6 +179,7 @@
     * 开发规范
     * 基本流程
   * [通讯协议](workerman/tong-xun-xie-yi.md)
+  * [源码解析](workerman/yuan-ma-jie-xi.md)
 * [Swoole](swoole.md)
   * [入门知识](swoole/ru-men-zhi-shi.md)
 * [Awesome PHP](awesome-php.md)
