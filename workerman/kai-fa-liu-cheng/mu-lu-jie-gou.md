@@ -11,32 +11,32 @@
 │   └── UdpConnection.php             # UDP连接类
 ├── Events/                          /# 网络事件库
 │   ├── Ev.php                        # Libev网络事件库
-│   ├── Event.php
-│   ├── EventInterface.php
-│   ├── Libevent.php
+│   ├── Event.php                     # Event网络事件库
+│   ├── EventInterface.php            # 网络事件库接口
+│   ├── Libevent.php                  # Libevent网络事件库
 │   ├── React/
 │   │   ├── Base.php
 │   │   ├── ExtEventLoop.php
 │   │   ├── ExtLibEventLoop.php
 │   │   └── StreamSelectLoop.php
-│   ├── Select.php
-│   └── Swoole.php
-├── Lib/                                # 常用类库
-│   ├── Constants.php
-│   └── Timer.php
+│   ├── Select.php                      # Select网络事件库
+│   └── Swoole.php                      # Swoole网络事件库,支持Swoole的事件轮询   
+├── Lib/                               /# 常用类库
+│   ├── Constants.php                   # 常量定义
+│   └── Timer.php                       # 定时器
 ├── MIT-LICENSE.txt
-├── Protocols/                          # 相关协议
-│   ├── Frame.php
-│   ├── Http/
-│   │   └── mime.types
-│   ├── Http.php
-│   ├── ProtocolInterface.php
-│   ├── Text.php
-│   ├── Websocket.php
-│   └── Ws.php
+├── Protocols/                         /# 相关协议
+│   ├── Frame.php                       # Frame协议实现
+│   ├── Http/                          /# HTTP协议相关 
+│   │   └── mime.types                  # MIME类型
+│   ├── Http.php                        # HTTP协议实现
+│   ├── ProtocolInterface.php           # 协议接口类
+│   ├── Text.php                        # TEXT协议实现
+│   ├── Websocket.php                   # WebSocket协议实现 
+│   └── Ws.php                          # 
 ├── README.md
-├── WebServer.php
-├── Worker.php
+├── WebServer.php                       # WebServer
+├── Worker.php                          # Worker
 └── composer.json
 ```
 
