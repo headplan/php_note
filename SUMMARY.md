@@ -176,6 +176,9 @@
     * [启动与停止](workerman/an-zhuang/qi-dong-yu-ting-zhi.md)
   * [开发流程](workerman/kai-fa-liu-cheng.md)
     * [目录结构](workerman/kai-fa-liu-cheng/mu-lu-jie-gou.md)
+    * 开发规范
+    * 基本流程
+  * [通讯协议](workerman/tong-xun-xie-yi.md)
 * [Swoole](swoole.md)
   * [入门知识](swoole/ru-men-zhi-shi.md)
 * [Awesome PHP](awesome-php.md)
