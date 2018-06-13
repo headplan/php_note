@@ -3,14 +3,14 @@
 ```
 ./
 ├── Autoloader.php                    # 自动加载类
-├── Connection/                       # Socket连接相关
+├── Connection/                      /# Socket连接相关
 │   ├── AsyncTcpConnection.php        # 异步TCP连接类
 │   ├── AsyncUdpConnection.php        # 异步UDP连接类
 │   ├── ConnectionInterface.php       # Socket连接接口
 │   ├── TcpConnection.php             # TCP连接类
 │   └── UdpConnection.php             # UDP连接类
-├── Events/                            # 网络事件库
-│   ├── Ev.php
+├── Events/                          /# 网络事件库
+│   ├── Ev.php                        # Libev网络事件库
 │   ├── Event.php
 │   ├── EventInterface.php
 │   ├── Libevent.php
