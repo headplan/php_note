@@ -1,15 +1,16 @@
 # 开发规范
 
-应用程序目录可以放到任意位置 . 
+应用程序目录可以放到任意位置 .
 
 #### 入口文件
 
-和nginx+PHP-FPM下的PHP应用程序一样 , WorkerMan中的应用程序也需要一个入口文件 , 入口文件名没有要求 , 并且这个入口文件是以PHP Cli方式运行的 . 
+和nginx+PHP-FPM下的PHP应用程序一样 , WorkerMan中的应用程序也需要一个入口文件 , 入口文件名没有要求 , 并且这个入口文件是以PHP Cli方式运行的 .
 
-入口文件中是创建监听进程相关的代码 , 例如 : 
+入口文件中是创建监听进程相关的代码 , 例如 :
 
 ```php
 <?php
+
 use Workerman\Worker;
 require_once __DIR__ . '/Workerman/Autoloader.php';
 
@@ -29,8 +30,15 @@ $http_worker->onMessage = function($connection, $data)
 Worker::runAll();
 ```
 
-  
+#### WorkerMan中的代码规范
 
+类采用首字母大写的驼峰式命名 , 类文件名称必须与文件内部类名相同 , 以便自动加载 : 
+
+```php
+class UserInfo
+{
+...
+```
 
 
 
