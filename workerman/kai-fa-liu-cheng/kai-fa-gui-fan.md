@@ -51,14 +51,14 @@ function get_connection_list()
 ....
 ```
 
-类成员及类的方法采用首字母小写的驼峰形式 : 
+类成员及类的方法采用首字母小写的驼峰形式 :
 
 ```php
 public $connectionList;
 public function getConnectionList();
 ```
 
-函数及类的参数采用小写加下划线方式 : 
+函数及类的参数采用小写加下划线方式 :
 
 ```php
 function get_connection_list($one_param, $tow_param)
