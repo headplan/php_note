@@ -69,5 +69,13 @@ $text_worker->onClose = 'handle_close';
 Worker::runAll();
 ```
 
+#### 测试
+
+Text协议可以用telnet命令测试 : 
+
+```php
+telnet 127.0.0.1 2347
+```
+
 
 
