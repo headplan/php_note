@@ -150,7 +150,7 @@ Worker::runAll();
 
 ### 协议接口说明 {#协议接口说明}
 
-在WorkerMan中开发的协议类必须实现三个静态方法 , input、encode、decode，协议接口说明见`Workerman/Protocols/ProtocolInterface.php` , 定义如下 : 
+在WorkerMan中开发的协议类必须实现三个静态方法 , input、encode、decode，协议接口说明见`Workerman/Protocols/ProtocolInterface.php` , 定义如下 :
 
 ```php
 namespace Workerman\Protocols;
@@ -200,5 +200,5 @@ interface ProtocolInterface
 }
 ```
 
-
+Workerman中没有严格要求协议类必须基于ProtocolInterface实现 , 实际上协议类只要类包含了input、encode、decode三个静态方法即可 . 
 
