@@ -72,7 +72,9 @@ Workerman会自动调用这三个静态方法 , 用来实现分包、解包、�
 
 #### Workerman与协议类交互流程
 
-假设客户端发送一个数据包给服务端 , 服务端收到数据\(可能是部分数据\)后会立刻调用协议的`input`方法 , 用来检测这包的长度 , `input`方法返回长度值`$length`给workerman框架 . 
+* 假设客户端发送一个数据包给服务端 , 服务端收到数据\(可能是部分数据\)后会立刻调用协议的`input`方法 , 用来检测这包的长度 , `input`方法返回长度值`$length`给workerman框架 . 
+* Workerman框架得到这个`$length`值后判断当前数据缓冲区中是否已经接收到`$length`长度的数据 , 如果没有就会继续等待数据 , 直到缓冲区中的数据长度不小于`$length`
+* 缓冲区的数据长度足够后 , Workerman就会从缓冲区截取出`$length`长度的数据\(即**分包**\) , 并调用协议的`decode`方法**解包** , 解包后的数据为`$data`
 
 **MyApp/Protocols/JsonNL.php的实现**
 
@@ -102,7 +104,7 @@ class JsonNL
         # 有换行符,返回当前包长(包含换行符)
         return $pos+1;
     }
-    
+
     /**
      * 打包,当向客户端发送数据的时候会自动调用
      * @param string $buffer
@@ -113,7 +115,7 @@ class JsonNL
         # json序列化,并加上换行符作为请求结束的标记
         return json_encode($buffer)."\n";
     }
-    
+
     /**
      * 解包,当接收到的数据字节数等于input返回的值(大于0的值)自动调用
      * 并传递给onMessage回调函数的$data参数
@@ -126,6 +128,12 @@ class JsonNL
         return json_decode(trim($buffer), true);
     }
 }
+```
+
+现在JsonNL协议实现完毕 , 可以在MyApp项目中使用 : 
+
+```
+
 ```
 
 
