@@ -59,14 +59,20 @@ Workerman内置了一个text协议 , 协议格式为文本+换行符 . text协�
 \n
 ```
 
-注意上面的请求数据末尾有一个换行字符\(在PHP中用**双引号**字符串"\n"表示\) , 代表一个请求的结束 . 
+注意上面的请求数据末尾有一个换行字符\(在PHP中用**双引号**字符串"\n"表示\) , 代表一个请求的结束 .
 
 **接下来开始实现**
 
-假设协议的名字叫JsonNL , 所在项目为MyApp : 
+假设协议的名字叫JsonNL , 所在项目为MyApp :
 
 * 创建协议文件 , 放到项目的Protocols文件夹 , 例如文件MyApp/Protocols/JsonNL.php
 * 实现JsonNL类 , 以`namespace Protocols;`为命名空间 , 必须实现三个静态方法分别为 input、encode、decode
 
 Workerman会自动调用这三个静态方法 , 用来实现分包、解包、打包 . 
+
+#### Workerman与协议类交互流程
+
+假设客户端发送一个数据包给服务端 , 服务端收到数据\(可能是部分数据\)后会立刻调用协议的`input`方法 , 用来检测这包的长度 , `input`方法返回长度值`$length`给workerman框架 . 
+
+
 
