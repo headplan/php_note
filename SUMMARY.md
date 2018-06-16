@@ -180,6 +180,7 @@
     * [基本流程](workerman/kai-fa-liu-cheng/ji-ben-liu-cheng.md)
   * [通讯协议](workerman/tong-xun-xie-yi.md)
   * [源码解析](workerman/yuan-ma-jie-xi.md)
+  * [实例解读](workerman/shi-li-jie-du.md)
 * [Swoole](swoole.md)
   * [入门知识](swoole/ru-men-zhi-shi.md)
 * [Awesome PHP](awesome-php.md)
