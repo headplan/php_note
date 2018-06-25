@@ -6,7 +6,7 @@
 public function __construct($socket_name = '', $context_option = array())
 ```
 
-初始化一个Worker容器实例 , 可以设置容器的一些属性和回调接口 , 完成特定功能 . 
+初始化一个Worker容器实例 , 可以设置容器的一些属性和回调接口 , 完成特定功能 .
 
 ```php
 /**
@@ -36,6 +36,12 @@ public function __construct($socket_name = '', $context_option = array())
     }
 }
 ```
+
+初始化参数均为可选参数 .
+
+$socket\_name 不填写表示不监听任何端口 . 填写则会执行socket监听 . 
+
+
 
 #### 属性
 
