@@ -188,5 +188,17 @@ $headplan_worker->onMessage = function ($connection, $data)
 Worker::runAll();
 ```
 
+在终端测试
 
+```
+php index.php start
+```
+
+运行服务端 , 然后使用telnet测试
+
+```
+telnet 127.0.0.1 9933
+```
+
+输入任何内容 , 都会返回hello world加换行符 , 就是协议中encode的处理方法 . 
 
