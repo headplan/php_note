@@ -77,14 +77,82 @@ $opts = array(
 );
 ```
 
-一些初始化示例 : 
+一些初始化示例 :
 
 ```php
 # Worker作为http容器监听处理http请求
 $worker = new Worker('http://0.0.0.0:8686');
 
 # Worker作为websocket容器监听处理websocket请求
+$worker = new Worker('websocket://0.0.0.0:8686');
 
+# Worker作为tcp容器监听处理tcp请求
+$worker = new Worker('tcp://0.0.0.0:8686');
+
+# Worker作为udp容器监听处理udp请求
+$worker = new Worker('udp://0.0.0.0:8686');
+
+# Worker监听unix domain套接字
+$worker = new Worker('unix:///tmp/my.sock');
+
+# 不执行任何监听的Worker容器,用来处理一些定时任务
+$task = new Worker();
+$task->onWorkerStart = function($task)
+{
+    // 每2.5秒执行一次
+    $time_interval = 2.5;
+    Timer::add($time_interval, function()
+    {
+        echo "task run\n";
+    });
+};
+```
+
+#### **Worker监听自定义协议的端口**
+
+目录结构 : 
+
+```
+├── Protocols              # 这是要创建的Protocols目录
+│   └── MyTextProtocol.php # 这是要创建的自定义协议文件
+├── test.php               # 这是要创建的test脚本
+└── Workerman              # Workerman源码目录,里面代码不动
+```
+
+创建协议目录以及自定义的协议类 , 可以继承Workerman中的协议定义接口 , 完成下面的几个方法即可 : 
+
+```php
+// 用户自定义协议命名空间统一为Protocols
+namespace Protocols;
+//简单文本协议，协议格式为 文本+换行
+class MyTextProtocol
+{
+    // 分包功能，返回当前包的长度
+    public static function input($recv_buffer)
+    {
+        // 查找换行符
+        $pos = strpos($recv_buffer, "\n");
+        // er行符，表示不是一个完整的包，返回0继续等待数据
+        if($pos === false)
+        {
+            return 0;
+        }
+        // 查找到换行符，返回当前包的长度，包括换行符
+        return $pos+1;
+    }
+
+    // 收到一个完整的包后通过decode自动解码，这里只是把换行符trim掉
+    public static function decode($recv_buffer)
+    {
+        return trim($recv_buffer);
+    }
+
+    // 给客户端send数据前会自动通过encode编码，然后再发送给客户端，这里加了换行
+    public static function encode($data)
+    {
+        return $data."\n";
+    }
+}s
 ```
 
 
