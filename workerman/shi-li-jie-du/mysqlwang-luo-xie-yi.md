@@ -48,7 +48,74 @@ MySQL客户端与服务器的交互主要分为两个阶段 : 握手认证阶段
 
 MySQL数据库通常只能在内容访问 , 外网一般都不能进行访问 , 这里就用到了代理 . 一般都会通过内网等防火墙设置 , 让固定的web服务器去访问 . 现在 , 我们要使用本地开发的程序去访问线上的真实的内网数据库 , 又不去映射防火墙 , 就可以使用Workerman创建一个代理 , 去访问真实的数据库 .
 
-在手册中 , 已经提供了一个例子 , 在Workerman作为客户端中 , 可以找到 , workerman作为mysql代理 . 
+在手册中 , 已经提供了一个例子 , 在Workerman作为客户端中 , 可以找到 , workerman作为mysql代理 .
+
+```php
+<?php
+
+use Workerman\Worker;
+use Workerman\Connection\AsyncTcpConnection;
+
+require_once __DIR__ . '/Workerman/Autoloader.php';
+
+# 真实的mysql地址,假设这里是本机3306端口
+$REAL_MYSQL_ADDRESS = 'tcp://127.0.0.1:3306';
+
+# 代理监听本地9933端口
+$proxy = new Worker('tcp://0.0.0.0:9933');
+
+$proxy->onConnect = function ($connection)
+{
+    global $REAL_MYSQL_ADDRESS;
+
+    # 异步建立一个到实际mysql服务器的连接
+    $connection_to_mysql = new AsyncTcpConnection($REAL_MYSQL_ADDRESS);
+
+    # MySQL连接发来数据时,转发给对应客户端的连接
+    $connection_to_mysql->onMessage = function ($connection_to_mysql, $buffer) use ($connection)
+    {
+        $connection->send($buffer);
+    };
+
+    # MySQL连接关闭时,关闭对应的代理到客户端的连接
+    $connection_to_mysql->onClose = function ($connection_to_mysql) use ($connection)
+    {
+        $connection->close();
+    };
+
+    # MySQL连接上发生错误时,关闭对应的代理到客户端的连接
+    $connection_to_mysql->onError = function ($connection_to_mysql) use ($connection)
+    {
+        $connection->close();
+    };
+
+    # 执行异步连接
+    $connection_to_mysql->connect();
+
+    # 客户端发来数据时,转发给对应的mysql连接
+    $connection->onMessage = function ($connection, $buffer) use ($connection_to_mysql)
+    {
+        $connection_to_mysql->send($buffer);
+    };
+
+    # 客户端连接断开时,断开对应的mysql连接
+    $connection->onClose = function ($connection) use ($connection_to_mysql)
+    {
+        $connection_to_mysql->close();
+    };
+
+    # 客户端连接发生错误时,断开对应的mysql连接
+    $connection->onError = function ($connection) use ($connection_to_mysql)
+    {
+        $connection_to_mysql->close();
+    };
+};
+
+# 运行Worker
+Worker::runAll();
+```
+
+#### 测试
 
 
 
