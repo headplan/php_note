@@ -182,6 +182,9 @@
   * [通讯协议](workerman/tong-xun-xie-yi.md)
   * [源码解析](workerman/yuan-ma-jie-xi.md)
     * [Worker类](workerman/yuan-ma-jie-xi/workerlei.md)
+      * [属性](workerman/yuan-ma-jie-xi/workerlei/shu-xing.md)
+      * 回调属性
+      * 接口
   * [实例解读](workerman/shi-li-jie-du.md)
     * [理解MySQL网络协议](workerman/shi-li-jie-du/mysqlwang-luo-xie-yi.md)
 * [Swoole](swoole.md)

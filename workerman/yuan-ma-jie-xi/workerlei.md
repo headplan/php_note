@@ -67,7 +67,7 @@ public function __construct($socket_name = '', $context_option = array())
 
 #### $context\_option
 
-一个数组 , 用于传递socket的上下文选项 , 参见套接字上下文选项 . 例如 : 
+一个数组 , 用于传递socket的上下文选项 , 参见套接字上下文选项 . 例如 :
 
 ```php
 $opts = array(
@@ -77,11 +77,15 @@ $opts = array(
 );
 ```
 
-#### 属性
+一些初始化示例 : 
 
-#### 回调属性
+```php
+# Worker作为http容器监听处理http请求
+$worker = new Worker('http://0.0.0.0:8686');
 
-#### 接口
+# Worker作为websocket容器监听处理websocket请求
+
+```
 
 
 
