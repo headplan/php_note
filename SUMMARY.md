@@ -180,6 +180,7 @@
     * [基本流程](workerman/kai-fa-liu-cheng/ji-ben-liu-cheng.md)
   * [通讯协议](workerman/tong-xun-xie-yi.md)
   * [源码解析](workerman/yuan-ma-jie-xi.md)
+    * [Worker类](workerman/yuan-ma-jie-xi/workerlei.md)
   * [实例解读](workerman/shi-li-jie-du.md)
     * [MySQL网络协议](workerman/shi-li-jie-du/mysqlwang-luo-xie-yi.md)
 * [Swoole](swoole.md)
