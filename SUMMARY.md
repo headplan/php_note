@@ -187,8 +187,10 @@
       * 接口
   * [实例解读](workerman/shi-li-jie-du.md)
     * [理解MySQL网络协议](workerman/shi-li-jie-du/mysqlwang-luo-xie-yi.md)
+    * 简单的聊天室
 * [Swoole](swoole.md)
   * [入门知识](swoole/ru-men-zhi-shi.md)
+* [消息队列](xiao-xi-dui-lie.md)
 * [Awesome PHP](awesome-php.md)
   * [PHP School](awesome-php/php-school.md)
 * [行业相关](xing-ye-xiang-guan.md)
