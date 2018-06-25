@@ -162,5 +162,31 @@ class Headplan
 }
 ```
 
+然后 , 使用Headplan协议监听处理请求
+
+```php
+<?php
+
+use Workerman\Worker;
+require_once __DIR__ . '/Workerman/Autoloader.php';
+
+$headplan_worker = new Worker('headplan://0.0.0.0:9933');
+
+/**
+ * 收到一个完整的数据后,会自动执行Headplan::decode('收到的数据')
+ * 结果通过$data,传递给onMessage回调
+ */
+$headplan_worker->onMessage = function ($connection, $data)
+{
+    var_dump($data);
+    /**
+     * 给客户端发送数据,会自动调用encode对协议进行编码,之后再发送.
+     */
+    $connection->send('hello world');
+};
+
+Worker::runAll();
+```
+
 
 
