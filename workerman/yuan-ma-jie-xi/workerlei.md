@@ -39,7 +39,9 @@ public function __construct($socket_name = '', $context_option = array())
 
 初始化参数均为可选参数 .
 
-**$socket\_name**不填写表示不监听任何端口 . 填写则会执行socket监听 .
+#### **$socket\_name**
+
+不填写表示不监听任何端口 . 填写则会执行socket监听 .
 
 ```
 参数格式为<协议>://<监听地址>
@@ -49,7 +51,7 @@ public function __construct($socket_name = '', $context_option = array())
 
 **监听地址**
 
-如果是unix套接字 , 地址为本地一个磁盘路径 . 
+如果是unix套接字 , 地址为本地一个磁盘路径 .
 
 非unix套接字 , 地址格式为 &lt;本机ip&gt;:&lt;端口号&gt;
 
@@ -61,7 +63,19 @@ public function __construct($socket_name = '', $context_option = array())
 
 &lt;本机ip&gt;设置的值不属于本机ip则无法执行监听 , 并且提示`Cannot assign requested address`错误
 
-**注意：**&lt;端口号&gt;不能大于65535 . &lt;端口号&gt;如果小于1024则需要root权限才能监听 . 监听的端口必须是本机未被占用的端口 , 否则无法监听 , 并且提示`Address already in use`错误 . 
+**注意：**&lt;端口号&gt;不能大于65535 . &lt;端口号&gt;如果小于1024则需要root权限才能监听 . 监听的端口必须是本机未被占用的端口 , 否则无法监听 , 并且提示`Address already in use`错误 .
+
+#### $context\_option
+
+一个数组 , 用于传递socket的上下文选项 , 参见套接字上下文选项 . 例如 : 
+
+```php
+$opts = array(
+    'socket' => array(
+        'bindto' => '192.168.0.100:7000',
+    ),
+);
+```
 
 #### 属性
 
