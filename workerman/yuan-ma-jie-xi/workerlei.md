@@ -110,7 +110,7 @@ $task->onWorkerStart = function($task)
 
 #### **Worker监听自定义协议的端口**
 
-目录结构 : 
+目录结构 :
 
 ```
 ├── Protocols              # 这是要创建的Protocols目录
@@ -119,40 +119,47 @@ $task->onWorkerStart = function($task)
 └── Workerman              # Workerman源码目录,里面代码不动
 ```
 
-创建协议目录以及自定义的协议类 , 可以继承Workerman中的协议定义接口 , 完成下面的几个方法即可 : 
+创建协议目录以及自定义的协议类 , 可以继承Workerman中的协议定义接口 , 完成下面的几个方法即可 :
 
 ```php
-// 用户自定义协议命名空间统一为Protocols
+<?php
+
 namespace Protocols;
-//简单文本协议，协议格式为 文本+换行
-class MyTextProtocol
+
+class Headplan
 {
-    // 分包功能，返回当前包的长度
+    /**
+     * 分包功能,返回当前包的长度
+     */
     public static function input($recv_buffer)
     {
-        // 查找换行符
+        # 查找换行符
         $pos = strpos($recv_buffer, "\n");
-        // er行符，表示不是一个完整的包，返回0继续等待数据
-        if($pos === false)
-        {
+        # 没找到换行符,表示不是一个完整的包,返回0继续等待
+        if ($pos === false) {
             return 0;
         }
-        // 查找到换行符，返回当前包的长度，包括换行符
+
+        # 找到换行符,则返回当前包的长度.当然,要包括换行符
         return $pos+1;
     }
 
-    // 收到一个完整的包后通过decode自动解码，这里只是把换行符trim掉
+    /**
+     * 收到一个完整的包后自动解码,这里简单的trim一下
+     */
     public static function decode($recv_buffer)
     {
         return trim($recv_buffer);
     }
 
-    // 给客户端send数据前会自动通过encode编码，然后再发送给客户端，这里加了换行
+    /**
+     * 给客户端send数据前会自动通过encode编码,然后再发送.这里简单的添加换行符
+     */
     public static function encode($data)
     {
-        return $data."\n";
+        return $data . "\n";
     }
-}s
+}
 ```
 
 
