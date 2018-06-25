@@ -117,5 +117,13 @@ Worker::runAll();
 
 #### 测试
 
+运行上面的代理服务器 , `php mysql_proxy.php start`
+
+然后 , 使用MySQL客户端 , 访问代理的端口 . 
+
+```php
+mysql -uroot -P9933 -h127.0.0.1 -p
+```
+
 
 
