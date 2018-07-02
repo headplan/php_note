@@ -5,6 +5,7 @@
   * [版本特性](php-version/ban-ben-te-xing.md)
     * [PHP5.6](php-version/ban-ben-te-xing/php56.md)
 * [文档手册](documentation.md)
+  * [基础知识](documentation/ji-chu-zhi-shi.md)
   * [预定义接口](documentation/reserved-interfaces.md)
     * [遍历相关接口](documentation/reserved-interfaces/bian-li-xiang-guan-jie-kou.md)
     * [数组式访问接口](documentation/reserved-interfaces/shu-zu-shi-fang-wen-jie-kou.md)
