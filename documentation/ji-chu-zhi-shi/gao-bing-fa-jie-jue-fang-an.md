@@ -52,7 +52,15 @@ ab , wrk , http\_load , Web Bench , Siege , Apache JMeter
 
 **ab - apache benchmark**
 
-Apache官方推出的工具 , 它创建多个并发访问线程 , 模拟多个访问者同时对某一URL地址进行访问 . 它的测试目标是基于URL的 , 因此 , 它即可以用来测试apache的负载压力 , 也可以测试nginx , lighthttp , tomcat , IIS等其他Web服务器的压力 . 
+Apache官方推出的工具 , 它创建多个并发访问线程 , 模拟多个访问者同时对某一URL地址进行访问 . 它的测试目标是基于URL的 , 因此 , 它即可以用来测试apache的负载压力 , 也可以测试nginx , lighthttp , tomcat , IIS等其他Web服务器的压力 .
+
+**使用**
+
+模拟并发请求100次 , 总共请求5000次 . 
+
+```
+ab -c 100 -n 5000 待测试URL
+```
 
 **高并发解决方案案例**
 
