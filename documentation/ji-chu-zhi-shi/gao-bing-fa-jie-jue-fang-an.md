@@ -72,5 +72,9 @@ yum provides /usr/bin/ab
 yum install httpd-tools-2.4.6-80.el7.centos.x86_64
 ```
 
+**QPS达到极限**
+
+随着QPS的增长 , 每个阶段需要根据实际情况来进行优化 , 优化的方案也与硬件条件 , 网络带宽息息相关 . 
+
 **高并发解决方案案例**
 
