@@ -105,7 +105,18 @@ var arr = new Array();
 var arr = new Array(size);
 var arr = new Array(e1,e2,e3...en); # 直接写元素
 # 属性和方法
-# js数组没关联数组
+# js数组没关联数组,要使用类似关联数组的方式,还是得使用json对象.
+```
+
+**Date对象**
+
+```
+var myDate=new Date()
+# 属性和方法
+myDate.getData()
+myDate.getYear()
+myDate.getDay()
+myData.getTime()
 ```
 
 #### js html dom对象
