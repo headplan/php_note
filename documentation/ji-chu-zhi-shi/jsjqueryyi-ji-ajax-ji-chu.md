@@ -119,7 +119,27 @@ myDate.getDay()
 myData.getTime()
 ```
 
-#### js html dom对象
+**Math对象**
+
+```
+# 直接使用,不用new
+var pi_value=Math.PI;
+var sqrt_value=Math.sqrt(15);
+```
+
+**RegExp对象**
+
+```
+# 直接使用或者new
+/pattern/attributes
+new RegExp(pattern, attributes);
+var str="Hello World!";
+document.write(str.search(/world/i));
+```
+
+#### **Browser 对象**
+
+#### **HTML DOM 对象**
 
 #### jQuery基础知识
 
