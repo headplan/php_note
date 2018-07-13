@@ -89,6 +89,25 @@ var str="Hello world!"
 document.write(str.indexOf("world"))
 ```
 
+**Boolean对象**
+
+```
+var bol = true;
+var bol = new Boolean(value);
+var bol = Boolean(value);
+# 属性和方法
+```
+
+**Array对象**
+
+```
+var arr = new Array();
+var arr = new Array(size);
+var arr = new Array(e1,e2,e3...en); # 直接写元素
+# 属性和方法
+# js数组没关联数组
+```
+
 #### js html dom对象
 
 #### jQuery基础知识
