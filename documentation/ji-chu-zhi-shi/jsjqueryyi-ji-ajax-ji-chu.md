@@ -16,7 +16,7 @@
 
 字符串,数字,布尔,数组,对象,Null,Undefined.
 
-js变量均为对象 , 即声明一个变量时 , 就创建了一个新对象 . 
+js变量均为对象 , 即声明一个变量时 , 就创建了一个新对象 .
 
 **创建原声对象**
 
@@ -32,7 +32,7 @@ person.eyecolor="blue";
 var myFather=new person("Bill","Gates",56,"blue");
 ```
 
-使用对象构造器 , 然后new就可以了 . 
+使用对象构造器 , 然后new就可以了 .
 
 ```
 function person(firstname,lastname,age,eyecolor)
@@ -50,7 +50,31 @@ json对象
 person={firstname:"John",lastname:"Doe",age:50,eyecolor:"blue"};
 ```
 
+**函数**
+
+无默认值 . 
+
+函数内部声明的变量\(使用var\)是局部变量 , 在函数外不能用 . 
+
+在函数外声明的变量是全局变量 , 所有脚本和函数都能访问它 . 
+
+**运算符**
+
++号可以用来拼接字符串 . 其他加减乘除都一样 . 
+
+**流程控制**
+
+else if要分开写
+
 #### js内置对象
+
+**Number对象**
+
+```
+var pi = 3.14;
+var myNum = new Number(value);
+var myNum = Number(value);
+```
 
 #### js html dom对象
 
