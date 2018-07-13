@@ -52,15 +52,15 @@ person={firstname:"John",lastname:"Doe",age:50,eyecolor:"blue"};
 
 **函数**
 
-无默认值 . 
+无默认值 .
 
-函数内部声明的变量\(使用var\)是局部变量 , 在函数外不能用 . 
+函数内部声明的变量\(使用var\)是局部变量 , 在函数外不能用 .
 
-在函数外声明的变量是全局变量 , 所有脚本和函数都能访问它 . 
+在函数外声明的变量是全局变量 , 所有脚本和函数都能访问它 .
 
 **运算符**
 
-+号可以用来拼接字符串 . 其他加减乘除都一样 . 
++号可以用来拼接字符串 . 其他加减乘除都一样 .
 
 **流程控制**
 
@@ -75,6 +75,19 @@ var pi = 3.14;
 var myNum = new Number(value);
 var myNum = Number(value);
 ```
+
+**String对象**
+
+```
+var str = 'string'; # 单引号和双引号没啥区别
+var str = new String(s);
+var str = String(s);
+# 还有很多方法和属性
+var txt="Hello World!"
+document.write(txt.length)
+```
+
+
 
 #### js html dom对象
 
