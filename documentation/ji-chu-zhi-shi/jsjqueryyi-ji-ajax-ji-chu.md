@@ -85,9 +85,9 @@ var str = String(s);
 # 还有很多方法和属性
 var txt="Hello World!"
 document.write(txt.length)
+var str="Hello world!"
+document.write(str.indexOf("world"))
 ```
-
-
 
 #### js html dom对象
 
