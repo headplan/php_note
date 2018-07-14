@@ -102,7 +102,15 @@ gzip/gunzip
 zip/unzip
 tar
 
+# 文件传输
+ftp
+scp
+
 # 定时任务
+crontab
+crontab -e # 创建定时任务
+* * * * * 命令(分 时 日 月 周)
+
 
 # vi/vim编辑器
 
