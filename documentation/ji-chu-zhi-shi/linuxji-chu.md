@@ -90,6 +90,18 @@ tree
 cp
 ls
 
+# 文件权限属性
+setfacl
+chmod
+chown
+chgrp
+
+# 压缩解压
+bzip2/bunzip2
+gzip/gunzip
+zip/unzip
+tar
+
 # 定时任务
 
 # vi/vim编辑器
