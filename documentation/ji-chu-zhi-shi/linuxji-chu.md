@@ -110,7 +110,10 @@ scp
 crontab
 crontab -e # 创建定时任务
 * * * * * 命令(分 时 日 月 周)
-
+at命令:一次性执行
+at 2:00 tomorrow
+at>要执行的脚本
+at>ctrl+D 退出
 
 # vi/vim编辑器
 
