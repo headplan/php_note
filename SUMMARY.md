@@ -69,6 +69,7 @@
     * [变量类型的实现](core-code/php5-core-code/bian-liang-lei-xing-de-shi-xian.md)
   * [PHP7源码分析](core-code/php7-core-code.md)
   * [流式访问](core-code/liu-shi-fang-wen.md)
+  * [PHP模块开关](core-code/phpmo-kuai-kai-guan.md)
 * [包管理器](package.md)
   * [Composer](package/composer.md)
     * [架构](package/composer/jiagou.md)
