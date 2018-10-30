@@ -4,10 +4,10 @@
 
 ```
 # 我的配置在这里
-/usr/local/php/etc/php-fpm.conf
+/usr/local/php/etc/php-fpm.conf 
 ```
 
-PHP-FPM最重要的全局设置 , 如果在指定的一段时间内有指定个子进程失效了 , 让PHP-FPM主进程重启 . 这是PHP-FPM进程的基本安全保障 , 能解决简单的问题 , 但是PHP代码太坑也是没办法的 . 
+PHP-FPM最重要的全局设置 , 如果在指定的一段时间内有指定个子进程失效了 , 让PHP-FPM主进程重启 . 这是PHP-FPM进程的基本安全保障 , 能解决简单的问题 , 但是PHP代码太坑也是没办法的 .
 
 ```
 # 在指定的一段时间内 , 如果失效的PHP-FPM子进程数超过这个值,PHP-FPM主进程就优雅的重启
