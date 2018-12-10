@@ -101,6 +101,7 @@
       * [配置总结](extended-library/xdebug/bian-liang-xian-shi-gong-neng/pei-zhi-lie-biao.md)
     * [相关函数](extended-library/xdebug/xdebugxiang-guan-she-zhi.md)
   * [Faker](extended-library/faker.md)
+  * [Yaf](extended-library/yaf.md)
 * [框架技术](framework.md)
   * [HttpFoundation组件](framework/httpfoundationzu-jian.md)
   * [路由组件](framework/tian-jia-lu-you.md)
