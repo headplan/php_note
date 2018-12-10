@@ -14,9 +14,9 @@
 | yaf.use\_spl\_autoload | 0 | 1 | PHP\_INI\_ALL | 开启的情况下,Yaf在加载不成功的情况下,会继续让PHP的自动加载函数加载,从性能考虑,除非特殊情况,否则保持这个选项关闭 |
 | yaf.forward\_limit | 5 |  | PHP\_INI\_ALL | forward最大嵌套深度 |
 | yaf.name\_suffix | 1 |  | PHP\_INI\_ALL | 在处理Controller, Action, Plugin, Model的时候, 类名中关键信息是否是后缀式,比如UserModel,而在前缀模式下则是ModelUser |
-| yaf.name\_separator |  |  | PHP\_INI\_ALL |  |
+| yaf.name\_separator | "" | \_ | PHP\_INI\_ALL | 在处理Controller, Action, Plugin, Model的时候, 前缀和名字之间的分隔符,默认为空,也就是UserPlugin,加入设置为"\_",则判断的依据就会变成:"User\_Plugin",这个主要是为了兼容ST已有的命名规范 |
 | yaf.cache\_config | 0 |  | PHP\_INI\_SYSTEM |  |
-| yaf.environ | product |  | PHP\_INI\_SYSTEM |  |
+| yaf.environ | product | debug | PHP\_INI\_SYSTEM | 线上产品设置为product |
 | yaf.use\_namespace | 0 |  | PHP\_INI\_SYSTEM |  |
 
 
