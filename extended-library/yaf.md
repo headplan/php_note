@@ -6,7 +6,7 @@
 
 #### 运行时配置
 
-http://php.net/manual/zh/yaf.configuration.php
+[http://php.net/manual/zh/yaf.configuration.php](http://php.net/manual/zh/yaf.configuration.php)
 
 | 名字 | 默认值 | 其他值 | 可修改范围 | 更新记录 |
 | :--- | :--- | :--- | :--- | :--- |

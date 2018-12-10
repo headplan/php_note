@@ -102,6 +102,7 @@
     * [相关函数](extended-library/xdebug/xdebugxiang-guan-she-zhi.md)
   * [Faker](extended-library/faker.md)
   * [Yaf](extended-library/yaf.md)
+    * [预定义常量](extended-library/yaf/yu-ding-yi-chang-liang.md)
 * [框架技术](framework.md)
   * [HttpFoundation组件](framework/httpfoundationzu-jian.md)
   * [路由组件](framework/tian-jia-lu-you.md)
