@@ -6,6 +6,8 @@
 
 #### 运行时配置
 
+http://php.net/manual/zh/yaf.configuration.php
+
 | 名字 | 默认值 | 其他值 | 可修改范围 | 更新记录 |
 | :--- | :--- | :--- | :--- | :--- |
 | yaf.library | NULL | /your-path | PHP\_INI\_ALL | 全局类库的目录路径 |
