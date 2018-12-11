@@ -41,7 +41,7 @@ yaf.dispatcher.catchException = 0
 | application.bootstrap | String | Bootstrap类脚本文件的绝对路径 |
 | application.baseUri | String | 路由处理中需要忽略的路径前缀.举个例子,请求"/prefix/controller/action"时.如果你将application.baseUri设置为"/prefix",那么只有"/controller/action"会被当做路由路径.这个值通常不需要设置. |
 | application.dispatcher.throwException | bool | 开启此项,Yaf会在发生错误的地方抛出异常. |
-| application.dispatcher.catchException | bool | 开启此项,如果有未捕获的异常,Yaf将会把它定向到Error controller,Error Action |
+| application.dispatcher.catchException | bool | 是否使用默认的异常捕获Controller.如果开启,在有未捕获的异常的时候,控制权会交给ErrorController的errorAction方法,可以通过$request-&gt;getException\(\)获得此异常对象. |
 |  |  |  |
 |  |  |  |
 |  |  |  |
