@@ -23,5 +23,7 @@ sudo php -d detect_unicode=0 go-pear.phar
 
 回车两次 , 其他让其默认 , 安装完成
 
-可以通过命令检查pear安装是否成功`pear version`
+可以通过命令检查pear安装是否成功`pear version`或`pecl version`
+
+
 
