@@ -37,7 +37,11 @@ yaf.dispatcher.catchException = 0
 | application.modules | String | 注册的模块列表,以逗号分隔,用于路由处理,特别是当PATH\_INFO超过三段的时候,Yaf需要用它来判断第一段是否是一个模块. |
 | application.library | String | 本地类库的目录,该配置项也可以是一个数组,当它是数组的时候,类库的路径将尝试使用application.library.directory的值 |
 | application.library.directory | String | application.library的别名 |
-|  |  |  |
+| application.library.namespace | String | 逗号分隔的本地类库命名空间前缀 |
+| application.bootstrap | String | Bootstrap类脚本文件的绝对路径 |
+| application.baseUri | String | 路由处理中需要忽略的路径前缀.举个例子,请求"/prefix/controller/action"时.如果你将application.baseUri设置为"/prefix",那么只有"/controller/action"会被当做路由路径.这个值通常不需要设置. |
+| application.dispatcher.throwException | bool | 开启此项,Yaf会在发生错误的地方抛出异常. |
+| application.dispatcher.catchException | bool | 开启此项,如果有未捕获的异常,Yaf将会把它定向到Error controller,Error Action |
 |  |  |  |
 |  |  |  |
 |  |  |  |
