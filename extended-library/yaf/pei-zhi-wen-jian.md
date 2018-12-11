@@ -31,7 +31,7 @@ yaf.dispatcher.catchException = 0
 
 | 名称 | 值类型 | 说明 |
 | :--- | :--- | :--- |
-| application.directory | String | 应用的绝对目录路径 |
+| application.directory | String | 应用的绝对目录路径,唯一一个没有默认值的选项 |
 
 
 
