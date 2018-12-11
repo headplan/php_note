@@ -62,12 +62,12 @@ $HTTP["host"] =~ "(www.)?domain.com$" {
 
 #### 配置文件
 
-在Yaf中 , 配置文件支持继承 , 支持分节 . 并对PHP的常量进行支持 . 不用担心配置文件太大造成解析性能问题 , 因为Yaf会在第一个运行的时候载入配置文件 , 把格式化后的内容保持在内存中 . 直到配置文件有了修改 , 才会再次载入 . 
+在Yaf中 , 配置文件支持继承 , 支持分节 . 并对PHP的常量进行支持 . 不用担心配置文件太大造成解析性能问题 , 因为Yaf会在第一个运行的时候载入配置文件 , 把格式化后的内容保持在内存中 . 直到配置文件有了修改 , 才会再次载入 .
 
 ```
 [product]
 ;支持直接写PHP中的已定义常量
-application.directory=APP_PATH "/application/" 
+application.directory=APP_PATH "/application/"
 ```
 
 
