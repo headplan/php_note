@@ -74,9 +74,11 @@ application.directory=APP_PATH "/application/"
 
 #### 默认控制器
 
-在Yaf中 , 默认的模块/控制器/动作 , 都是以Index命名的 , 当然 , 这是可通过配置文件修改的 . 
+在Yaf中 , 默认的模块/控制器/动作 , 都是以Index命名的 , 当然 , 这是可通过配置文件修改的 .
 
 对于默认模块 , 控制器的目录是在application目录下的controllers目录下 , Action的命名规则是"名字+Action"
+
+**application/controllers/Index.php**
 
 ```php
 <?php
