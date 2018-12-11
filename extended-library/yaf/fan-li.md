@@ -92,5 +92,25 @@ class IndexController extends Yaf_Controller_Abstract {
 }
 ```
 
+#### 视图文件
+
+Yaf支持简单的视图引擎 , 并且支持用户自定义自己的视图引擎 , 比如Smarty .
+
+对于默认模块 , 视图文件的路径是在application目录下的views目录中以小写的action名的目录中 . 
+
+**application/views/index/index.phtml**
+
+```markdown
+<html>
+ <head>
+   <title>Hello World</title>
+ </head>
+ <body>
+   <?php echo $word;?>
+ </body>
+</html>
+```
+
+  
 
 
