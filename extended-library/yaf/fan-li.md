@@ -113,7 +113,7 @@ Yaf支持简单的视图引擎 , 并且支持用户自定义自己的视图引�
 
 #### 代码生成工具
 
-https://github.com/laruence/yaf/tree/master/tools/cg
+[https://github.com/laruence/yaf/tree/master/tools/cg](https://github.com/laruence/yaf/tree/master/tools/cg)
 
 生成上面的示例代码
 
