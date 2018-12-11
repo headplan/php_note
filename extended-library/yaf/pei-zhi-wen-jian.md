@@ -42,9 +42,10 @@ yaf.dispatcher.catchException = 0
 | application.baseUri | String | 路由处理中需要忽略的路径前缀.举个例子,请求"/prefix/controller/action"时.如果你将application.baseUri设置为"/prefix",那么只有"/controller/action"会被当做路由路径.这个值通常不需要设置. |
 | application.dispatcher.throwException | bool | 开启此项,Yaf会在发生错误的地方抛出异常. |
 | application.dispatcher.catchException | bool | 是否使用默认的异常捕获Controller.如果开启,在有未捕获的异常的时候,控制权会交给ErrorController的errorAction方法,可以通过$request-&gt;getException\(\)获得此异常对象. |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| application.dispatcher.defaultRoute | String | 默认路由,如果未指定,静态路由会被当做是默认路由. |
+| application.dispatcher.defaultModule | String | 默认模块名 |
+| application.dispatcher.defaultController | String | 默认控制器名 |
+| application.dispatcher.defaultAction | String | 默认动作名 |
 
 
 
