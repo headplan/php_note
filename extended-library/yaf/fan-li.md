@@ -64,10 +64,30 @@ $HTTP["host"] =~ "(www.)?domain.com$" {
 
 在Yaf中 , 配置文件支持继承 , 支持分节 . 并对PHP的常量进行支持 . 不用担心配置文件太大造成解析性能问题 , 因为Yaf会在第一个运行的时候载入配置文件 , 把格式化后的内容保持在内存中 . 直到配置文件有了修改 , 才会再次载入 .
 
+**application/conf/application.ini**
+
 ```
 [product]
 ;支持直接写PHP中的已定义常量
 application.directory=APP_PATH "/application/"
+```
+
+#### 默认控制器
+
+在Yaf中 , 默认的模块/控制器/动作 , 都是以Index命名的 , 当然 , 这是可通过配置文件修改的 . 
+
+对于默认模块 , 控制器的目录是在application目录下的controllers目录下 , Action的命名规则是"名字+Action"
+
+```php
+<?php
+class IndexController extends Yaf_Controller_Abstract {
+   /* default action */
+   public function indexAction() {
+       $this->_view->word = "hello world";
+       //or
+       // $this->getView()->word = "hello world";
+   }
+}
 ```
 
 
