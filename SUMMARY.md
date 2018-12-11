@@ -103,6 +103,7 @@
   * [Yaf](extended-library/yaf.md)
     * [预定义常量](extended-library/yaf/yu-ding-yi-chang-liang.md)
     * [快速开始](extended-library/yaf/fan-li.md)
+    * [配置文件](extended-library/yaf/pei-zhi-wen-jian.md)
 * [框架技术](framework.md)
   * [HttpFoundation组件](framework/httpfoundationzu-jian.md)
   * [路由组件](framework/tian-jia-lu-you.md)
