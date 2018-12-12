@@ -26,7 +26,7 @@
 
 #### 使用路由
 
-不同的路由协议 : 
+不同的路由协议 :
 
 ```
 Yaf_Route_Simple
@@ -35,6 +35,14 @@ Yaf_Route_Static
 Yaf_Route_Map
 Yaf_Route_Rewrite
 Yaf_Route_Regex
+```
+
+在添加路由协议之前 , 必须要得到一个路由器实例 . 通过派遣器的getRouter方法来得到默认的路由器 : 
+
+```php
+<?php
+# 通过派遣器得到默认的路由器
+$router = Yaf\Dispatcher::getInstance()->getRouter();
 ```
 
 
