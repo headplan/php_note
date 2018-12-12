@@ -48,9 +48,9 @@ $router->addRoute('myRoute', $route);
 $router->addRoute('myRoute1',$route);
 ```
 
-直接添加在配置中定义我们路由 : 
+直接添加在配置中定义我们路由 :
 
-```asciidoc
+```php
 [common]
 ;自定义路由
 ;顺序很重要
