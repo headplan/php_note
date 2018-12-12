@@ -12,5 +12,5 @@ $app = new Yaf_Application("conf.ini");
 $app->bootstrap()->run();
 ```
 
-
+当Bootstrap被调用的时刻 , `Yaf_Application`就会默认的在`APPLICATION_PATH`下 , 寻找`Bootstrap.php` , 而这个文件中 , 必须定义一个Bootstrap类 , 而这个类也必须继承自`Yaf_Bootstrap_Abstract` .
 
