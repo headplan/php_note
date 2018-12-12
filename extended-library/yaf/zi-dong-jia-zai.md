@@ -18,5 +18,7 @@ Yaf在自启动的时候 , 会通过SPL注册一个自己的Autoloader , 出于�
 
 Yaf为了方便在一台服务器上部署的不同产品之间共享公司级别的共享库 , 支持全局类和本地类两种加载方式 .
 
-**全局类** - 所有产品之间共享的类 , 这些类库的路径是通过yaf.library在php.ini配置的 . 如果PHP在编译的时候 , 支持了with-config-file-scan-dir,也可以写在单独的yaf.ini中 . 
+**全局类** - 所有产品之间共享的类 , 这些类库的路径是通过yaf.library在php.ini配置的 . 如果PHP在编译的时候 , 支持了with-config-file-scan-dir,也可以写在单独的yaf.ini中 .
+
+**本地类** - 类库的路径是通过在产品的配置文件中, 通过ap.library配置的 . 在Yaf中 , 通过调用Yaf\_Loader的registerLocalNamespace方法 , 来申明哪些类前缀是本地类 , 即可 . 
 
