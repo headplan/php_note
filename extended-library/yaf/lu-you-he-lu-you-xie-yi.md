@@ -37,12 +37,42 @@ Yaf_Route_Rewrite
 Yaf_Route_Regex
 ```
 
-在添加路由协议之前 , 必须要得到一个路由器实例 . 通过派遣器的getRouter方法来得到默认的路由器 : 
+在添加路由协议之前 , 必须要得到一个路由器实例 . 通过派遣器的getRouter方法来得到默认的路由器 :
 
 ```php
 <?php
 # 通过派遣器得到默认的路由器
 $router = Yaf\Dispatcher::getInstance()->getRouter();
+# 有了路由器实例,就能通过它来添加自定义的路由了
+$router->addRoute('myRoute', $route);
+$router->addRoute('myRoute1',$route);
+```
+
+直接添加在配置中定义我们路由 : 
+
+```asciidoc
+[common]
+;自定义路由
+;顺序很重要
+routes.regex.type="regex"
+routes.regex.match="#^/list/([^/]*)/([^/]*)#"
+routes.regex.route.controller=Index
+routes.regex.route.action=action
+routes.regex.map.1=name
+routes.regex.map.2=value
+;添加一个名为simple的路由协议
+routes.simple.type="simple"
+routes.simple.controller=c
+routes.simple.module=m
+routes.simple.action=a
+;添加一个名为supervar的路由协议
+routes.supervar.type="supervar"
+routes.supervar.varname=r
+
+[product : common]
+;product节是Yaf默认关心的节, 添加一个名为rewrite的路由协议
+routes.rewrite.type="rewrite"
+routes.rewrite.match="/product/:name/:value"
 ```
 
 
