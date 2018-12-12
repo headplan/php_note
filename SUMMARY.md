@@ -107,6 +107,7 @@
     * [配置文件](extended-library/yaf/pei-zhi-wen-jian.md)
     * [自动加载](extended-library/yaf/zi-dong-jia-zai.md)
     * [引导程序](extended-library/yaf/yin-dao-cheng-xu.md)
+    * [使用插件](extended-library/yaf/shi-yong-cha-jian.md)
 * [框架技术](framework.md)
   * [HttpFoundation组件](framework/httpfoundationzu-jian.md)
   * [路由组件](framework/tian-jia-lu-you.md)
