@@ -101,6 +101,7 @@
     * [相关函数](extended-library/xdebug/xdebugxiang-guan-she-zhi.md)
   * [Faker](extended-library/faker.md)
   * [Yaf](extended-library/yaf.md)
+    * [流程图](extended-library/yaf/liu-cheng-tu.md)
     * [预定义常量](extended-library/yaf/yu-ding-yi-chang-liang.md)
     * [快速开始](extended-library/yaf/fan-li.md)
     * [配置文件](extended-library/yaf/pei-zhi-wen-jian.md)
