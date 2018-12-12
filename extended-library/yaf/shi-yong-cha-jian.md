@@ -14,7 +14,15 @@ Yaf定义了6个Hook :
 
 **preDispatch** : 分发之前触发 . 如果在一个请求处理过程中 , 发生了forward , 则这个事件会被触发多次 .
 
-**postDispatch** : 分发结束之后触发 . 此时动作已经执行结束 , 视图也已经渲染完成 . 和preDispatch类似 , 此事件也可能触发多次 . 
+**postDispatch** : 分发结束之后触发 . 此时动作已经执行结束 , 视图也已经渲染完成 . 和preDispatch类似 , 此事件也可能触发多次 .
 
-dispatchLoopShutdown : 分发循环结束之后触发 . 此时表示所有的业务逻辑都已经运行完成 , 但是响应还没有发送 .
+**dispatchLoopShutdown** : 分发循环结束之后触发 . 此时表示所有的业务逻辑都已经运行完成 , 但是响应还没有发送 .
+
+#### 定义插件
+
+插件类需要继承自`Yaf\Plugin_Abstract` . 对于前面的Hook的使用 , 只需要在插件类中定义和上面事件同名的方法 , 那么这个方法就会在该事件触发的时候被调用 . 
+
+插件方法 , 可以接受俩个参数 , Yaf\_Request\_Abstract实例和Yaf\_Response\_Abstract实例 . 
+
+
 
