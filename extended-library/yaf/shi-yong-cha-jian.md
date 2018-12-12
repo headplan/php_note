@@ -51,5 +51,9 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
 }
 ```
 
+#### 插件目录
+
+通常 , 插件应该放置在`APPLICATION_PATH`下的`plugins`目录 , 这样在自动加载的时候 , 加载器通过类名 , 发现这是个插件类 , 就会在这个目录下查找 . 当然 , 插件也可以放在任何想放的地方 , 只要能把这个类加载进来就可以 . 
+
 
 
