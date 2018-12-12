@@ -30,13 +30,15 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
         $config = Yaf\Application::app()->getConfig();
         Yaf\Registry::set("config", $config);
     }
-    
+
     public function _initDefaultName(Yaf\Dispatcher $dispatcher)
     {
         $dispatcher->setDefaultModule("Index")->setDefaultController("Index")->setDefaultAction("index");
     }
 }
 ```
+
+> 根据Bootstrap类中方法的定义出现顺序 , 决定了它们的被调用顺序 . 比如对于上面的例子 , `_initConfig`会第一个被调用 .
 
 
 
