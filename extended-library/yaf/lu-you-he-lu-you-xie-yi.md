@@ -75,9 +75,9 @@ routes.rewrite.type="rewrite"
 routes.rewrite.match="/product/:name/:value"
 ```
 
-然后在Bootstrap中通过调用`Yaf_Router::addConfig`添加定义在配置中的路由协议 : 
+然后在Bootstrap中通过调用`Yaf_Router::addConfig`添加定义在配置中的路由协议 :
 
-```
+```php
 <?php
 
 class Bootstrap extends Yaf\Bootstrap_Abstract
