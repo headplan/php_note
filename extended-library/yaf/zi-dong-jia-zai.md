@@ -6,5 +6,17 @@ Yaf在自启动的时候 , 会通过SPL注册一个自己的Autoloader , 出于�
 
 **Yaf目录映射规则**
 
-后缀式还是前缀式 , 通过配置中的yaf.name\_suffix来切换 . 
+后缀式还是前缀式 , 通过配置中的yaf.name\_suffix来切换 .
+
+控制器\(Controller\) - 默认模块下为{项目路径}/controllers/ , 否则为{项目路径}/modules/{模块名}/controllers/
+
+数据模型\(Model\) - {项目路径}/models/
+
+插件\(Plugin\) - {项目路径}/plugins/
+
+#### 全局类和本地类
+
+Yaf为了方便在一台服务器上部署的不同产品之间共享公司级别的共享库 , 支持全局类和本地类两种加载方式 . 
+
+**全局类** - 所有产品之间共享的类 , 这些类库的路径是通过ap.library在php.ini
 
