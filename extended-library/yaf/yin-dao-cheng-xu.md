@@ -4,15 +4,12 @@ Bootstrap也叫做引导程序 . 它是Yaf提供的一个全局配置的入口 ,
 
 #### 引导的使用
 
-在一个`Yaf_Application`被实例化之后 , 运行`Yaf_Application::run`之前 , 可以运行`Yaf_Application::bootstrap` . 
+在一个`Yaf_Application`被实例化之后 , 运行`Yaf_Application::run`之前 , 可以运行`Yaf_Application::bootstrap` .
 
 ```php
 <?php
 $app = new Yaf_Application("conf.ini");
-$app
- ->bootstrap() //可选的调用
- ->run();
-}
+$app->bootstrap()->run();
 ```
 
 
