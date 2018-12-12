@@ -112,11 +112,20 @@ $route = new Yaf\Route_Rewrite(
 $router->addRoute('product', $route);
 ```
 
-在这个例子中 , 试图匹配Url指定到一个单一的产品 , 就像http://domain.com/product/choclolat-bar . 为了实现这点 , 在路由协议中传递了2个变量到路由协议Yaf\_Route\_Rewrite的构造函数其中. 第一个变量\('product/:indent'\)就是匹配的路径 , 第二个变量\(array变量\)是路由到的动作控制器 ; 路径使用一个特别的标识来告诉路由协议如何匹配到路径中的每一个段 , 这个标识有两种 , 可以帮助我们创建我们的路由协议 , 如下所示 : 
+在这个例子中 , 试图匹配Url指定到一个单一的产品 , 就像`http://domain.com/product/choclolat-bar` . 为了实现这点 , 在路由协议中传递了2个变量到路由协议Yaf\_Route\_Rewrite的构造函数其中. 第一个变量\('product/:indent'\)就是匹配的路径 , 第二个变量\(array变量\)是路由到的动作控制器 ; 路径使用一个特别的标识来告诉路由协议如何匹配到路径中的每一个段 , 这个标识有两种 , 可以帮助我们创建我们的路由协议 , 如下所示 :
 
 * `:`
-* `*`
+  **冒号**`:` - 指定了一个段 , 这个段包含一个变量用于传递到我们动作控制器中的变量 , 我们要设置好事先的变量名 , 比如在上面我们的变量名就是'ident' . 因此 , 倘若我们访问`http://domian.com/product/chocoloate-bar`将会创建一个变量名为ident并且其值是'chocoloate-bar'的变量 , 然后就可以在我们的动作控制器`ProductsController/viewAction`下获取到它的值  
+  `$this->getRequest()->getParam('ident');`
 
-  
+* `*`
+  **星号**`*` - 被用做一个通配符 , 意思就是在Url中它后面的所有段都将作为一个通配数据被存储 . 例如 , 如果我们有路径`path/product/:ident/*`\(就是路由协议中设置的第一个变量\) ,  并且我们访问的Url为`http://domain.com/product/chocolate-bar/test/value1/another/value2` , 那么所有的在`chocolate-bar`后面的段都将被做成变量名/值对 , 因此这样会给我们下面的结果 : 
+
+  ```
+  ident = chocolate-bar
+  test = value1
+  another = value2
+  ```
+
 
 
