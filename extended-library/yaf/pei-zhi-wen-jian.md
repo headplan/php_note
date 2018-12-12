@@ -46,6 +46,7 @@ yaf.dispatcher.catchException = 0
 | application.dispatcher.defaultModule | String | 默认模块名 |
 | application.dispatcher.defaultController | String | 默认控制器名 |
 | application.dispatcher.defaultAction | String | 默认动作名 |
+| application.system | String | 在application.ini中设置Yaf运行时配置.但是请注意只有PHP\_INI\_ALL的配置项才可以在这里被修改, 此选项从2.2.0开始引入. |
 
 
 
