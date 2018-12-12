@@ -22,7 +22,20 @@
 
 #### 默认情况
 
-默认情况下 , 路由器是Yaf\_Router , 而默认使用的路由协议是Yaf\_Route\_Static , 是基于HTTP路由的 , 它期望一个请求是HTTP请求并且请求对象是使用Yaf\_Request\_Http . 
+默认情况下 , 路由器是Yaf\_Router , 而默认使用的路由协议是Yaf\_Route\_Static , 是基于HTTP路由的 , 它期望一个请求是HTTP请求并且请求对象是使用Yaf\_Request\_Http .
+
+#### 使用路由
+
+不同的路由协议 : 
+
+```
+Yaf_Route_Simple
+Yaf_Route_Supervar
+Yaf_Route_Static
+Yaf_Route_Map
+Yaf_Route_Rewrite
+Yaf_Route_Regex
+```
 
 
 
