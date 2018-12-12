@@ -14,3 +14,5 @@ $app->bootstrap()->run();
 
 当Bootstrap被调用的时刻 , `Yaf_Application`就会默认的在`APPLICATION_PATH`下 , 寻找`Bootstrap.php` , 而这个文件中 , 必须定义一个Bootstrap类 , 而这个类也必须继承自`Yaf_Bootstrap_Abstract` .
 
+实例化成功之后 , 所有在Bootstrap类中定义的 , 以\_init开头的方法 , 都会被依次调用 , 而这些方法都可以接受一个`Yaf_Dispatcher`实例作为参数 . 
+
