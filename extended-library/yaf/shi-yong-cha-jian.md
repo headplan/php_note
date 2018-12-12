@@ -20,9 +20,20 @@ Yaf定义了6个Hook :
 
 #### 定义插件
 
-插件类需要继承自`Yaf\Plugin_Abstract` . 对于前面的Hook的使用 , 只需要在插件类中定义和上面事件同名的方法 , 那么这个方法就会在该事件触发的时候被调用 . 
+插件类需要继承自`Yaf\Plugin_Abstract` . 对于前面的Hook的使用 , 只需要在插件类中定义和上面事件同名的方法 , 那么这个方法就会在该事件触发的时候被调用 .
 
 插件方法 , 可以接受俩个参数 , Yaf\_Request\_Abstract实例和Yaf\_Response\_Abstract实例 . 
+
+```
+<?php
+
+class UserPlugin extends Yaf\Plugin_Abstract
+{
+     public function routerStartup(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response) {}
+
+     public function routerShutdown(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response) {}
+}
+```
 
 
 
