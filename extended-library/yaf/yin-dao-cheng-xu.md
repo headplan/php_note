@@ -18,7 +18,25 @@ $app->bootstrap()->run();
 
 > 也可以通过在配置文件中修改`application.bootstrap`来变更Bootstrap类的位置 .
 
+**Bootstrap类的例子**
 
+```php
+<?php
+
+class Bootstrap extends Yaf\Bootstrap_Abstract
+{
+    public function _initConfig()
+    {
+        $config = Yaf\Application::app()->getConfig();
+        Yaf\Registry::set("config", $config);
+    }
+    
+    public function _initDefaultName(Yaf\Dispatcher $dispatcher)
+    {
+        $dispatcher->setDefaultModule("Index")->setDefaultController("Index")->setDefaultAction("index");
+    }
+}
+```
 
 
 
