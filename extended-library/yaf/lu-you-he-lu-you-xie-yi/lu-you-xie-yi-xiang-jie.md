@@ -33,5 +33,25 @@
 ];
 ```
 
-当只有一段路由信息的时候 , 比如对于上面的例子 , 请求的URI为/ap/foo , 则默认路由和下面要提到的`Yaf_Route_Supervar`会首先判断ap.action\_prefer , 如果为真 , 则把foo当做Action , 否则当做Controller . 
+当只有一段路由信息的时候 , 比如对于上面的例子 , 请求的URI为/ap/foo , 则默认路由和下面要提到的`Yaf_Route_Supervar`会首先判断ap.action\_prefer , 如果为真 , 则把foo当做Action , 否则当做Controller .
+
+#### Yaf\_Route\_Simple
+
+**Yaf\_Route\_Simple**是基于请求中的query string来做路由的 , 在初始化一个**Yaf\_Route\_Simple**路由协议的时候 , 需要给出3个参数 , 这3个参数分别代表在**query string**中Module, Controller, Action的变量名 : 
+
+```php
+<?php
+# 指定三个变量名
+$route = new Yaf\Route_Simple("m", "c", "a");
+$route->addRoute('name', $route);
+
+# 对于如下请求:"http://domain.com/index.php?c=index&a=test"
+[
+    'module' => '默认模块',
+    'controller' => 'index',
+    'action' => 'test',
+]
+```
+
+
 
