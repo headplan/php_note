@@ -14,11 +14,15 @@
 
 #### 路由执行流程
 
-路由的过程发生在派遣过程的**最开始** , 并且路由解析仅仅发生一次 . 
+路由的过程发生在派遣过程的**最开始** , 并且路由解析仅仅发生一次 .
 
-路由过程在控制器动作\(Controller, Action\)被派遣之前被执行 , 一旦路由成功 , 路由器将会把解析出得到的信息传递给请求对象\(Yaf\Request\_Abstract object\) , 这些信息包括moduel、controller、action、用户params等 . 然后派遣器\(Yaf\Dispatcher\)就会按照这些信息派遣正确的控制器动作 . 
+路由过程在控制器动作\(Controller, Action\)被派遣之前被执行 , 一旦路由成功 , 路由器将会把解析出得到的信息传递给请求对象\(Yaf\Request\_Abstract object\) , 这些信息包括moduel、controller、action、用户params等 . 然后派遣器\(Yaf\Dispatcher\)就会按照这些信息派遣正确的控制器动作 .
 
-前面插件中提到的Hook中 , 就有路由器插件的钩子 , 就是routerStartup和routerShutdown , 他们在路由解析前后分别被调用 . 
+前面插件中提到的Hook中 , 就有路由器插件的钩子 , 就是routerStartup和routerShutdown , 他们在路由解析前后分别被调用 .
+
+#### 默认情况
+
+默认情况下 , 路由器是Yaf\_Router , 而默认使用的路由协议是Yaf\_Route\_Static , 是基于HTTP路由的 , 它期望一个请求是HTTP请求并且请求对象是使用Yaf\_Request\_Http . 
 
 
 
