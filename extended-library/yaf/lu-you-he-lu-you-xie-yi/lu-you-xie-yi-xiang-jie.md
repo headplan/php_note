@@ -33,5 +33,5 @@
 ];
 ```
 
-
+当只有一段路由信息的时候 , 比如对于上面的例子 , 请求的URI为/ap/foo , 则默认路由和下面要提到的`Yaf_Route_Supervar`会首先判断ap.action\_prefer , 如果为真 , 则把foo当做Action , 否则当做Controller . 
 
