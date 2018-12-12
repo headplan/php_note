@@ -91,5 +91,14 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
 }
 ```
 
+路由器提供了一些方法来得到和设置包含在它内部的信息 . 
+
+```
+getCurrentRoute(); # 在路由结束以后,获取起作用的路由协议
+# 看函数基本意思也就知道
+getRoute();
+getRoutes();
+```
+
 
 
