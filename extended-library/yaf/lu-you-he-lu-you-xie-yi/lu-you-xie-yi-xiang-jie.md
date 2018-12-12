@@ -72,5 +72,11 @@ $route->addRoute('name', $route);
 ]
 ```
 
+> 在query string中不包含supervar变量的时候 , Yaf\_Route\_Supervar会返回失败 , 将路由权交给下一个路由协议 .
+
+#### Yaf\_Route\_Map
+
+
+
 
 
