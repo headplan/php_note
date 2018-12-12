@@ -36,7 +36,7 @@ class UserPlugin extends Yaf\Plugin_Abstract
 
 #### 注册插件
 
-插件要生效 , 还需要向Yaf\Dispatcher注册 , 一般插件的注册都会放在Bootstrap中进行. 例如 : 
+插件要生效 , 还需要向Yaf\Dispatcher注册 , 一般插件的注册都会放在Bootstrap中进行 . 例如 :
 
 ```php
 <?php
