@@ -10,5 +10,7 @@ Yaf定义了6个Hook :
 
 **routerShutdown** : 路由结束之后触发 . 此时路由一定正确完成 , 否则这个事件不会触发 .
 
-**dispatchLoopStartup** : 分发循环开始之前被触发 . 
+**dispatchLoopStartup** : 分发循环开始之前被触发 .
+
+preDispatch : 分发之前触发 . 如果在一个请求处理过程中 , 发生了forward , 则这个事件会被触发多次 . 
 
