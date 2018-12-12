@@ -4,11 +4,11 @@ Yaf支持用户定义插件来扩展Yaf的功能 , 这些插件都是一些类 .
 
 #### Yaf支持的Hook
 
-Yaf定义了6个Hook : 
+Yaf定义了6个Hook :
 
-**routerStartup** : 在路由之前触发 . Hook事件中最早的一个 , 但是一些全局自定的工作, 还是应该放在Bootstrap中去完成 . 
+**routerStartup** : 在路由之前触发 . Hook事件中最早的一个 , 但是一些全局自定的工作, 还是应该放在Bootstrap中去完成 .
 
-routerShutdown : 路由结束之后触发 . 此时路由一定正确完成 , 否则这个事件不会触发 .
+**routerShutdown** : 路由结束之后触发 . 此时路由一定正确完成 , 否则这个事件不会触发 .
 
-dispatchLoopStartup : 分发循环开始之前被触发 . 
+**dispatchLoopStartup** : 分发循环开始之前被触发 . 
 
