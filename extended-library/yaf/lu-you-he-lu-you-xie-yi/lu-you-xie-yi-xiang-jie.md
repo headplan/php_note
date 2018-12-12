@@ -96,7 +96,7 @@ Yaf\_Route\_Map协议是一种简单的路由协议 , 它将REQUEST\_URI中以'/
 
 #### Yaf\_Route\_Rewrite
 
-Yaf\_Route\_Rewrite是一个强大的路由协议 , 它能满足我们绝大部分的路由需求 : 
+Yaf\_Route\_Rewrite是一个强大的路由协议 , 它能满足我们绝大部分的路由需求 :
 
 ```php
 <?php
@@ -108,7 +108,15 @@ $route = new Yaf\Route_Rewrite(
         'action' => 'view'
     ]
 );
+# 使用路由器装载路由协议
+$router->addRoute('product', $route);
 ```
 
+在这个例子中 , 试图匹配Url指定到一个单一的产品 , 就像http://domain.com/product/choclolat-bar . 为了实现这点 , 在路由协议中传递了2个变量到路由协议Yaf\_Route\_Rewrite的构造函数其中. 第一个变量\('product/:indent'\)就是匹配的路径 , 第二个变量\(array变量\)是路由到的动作控制器 ; 路径使用一个特别的标识来告诉路由协议如何匹配到路径中的每一个段 , 这个标识有两种 , 可以帮助我们创建我们的路由协议 , 如下所示 : 
+
+* `:`
+* `*`
+
+  
 
 
