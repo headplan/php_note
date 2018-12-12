@@ -12,5 +12,9 @@ Yaf定义了6个Hook :
 
 **dispatchLoopStartup** : 分发循环开始之前被触发 .
 
-preDispatch : 分发之前触发 . 如果在一个请求处理过程中 , 发生了forward , 则这个事件会被触发多次 . 
+**preDispatch** : 分发之前触发 . 如果在一个请求处理过程中 , 发生了forward , 则这个事件会被触发多次 .
+
+**postDispatch** : 分发结束之后触发 . 此时动作已经执行结束 , 视图也已经渲染完成 . 和preDispatch类似 , 此事件也可能触发多次 . 
+
+dispatchLoopShutdown : 分发循环结束之后触发 . 此时表示所有的业务逻辑都已经运行完成 , 但是响应还没有发送 .
 
