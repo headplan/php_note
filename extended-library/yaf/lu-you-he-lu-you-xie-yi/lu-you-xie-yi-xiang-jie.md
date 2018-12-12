@@ -94,5 +94,21 @@ Yaf\_Route\_Map协议是一种简单的路由协议 , 它将REQUEST\_URI中以'/
  */
 ```
 
+#### Yaf\_Route\_Rewrite
+
+Yaf\_Route\_Rewrite是一个强大的路由协议 , 它能满足我们绝大部分的路由需求 : 
+
+```php
+<?php
+# 创建一个路由协议实例
+$route = new Yaf\Route_Rewrite(
+    'product/:ident',
+    [
+        'controller' => 'products',
+        'action' => 'view'
+    ]
+);
+```
+
 
 
