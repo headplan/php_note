@@ -29,7 +29,7 @@ class ErrorController extends Yaf_Controller_Abstract
 }
 ```
 
-有了这样的最终异常处理逻辑 , 应用就可以在出错的时候直接抛出异常 , 在统一异常处理逻辑中 , 根据各种不同的异常逻辑 , 处理错误 , 记录日志 . 
+有了这样的最终异常处理逻辑 , 应用就可以在出错的时候直接抛出异常 , 在统一异常处理逻辑中 , 根据各种不同的异常逻辑 , 处理错误 , 记录日志 .
 
 ```php
 <?php
@@ -58,11 +58,10 @@ class ErrorController extends Yaf_Controller_Abstract
 }
 ```
 
-更好的方式 : 
+更好的方式 :
 
 ```php
 <?php
-
 
 # 当有未捕获的异常, 则控制流会流到这里
 class ErrorController extends Yaf_Controller_Abstract
