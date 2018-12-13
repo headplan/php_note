@@ -72,7 +72,7 @@ $request = new Yaf_Request_Simple("CLI", "Index", "Controller", "Hello", array("
 print_r($requst);
 ```
 
-运行输出 : 
+运行输出 :
 
 ```
 $ php request.php 
@@ -94,6 +94,8 @@ Yaf_Request_Simple Object
 [routed:protected] => 1    //注意这里
 )
 ```
+
+> 可以看到一个比较特别的就是 , routed属性变为了TRUE , 这就代表着如果我们手动指定了构造函数的参数 , 那么这个请求不会再经过路由 , 而直接是路由完成状态 .
 
 
 
