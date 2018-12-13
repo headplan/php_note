@@ -133,7 +133,7 @@ $router->addRoute('product', $route);
 
 前面的路由协议已经可以满足基本的路由操作了 , 然而还是会有一些限制 , 所以引入了正则路由 . 正则路由可以解决前面提到的大部分的路由需求 , 但同时也让我们的路由变得复杂 .
 
-```
+```php
 <?php
 $route = new Yaf\Route_Regex(
     'product/([a-zA-Z-_0-9]+)',
