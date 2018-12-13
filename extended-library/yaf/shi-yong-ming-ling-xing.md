@@ -97,5 +97,15 @@ Yaf_Request_Simple Object
 
 > 可以看到一个比较特别的就是 , routed属性变为了TRUE , 这就代表着如果我们手动指定了构造函数的参数 , 那么这个请求不会再经过路由 , 而直接是路由完成状态 .
 
+#### 分发请求
+
+要走命令行 , 可以修改入口文件 : 
+
+```php
+<?php
+$app = new Yaf_Application("conf.ini");
+$app->bootstrap()->run();
+```
+
 
 
