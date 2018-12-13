@@ -127,5 +127,5 @@ $router->addRoute('product', $route);
   another = value2
   ```
 
-
+这种路由配置就有点类似Laravel中的路由配置了 . 
 
