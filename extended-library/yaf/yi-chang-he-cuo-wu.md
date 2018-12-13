@@ -22,9 +22,66 @@ class ErrorController extends Yaf_Controller_Abstract
 {
    public function errorAction($exception)
    {
-      assert  
+      assert($exception === $exception->getCode());
+      $this->getView()->assign("code", $exception->getCode());
+      $this->getView()->assign("message", $exception->getMessage());
    }   
-} 
+}
+```
+
+有了这样的最终异常处理逻辑 , 应用就可以在出错的时候直接抛出异常 , 在统一异常处理逻辑中 , 根据各种不同的异常逻辑 , 处理错误 , 记录日志 . 
+
+```php
+<?php
+
+# 当有未捕获的异常,则控制流会流到这里
+class ErrorController extends Yaf_Controller_Abstract
+{
+    /**
+     * 通过$request->getException()获取到发生的异常
+     */
+    public function errorAction($exception)
+    {
+        switch($exception->getCode()) {
+            case YAF_ERR_LOADFAILD:
+            case YAF_ERR_LOADFAILD_MODULE:
+            case YAF_ERR_LOADFAILD_CONTROLLER:
+            case YAF_ERR_LOADFAILD_ACTION:
+                # 404
+                header("Not Found");
+                break;
+            case CUSTOM_ERROR_CODE:
+            # 自定义的异常
+            ....
+            break;
+    }
+}
+```
+
+更好的方式 : 
+
+```php
+<?php
+
+
+# 当有未捕获的异常, 则控制流会流到这里
+class ErrorController extends Yaf_Controller_Abstract
+{
+    /**
+     * 此时可通过$request->getException()获取到发生的异常
+     */
+    public function errorAction()
+    {
+        $exception = $this->getRequest()->getException();
+        try {
+            throw $exception;
+        } catch (Yaf_Exception_LoadFailed $e) {
+            //加载失败
+        } catch (Yaf_Exception $e) {
+            //其他错误
+        }
+    }
+}
 ```
 
 
