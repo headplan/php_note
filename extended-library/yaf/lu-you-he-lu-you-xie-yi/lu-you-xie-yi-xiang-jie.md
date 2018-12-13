@@ -146,5 +146,23 @@ $route = new Yaf\Route_Regex(
 $route->addRoute('product', $route);
 ```
 
+上面的代码中 , 和之前Rewrite协议中的类似 , 只是原来的ident变量换成了正则表达式 , 可以通过变量1\(one\)来获取其值,即可以在控制器里用:$this-&gt;getRequest\(\)-&gt;getParam\(1\)来获取 , 其实这里如果看过正则的都知道这就是反向引用中的\1 . 也可以使用Yaf\_Route\_Regex协议中的第三个参数 : 
+
+```php
+<?php
+$route = new Yaf\Route_Regex(
+    'product/([a-zA-Z-_0-9]+)',
+    [
+        'controller' => 'products',
+        'action' => 'view'
+    ],
+    [
+        1 => 'ident'
+    ]
+);
+
+$route->addRoute('product', $route);
+```
+
 
 
