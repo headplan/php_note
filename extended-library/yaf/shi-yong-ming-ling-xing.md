@@ -20,7 +20,7 @@ print_r($requst);
 
 > 当然 , Yaf\_Request\_Simple是可以接受5个参数的 .
 
-运行上面的代码 : 
+运行上面的代码 :
 
 ```
 $ php request.php
@@ -42,7 +42,7 @@ Yaf_Request_Simple Object
 )
 ```
 
-带参数运行 : 
+带参数运行 :
 
 ```
 $ php request.php  "request_uir=/index/hello"
@@ -64,12 +64,35 @@ Yaf_Request_Simple Object
 )
 ```
 
-还可以完全指定Yaf\_Request\_Simple::\_\_construct的5个参数 : 
+还可以完全指定Yaf\_Request\_Simple::\_\_construct的5个参数 :
 
 ```php
 <?php
 $request = new Yaf_Request_Simple("CLI", "Index", "Controller", "Hello", array("para" => 2));
 print_r($requst);
+```
+
+运行输出 : 
+
+```
+$ php request.php 
+Yaf_Request_Simple Object
+(
+[module] => Index
+[controller] => Controller
+[action] => Hello
+[method] => CLI
+[params:protected] => Array
+(
+[para] => 2
+)
+
+[language:protected] => 
+[_base_uri:protected] => 
+[uri:protected] => 
+[dispatched:protected] => 
+[routed:protected] => 1    //注意这里
+)
 ```
 
 
