@@ -16,5 +16,9 @@ $request = new Yaf_Request_Simple();
 print_r($requst);
 ```
 
-如上面的例子 , `Yaf_Request_Simple`的构造函数可以不接受任何参数 , 在这种情况下 , `Yaf_Request_Simple`会在命令行参数中 , 寻找一个字符串参数 , 如果找到 , 则会把请求的request\_uri置为这个字符串 . 
+如上面的例子 , `Yaf_Request_Simple`的构造函数可以不接受任何参数 , 在这种情况下 , `Yaf_Request_Simple`会在命令行参数中 , 寻找一个字符串参数 , 如果找到 , 则会把请求的request\_uri置为这个字符串 .
+
+> 当然 , Yaf\_Request\_Simple是可以接受5个参数的 .
+
+
 
