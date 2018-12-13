@@ -99,12 +99,20 @@ Yaf_Request_Simple Object
 
 #### 分发请求
 
-要走命令行 , 可以修改入口文件 : 
+要走命令行 , 可以修改入口文件 :
 
 ```php
 <?php
 $app = new Yaf_Application("conf.ini");
 $app->bootstrap()->run();
+```
+
+修改为
+
+```php
+<?php
+$app = new Yaf_Application("conf.ini");
+$app->getDispatcher()->dispatch(new Yaf_Request_Simple());
 ```
 
 
