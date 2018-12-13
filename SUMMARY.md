@@ -111,6 +111,7 @@
     * [路由和路由协议](extended-library/yaf/lu-you-he-lu-you-xie-yi.md)
       * [路由协议详解](extended-library/yaf/lu-you-he-lu-you-xie-yi/lu-you-xie-yi-xiang-jie.md)
     * [使用命令行](extended-library/yaf/shi-yong-ming-ling-xing.md)
+    * [异常和错误](extended-library/yaf/yi-chang-he-cuo-wu.md)
 * [框架技术](framework.md)
   * [HttpFoundation组件](framework/httpfoundationzu-jian.md)
   * [路由组件](framework/tian-jia-lu-you.md)
