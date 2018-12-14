@@ -46,9 +46,7 @@ dispatcher : Yaf\_Dispatcher实例
 
 \_modules : 存在的模块名, 从配置文件中yap.modules读取
 
-\_running
+\_running : 
 
 \_environ
-
-
 
