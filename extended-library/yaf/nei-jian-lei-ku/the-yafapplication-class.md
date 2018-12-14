@@ -19,7 +19,7 @@ final Yaf_Application
     public void bootstrap ([ Yaf_Bootstrap_Abstract $bootstrap ] )
     public Yaf_Application clearLastError ( void )
     private void __clone ( void )
-    public__construct ( mixed $config [, string $envrion ] )
+    public __construct ( mixed $config [, string $envrion ] )
     public void __destruct ( void )
     public void environ ( void )
     public void execute ( callable $entry , string $... )
@@ -35,6 +35,20 @@ final Yaf_Application
     private void __wakeup ( void )
 }
 ```
+
+#### 属性
+
+config : 全局配置实例
+
+dispatcher : Yaf\_Dispatcher实例
+
+\_app : Yaf\_Application通过特殊的方式实现了单利模式 , 此属性保存当前实例
+
+\_modules : 存在的模块名, 从配置文件中yap.modules读取
+
+\_running
+
+\_environ
 
 
 
