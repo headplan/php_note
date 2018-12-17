@@ -47,6 +47,8 @@ final Yaf_Application
 
 #### 方法
 
+public \_\_construct \( mixed $config \[, string $envrion \] \) - 初始化一个Yaf\_Application , 如果$config是一个INI文件 , 那么$section指明要读取的配置节 . 
+
 public static void app \( void \) - 获取当前的Yaf\_Application实例 , 方法不需要参数 .
 
 ```php
@@ -55,6 +57,10 @@ $app = new Yaf\Application(APPLICATION_PATH . "/config/application.ini");
 $app->bootstrap()->run();
 dump(Yaf\Application::app());
 ```
+
+public void bootstrap \(\[ Yaf\_Bootstrap\_Abstract $bootstrap \] \) - 
+
+
 
 
 
