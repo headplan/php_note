@@ -47,5 +47,7 @@ final Yaf_Application
 
 #### 方法
 
+public static void app \( void \) - 获取当前的Yaf\_Application实例
+
 
 
