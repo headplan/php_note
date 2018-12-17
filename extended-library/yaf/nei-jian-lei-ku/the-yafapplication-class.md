@@ -168,6 +168,8 @@ $application->execute("main", $argc,  $argv);
 
 ---
 
+`public Yaf_Application Yaf_Application::setAppDirectory ( string $directory )`- 改变/设置应用目录 . 
+
 
 
 
@@ -181,12 +183,6 @@ private void __clone ( void ) - Yaf_Application不能被克隆
 private void __sleep ( void ) - Yaf_Application不能被序列化
 private void __wakeup ( void ) - Yaf_Application不能被反序列化
 ```
-
-
-
-
-
-
 
 
 
