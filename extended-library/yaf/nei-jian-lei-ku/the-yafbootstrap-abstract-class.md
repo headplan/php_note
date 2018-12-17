@@ -4,7 +4,7 @@ Bootstrap是用来在Application运行\(run\)之前做一些初始化工作的�
 
 > 这些方法 , 都可以接受一个Yaf\_Dispatcher参数 .
 
-```
+```php
 <?php
 
 class Bootstrap extends Yaf\Bootstrap_Abstract
@@ -31,11 +31,6 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
     public function _initView(Yaf\Dispatcher $dispatcher)
     {
         //在这里注册自己的view控制器，例如smarty,firekylin
-    }
-
-    public function _initHelper()
-    {
-        Yaf\Loader::import(APPLICATION_PATH . '/system/functions.php');
     }
 }
 ```
