@@ -115,6 +115,7 @@
     * [内建类库](extended-library/yaf/nei-jian-lei-ku.md)
       * [The Yaf\_Application class](extended-library/yaf/nei-jian-lei-ku/the-yafapplication-class.md)
       * [The Yaf\_Bootstrap\_Abstract class](extended-library/yaf/nei-jian-lei-ku/the-yafbootstrap-abstract-class.md)
+      * [The Yaf\_Loader class](extended-library/yaf/nei-jian-lei-ku/the-yafloader-class.md)
     * [Yafinit](extended-library/yaf/yafinit.md)
 * [框架技术](framework.md)
   * [HttpFoundation组件](framework/httpfoundationzu-jian.md)
