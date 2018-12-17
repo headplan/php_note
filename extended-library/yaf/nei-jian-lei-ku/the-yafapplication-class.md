@@ -170,9 +170,9 @@ $application->execute("main", $argc,  $argv);
 
 `public Yaf_Application Yaf_Application::setAppDirectory ( string $directory )`- 改变/设置应用目录 .
 
-`public Yaf_Application Yaf_Application::getAppDirectory ( void )` - 获取应用的目录 . 
+`public Yaf_Application Yaf_Application::getAppDirectory ( void )` - 获取应用的目录 .
 
-public Yaf\_Dispatcher Yaf\_Application::getDispatcher \( void \) - 获取 Yaf\_Dispatcher 的实例 . 
+`public Yaf_Dispatcher Yaf_Application::getDispatcher ( void )` - 获取 Yaf\_Dispatcher 的实例 .
 
 ```php
 <?php
@@ -186,6 +186,20 @@ $config = array(
 $application = new Yaf_Application($config);
 print_r($application->getDispatcher());
 ```
+
+```php
+<?php
+define ("APPLICATION_PATH", dirname(__FILE__));
+
+$app = new Yaf_Application("conf/application_simple.ini");
+
+// bootstrap
+$app->getDispatcher()->setAppDirectory(APPLICATION_PATH . "/action/")->getApplication()->bootstrap()->run();
+// 当然也可以使用
+$dispatcher = Yaf_Dispatcher::getInstance()->setAppDirectory(APPLICATION_PATH . "/action/")->getApplication()->bootstrap()->run();
+```
+
+---
 
 `public Yaf_Config_Abstract Yaf_Application::getConfig ( void )` - 获取 Yaf\_Config\_Abstract 的实例 , 读取配置 .
 
