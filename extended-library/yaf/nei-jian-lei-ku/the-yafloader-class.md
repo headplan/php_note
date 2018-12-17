@@ -119,7 +119,7 @@ public static boolean Yaf_Loader::import( string  $file_name );
 
 **$file\_name**
 
-要载入的文件路径 , 可以为绝对路径和相对路径 . 如果为相对路径 , 则会以应用的本地类目录\(yaf.library\)为基目录 . 
+要载入的文件路径 , 可以为绝对路径和相对路径 . 如果为相对路径 , 则会以应用的本地类目录\(yaf.library\)为基目录 .
 
 ```php
 <?php
