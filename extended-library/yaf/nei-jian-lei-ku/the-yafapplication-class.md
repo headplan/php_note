@@ -213,7 +213,7 @@ function error_handler($errno, $errstr, $errfile, $errline) {
    Yaf_Application::app()->clearLastError();
    var_dump(Yaf_Application::app()->getLastErrorNo());
 }
- 
+
 $config = array(                   
  "application" => array(
    "directory" => "/tmp/notexists",
@@ -222,7 +222,7 @@ $config = array(
       ),
   ),
 );
-  
+
 $app = new Yaf_Application($config);
 $app->getDispatcher()->setErrorHandler("error_handler", E_RECOVERABLE_ERROR);
 $app->run();
