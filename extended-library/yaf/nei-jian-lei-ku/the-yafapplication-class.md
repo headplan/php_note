@@ -166,5 +166,27 @@ $application = new Yaf_Application($config);
 $application->execute("main", $argc,  $argv);
 ```
 
+---
+
+
+
+
+
+
+
+---
+
+```php
+private void __clone ( void ) - Yaf_Application不能被克隆
+private void __sleep ( void ) - Yaf_Application不能被序列化
+private void __wakeup ( void ) - Yaf_Application不能被反序列化
+```
+
+
+
+
+
+
+
 
 
