@@ -55,9 +55,9 @@ final Yaf_Application
 
 关联数组的配置 , 或者一个指向ini格式的配置文件的路径的字符串 , 或者是一个Yaf\_Config\_Abstract实例 .
 
-如果是一个ini配置文件 , 那配置文件中应该有一个定义了yaf.environ的配置节 . 这个在生产环境中是默认的 . 
+如果是一个ini配置文件 , 那配置文件中应该有一个定义了yaf.environ的配置节 . 这个在生产环境中是默认的 .
 
-```php
+```asciidoc
 [product]
 ;this one should alway be defined, and have no default value
 application.directory=APPLICATION_PATH
