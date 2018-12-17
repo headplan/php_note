@@ -150,5 +150,21 @@ print_r($application->environ());
 
 零个或者多个要传递给函数的参数
 
+```php
+<?php
+function main($argc, $argv) {
+}
+
+$config = array(
+    "application" => array(
+        "directory" => realpath(dirname(__FILE__)) . "/application",
+    ),
+);
+
+/** Yaf_Application */
+$application = new Yaf_Application($config);
+$application->execute("main", $argc,  $argv);
+```
+
 
 
