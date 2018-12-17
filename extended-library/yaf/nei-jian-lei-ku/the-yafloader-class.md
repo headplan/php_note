@@ -46,7 +46,7 @@ Yaf_Loader {
     public void autoload ( void )
     public void clearLocalNamespace ( void )
     private void __clone ( void )
-    private__construct ( void )
+    private __construct ( void )
     public static void getInstance ( void )
     public Yaf_Loader getLibraryPath ([ bool $is_global = false ] )
     public void getLocalNamespace ( void )
