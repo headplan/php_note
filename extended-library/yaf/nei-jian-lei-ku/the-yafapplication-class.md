@@ -47,7 +47,7 @@ final Yaf_Application
 
 #### 方法
 
-`public __construct ( mixed $config [, string $envrion ] ) `- 初始化一个Yaf\_Application , 如果$config是一个INI文件 , 那么$envrion指明要读取的配置节 .
+`public __construct ( mixed $config [, string $envrion ] )`- 初始化一个Yaf\_Application , 如果$config是一个INI文件 , 那么$envrion指明要读取的配置节 .
 
 **参数**
 
@@ -55,7 +55,7 @@ final Yaf_Application
 
 关联数组的配置 , 或者一个指向ini格式的配置文件的路径的字符串 , 或者是一个Yaf\_Config\_Abstract实例 . 
 
-`public static void app ( void ) `- 获取当前的Yaf\_Application实例 , 方法不需要参数 .
+`public static void app ( void )`- 获取当前的Yaf\_Application实例 , 方法不需要参数 .
 
 ```php
 <?php
