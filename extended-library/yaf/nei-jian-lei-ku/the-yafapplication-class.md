@@ -194,7 +194,7 @@ define ("APPLICATION_PATH", dirname(__FILE__));
 $app = new Yaf_Application("conf/application_simple.ini");
 
 // bootstrap
-$app->getDispatcher()->setAppDirectory(APPLICATION_PATH . "/action/")->getApplication()->bootstrap()->run();
+$dispatcher = $app->getDispatcher()->setAppDirectory(APPLICATION_PATH . "/action/")->getApplication()->bootstrap()->run();
 // 当然也可以使用
 $dispatcher = Yaf_Dispatcher::getInstance()->setAppDirectory(APPLICATION_PATH . "/action/")->getApplication()->bootstrap()->run();
 ```
