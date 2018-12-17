@@ -33,7 +33,7 @@ class A_B_TestModel =>
   // APPLICATION_PATH/models/A/B/Test.php
 ```
 
-文件夹首字母大小写控制 , yaf.lowcase\_path . 也可以通过改变配置项yaf.name\_suffix来将类改为通过前缀识别 .
+文件夹首字母大小写控制 , **yaf.lowcase\_path** . 也可以通过改变配置项yaf.name\_suffix来将类改为通过前缀识别 .
 
 ```php
 Yaf_Loader {
