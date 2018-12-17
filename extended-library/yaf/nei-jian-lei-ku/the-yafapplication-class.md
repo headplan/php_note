@@ -170,13 +170,22 @@ $application->execute("main", $argc,  $argv);
 
 `public Yaf_Application Yaf_Application::setAppDirectory ( string $directory )`- 改变/设置应用目录 .
 
-`public Yaf_Application Yaf_Application::getAppDirectory ( void )` - 获取应用的目录 . 
+`public Yaf_Application Yaf_Application::getAppDirectory ( void )` - 获取应用的目录 .
 
+`public Yaf_Config_Abstract Yaf_Application::getConfig ( void )` - 获取 Yaf\_Config\_Abstract 的实例 , 读取配置 .
 
+```php
+<?php
+$config = array(
+    "application" => array(
+        "directory" => realpath(dirname(__FILE__)) . "/application",
+    ),
+);
 
-
-
-`public Yaf_Config_Abstract Yaf_Application::getConfig ( void )` - 获取 Yaf\_Config\_Abstract 的实例 , 读取配置 . 
+/** Yaf_Application */
+$application = new Yaf_Application($config);
+print_r($application->getConfig());
+```
 
 ---
 
