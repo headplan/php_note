@@ -201,6 +201,35 @@ $dispatcher = Yaf_Dispatcher::getInstance()->setAppDirectory(APPLICATION_PATH . 
 
 ---
 
+`public string Yaf_Application::getLastErrorMsg ( void )` - 获取最后产生的错误的错误信息
+
+`public int Yaf_Application::getLastErrorNo ( void )` - 获取最后产生的错误的错误代码
+
+`public Yaf_Application Yaf_Application::clearLastError ( void )` - 清除最后的错误信息
+
+```php
+<?php
+function error_handler($errno, $errstr, $errfile, $errline) {
+   Yaf_Application::app()->clearLastError();
+   var_dump(Yaf_Application::app()->getLastErrorNo());
+}
+ 
+$config = array(                   
+ "application" => array(
+   "directory" => "/tmp/notexists",
+     "dispatcher" => array(
+       "throwException" => 0, //trigger error instead of throw exception when error occure
+      ),
+  ),
+);
+  
+$app = new Yaf_Application($config);
+$app->getDispatcher()->setErrorHandler("error_handler", E_RECOVERABLE_ERROR);
+$app->run();
+```
+
+---
+
 `public Yaf_Config_Abstract Yaf_Application::getConfig ( void )` - 获取 Yaf\_Config\_Abstract 的实例 , 读取配置 .
 
 ```php
