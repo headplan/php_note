@@ -66,6 +66,10 @@ application.directory=APPLICATION_PATH
 
 > 使用了ini配置文件作为应用配置的容器 , 可以打开yaf.cache\_config来提升性能
 
+**$envrion**
+
+可以用来切换配置节 . 
+
 ---
 
 `public static void app ( void )`- 获取当前的Yaf\_Application实例 , 方法不需要参数 .
