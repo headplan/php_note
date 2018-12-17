@@ -61,27 +61,10 @@ final Yaf_Application
 [product]
 ;this one should alway be defined, and have no default value
 application.directory=APPLICATION_PATH
-
-;following configs have default value, you may no need to define them
-application.library = APPLICATION_PATH . "/library"
-application.dispatcher.throwException=1
-application.dispatcher.catchException=1
-
-application.baseUri=""
-
-;the php script ext name
-ap.ext=php
-
-;the view template ext name
-ap.view.ext=phtml
-
-ap.dispatcher.defaultModuel=Index
-ap.dispatcher.defaultController=Index
-ap.dispatcher.defaultAction=index
-
-;defined modules
-ap.modules=Index
+...
 ```
+
+> 使用了ini配置文件作为应用配置的容器 , 可以打开yaf.cache\_config来提升性能
 
 ---
 
