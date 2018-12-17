@@ -47,5 +47,14 @@ final Yaf_Application
 
 #### 方法
 
-public static void app \( void \) - 获取当前的Yaf\_Application实例 , 方法不需要参数 . 
+public static void app \( void \) - 获取当前的Yaf\_Application实例 , 方法不需要参数 .
+
+```php
+<?php
+$app = new Yaf\Application(APPLICATION_PATH . "/config/application.ini");
+$app->bootstrap()->run();
+dump(Yaf\Application::app());
+```
+
+
 
