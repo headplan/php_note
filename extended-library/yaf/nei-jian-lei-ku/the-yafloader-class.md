@@ -35,3 +35,29 @@ class A_B_TestModel =>
 
 文件夹首字母大小写控制 , yaf.lowcase\_path . 也可以通过改变配置项yaf.name\_suffix来将类改为通过前缀识别 .
 
+```php
+Yaf_Loader {
+    /* 属性 */
+    protected $_local_ns ;
+    protected $_library ;
+    protected $_global_library ;
+    static $_instance ;
+    /* 方法 */
+    public void autoload ( void )
+    public void clearLocalNamespace ( void )
+    private void __clone ( void )
+    private__construct ( void )
+    public static void getInstance ( void )
+    public Yaf_Loader getLibraryPath ([ bool $is_global = false ] )
+    public void getLocalNamespace ( void )
+    public static void import ( void )
+    public void isLocalName ( void )
+    public void registerLocalNamespace ([ mixed $prefix ] )
+    public Yaf_Loader setLibraryPath ( string $directory [, bool $is_global = false ] )
+    private void __sleep ( void )
+    private void __wakeup ( void )
+}
+```
+
+
+
