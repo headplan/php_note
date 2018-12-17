@@ -113,13 +113,22 @@ dump($loader);
 public static boolean Yaf_Loader::import( string  $file_name );
 ```
 
-导入一个PHP文件 , 因为Yaf\_Loader::import只是专注于一次包含 , 所以要比传统的require\_once性能好一些 . 
+导入一个PHP文件 , 因为Yaf\_Loader::import只是专注于一次包含 , 所以要比传统的require\_once性能好一些 .
 
 成功返回TRUE , 失败返回FALSE .
 
 **$file\_name**
 
 要载入的文件路径 , 可以为绝对路径和相对路径 . 如果为相对路径 , 则会以应用的本地类目录\(yaf.library\)为基目录 . 
+
+```php
+<?php
+# 绝对路径
+Yaf_Loader::import("/usr/local/foo.php);
+
+# 相对路径,会在APPLICATION_PATH."/library"下加载
+Yaf_loader::import("plugins/User.php");
+```
 
 
 
