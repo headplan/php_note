@@ -38,15 +38,12 @@ final Yaf_Application
 
 #### 属性
 
-config : 全局配置实例
+* config : 全局配置实例
+* dispatcher : Yaf\_Dispatcher实例
+* \_app : Yaf\_Application通过特殊的方式实现了单利模式 , 此属性保存当前实例
+* \_modules : 存在的模块名, 从配置文件中yap.modules读取
+* \_running : bool值 , 指明当前的Yaf\_Application是否已经运行
+* \_environ : 当前的环境名 , 也就是Yaf\_Application在读取配置的时候 , 获取的配置节名字
 
-dispatcher : Yaf\_Dispatcher实例
 
-\_app : Yaf\_Application通过特殊的方式实现了单利模式 , 此属性保存当前实例
-
-\_modules : 存在的模块名, 从配置文件中yap.modules读取
-
-\_running : bool值 , 指明当前的Yaf\_Application是否已经运行
-
-\_environ : 当前的环境名 , 也就是Yaf\_Application在读取配置的时候 , 获取的配置节名字
 
