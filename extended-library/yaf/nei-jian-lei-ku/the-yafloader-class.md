@@ -92,15 +92,20 @@ private void __wakeup ( void ) - 不能被反序列化
 public static void Yaf_Loader::getInstance ( string  $_library = NULL, string  $_global_library = NULL );
 ```
 
-获取当前的Yaf\_Loader实例 . 
+获取当前的Yaf\_Loader实例 .
 
 **$\_library**
 
-本地\(自身\)类库目录 , 如果留空 , 则返回已经实例化过的Yaf\_Loader实例 . 
+本地\(自身\)类库目录 , 如果留空 , 则返回已经实例化过的Yaf\_Loader实例 .
 
 **$\_global\_library**
 
-全局类库目录 , 如果留空则会认为和$local\_library\_directory相同 . 
+全局类库目录 , 如果留空则会认为和$local\_library\_directory相同 .
+
+```php
+$loader = Yaf\Loader::getInstance('abc','def');
+dump($loader);
+```
 
 
 
