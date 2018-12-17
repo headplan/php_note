@@ -49,7 +49,7 @@ final Yaf_Application
 
 #### 方法
 
-**`public __construct ( mixed $config [, string $envrion ] )`**- 初始化一个Yaf\_Application , 如果$config是一个INI文件 , 那么$envrion指明要读取的配置节 .
+`public __construct ( mixed $config [, string $envrion ] )`- 初始化一个Yaf\_Application , 如果$config是一个INI文件 , 那么$envrion指明要读取的配置节 .
 
 **参数**
 
@@ -74,7 +74,7 @@ application.directory=APPLICATION_PATH
 
 ---
 
-**`public void bootstrap ([ Yaf_Bootstrap_Abstract $bootstrap ] )`**
+`public void bootstrap ([ Yaf_Bootstrap_Abstract $bootstrap ] )`
 
 指示Yaf\_Application去寻找Bootstrap类 , 并按照声明的顺序 , 执行所有在Bootstrap类中定义的以\_init开头的方法 . 如果没有提供变量$bootstrap , Yaf默认会去application.directory中寻找Bootstrap , 当然这个可以在配置文件中修改 .
 
@@ -104,7 +104,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract
 
 ---
 
-**`public static void app ( void )`**- 获取当前的Yaf\_Application实例 , 方法不需要参数 .
+`public static void app ( void )`- 获取当前的Yaf\_Application实例 , 方法不需要参数 .
 
 ```php
 <?php
@@ -115,13 +115,22 @@ dump(Yaf\Application::app());
 
 ---
 
-**`public void Yaf_Application::environ ( void )`** - 获取当前Yaf\_Application的环境名
+`public void Yaf_Application::environ ( void )` - 获取当前Yaf\_Application的环境名
 
-它被定义在yaf.environ , 默认值为"product" . 
+它被定义在yaf.environ , 默认值为"product" .
 
+```php
+<?php
+$config = array(
+    "application" => array(
+        "directory" => realpath(dirname(__FILE__)) . "/application",
+    ),
+);
 
-
-
+/** Yaf_Application */
+$application = new Yaf_Application($config);
+print_r($application->environ());
+```
 
 
 
