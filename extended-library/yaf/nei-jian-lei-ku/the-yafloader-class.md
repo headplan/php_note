@@ -80,7 +80,7 @@ Yaf\_Loader实现了单利模式 , 一般的它由Yaf\_Application负责初始�
 #### 方法
 
 ```php
-private__construct ( void ) - 不能被初始化
+private __construct ( void ) - 不能被初始化
 private void __clone ( void ) - 不能被克隆
 private void __sleep ( void ) - 不能被序列化
 private void __wakeup ( void ) - 不能被反序列化
