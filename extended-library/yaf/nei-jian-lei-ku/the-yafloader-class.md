@@ -59,5 +59,19 @@ Yaf_Loader {
 }
 ```
 
-本地类的类名前缀 , 此属性通过`Yaf_Loader::registerLocalNamespace`来添加新的值 . 
+#### 属性
+
+**protected $\_local\_ns;**
+
+本地类的类名前缀 , 此属性通过`Yaf_Loader::registerLocalNamespace`来添加新的值 .
+
+**protected $\_library;**
+
+**protected $\_global\_library;**
+
+**static $\_instance;**
+
+
+
+
 
