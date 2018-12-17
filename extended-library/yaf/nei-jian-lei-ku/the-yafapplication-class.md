@@ -46,7 +46,7 @@ dispatcher : Yaf\_Dispatcher实例
 
 \_modules : 存在的模块名, 从配置文件中yap.modules读取
 
-\_running : 
+\_running : bool值 , 指明当前的Yaf\_Application是否已经运行
 
 \_environ
 
