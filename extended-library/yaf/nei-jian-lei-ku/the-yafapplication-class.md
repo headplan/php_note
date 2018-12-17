@@ -53,7 +53,37 @@ final Yaf_Application
 
 **$config**
 
-关联数组的配置 , 或者一个指向ini格式的配置文件的路径的字符串 , 或者是一个Yaf\_Config\_Abstract实例 . 
+关联数组的配置 , 或者一个指向ini格式的配置文件的路径的字符串 , 或者是一个Yaf\_Config\_Abstract实例 .
+
+如果是一个ini配置文件 , 那配置文件中应该有一个定义了yaf.environ的配置节 . 这个在生产环境中是默认的 . 
+
+```php
+[product]
+;this one should alway be defined, and have no default value
+application.directory=APPLICATION_PATH
+
+;following configs have default value, you may no need to define them
+application.library = APPLICATION_PATH . "/library"
+application.dispatcher.throwException=1
+application.dispatcher.catchException=1
+
+application.baseUri=""
+
+;the php script ext name
+ap.ext=php
+
+;the view template ext name
+ap.view.ext=phtml
+
+ap.dispatcher.defaultModuel=Index
+ap.dispatcher.defaultController=Index
+ap.dispatcher.defaultAction=index
+
+;defined modules
+ap.modules=Index
+```
+
+---
 
 `public static void app ( void )`- 获取当前的Yaf\_Application实例 , 方法不需要参数 .
 
