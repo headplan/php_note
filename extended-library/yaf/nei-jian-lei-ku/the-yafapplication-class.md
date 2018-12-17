@@ -68,7 +68,17 @@ application.directory=APPLICATION_PATH
 
 **$envrion**
 
-可以用来切换配置节 . 
+可以用来切换配置节 .
+
+---
+
+`public void bootstrap ([ Yaf_Bootstrap_Abstract $bootstrap ] )` 
+
+指示Yaf\_Application去寻找Bootstrap类 , 并按照声明的顺序 , 执行所有在Bootstrap类中定义的以\_init开头的方法 . 如果没有提供变量$bootstrap , Yaf默认会去application.directory中寻找Bootstrap , 当然这个可以在配置文件中修改 . 
+
+**$bootstrap**
+
+可选参数 , 默认会自动寻找引导类 . 
 
 ---
 
@@ -81,5 +91,5 @@ $app->bootstrap()->run();
 dump(Yaf\Application::app());
 ```
 
-public void bootstrap \(\[ Yaf\_Bootstrap\_Abstract $bootstrap \] \) -
+
 
