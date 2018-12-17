@@ -67,11 +67,13 @@ Yaf_Loader {
 
 **protected $\_library;**
 
-默认情况下 , 它的值是application.directory . "/library" , 可以通过修改application.ini\(application.library\)或者调用`Yaf_Loader::setLibraryPath()`改变它 . 
+默认情况下 , 它的值是application.directory . "/library" , 可以通过修改application.ini\(application.library\)或者调用`Yaf_Loader::setLibraryPath()`改变它 .
 
 **protected $\_global\_library;**
 
-全局类加载路径 , 属性的值来自php.ini中的yap.library , 可以通过修改php.ini\(yap.library\)或者调用`Yaf_Loader::setLibraryPath()`改变它 . 
+全局类加载路径 , 属性的值来自php.ini中的yap.library , 可以通过修改php.ini\(yap.library\)或者调用`Yaf_Loader::setLibraryPath()`改变它 .
 
 **static $\_instance;**
+
+Yaf\_Loader实现了单利模式 , 一般的它由Yaf\_Application负责初始化 . 此属性保存当前实例 . 
 
