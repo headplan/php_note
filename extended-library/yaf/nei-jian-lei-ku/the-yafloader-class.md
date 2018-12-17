@@ -77,6 +77,8 @@ Yaf_Loader {
 
 Yaf\_Loader实现了单利模式 , 一般的它由Yaf\_Application负责初始化 . 此属性保存当前实例 .
 
+---
+
 #### 方法
 
 ```php
@@ -128,6 +130,12 @@ Yaf_Loader::import("/usr/local/foo.php);
 
 # 相对路径,会在APPLICATION_PATH."/library"下加载
 Yaf_loader::import("plugins/User.php");
+```
+
+---
+
+```php
+public static boolean Yaf_Loader::autoload( string  $class_name );
 ```
 
 
