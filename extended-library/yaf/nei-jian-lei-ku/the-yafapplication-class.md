@@ -45,5 +45,7 @@ final Yaf_Application
 * \_running : bool值 , 指明当前的Yaf\_Application是否已经运行
 * \_environ : 当前的环境名 , 也就是Yaf\_Application在读取配置的时候 , 获取的配置节名字
 
+#### 方法
+
 
 
