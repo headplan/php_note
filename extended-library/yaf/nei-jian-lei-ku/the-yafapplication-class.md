@@ -187,6 +187,21 @@ $application = new Yaf_Application($config);
 print_r($application->getConfig());
 ```
 
+`public array Yaf_Application::getModules ( void )` - 获取在配置文件中申明的模块 , 默认值为"Index" . 
+
+```php
+<?php
+$config = array(
+    "application" => array(
+        "directory" => realpath(dirname(__FILE__)) . "/application",
+    ),
+);
+
+/** Yaf_Application */
+$application = new Yaf_Application($config);
+print_r($application->getModules());
+```
+
 ---
 
 ```php
