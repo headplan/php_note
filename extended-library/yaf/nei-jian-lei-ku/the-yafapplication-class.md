@@ -140,5 +140,15 @@ print_r($application->environ());
 
 `public void Yaf_Application::execute ( callable $entry , string $... )`
 
-这个方法通常用于在cron任务中运行Yaf\_Application . 在cron任务中也可以使用autoloader和Bootstrap机制 . 
+这个方法通常用于在cron任务中运行Yaf\_Application . 在cron任务中也可以使用autoloader和Bootstrap机制 .
+
+**$entry**
+
+一个有效的回调函数
+
+**$...**
+
+零个或者多个要传递给函数的参数
+
+
 
