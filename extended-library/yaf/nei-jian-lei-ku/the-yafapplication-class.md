@@ -132,5 +132,9 @@ $application = new Yaf_Application($config);
 print_r($application->environ());
 ```
 
+---
+
+`public void Yaf_Application::run ( void )` - 运行一个Yaf\_Application , 开始接受并处理请求 , 分发路由 , 做出相应的响应 . 最终将响应返回给客户端 . 
+
 
 
