@@ -13,9 +13,25 @@ Yaf\_Loader加载一个类时仅仅尝试一次 , 如果失败了 , 后面的操
 如果想使用Yaf\_Loader搜索本地类库\(定义在application.ini . 默认情况下是application.directory . "/libraray"\) , 需要使用 `Yaf_Loader::registerLocalNameSpace()`注册本地类前缀 .
 
 ```
-# Example
+# Example自动加载例子
+class Foo_Bar_Test =>
+// APPLICATION_PATH/library/Foo/Bar/Test.php
+  
+class \Foo\Bar\Dummy =>
+// APPLICATION_PATH/library/Foo/Bar/Dummy.php
 
+Controller Classes =>
+// APPLICATION_PATH/controllers/
+
+Model Classes =>
+// ***Model
+
+class DummyPlugin =>
+  // APPLICATION_PATH/plugins/Dummy.php
+
+class A_B_TestModel =>
+  // APPLICATION_PATH/models/A/B/Test.php
 ```
 
-
+文件夹首字母大小写控制 , yaf.lowcase\_path . 也可以通过改变配置项yaf.name\_suffix来将类改为通过前缀识别 . 
 
