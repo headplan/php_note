@@ -72,13 +72,33 @@ application.directory=APPLICATION_PATH
 
 ---
 
-`public void bootstrap ([ Yaf_Bootstrap_Abstract $bootstrap ] )` 
+`public void bootstrap ([ Yaf_Bootstrap_Abstract $bootstrap ] )`
 
-指示Yaf\_Application去寻找Bootstrap类 , 并按照声明的顺序 , 执行所有在Bootstrap类中定义的以\_init开头的方法 . 如果没有提供变量$bootstrap , Yaf默认会去application.directory中寻找Bootstrap , 当然这个可以在配置文件中修改 . 
+指示Yaf\_Application去寻找Bootstrap类 , 并按照声明的顺序 , 执行所有在Bootstrap类中定义的以\_init开头的方法 . 如果没有提供变量$bootstrap , Yaf默认会去application.directory中寻找Bootstrap , 当然这个可以在配置文件中修改 .
 
 **$bootstrap**
 
-可选参数 , 默认会自动寻找引导类 . 
+可选参数 , 默认会自动寻找引导类 .
+
+```php
+<?php 
+class Bootstrap extends Yaf_Bootstrap_Abstract 
+{ 
+    public function _initSession(Yaf_Dispatcher $dispatcher) 
+    { 
+        $session = new Vendor\Session(); 
+        $session->start(); 
+    } 
+
+    public function _initDatabase(Yaf_Dispatcher $dispatcher) 
+    { 
+        $config = Yaf_Application::app()->getConfig()->application->database; 
+        Yaf_Registry::set('db', Vendor\Database($config)); 
+    } 
+}
+```
+
+> Bootstrap并不会调用run , 所以还需要在bootstrap以后调用Application::run来运行Yaf\_Application实例
 
 ---
 
