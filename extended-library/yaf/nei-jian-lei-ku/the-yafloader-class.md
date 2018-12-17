@@ -38,10 +38,10 @@ class A_B_TestModel =>
 ```php
 Yaf_Loader {
     /* 属性 */
-    protected $_local_ns ;
-    protected $_library ;
-    protected $_global_library ;
-    static $_instance ;
+    protected $_local_ns;
+    protected $_library;
+    protected $_global_library;
+    static $_instance;
     /* 方法 */
     public void autoload ( void )
     public void clearLocalNamespace ( void )
@@ -59,5 +59,5 @@ Yaf_Loader {
 }
 ```
 
-
+本地类的类名前缀 , 此属性通过`Yaf_Loader::registerLocalNamespace`来添加新的值 . 
 
