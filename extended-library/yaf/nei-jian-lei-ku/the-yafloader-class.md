@@ -135,8 +135,16 @@ Yaf_loader::import("plugins/User.php");
 ---
 
 ```php
-public static boolean Yaf_Loader::autoload( string  $class_name );
+public static boolean Yaf_Loader::autoload( string $class_name );
 ```
+
+载入一个类 , 这个方法被Yaf用作自动加载类的方法 , 当然也可以手动调用 . 
+
+**$class\_name**
+
+要载入的类名 , 类名必须包含路径信息 , 也就是下划线分隔的路径信息和类名 . 载入的过程中 , 首先会判断这个类名是否是本地类 , 如果是本地类 , 则使用本地类类库目录 , 否则使用全局类目录 . 然后判断yaf.lowcase\_path是否开启 , 如果开启 , 则会把类名中的路径部分全部小写 . 然后加载 , 执行 . 
+
+
 
 
 
