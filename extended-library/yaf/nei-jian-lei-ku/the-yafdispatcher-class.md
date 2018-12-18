@@ -7,17 +7,17 @@
 ```php
 final Yaf_Dispatcher {
     /* 属性 */
-    protected $_router ;
-    protected $_view ;
-    protected $_request ;
-    protected $_plugins ;
-    protected static $_instance ;
-    protected $_auto_render ;
-    protected $_return_response ;
-    protected $_instantly_flush ;
-    protected $_default_module ;
-    protected $_default_controller ;
-    protected $_default_action ;
+    protected $_router;
+    protected $_view;
+    protected $_request;
+    protected $_plugins;
+    protected static $_instance;
+    protected $_auto_render;
+    protected $_return_response;
+    protected $_instantly_flush;
+    protected $_default_module;
+    protected $_default_controller;
+    protected $_default_action;
     /* 方法 */
     public Yaf_Dispatcher autoRender ( bool $flag )
     public Yaf_Dispatcher catchException ([ bool $flag ] )
@@ -47,6 +47,30 @@ final Yaf_Dispatcher {
 ```
 
 #### 属性
+
+**protected $\_router;**
+
+路由器, 在Yaf0.1之前 , 路由器是可更改的 , 但是Yaf0.2以后 , 随着路由器和路由协议的分离 , 各种路由都可以通过配置路由协议来实现 , 也就取消了自定义路由器的功能 . 
+
+**protected $\_view;**
+
+**protected $\_request;**
+
+**protected $\_plugins;**
+
+**protected static $\_instance;**
+
+protected $\_auto\_render;
+
+protected $\_return\_response;
+
+protected $\_instantly\_flush;
+
+protected $\_default\_module;
+
+protected $\_default\_controller;
+
+protected $\_default\_action;
 
 
 
