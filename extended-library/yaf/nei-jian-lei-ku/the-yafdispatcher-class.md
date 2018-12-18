@@ -251,5 +251,13 @@ Yaf_Dispatcher::getInstance()->flushInstantly(TRUE);
 $application->run();
 ```
 
+---
+
+```php
+public Yaf_Dispatcher Yaf_Dispatcher::setErrorHandler ( call $callback , int $error_types )
+```
+
+设置错误处理函数 , 一般在application.dispatcher.throwException关闭的情况下 , Yaf会在出错的时候触发错误 , 这个时候 , 如果设置了错误处理函数 , 则会把控制交给错误处理函数处理 . 因此 , 当错误发生的时候这个错误处理函数将被调用 . 
+
 
 
