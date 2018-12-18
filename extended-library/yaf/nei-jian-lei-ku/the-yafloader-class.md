@@ -214,5 +214,19 @@ public boolean Yaf_Loader::clearLocalNamespace( void  );
 Yaf_Loader::getInstance()->clearLocalNamespace();
 ```
 
+---
+
+```php
+public Yaf_Loader Yaf_Loader::setLibraryPath ( string $directory [, bool $is_global = false ] )
+public Yaf_Loader Yaf_Loader::getLibraryPath ([ bool $is_global = false ] )
+```
+
+获取和设置
+
+```php
+protected $_library;
+protected $_global_library;
+```
+
 
 
