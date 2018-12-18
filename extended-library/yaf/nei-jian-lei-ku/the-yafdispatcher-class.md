@@ -257,7 +257,42 @@ $application->run();
 public Yaf_Dispatcher Yaf_Dispatcher::setErrorHandler ( call $callback , int $error_types )
 ```
 
-设置错误处理函数 , 一般在application.dispatcher.throwException关闭的情况下 , Yaf会在出错的时候触发错误 , 这个时候 , 如果设置了错误处理函数 , 则会把控制交给错误处理函数处理 . 因此 , 当错误发生的时候这个错误处理函数将被调用 . 
+设置错误处理函数 , 一般在application.dispatcher.throwException关闭的情况下 , Yaf会在出错的时候触发错误 , 这个时候 , 如果设置了错误处理函数 , 则会把控制交给错误处理函数处理 . 因此 , 当错误发生的时候这个错误处理函数将被调用 .
+
+**$callback**
+
+错误处理函数 , 这个函数需要最少接受俩个参数 : 错误代码\($error\_code\)和错误信息\($error\_message\) , 可选的还可以接受三个参数 :  错误文件\($err\_file\) , 错误行\($err\_line\)和错误上下文\($errcontext\) . 
+
+**$error\_types**
+
+要捕获的错误类型 . 
+
+成功返回Yaf\_Dispatcher , 失败返回FALSE
+
+```php
+<?php
+/** 
+ * 一般可放在Bootstrap中定义错误处理函数
+ */
+function myErrorHandler($errno, $errstr, $errfile, $errline)
+{
+    switch ($errno) {
+    case YAF_ERR_NOTFOUND_CONTROLLER:
+    case YAF_ERR_NOTFOUND_MODULE:
+    case YAF_ERR_NOTFOUND_ACTION:
+         header("Not Found");
+    break;
+
+    default:
+        echo "Unknown error type: [$errno] $errstr<br />\n";
+        break;
+    }
+
+    return true;
+}
+
+Yaf_Dispatcher::getInstance()->setErrorHandler("myErrorHandler");
+```
 
 
 
