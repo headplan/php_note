@@ -159,7 +159,7 @@ Yaf_Loader::autoload("Baidu_ST_Dummy_Bar");
 public Yaf_Loader Yaf_Loader::registerLocalNamespace( mixed  $local_name_prefix );
 ```
 
-注册本地类前缀 , 是的对于以这些前缀开头的本地类 , 都从本地类库路径中加载 . 返回Yaf\_Loader . 
+注册本地类前缀 , 是的对于以这些前缀开头的本地类 , 都从本地类库路径中加载 . 返回Yaf\_Loader .
 
 **$local\_name\_prefix** - 字符串或者是数组格式的类名前缀 , 不包含前缀后面的下划线 .
 
@@ -169,5 +169,13 @@ Yaf_Loader::getInstance()->registerLocalNamespace("Foo");
 Yaf_Loader::getInstance()->registerLocalNamespace(array("Foo", "Bar"));
 ```
 
+---
 
+```php
+public boolean Yaf_Loader::isLocalName( string  $class_name );
+```
+
+判断一个类 , 是否是本地类 . 
+
+**$class\_name** - 字符串的类名 , 本方法会根据下划线分隔截取出类名的第一部分 , 然后在Yaf\_Loader的\_local\_ns中判断是否存在 , 从而确定结果 . 
 
