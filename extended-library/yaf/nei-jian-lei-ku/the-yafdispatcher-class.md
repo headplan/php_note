@@ -149,5 +149,35 @@ class IndexController extends Yaf_Controller_Abstract
 }
 ```
 
+---
+
+```php
+public Yaf_Dispatcher Yaf_Dispatcher::enableView ( void )
+```
+
+开启自动Render . 默认是开启的 , 在动作执行完成以后 , Yaf会自动render以动作名命名的视图模板文件 . 
+
+成功返回Yaf\_Dispatcher , 失败返回FALSE . 
+
+```php
+<?php
+
+class IndexController extends Yaf_Controller_Abstract
+{
+    /**
+     * Controller的init方法会被自动首先调用
+     */
+    public function init()
+    {
+        /**
+         * 如果不是Ajax请求, 则开启HTML输出
+         */
+        if (!$this->getRequest()->isXmlHttpRequest()) {
+            Yaf_Dispatcher::getInstance()->enableView();
+        }
+    }
+}
+```
+
 
 
