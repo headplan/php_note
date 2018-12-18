@@ -70,7 +70,7 @@ Yaf\_Dispatcher实现了单利模式 , 此属性保存当前实例 .
 
 **protected $\_auto\_render;**
 
-标示着 , 是否开启自动渲染 . 通过Yaf\_Dispatcher::autoRender来切换开关状态 . 
+标示着 , 是否开启自动渲染 . 通过Yaf\_Dispatcher::autoRender来切换开关状态 .
 
 **protected $\_return\_response;**
 
@@ -91,4 +91,10 @@ Yaf\_Dispatcher实现了单利模式 , 此属性保存当前实例 .
 **protected $\_default\_action;**
 
 默认的动作名 , 在路由的时候 , 如果没有指明动作 , 则会使用这个值 , 也可以通过配置文件中的yaf.dispatcher.defaultAction来指定
+
+---
+
+#### 方法
+
+
 
