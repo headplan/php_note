@@ -217,7 +217,7 @@ class IndexController extends Yaf_Controller_Abstract
 public Yaf_Dispatcher Yaf_Dispatcher::returnResponse ( bool $flag )
 ```
 
-是否返回Response对象 , 如果启用 , 则Response对象在分发完成以后不会自动输出给请求端 , 而是交给自己控制输出 . 
+是否返回Response对象 , 如果启用 , 则Response对象在分发完成以后不会自动输出给请求端 , 而是交给自己控制输出 .
 
 **$flag**
 
@@ -230,6 +230,14 @@ $response = $application->getDispatcher()->returnResponse(TRUE)->getApplication(
 # 输出响应
 $response->response();
 ```
+
+---
+
+```php
+public Yaf_Dispatcher Yaf_Dispatcher::flushInstantly ( bool $flag )
+```
+
+切换自动响应 . 在Yaf\_Dispatcher::enableView\(\)的情况下 , 会使得Yaf\_Dispatcher调用Yaf\_Controller\_Abstract::display方法 , 直接输出响应给请求端 . 
 
 
 
