@@ -58,13 +58,15 @@ final Yaf_Dispatcher {
 
 **protected $\_request;**
 
-当前的请求 . 
+当前的请求 .
 
 **protected $\_plugins;**
 
-已经注册的插件 , 插件一经注册 , 就不能更改和删除 . 
+已经注册的插件 , 插件一经注册 , 就不能更改和删除 .
 
 **protected static $\_instance;**
+
+Yaf\_Dispatcher实现了单利模式 , 此属性保存当前实例 . 
 
 protected $\_auto\_render;
 
