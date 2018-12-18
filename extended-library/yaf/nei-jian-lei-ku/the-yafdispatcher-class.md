@@ -185,11 +185,11 @@ class IndexController extends Yaf_Controller_Abstract
 public Yaf_Dispatcher Yaf_Dispatcher::autoRender ( bool $flag )
 ```
 
-开启/关闭自动渲染功能 . 在开启的情况下\(Yaf默认开启\) , Action执行完成以后 , Yaf会自动调用View引擎去渲染该Action对应的视图模板 . 
+开启/关闭自动渲染功能 . 在开启的情况下\(Yaf默认开启\) , Action执行完成以后 , Yaf会自动调用View引擎去渲染该Action对应的视图模板 .
 
 **$flag**
 
-成功返回Yaf\_Dispatcher , 失败返回FALSE . 
+成功返回Yaf\_Dispatcher , 失败返回FALSE .
 
 ```php
 <?php
@@ -209,6 +209,26 @@ class IndexController extends Yaf_Controller_Abstract
         }
     }
 }
+```
+
+---
+
+```php
+public Yaf_Dispatcher Yaf_Dispatcher::returnResponse ( bool $flag )
+```
+
+是否返回Response对象 , 如果启用 , 则Response对象在分发完成以后不会自动输出给请求端 , 而是交给自己控制输出 . 
+
+**$flag**
+
+成功返回Yaf\_Dispatcher , 失败返回FALSE
+
+```php
+$application = new Yaf_Application("config.ini");
+# 关闭自动响应,交给rd自己输出
+$response = $application->getDispatcher()->returnResponse(TRUE)->getApplication()->run();
+# 输出响应
+$response->response();
 ```
 
 
