@@ -50,9 +50,11 @@ final Yaf_Dispatcher {
 
 **protected $\_router;**
 
-路由器, 在Yaf0.1之前 , 路由器是可更改的 , 但是Yaf0.2以后 , 随着路由器和路由协议的分离 , 各种路由都可以通过配置路由协议来实现 , 也就取消了自定义路由器的功能 . 
+路由器 , 在Yaf0.1之前 , 路由器是可更改的 , 但是Yaf0.2以后 , 随着路由器和路由协议的分离 , 各种路由都可以通过配置路由协议来实现 , 也就取消了自定义路由器的功能 .
 
 **protected $\_view;**
+
+当前的视图引擎 , 可以通过Yaf\_Dispatcher::setView来替换视图引擎为自定义视图引擎\(比如Smary/Firekylin等常见引擎\)
 
 **protected $\_request;**
 
@@ -71,6 +73,4 @@ protected $\_default\_module;
 protected $\_default\_controller;
 
 protected $\_default\_action;
-
-
 
