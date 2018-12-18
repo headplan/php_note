@@ -300,13 +300,19 @@ Yaf_Dispatcher::getInstance()->setErrorHandler("myErrorHandler");
 public Yaf_Application Yaf_Dispatcher::getApplication( void  );
 ```
 
-获取当前的Yaf\_Application实例 . 
+获取当前的Yaf\_Application实例 .
 
 ```php
 <?php
 $application = Yaf_Dispatcher::getInstance()->getApplication();
 # 不过,还是推荐大家使用
 $application = Application::app();
+```
+
+---
+
+```php
+public Yaf_Router Yaf_Dispatcher::getRouter ( void )
 ```
 
 
