@@ -22,7 +22,7 @@ final Yaf_Dispatcher {
     public Yaf_Dispatcher autoRender ( bool $flag )
     public Yaf_Dispatcher catchException ([ bool $flag ] )
     private void __clone ( void )
-    public__construct ( void )
+    public __construct ( void )
     public bool disableView ( void )
     public Yaf_Response_Abstract dispatch ( Yaf_Request_Abstract $request )
     public Yaf_Dispatcher enableView ( void )
