@@ -144,10 +144,13 @@ public static boolean Yaf_Loader::autoload( string $class_name );
 
 要载入的类名 , 类名必须包含路径信息 , 也就是下划线分隔的路径信息和类名 . 载入的过程中 , 首先会判断这个类名是否是本地类 , 如果是本地类 , 则使用本地类类库目录 , 否则使用全局类目录 . 然后判断yaf.lowcase\_path是否开启 , 如果开启 , 则会把类名中的路径部分全部小写 . 然后加载 , 执行 .
 
-成功返回TRUE . 
+成功返回TRUE .
 
-```
-在php.ini中的yaf.use_spl_autoload关闭的情况下,即使类没有找到,Yaf_Loader::autoload也会返回TRUE,剥夺其后面的自动加载函数的执行权利
+> 在php.ini中的yaf.use\_spl\_autoload关闭的情况下 , 即使类没有找到 , Yaf\_Loader::autoload也会返回TRUE , 剥夺其后面的自动加载函数的执行权利 .
+
+```php
+<?php
+Yaf_Loader::autoload("Baidu_ST_Dummy_Bar");
 ```
 
 
