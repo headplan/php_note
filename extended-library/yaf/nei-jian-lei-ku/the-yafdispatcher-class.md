@@ -261,31 +261,32 @@ public Yaf_Dispatcher Yaf_Dispatcher::setErrorHandler ( call $callback , int $er
 
 **$callback**
 
-错误处理函数 , 这个函数需要最少接受俩个参数 : 错误代码\($error\_code\)和错误信息\($error\_message\) , 可选的还可以接受三个参数 :  错误文件\($err\_file\) , 错误行\($err\_line\)和错误上下文\($errcontext\) . 
+错误处理函数 , 这个函数需要最少接受俩个参数 : 错误代码\($error\_code\)和错误信息\($error\_message\) , 可选的还可以接受三个参数 :  错误文件\($err\_file\) , 错误行\($err\_line\)和错误上下文\($errcontext\) .
 
 **$error\_types**
 
-要捕获的错误类型 . 
+要捕获的错误类型 .
 
 成功返回Yaf\_Dispatcher , 失败返回FALSE
 
 ```php
 <?php
+
 /** 
  * 一般可放在Bootstrap中定义错误处理函数
  */
 function myErrorHandler($errno, $errstr, $errfile, $errline)
 {
     switch ($errno) {
-    case YAF_ERR_NOTFOUND_CONTROLLER:
-    case YAF_ERR_NOTFOUND_MODULE:
-    case YAF_ERR_NOTFOUND_ACTION:
-         header("Not Found");
-    break;
-
-    default:
-        echo "Unknown error type: [$errno] $errstr<br />\n";
+        case YAF_ERR_NOTFOUND_CONTROLLER:
+        case YAF_ERR_NOTFOUND_MODULE:
+        case YAF_ERR_NOTFOUND_ACTION:
+            header("Not Found");
         break;
+
+        default:
+            echo "Unknown error type: [$errno] $errstr<br />\n";
+            break;
     }
 
     return true;
