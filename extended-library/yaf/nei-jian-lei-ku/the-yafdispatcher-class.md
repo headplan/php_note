@@ -106,5 +106,11 @@ private void __wakeup ( void ) - 不能被反序列化
 public __construct ( void ) - Yaf_Dispatcher构造函数
 ```
 
+---
+
+```php
+public static Yaf_Dispatcher Yaf_Dispatcher::getInstance ( void )
+```
+
 
 
