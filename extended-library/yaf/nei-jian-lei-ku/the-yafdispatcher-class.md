@@ -341,11 +341,11 @@ $request = Yaf_Dispatcher::getInstance()->getRequest();
 public Yaf_Dispatcher Yaf_Dispatcher::registerPlugin ( Yaf_Plugin_Abstract $plugin )
 ```
 
-注册一个插件 . 成功返回Yaf\_Dispatcher, 失败返回FALSE . 
+注册一个插件 . 成功返回Yaf\_Dispatcher, 失败返回FALSE .
 
 **$plugin**
 
-一个Yaf\_Plugin\_Abstract派生类的实例 . 
+一个Yaf\_Plugin\_Abstract派生类的实例 .
 
 ```php
 <?php
@@ -365,13 +365,12 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
   }
 }
 
-
 /** 
  * 插件类定义
  * UserPlugin.php
  */
 class UserPlugin extends Yaf_Plugin_Abstract {
-    
+
     public function routerStartup(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response) {
         echo "Plugin routerStartup called <br/>\n";
     }
@@ -391,12 +390,14 @@ class UserPlugin extends Yaf_Plugin_Abstract {
     public function postDispatch(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response) {
         echo "Plugin postDispatch called <br/>\n";
     }
-  
+
     public function dispatchLoopShutdown(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response) {
         echo "Plugin DispatchLoopShutdown called <br/>\n";
     }
 }
 ```
+
+---
 
 
 
