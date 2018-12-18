@@ -125,5 +125,29 @@ $dispatcher = Yaf_Dispatcher::getInstance();
 public bool Yaf_Dispatcher::disableView ( void )
 ```
 
+关闭自动渲染 . 在一些用户自己会输出信息的情况下使用 . 
+
+> 可以在一个action中仅仅返回FALSE来阻止当前action对应视图的自动渲染
+
+```php
+<?php
+
+class IndexController extends Yaf_Controller_Abstract
+{
+ /**
+  * Controller的init方法会被自动首先调用
+  */
+    public function init()
+    {
+        /**
+         * 如果是Ajax请求, 则关闭HTML输出
+         */
+        if ($this->getRequest()->isXmlHttpRequest()) {
+            Yaf_Dispatcher::getInstance()->disableView();
+        }
+    }
+}
+```
+
 
 
