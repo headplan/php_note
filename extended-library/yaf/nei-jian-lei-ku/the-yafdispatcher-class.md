@@ -72,13 +72,15 @@ Yaf\_Dispatcher实现了单利模式 , 此属性保存当前实例 .
 
 **protected $\_return\_response;**
 
-标示着 , 是否在产生响应以后 , 不自动输出给客户端 , 而是返回给调用者 . 可以通过Yaf\_Dispatcher::returnResponse来切换开关状态 . 
+标示着 , 是否在产生响应以后 , 不自动输出给客户端 , 而是返回给调用者 . 可以通过Yaf\_Dispatcher::returnResponse来切换开关状态 .
 
-protected $\_instantly\_flush;
+**protected $\_instantly\_flush;**
 
-protected $\_default\_module;
+标示着, 是否在有输出的时候 , 直接响应给客户端 , 不写入Yaf\_Response\_Abstract对象 .
 
-protected $\_default\_controller;
+**protected $\_default\_module;**
 
-protected $\_default\_action;
+**protected $\_default\_controller;**
+
+**protected $\_default\_action;**
 
