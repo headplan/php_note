@@ -239,5 +239,3 @@ public Yaf_Dispatcher Yaf_Dispatcher::flushInstantly ( bool $flag )
 
 切换自动响应 . 在Yaf\_Dispatcher::enableView\(\)的情况下 , 会使得Yaf\_Dispatcher调用Yaf\_Controller\_Abstract::display方法 , 直接输出响应给请求端 . 
 
-
-
