@@ -177,7 +177,7 @@ public boolean Yaf_Loader::isLocalName( string  $class_name );
 
 判断一个类 , 是否是本地类 . 返回值boolean .
 
-**$class\_name** - 字符串的类名 , 本方法会根据下划线分隔截取出类名的第一部分 , 然后在Yaf\_Loader的\_local\_ns中判断是否存在 , 从而确定结果 . 
+**$class\_name** - 字符串的类名 , 本方法会根据下划线分隔截取出类名的第一部分 , 然后在Yaf\_Loader的\_local\_ns中判断是否存在 , 从而确定结果 .
 
 ```php
 <?php
@@ -193,7 +193,7 @@ Yaf_Loader::getInstance()->isLocalName("FooBar");//FALSE
 public array Yaf_Loader::getLocalNamespace( void  );
 ```
 
-获取当前已经注册的本地类前缀 , 成功返回字符串 . 
+获取当前已经注册的本地类前缀 , 成功返回字符串 .
 
 ```php
 <?php
@@ -201,5 +201,11 @@ Yaf_Loader::getInstance()->registerLocalNamespace(array("Foo", "Bar"));
 print(Yaf_Loader::getInstance()->getLocalNamespace());
 ```
 
+---
 
+```php
+public boolean Yaf_Loader::clearLocalNamespace( void  );
+```
+
+清除已注册的本地类前缀 , 成功返回TRUE , 失败返回FALSE . 
 
