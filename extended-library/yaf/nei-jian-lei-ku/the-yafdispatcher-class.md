@@ -103,7 +103,7 @@ private void __wakeup ( void ) - 不能被反序列化
 ```
 
 ```php
-private __construct ( void ) - 不能被初始化
+public __construct ( void ) - Yaf_Dispatcher构造函数
 ```
 
 
