@@ -76,7 +76,7 @@ Yaf\_Dispatcher实现了单利模式 , 此属性保存当前实例 .
 
 **protected $\_instantly\_flush;**
 
-标示着, 是否在有输出的时候 , 直接响应给客户端 , 不写入Yaf\_Response\_Abstract对象 .
+标示着, 是否在有输出的时候 , 直接响应给客户端 , 不写入Yaf\_Response\_Abstract对象 . 如果此属性为TRUE , 那么将忽略Yaf\_Dispatcher::$\_return\_response
 
 **protected $\_default\_module;**
 
