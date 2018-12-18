@@ -112,5 +112,12 @@ public __construct ( void ) - Yaf_Dispatcher构造函数
 public static Yaf_Dispatcher Yaf_Dispatcher::getInstance ( void )
 ```
 
+获取当前的Yaf\_Dispatcher实例 . 
+
+```php
+<?php
+$dispatcher = Yaf_Dispatcher::getInstance();
+```
+
 
 
