@@ -282,8 +282,7 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
         case YAF_ERR_NOTFOUND_MODULE:
         case YAF_ERR_NOTFOUND_ACTION:
             header("Not Found");
-        break;
-
+            break;
         default:
             echo "Unknown error type: [$errno] $errstr<br />\n";
             break;
@@ -293,6 +292,21 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
 }
 
 Yaf_Dispatcher::getInstance()->setErrorHandler("myErrorHandler");
+```
+
+---
+
+```php
+public Yaf_Application Yaf_Dispatcher::getApplication( void  );
+```
+
+获取当前的Yaf\_Application实例 . 
+
+```php
+<?php
+$application = Yaf_Dispatcher::getInstance()->getApplication();
+# 不过,还是推荐大家使用
+$application = Application::app();
 ```
 
 
