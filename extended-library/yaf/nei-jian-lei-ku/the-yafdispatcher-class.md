@@ -80,9 +80,13 @@ Yaf\_Dispatcher实现了单利模式 , 此属性保存当前实例 .
 
 **protected $\_default\_module;**
 
-默认的模块名 , 在路由的时候 , 如果没有指明模块 , 则会使用这个值 , 也可以通过配置文件中的yap.dispatcher.defaultModule来指定
+默认的模块名 , 在路由的时候 , 如果没有指明模块 , 则会使用这个值 , 也可以通过配置文件中的yaf.dispatcher.defaultModule来指定
 
 **protected $\_default\_controller;**
 
+默认的控制器名 , 在路由的时候 , 如果没有指明控制器 , 则会使用这个值 , 也可以通过配置文件中的yaf.dispatcher.defaultController来指定
+
 **protected $\_default\_action;**
+
+默认的动作名 , 在路由的时候 , 如果没有指明动作 , 则会使用这个值 , 也可以通过配置文件中的yaf.dispatcher.defaultAction来指定
 
