@@ -175,7 +175,7 @@ Yaf_Loader::getInstance()->registerLocalNamespace(array("Foo", "Bar"));
 public boolean Yaf_Loader::isLocalName( string  $class_name );
 ```
 
-判断一个类 , 是否是本地类 . 
+判断一个类 , 是否是本地类 . 返回值boolean . 
 
-**$class\_name** - 字符串的类名 , 本方法会根据下划线分隔截取出类名的第一部分 , 然后在Yaf\_Loader的\_local\_ns中判断是否存在 , 从而确定结果 . 
+**$class\_name** - 字符串的类名 , 本方法会根据下划线分隔截取出类名的第一部分 , 然后在Yaf\_Loader的\_local\_ns中判断是否存在 , 从而确定结果 .
 
