@@ -96,5 +96,15 @@ Yaf\_Dispatcher实现了单利模式 , 此属性保存当前实例 .
 
 #### 方法
 
+```php
+private void __clone ( void ) - 不能被克隆
+private void __sleep ( void ) - 不能被序列化
+private void __wakeup ( void ) - 不能被反序列化
+```
+
+```php
+private __construct ( void ) - 不能被初始化
+```
+
 
 
