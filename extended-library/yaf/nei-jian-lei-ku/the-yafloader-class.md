@@ -153,5 +153,25 @@ public static boolean Yaf_Loader::autoload( string $class_name );
 Yaf_Loader::autoload("Baidu_ST_Dummy_Bar");
 ```
 
+---
+
+```php
+public Yaf_Loader Yaf_Loader::registerLocalNamespace( mixed  $local_name_prefix );
+```
+
+注册本地类前缀 , 是的对于以这些前缀开头的本地类 , 都从本地类库路径中加载 . 
+
+**$local\_name\_prefix** - 字符串或者是数组格式的类名前缀 , 不包含前缀后面的下划线 . 
+
+
+
+
+
+
+
+
+
+
+
 
 
