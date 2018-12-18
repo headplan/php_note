@@ -159,9 +159,9 @@ Yaf_Loader::autoload("Baidu_ST_Dummy_Bar");
 public Yaf_Loader Yaf_Loader::registerLocalNamespace( mixed  $local_name_prefix );
 ```
 
-注册本地类前缀 , 是的对于以这些前缀开头的本地类 , 都从本地类库路径中加载 .
+注册本地类前缀 , 是的对于以这些前缀开头的本地类 , 都从本地类库路径中加载 . 返回Yaf\_Loader . 
 
-**$local\_name\_prefix** - 字符串或者是数组格式的类名前缀 , 不包含前缀后面的下划线 . 
+**$local\_name\_prefix** - 字符串或者是数组格式的类名前缀 , 不包含前缀后面的下划线 .
 
 ```php
 <?php
