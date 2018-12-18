@@ -6,43 +6,43 @@
 
 ```php
 final Yaf_Dispatcher {
-/* 属性 */
-protected $_router ;
-protected $_view ;
-protected $_request ;
-protected $_plugins ;
-protected static $_instance ;
-protected $_auto_render ;
-protected $_return_response ;
-protected $_instantly_flush ;
-protected $_default_module ;
-protected $_default_controller ;
-protected $_default_action ;
-/* 方法 */
-public Yaf_Dispatcher autoRender ( bool $flag )
-public Yaf_Dispatcher catchException ([ bool $flag ] )
-private void __clone ( void )
-public__construct ( void )
-public bool disableView ( void )
-public Yaf_Response_Abstract dispatch ( Yaf_Request_Abstract $request )
-public Yaf_Dispatcher enableView ( void )
-public Yaf_Dispatcher flushInstantly ( bool $flag )
-public Yaf_Application getApplication ( void )
-public static Yaf_Dispatcher getInstance ( void )
-public Yaf_Request_Abstract getRequest ( void )
-public Yaf_Router getRouter ( void )
-public Yaf_View_Interface initView ( string $templates_dir [, array $options ] )
-public Yaf_Dispatcher registerPlugin ( Yaf_Plugin_Abstract $plugin )
-public Yaf_Dispatcher returnResponse ( bool $flag )
-public Yaf_Dispatcher setDefaultAction ( string $action )
-public Yaf_Dispatcher setDefaultController ( string $controller )
-public Yaf_Dispatcher setDefaultModule ( string $module )
-public Yaf_Dispatcher setErrorHandler ( call $callback , int $error_types )
-public Yaf_Dispatcher setRequest ( Yaf_Request_Abstract $request )
-public Yaf_Dispatcher setView ( Yaf_View_Interface $view )
-private void __sleep ( void )
-public Yaf_Dispatcher throwException ([ bool $flag ] )
-private void __wakeup ( void )
+    /* 属性 */
+    protected $_router ;
+    protected $_view ;
+    protected $_request ;
+    protected $_plugins ;
+    protected static $_instance ;
+    protected $_auto_render ;
+    protected $_return_response ;
+    protected $_instantly_flush ;
+    protected $_default_module ;
+    protected $_default_controller ;
+    protected $_default_action ;
+    /* 方法 */
+    public Yaf_Dispatcher autoRender ( bool $flag )
+    public Yaf_Dispatcher catchException ([ bool $flag ] )
+    private void __clone ( void )
+    public__construct ( void )
+    public bool disableView ( void )
+    public Yaf_Response_Abstract dispatch ( Yaf_Request_Abstract $request )
+    public Yaf_Dispatcher enableView ( void )
+    public Yaf_Dispatcher flushInstantly ( bool $flag )
+    public Yaf_Application getApplication ( void )
+    public static Yaf_Dispatcher getInstance ( void )
+    public Yaf_Request_Abstract getRequest ( void )
+    public Yaf_Router getRouter ( void )
+    public Yaf_View_Interface initView ( string $templates_dir [, array $options ] )
+    public Yaf_Dispatcher registerPlugin ( Yaf_Plugin_Abstract $plugin )
+    public Yaf_Dispatcher returnResponse ( bool $flag )
+    public Yaf_Dispatcher setDefaultAction ( string $action )
+    public Yaf_Dispatcher setDefaultController ( string $controller )
+    public Yaf_Dispatcher setDefaultModule ( string $module )
+    public Yaf_Dispatcher setErrorHandler ( call $callback , int $error_types )
+    public Yaf_Dispatcher setRequest ( Yaf_Request_Abstract $request )
+    public Yaf_Dispatcher setView ( Yaf_View_Interface $view )
+    private void __sleep ( void )
+    public Yaf_Dispatcher throwException ([ bool $flag ] )
+    private void __wakeup ( void )
 }
 ```
 
