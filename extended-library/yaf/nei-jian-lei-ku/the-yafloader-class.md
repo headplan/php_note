@@ -207,5 +207,12 @@ print(Yaf_Loader::getInstance()->getLocalNamespace());
 public boolean Yaf_Loader::clearLocalNamespace( void  );
 ```
 
-清除已注册的本地类前缀 , 成功返回TRUE , 失败返回FALSE . 
+清除已注册的本地类前缀 , 成功返回TRUE , 失败返回FALSE .
+
+```php
+<?php
+Yaf_Loader::getInstance()->clearLocalNamespace();
+```
+
+
 
