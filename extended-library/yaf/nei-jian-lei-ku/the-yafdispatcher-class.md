@@ -315,5 +315,18 @@ $application = Application::app();
 public Yaf_Router Yaf_Dispatcher::getRouter ( void )
 ```
 
+获取路由器 . 
 
+```php
+<?php
+$router = Yaf_Dispatcher::getInstance()->getRouter();
+```
+
+---
+
+```php
+public Yaf_Request_Abstract Yaf_Dispatcher::getRequest ( void )
+```
+
+获取当前的请求实例 , 返回Yaf\_Request\_Abstract实例 . 
 
