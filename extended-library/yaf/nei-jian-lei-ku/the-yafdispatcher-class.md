@@ -66,11 +66,13 @@ final Yaf_Dispatcher {
 
 **protected static $\_instance;**
 
-Yaf\_Dispatcher实现了单利模式 , 此属性保存当前实例 . 
+Yaf\_Dispatcher实现了单利模式 , 此属性保存当前实例 .
 
-protected $\_auto\_render;
+**protected $\_auto\_render;**
 
-protected $\_return\_response;
+**protected $\_return\_response;**
+
+标示着 , 是否在产生响应以后 , 不自动输出给客户端 , 而是返回给调用者 . 可以通过Yaf\_Dispatcher::returnResponse来切换开关状态 . 
 
 protected $\_instantly\_flush;
 
