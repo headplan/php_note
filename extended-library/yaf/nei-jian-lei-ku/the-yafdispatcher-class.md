@@ -237,5 +237,19 @@ $response->response();
 public Yaf_Dispatcher Yaf_Dispatcher::flushInstantly ( bool $flag )
 ```
 
-切换自动响应 . 在Yaf\_Dispatcher::enableView\(\)的情况下 , 会使得Yaf\_Dispatcher调用Yaf\_Controller\_Abstract::display方法 , 直接输出响应给请求端 . 
+切换自动响应 . 在Yaf\_Dispatcher::enableView\(\)的情况下 , 会使得Yaf\_Dispatcher调用Yaf\_Controller\_Abstract::display方法 , 直接输出响应给请求端 .
+
+**$flag**
+
+成功返回Yaf\_Dispatcher , 失败返回FALSE
+
+```php
+$application = new Yaf_Application("config.ini");
+# 立即输出响应
+Yaf_Dispatcher::getInstance()->flushInstantly(TRUE);
+# 此时会调用Yaf_Controller_Abstract::display方法
+$application->run();
+```
+
+
 
