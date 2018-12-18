@@ -315,7 +315,7 @@ $application = Application::app();
 public Yaf_Router Yaf_Dispatcher::getRouter ( void )
 ```
 
-获取路由器 . 
+获取路由器 .
 
 ```php
 <?php
@@ -328,5 +328,75 @@ $router = Yaf_Dispatcher::getInstance()->getRouter();
 public Yaf_Request_Abstract Yaf_Dispatcher::getRequest ( void )
 ```
 
-获取当前的请求实例 , 返回Yaf\_Request\_Abstract实例 . 
+获取当前的请求实例 , 返回Yaf\_Request\_Abstract实例 .
+
+```php
+<?php
+$request = Yaf_Dispatcher::getInstance()->getRequest();
+```
+
+---
+
+```php
+public Yaf_Dispatcher Yaf_Dispatcher::registerPlugin ( Yaf_Plugin_Abstract $plugin )
+```
+
+注册一个插件 . 成功返回Yaf\_Dispatcher, 失败返回FALSE . 
+
+**$plugin**
+
+一个Yaf\_Plugin\_Abstract派生类的实例 . 
+
+```php
+<?php
+/**
+ * 所有在Bootstrap类中, 以_init开头的方法, 都会被Yaf调用,
+ * 这些方法, 都接受一个参数:Yaf_Dispatcher $dispatcher
+ * 调用的次序, 和申明的次序相同
+ */
+class Bootstrap extends Yaf_Bootstrap_Abstract{
+  /**
+   * 注册一个插件
+   * 插件的目录是在application_directory/plugins
+   */
+  public function _initPlugin(Yaf_Dispatcher $dispatcher) {
+    $user = new UserPlugin();
+    $dispatcher->registerPlugin($user);
+  }
+}
+
+
+/** 
+ * 插件类定义
+ * UserPlugin.php
+ */
+class UserPlugin extends Yaf_Plugin_Abstract {
+    
+    public function routerStartup(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response) {
+        echo "Plugin routerStartup called <br/>\n";
+    }
+
+    public function routerShutdown(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response) {
+        echo "Plugin routerShutdown called <br/>\n";
+    }
+
+    public function dispatchLoopStartup(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response) {
+        echo "Plugin DispatchLoopStartup called <br/>\n";
+    }
+
+    public function preDispatch(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response) {
+        echo "Plugin PreDispatch called <br/>\n";
+    }
+
+    public function postDispatch(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response) {
+        echo "Plugin postDispatch called <br/>\n";
+    }
+  
+    public function dispatchLoopShutdown(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response) {
+        echo "Plugin DispatchLoopShutdown called <br/>\n";
+    }
+}
+```
+
+
 
