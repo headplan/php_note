@@ -118,6 +118,7 @@
       * [The Yaf\_Loader class](extended-library/yaf/nei-jian-lei-ku/the-yafloader-class.md)
       * [The Yaf\_Dispatcher class](extended-library/yaf/nei-jian-lei-ku/the-yafdispatcher-class.md)
     * [Yafinit](extended-library/yaf/yafinit.md)
+  * [ImageMagick](extended-library/imagemagick.md)
 * [框架技术](framework.md)
   * [HttpFoundation组件](framework/httpfoundationzu-jian.md)
   * [路由组件](framework/tian-jia-lu-you.md)
