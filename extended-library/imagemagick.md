@@ -1,4 +1,70 @@
 # ImageMagick
 
+ImageMagick是一套功能强大、稳定而且开源的工具集和开发包 , 可以用来读、写和处理超过89种基本格式的图片文件 , 包括流行的TIFF、JPEG、GIF、 PNG、PDF以及PhotoCD等格式 . 利用ImageMagick , 可以根据**web应用程序**的需要动态生成图片 , 还可以对一个\(或一组\)图片进行改变大小、旋转、锐化、减色或增加特效等操作 , 并将操作的结果以相同格式或其它格式保存 , 对图片的操作 , 即可以通过命令行进行 , 也可以用C/C++、Perl、Java、PHP、Python或Ruby编程来完成 . 同时ImageMagick提供了一个高质量的2D工具包 , 部分支持SVG . ImageMagic的主要精力集中在性能 , 减少bug以及提供稳定的API和ABI上 . 
 
+相关网站
+
+[https://imagemagick.org/](https://imagemagick.org/) - 官网
+
+[https://www.w3cschool.cn/imagemagick\_use/](https://www.w3cschool.cn/imagemagick_use/) - 使用手册
+
+[http://pecl.php.net/package/imagick](http://pecl.php.net/package/imagick) - PHP扩展
+
+[http://php.net/manual/en/book.imagick.php](https://www.php.net/manual/zh/book.imagick.php) - PHP手册
+
+#### 安装
+
+**二进制安装**
+
+```
+$ rpm -Uvh ImageMagick-7.0.9-27.x86_64.rpm
+$ rpm -Uvh ImageMagick-libs-7.0.9-27.x86_64.rpm
+```
+
+缺少依赖可以从[https://fedoraproject.org/wiki/EPEL/zh-cn](https://fedoraproject.org/wiki/EPEL/zh-cn)安装 . 
+
+```
+cd $HOME
+tar xvzf ImageMagick.tar.gz
+```
+
+可以复制到这里 , 设置环境变量
+
+```
+/usr/local/bin/
+```
+
+然后就可以运行了 . 
+
+```
+magick logo: logo.gif
+convert --version
+identify -version
+```
+
+**编译安装**
+
+```
+tar xvzf ImageMagick.tar.gz
+$ cd ImageMagick-7.0.9 
+$ ./configure 
+$ make && make install
+```
+
+可能还需要动态链接一下 , 如果报错的话
+
+```
+$ convert --version
+convert: error while loading shared libraries: libMagickCore-7.Q16HDRI.so.6: cannot open shared object file: No such file or directory
+```
+
+```
+ldconfig /usr/local/lib
+```
+
+安装可能还会需要一些扩展 , 根据提示安装即可 , 根据官网提供的手册安装 . 
+
+[https://imagemagick.org/script/download.php](https://imagemagick.org/script/download.php)
+
+[https://imagemagick.org/script/install-source.php](https://imagemagick.org/script/install-source.php)
 
