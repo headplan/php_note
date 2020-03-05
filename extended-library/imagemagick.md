@@ -78,7 +78,7 @@ ldconfig /usr/local/lib
 make && make install
 ```
 
-安装完了后要修改php的配置文件 , 添加上imagick.so , 重启php-fpm , 不再冗述 . 
+安装完了后要修改php的配置文件 , 添加上imagick.so , 重启php-fpm , 不再冗述 .
 
 ---
 
@@ -96,19 +96,19 @@ $im->readImage($pdf);
     convert: FailedToExecuteCommand `'gs' -sstdout=%stderr -dQUIET -dSAFER -dBATCH -dNOPAUSE -dNOPROMPT -dMaxBitmap=500000000 -dAlignToPixels=0 -dGridFitTT=2 '-sDEVICE=pam' -dTextAlphaBits=4 -dGraphicsAlphaBits=4 '-r72x72' -dUseCIEColor  '-sOutputFile=/tmp/magick-2889502xw9VvEBehq%d' '-f/tmp/magick-28895MAEMdPGaWDJA' '-f/tmp/magick-28895SfJzbPNc2acL'' (1) @ error/pdf.c/InvokePDFDelegate/291.
     convert: no images defined `%d.png' @ error/convert.c/ConvertImageCommand/3275.
 
-这里的gs , 就是GhostScript . 安装之后 , 就能读取到PDF文件了 . 
+这里的gs , 就是GhostScript . 安装之后 , 就能读取到PDF文件了 .
 
 #### 安装GhostScript
 
 **相关地址**
 
-官网 : https://www.ghostscript.com/
+官网 : [https://www.ghostscript.com/](https://www.ghostscript.com/)
 
 文档 : [https://www.ghostscript.com/documentation.html](https://www.ghostscript.com/documentation.html)
 
 下载地址 : [https://www.ghostscript.com/documentation.html](https://www.ghostscript.com/documentation.html)
 
-
+![](/assets/ghostscript.png)
 
 
 
