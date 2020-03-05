@@ -110,5 +110,9 @@ $im->readImage($pdf);
 
 ![](/assets/ghostscript.png)
 
+下载[Ghostscript AGPL Release](https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs950/ghostscript-9.50-linux-x86_64.tgz)版本 , 注意匹配系统 . 
 
+下载到服务器 , 解压Copy一份到/usr/bin , 全局可用 . 到此 , 解决了PDF读取的问题 . 
+
+关于PHP扩展Imagick相关api , 可以查看php官方手册 . 
 
