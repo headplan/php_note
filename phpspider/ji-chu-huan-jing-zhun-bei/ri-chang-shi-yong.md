@@ -56,5 +56,17 @@ Homestead 支持保存 MySQL 和 MariaDB 数据库的状态并通过[Logical MyS
 * 运行`sudo lmm merge prod-YYYY-MM-D`撤销所有修改
 * 运行`sudo lmm delete <branch>`删除不需要的分支
 
+#### 添加额外的站点
+
+到`Homestead.yaml`文件中添加站点 : 
+
+```
+sites:
+    - map: homestead.test
+      to: /home/vagrant/project1/public
+    - map: another.test
+      to: /home/vagrant/project2/public
+```
+
 
 
