@@ -46,7 +46,7 @@ vagrant box add metadata.json
 git clone https://github.com/laravel/homestead.git ~/Homestead
 ```
 
-建议将代码克隆到home目录下的Homestead文件夹中 , 这样Homestead box就可以作为所有Laravel项目的主机 . 
+建议将代码克隆到home目录下的Homestead文件夹中 , 这样Homestead box就可以作为所有Laravel项目的主机 .
 
 检出文档版
 
@@ -54,7 +54,5 @@ git clone https://github.com/laravel/homestead.git ~/Homestead
 git checkout release
 ```
 
-
-
-
+在 Homestead 目录中使用`bash init.sh`命令来创建`Homestead.yaml`配置文件 . 
 
