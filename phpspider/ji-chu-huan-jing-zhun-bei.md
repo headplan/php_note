@@ -14,10 +14,30 @@
 vagrant box add laravel/homestead
 ```
 
-国内网络环境 , 可以先下载之后再添加box . 
+国内网络环境 , 可以先下载之后再添加box .
 
 ```
 vagrant box add metadata.json
+```
+
+查看metadata.json文件
+
+```json
+{
+    "name": "laravel/homestead",
+    "versions":
+    [
+        {
+            "version": "10.0.0-beta.1",
+            "providers": [
+                {
+                  "name": "virtualbox",
+                  "url": "Homestead-10.0.0-beta.1.box"
+                }
+            ]
+        }
+    ]
+}
 ```
 
 
