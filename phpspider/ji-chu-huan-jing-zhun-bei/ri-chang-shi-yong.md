@@ -83,7 +83,30 @@ sites:
 
 可用的站点类型是 : apache , apigility , expressive , laravel\(默认\) , proxy , silverstripe , statamic , symfony2 , symfony4和zf . 
 
+#### 站点参数 {#f81a43}
 
+可以通过`params`站点指令添加额外的 Nginx`fastcgi_param`值到站点
+
+```yaml
+sites:
+    - map: homestead.test
+      to: /home/vagrant/project1/public
+      params:
+          - key: FOO
+            value: BAR
+```
+
+#### 环境变量
+
+通过添加如下的值到`Homestead.yaml`文件来设置全局环境变量
+
+```yaml
+variables:
+    - key: APP_ENV
+      value: local
+    - key: FOO
+      value: bar
+```
 
 
 
