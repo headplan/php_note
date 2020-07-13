@@ -72,7 +72,7 @@ sites:
 
 #### 站点类型 {#8681e1}
 
-Homestead 支持多种类型的站点 , 允许运行不是基于 Laravel 的项目 . 
+Homestead 支持多种类型的站点 , 允许运行不是基于 Laravel 的项目 .
 
 ```yaml
 sites:
@@ -80,6 +80,10 @@ sites:
       to: /home/vagrant/my-symfony-project/web
       type: "symfony2"
 ```
+
+可用的站点类型是 : apache , apigility , expressive , laravel\(默认\) , proxy , silverstripe , statamic , symfony2 , symfony4和zf . 
+
+
 
 
 
