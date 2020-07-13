@@ -44,13 +44,17 @@ backup: true
 
 #### 数据库快照
 
-Homestead 支持保存 MySQL 和 MariaDB 数据库的状态并通过[Logical MySQL Manager](https://github.com/Lullabot/lmm)在不同状态间进行切换 . 例如 , 假设你的站点数据库有几个 G 的数据量 , 可以导入这个数据库并保存一份快照 , 在本地工作一段时间后有可能会创建一些新的测试内容 , 你可以通过快照快速恢复到最初的状态 . 
+Homestead 支持保存 MySQL 和 MariaDB 数据库的状态并通过[Logical MySQL Manager](https://github.com/Lullabot/lmm)在不同状态间进行切换 . 例如 , 假设你的站点数据库有几个 G 的数据量 , 可以导入这个数据库并保存一份快照 , 在本地工作一段时间后有可能会创建一些新的测试内容 , 你可以通过快照快速恢复到最初的状态 .
 
-在底层 , LMM 使用了 LVM 的支持写时复制的瘦快照功能 , 这意味着当修改表中某条记录时 , 只会将你所做的更改写入磁盘 , 从而在恢复期节省大量时间和磁盘空间 . 
+在底层 , LMM 使用了 LVM 的支持写时复制的瘦快照功能 , 这意味着当修改表中某条记录时 , 只会将你所做的更改写入磁盘 , 从而在恢复期节省大量时间和磁盘空间 .
 
-由于`lmm`会与 LVM 进行交互 , 所以必须以`root`身份运行 . 要了解所有命令 , 可以在 Homestead 虚拟机中通过`sudo lmm`查看 . 常见的工作流会是这样 : 
+由于`lmm`会与 LVM 进行交互 , 所以必须以`root`身份运行 . 要了解所有命令 , 可以在 Homestead 虚拟机中通过`sudo lmm`查看 . 常见的工作流会是这样 :
 
-导入数据库到 lmm 默认的`master`分支
+* 导入数据库到 lmm 默认的`master`分支
+* 运行`sudo lmm branch prod-YYYY-MM-DD`保存尚未做任何修改的数据库快照
+* 修改数据库记录
+* 运行`sudo lmm merge prod-YYYY-MM-D`撤销所有修改
+* 运行`sudo lmm delete <branch>`删除不需要的分支
 
 
 
