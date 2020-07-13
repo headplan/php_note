@@ -81,7 +81,9 @@ folders:
       type: "nfs"
 ```
 
-> 注意 : 当使用 NFS 时 , 最好使用[vagrant-winnfsd](https://github.com/winnfsd/vagrant-winnfsd)扩展插件 . 这个插件会替你处理 Homestead box 中的文件或目录权限的问题 .
+> 注意 : 当使用 NFS 时 , 最好使用[vagrant-winnfsd](https://github.com/winnfsd/vagrant-winnfsd)扩展插件 . 这个插件会替你处理 Homestead box 中的文件或目录权限的问题 . 
+>
+> [https://github.com/winnfsd/vagrant-winnfsd](https://github.com/winnfsd/vagrant-winnfsd)
 
 还可以可以通过在`options`中列出 Vagrant 的[同步文件夹](https://www.vagrantup.com/docs/synced-folders/basic_usage.html)支持的任何选项
 
