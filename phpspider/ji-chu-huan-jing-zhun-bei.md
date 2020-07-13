@@ -81,7 +81,7 @@ folders:
       type: "nfs"
 ```
 
-> 注意 : 当使用 NFS 时 , 最好使用[vagrant-winnfsd](https://github.com/winnfsd/vagrant-winnfsd)扩展插件 . 这个插件会替你处理 Homestead box 中的文件或目录权限的问题 . 
+> 注意 : 当使用 NFS 时 , 最好使用[vagrant-winnfsd](https://github.com/winnfsd/vagrant-winnfsd)扩展插件 . 这个插件会替你处理 Homestead box 中的文件或目录权限的问题 .
 >
 > [https://github.com/winnfsd/vagrant-winnfsd](https://github.com/winnfsd/vagrant-winnfsd)
 
@@ -98,6 +98,36 @@ folders:
 ```
 
 > 详细参考 : [https://www.vagrantup.com/docs/synced-folders](https://www.vagrantup.com/docs/synced-folders)
+
+#### 配置 Nginx 站点 {#451e8a}
+
+```
+sites:
+    - map: homestead.test
+      to: /home/vagrant/project1/public
+```
+
+修改了配置文件 , 例如添加了新的site , 可以执行
+
+```
+vagrant reload --provision
+```
+
+更新虚拟机上的Nginx配置 . 
+
+如果还是出现问题 , 只能销毁重新构建了
+
+```
+vagrant destroy && vagrant up
+```
+
+#### 主机名解析 {#f0e283}
+
+就是绑定host文件
+
+```
+192.168.10.10  homestead.test
+```
 
 
 
