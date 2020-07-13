@@ -8,5 +8,17 @@
 
 [https://learnku.com/docs/laravel/7.x/homestead/7450](https://learnku.com/docs/laravel/7.x/homestead/7450)
 
+#### 安装 Homestead Vagrant Box {#4820f7}
+
+```
+vagrant box add laravel/homestead
+```
+
+国内网络环境 , 可以先下载之后再添加box . 
+
+```
+vagrant box add metadata.json
+```
+
 
 
