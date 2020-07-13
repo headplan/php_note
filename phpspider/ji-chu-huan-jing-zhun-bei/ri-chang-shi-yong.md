@@ -10,5 +10,13 @@ function homestead() {
 }
 ```
 
+如果写在.zshrc文件中 , 不需要function关键字
+
+```
+homestead() {
+    ( cd ~/Homestead && vagrant $* )
+}
+```
+
 
 
