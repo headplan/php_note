@@ -220,7 +220,7 @@
   * [入门知识](swoole/ru-men-zhi-shi.md)
 * [PHP爬虫](phpspider.md)
   * [基础环境准备](phpspider/ji-chu-huan-jing-zhun-bei.md)
-    * 其他可选功能
+    * [其他可选功能](phpspider/ji-chu-huan-jing-zhun-bei/qi-ta-ke-xuan-gong-neng.md)
 * [消息队列](xiao-xi-dui-lie.md)
 * [Awesome PHP](awesome-php.md)
   * [PHP School](awesome-php/php-school.md)
