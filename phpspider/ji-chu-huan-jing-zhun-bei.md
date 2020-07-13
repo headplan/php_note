@@ -113,7 +113,7 @@ sites:
 vagrant reload --provision
 ```
 
-更新虚拟机上的Nginx配置 . 
+更新虚拟机上的Nginx配置 .
 
 如果还是出现问题 , 只能销毁重新构建了
 
@@ -129,5 +129,13 @@ vagrant destroy && vagrant up
 192.168.10.10  homestead.test
 ```
 
+#### 启动 Vagrant 盒子
 
+编辑完成`Homestead.yaml`配置文件 , 启动盒子
+
+```
+vagrant up
+```
+
+共享文件夹和Nginx虚拟主机会总动配置 . 
 
