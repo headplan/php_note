@@ -149,5 +149,13 @@ vagrant up
 composer require laravel/homestead --dev
 ```
 
-使用`make`命令在项目根目录中生成`Vagrantfile`和`Homestead.yaml`文件 . `make`命令会自动配置`Homestead.yaml`文件中`sites`和`folders`指令 . 
+使用`make`命令在项目根目录中生成`Vagrantfile`和`Homestead.yaml`文件 . `make`命令会自动配置`Homestead.yaml`文件中`sites`和`folders`指令
+
+```
+php vendor/bin/homestead make
+```
+
+然后执行`vagrant up` 其他和前面启动盒子方式一样 . 
+
+
 
