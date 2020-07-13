@@ -28,5 +28,7 @@ homestead ssh
 
 #### 连接数据库
 
+`homestead`默认已经在虚拟机中为 MySQL 和 PostgreSQL 数据库做好了配置 . 要从主机的数据库客户端连接到 MySQL 或 PostgreSQL , 应该连接到`127.0.0.1` , 端口`33060`\(MySQL\)或`54320`\(PostgreSQL\) . 用户名和密码分别是`homestead`/`secret` . 
+
 
 
