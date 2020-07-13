@@ -141,3 +141,13 @@ vagrant up
 
 若要删除虚拟机 , 只需要运行`vagrant destroy --force`命令
 
+#### 根据项目安装
+
+为每个项目配置 Homestead 实例 . 将 Homestead 直接安装到项目中 , 需要使用 Composer 命令
+
+```
+composer require laravel/homestead --dev
+```
+
+使用`make`命令在项目根目录中生成`Vagrantfile`和`Homestead.yaml`文件 . `make`命令会自动配置`Homestead.yaml`文件中`sites`和`folders`指令 . 
+
