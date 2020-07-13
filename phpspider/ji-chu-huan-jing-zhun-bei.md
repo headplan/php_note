@@ -137,5 +137,7 @@ vagrant destroy && vagrant up
 vagrant up
 ```
 
-共享文件夹和Nginx虚拟主机会总动配置 . 
+共享文件夹和Nginx虚拟主机会总动配置 .
+
+若要删除虚拟机 , 只需要运行`vagrant destroy --force`命令
 
