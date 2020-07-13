@@ -110,7 +110,7 @@ variables:
 
 #### 配置 Cron 定时计划
 
-Laravel 提供了一种[定时计划作业](https://learnku.com/docs/laravel/7.x/scheduling)的方式 , 只需每分钟运行一次`schedule:run`Artisan 命令即可 . `schedule:run`命令将检查你在`App\Console\Kernel`类中定义的计划来决定运行哪个作业 . 
+Laravel 提供了一种[定时计划作业](https://learnku.com/docs/laravel/7.x/scheduling)的方式 , 只需每分钟运行一次`schedule:run`Artisan 命令即可 . `schedule:run`命令将检查你在`App\Console\Kernel`类中定义的计划来决定运行哪个作业 .
 
 需要在定义站点时设置`schedule`为`true`
 
@@ -122,4 +122,10 @@ sites:
 ```
 
 站点的 Cron 作业将被定义在虚拟机的`/etc/cron.d`目录中 . 
+
+#### 配置 Mailhog
+
+
+
+
 
