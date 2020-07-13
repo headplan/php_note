@@ -58,7 +58,7 @@ Homestead 支持保存 MySQL 和 MariaDB 数据库的状态并通过[Logical MyS
 
 #### 添加额外的站点
 
-到`Homestead.yaml`文件中添加站点 : 
+到`Homestead.yaml`文件中添加站点 :
 
 ```
 sites:
@@ -66,6 +66,19 @@ sites:
       to: /home/vagrant/project1/public
     - map: another.test
       to: /home/vagrant/project2/public
+```
+
+然后添加host , 重启并重置配置`vagrant reload --provision`
+
+#### 站点类型 {#8681e1}
+
+Homestead 支持多种类型的站点 , 允许运行不是基于 Laravel 的项目 . 
+
+```yaml
+sites:
+    - map: symfony2.test
+      to: /home/vagrant/my-symfony-project/web
+      type: "symfony2"
 ```
 
 
