@@ -30,7 +30,17 @@ homestead ssh
 
 `homestead`默认已经在虚拟机中为 MySQL 和 PostgreSQL 数据库做好了配置 . 要从主机的数据库客户端连接到 MySQL 或 PostgreSQL , 应该连接到`127.0.0.1` , 端口`33060`\(MySQL\)或`54320`\(PostgreSQL\) . 用户名和密码分别是`homestead`/`secret` .
 
-这里的33060和54320是映射的端口 . 
+这里的33060和54320是映射的端口 .
+
+#### 数据库备份
+
+开启自动数据库备份 , 需添加如下的行到`Homestead.yaml`文件
+
+```
+backup: true
+```
+
+配置了backup之后 , 当`vagrant destroy`命令被执行销毁时 , Homestead 将导出数据库到`mysql_backup`和`postgres_backup`目录 . 
 
 
 
