@@ -126,7 +126,7 @@ vagrant destroy && vagrant up
 就是绑定host文件
 
 ```
-192.168.10.10  homestead.test
+192.168.66.66  homestead.test
 ```
 
 #### 启动 Vagrant 盒子
